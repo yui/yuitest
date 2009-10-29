@@ -1,0 +1,49 @@
+group ES3YUITestTemplates;
+
+cover_line(src,code,line) ::= <<
+(_yuitest_coverline("<src>", <line>)); <code>
+>>
+
+cover_func(src,code,name,line) ::= <<
+(_yuitest_coverfunc("<src>", "<name>", <line>));
+<code>
+>>
+
+cover_anon_func(src,code,num,line) ::= <<
+(_yuitest_coverfunc("<src>", "(anonymous <num>)", <line>));
+<code>
+>>
+
+ignore(code) ::= <<
+<code>
+>>
+
+cover_file(src,code,lines,funcs) ::= <<
+if (typeof _yuitest_coverage == "undefined"){
+    _yuitest_coverage = {};
+    _yuitest_coverline = function(src, line){
+        var coverage = _yuitest_coverage["<src>"];
+        if (!coverage.lines[line]){
+            coverage.calledLines++;
+        }
+        coverage.lines[line]++;
+    };
+    _yuitest_coverfunc = function(src, name, line){
+        var coverage = _yuitest_coverage["<src>"],
+            funcId = name + ":" + line;
+        if (!coverage.functions[funcId]){
+            coverage.calledFunctions++;
+        }
+        coverage.functions[funcId]++;
+    };
+}
+_yuitest_coverage["<src>"] = {
+    lines: {"<lines; separator="\":0,\"">":0},
+    functions: {<funcs; separator=":0,">:0},
+    totalLines: <length(lines)>,
+    calledLines: 0,
+    totalFunctions: <length(funcs)>,
+    calledFunctions: 0
+};
+<code>
+>>

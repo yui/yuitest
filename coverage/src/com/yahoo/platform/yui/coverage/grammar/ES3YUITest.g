@@ -912,14 +912,7 @@ objectLiteral
  * need to keep track of the property name for later usage.
  */	
 nameValuePair
-scope {
-    String propName;
-    boolean used;
-}
-@init {
-    $nameValuePair::used = false;
-}
-	: propertyName { $nameValuePair::propName=$propertyName.text;} COLON assignmentExpression
+	: propertyName COLON assignmentExpression
 	//-> ^( NAMEDVALUE propertyName assignmentExpression )
 	;
 
@@ -1141,17 +1134,12 @@ When it results in a Tree that is coming from a left hand side expression and th
 followed by the right recursive call.
 */
 assignmentExpression
-scope {
-    String varName;
-    boolean used;
-}
 @init
 {
 	Object[] isLhs = new Object[1];
-        $assignmentExpression::used = false;
 }
 	: lhs=conditionalExpression
-	( { isLeftHandSideAssign(lhs, isLhs) }? { $assignmentExpression::varName = $lhs.text;} assignmentOperator assignmentExpression )?	
+	( { isLeftHandSideAssign(lhs, isLhs) }? assignmentOperator assignmentExpression )?	
 	;
 
 assignmentOperator
@@ -1628,40 +1616,40 @@ scope{
     $functionExpression::funcLine=$start.getLine();
     $functionExpression::funcNum = ++$program::anonymousFunctionCount;
 
-    /*if ($assignmentExpression.size() > 0 && !$assignmentExpression::used && $assignmentExpression::varName != null){
-        $functionExpression::funcName = $assignmentExpression::varName;
-        $assignmentExpression::used = true;  //don't use again
-    } else*/
-
-    //means we're in an object literal - not exact science, more like a best guess
-    if ($nameValuePair.size() > 0 && !$nameValuePair::used){
-        $functionExpression::funcName = escapeQuotes($nameValuePair::propName);
-        $nameValuePair::used = true;  //don't use again
-    }
-
-
+    /*
+     * This might be a function that's a method in an object literal. If so,
+     * the previous token will be a colon and the one prior to that will be the
+     * identifier.
+     *
+     * Function may also be assigned to a variable. In that case, the previous
+     * token will be the equals sign (=) and the token prior to that is the
+     * variable/property.
+     *
+     * Even after all that, the function expression might have a declared name
+     * as if it were a function declaration. If so, the declared function name
+     * takes precendence over any object literal or variable assignment.
+     */
+    int lastTT = input.LA(-1);
+    if (lastTT == COLON || lastTT == ASSIGN) { 
+        $functionExpression::funcName = input.LT(-2).getText();
+        //TODO: Continue walking back in case the identifier is object.name
+        //right now, I end up just with name.
+    } 
 
 }
-	: FUNCTION name=Identifier? { if ($functionExpression::funcName == null){$functionExpression::funcName=$Identifier.text;} } formalParameterList functionExpressionBody
-
-	// -> ( FUNCTION $name? formalParameterList functionBody )
+	: FUNCTION name=Identifier? { if ($Identifier.text != null){$functionExpression::funcName=$Identifier.text;} } formalParameterList functionExpressionBody
 	;
 
 formalParameterList
 	: LPAREN ( Identifier ( COMMA Identifier )* )? RPAREN
-	//-> ^( ARGS Identifier* )
 	;
 
 functionDeclarationBody
 	: lb=LBRACE functionDeclarationBodyWithoutBraces? RBRACE
-	//-> ^( BLOCK[$lb, "BLOCK"] sourceElement* )
 	;
 
 functionExpressionBody
 	: lb=LBRACE functionExpressionBodyWithoutBraces? RBRACE
-        //-> {$functionExpression::funcName!=""}? cover_func(code={$text}, name={$functionExpression::funcName}, line={$functionExpression::funcLine})
-	//-> cover_anon_func(code={$ses.text}, line={$start.getLine()})
-	//-> ^( BLOCK[$lb, "BLOCK"] sourceElement* )
 	;
 
 //Jumping through hoops to get the function body without braces. There's gotta be an easier way.
@@ -1675,7 +1663,7 @@ functionExpressionBodyWithoutBraces
 		if ($functionExpression::funcName!=null){
 			System.err.println("\n[INFO] Instrumenting function expression '" + $functionExpression::funcName + "' on line " + $functionExpression::funcLine);
 		} else {
-			System.err.println("\n[INFO] Instrumenting anonmyous function expression (tracked as 'anonymous " + $functionExpression::funcNum + "') on line " + $functionExpression::funcLine);
+			System.err.println("\n[INFO] Instrumenting anonymous function expression (tracked as 'anonymous " + $functionExpression::funcNum + "') on line " + $functionExpression::funcLine);
 		}
 	}	
 	
@@ -1684,8 +1672,7 @@ functionExpressionBodyWithoutBraces
 	{
 	
 	}
-	//{ $program::functions += ",{name:\"" + $functionExpression::funcName + "\",line:" + $start.getLine() + ", anonId:" + $program::anonymousFunctionCount +"}"; }
-	-> {$functionExpression::funcName!=null}? cover_func(src={$program::name}, code={$text}, name={$functionExpression::funcName}, line={$functionExpression::funcLine})
+	-> {$functionExpression::funcName!=null}? cover_func(src={$program::name}, code={$text}, name={escapeQuotes($functionExpression::funcName)}, line={$functionExpression::funcLine})
 	-> cover_anon_func(src={$program::name}, code={$text}, num={$functionExpression::funcNum}, line={$functionExpression::funcLine})
 	;
 
@@ -1731,6 +1718,3 @@ options
 	| statement
 	;
 
-// $>
-
-// $>

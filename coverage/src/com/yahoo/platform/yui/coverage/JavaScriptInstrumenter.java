@@ -28,7 +28,6 @@ public class JavaScriptInstrumenter {
 
     private Reader in;
     private String name;
-    private String data;
 
     public JavaScriptInstrumenter(Reader in, String name){
         this.in = in;
@@ -75,7 +74,7 @@ public class JavaScriptInstrumenter {
         TokenRewriteStream tokens = new TokenRewriteStream(lexer);
         ES3YUITestParser parser = new ES3YUITestParser(tokens);
         parser.setTemplateLib(group);
-        parser.setVerboseMode(verbose);
+        parser.setVerbose(verbose);
 
         String result = "";
         parser.program();

@@ -14,6 +14,7 @@
     </target>
  
     <target name="build.classes" depends="-init">
+        <antlr-gen dir="${src.dir}/com/yahoo/platform/yui/coverage/grammar/" grammar="ES3YUITest.g"/>       
         <mkdir dir="${build.dir}/classes"/>
         <javac srcdir="${src.dir}"
                destdir="${build.dir}/classes"
@@ -26,12 +27,15 @@
                 <pathelement location="${lib.dir}/antlr-3.2.jar"/>
             </classpath>
         </javac>
+        
     </target>
  
     <target name="build.jar" depends="build.classes">
         <mkdir dir="${build.dir}/jar"/>
         <unjar src="${lib.dir}/jargs-1.0.jar" dest="${build.dir}/jar"/>
-        <unjar src="${lib.dir}/antlr-3.2.jar" dest="${build.dir}/jar"/>
+        <unjar src="${lib.dir}/antlr-2.7.7.jar" dest="${build.dir}/jar"/>
+        <unjar src="${lib.dir}/antlr-runtime-3.2.jar" dest="${build.dir}/jar"/>
+        <unjar src="${lib.dir}/stringtemplate-3.2.1.jar" dest="${build.dir}/jar"/>
         <copy todir="${build.dir}/jar">
             <fileset dir="${build.dir}/classes" includes="**/*.class"/>
         </copy>
@@ -65,5 +69,21 @@
              basedir="${build.dir}"
              includes="${dist.package.name}/**/*"/>
     </target>
+
+    <!-- macro to generate antlr files -->
+    <macrodef name="antlr-gen">
+        <attribute name="dir"/>
+        <attribute name="grammar"/>
+        <sequential>
+            <echo>Creating parser from @{grammar}</echo>
+            <apply executable="java" parallel="true" failonerror="true">
+                <arg line="-jar"/>
+                <arg path="${lib.dir}/${antlr.jar}"/>
+                <srcfile/>
+                <arg line="-o ${src.dir}/${root.package.dir}"/>
+                <fileset dir="@{dir}" includes="@{grammar}" />
+            </apply>        
+        </sequential>    
+    </macrodef> 
  
 </project>

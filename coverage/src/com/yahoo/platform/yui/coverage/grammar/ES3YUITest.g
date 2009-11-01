@@ -38,7 +38,6 @@ The grammar was kept as close as possible to the grammar in the "A Grammar Summa
 
 */
 
-
 grammar ES3YUITest ;
 
 options
@@ -188,15 +187,31 @@ tokens
 }
 
 @parser::header {
-  package com.yahoo.platform.yui.coverage;
-  import org.antlr.runtime.tree.Tree;
+/*
+ * YUI Test Coverage
+ * Author: Nicholas C. Zakas <nzakas@yahoo-inc.com>
+ * Copyright (c) 2009, Yahoo! Inc. All rights reserved.
+ * Code licensed under the BSD License:
+ *     http://developer.yahoo.net/yui/license.txt
+ */
+package com.yahoo.platform.yui.coverage;
+import org.antlr.runtime.tree.Tree;
 }
+
 @lexer::header {
-  package com.yahoo.platform.yui.coverage;
+/*
+ * YUI Test Coverage
+ * Author: Nicholas C. Zakas <nzakas@yahoo-inc.com>
+ * Copyright (c) 2009, Yahoo! Inc. All rights reserved.
+ * Code licensed under the BSD License:
+ *     http://developer.yahoo.net/yui/license.txt
+ */
+package com.yahoo.platform.yui.coverage;
 }
 @lexer::members
 {
 private Token last;
+
 
 private final boolean areRegularExpressionsEnabled()
 {
@@ -277,6 +292,17 @@ public Token nextToken()
 
 @parser::members
 {
+
+private boolean verbose = false;
+
+public void setVerbose(boolean newVerbose){
+    verbose = newVerbose;
+}
+
+private final String escapeQuotes(String text){
+    return text.replace("\"", "\\\"");
+}
+
 private final boolean isLeftHandSideAssign(RuleReturnScope lhs, Object[] cached)
 {
 	if (cached[0] != null)
@@ -318,12 +344,17 @@ private final boolean isLeftHandSideAssign(RuleReturnScope lhs, Object[] cached)
 }
 
 @SuppressWarnings("unused")
-private final static String wrapInBraces(Token start, Token stop, TokenStream tokens) {
+
+private final String wrapInBraces(Token start, Token stop, TokenStream tokens) {
   if (start == null || stop == null) {    
     return null;
   }
   if ("{".equals(start.getText())) {
     return tokens.toString(start, stop);
+  }
+  
+  if (verbose){
+    System.err.println("\n[INFO] Adding braces around statement at line " + start.getLine());
   }
   return "{" + tokens.toString(start, stop) + "}";
 }
@@ -881,7 +912,14 @@ objectLiteral
  * need to keep track of the property name for later usage.
  */	
 nameValuePair
-	: propertyName COLON assignmentExpression
+scope {
+    String propName;
+    boolean used;
+}
+@init {
+    $nameValuePair::used = false;
+}
+	: propertyName { $nameValuePair::propName=$propertyName.text;} COLON assignmentExpression
 	//-> ^( NAMEDVALUE propertyName assignmentExpression )
 	;
 
@@ -1103,12 +1141,17 @@ When it results in a Tree that is coming from a left hand side expression and th
 followed by the right recursive call.
 */
 assignmentExpression
+scope {
+    String varName;
+    boolean used;
+}
 @init
 {
 	Object[] isLhs = new Object[1];
+        $assignmentExpression::used = false;
 }
 	: lhs=conditionalExpression
-	( { isLeftHandSideAssign(lhs, isLhs) }? assignmentOperator assignmentExpression )?	
+	( { isLeftHandSideAssign(lhs, isLhs) }? { $assignmentExpression::varName = $lhs.text;} assignmentOperator assignmentExpression )?	
 	;
 
 assignmentOperator
@@ -1201,6 +1244,9 @@ scope {
         if (instrument && !$statement::isBlock) {
            $program::executableLines.add($start.getLine());
         }
+	if (verbose){
+		System.err.println("\n[INFO] Instrumenting statement on line " + $start.getLine());
+	}
 }
 	: ({ $statement::isBlock = input.LA(1) == LBRACE }? block | statementTail)
 	  -> {instrument && !$statement::isBlock}? cover_line(src={$program::name}, code={$text},line={$start.getLine()})
@@ -1560,7 +1606,12 @@ scope {
 	}
 	$functionDeclaration::funcLine = $start.getLine();		
 }
-@after { $program::functions.add("\"" + $functionDeclaration::funcName + "(" + $start.getLine() + ")\""); }
+@after { 
+	$program::functions.add("\"" + $functionDeclaration::funcName + ":" + $start.getLine() + "\""); 
+  	if (verbose){
+    		System.err.println("\n[INFO] Instrumenting function " + $functionDeclaration::funcName + " on line " +  $start.getLine());
+  	}
+}
 
 	: FUNCTION name=Identifier {$functionDeclaration::funcName=$Identifier.text;} formalParameterList functionDeclarationBody
 	  -> {instrument}? cover_line(src={$program::name}, code={$text}, line={$start.getLine()})
@@ -1571,12 +1622,27 @@ functionExpression
 scope{
     String funcName;
     Integer funcLine;
+    Integer funcNum;
 }
 @init {
     $functionExpression::funcLine=$start.getLine();
-    $program::anonymousFunctionCount++;
+    $functionExpression::funcNum = ++$program::anonymousFunctionCount;
+
+    /*if ($assignmentExpression.size() > 0 && !$assignmentExpression::used && $assignmentExpression::varName != null){
+        $functionExpression::funcName = $assignmentExpression::varName;
+        $assignmentExpression::used = true;  //don't use again
+    } else*/
+
+    //means we're in an object literal - not exact science, more like a best guess
+    if ($nameValuePair.size() > 0 && !$nameValuePair::used){
+        $functionExpression::funcName = escapeQuotes($nameValuePair::propName);
+        $nameValuePair::used = true;  //don't use again
+    }
+
+
+
 }
-	: FUNCTION name=Identifier? { $functionExpression::funcName=$Identifier.text; } formalParameterList functionExpressionBody
+	: FUNCTION name=Identifier? { if ($functionExpression::funcName == null){$functionExpression::funcName=$Identifier.text;} } formalParameterList functionExpressionBody
 
 	// -> ( FUNCTION $name? formalParameterList functionBody )
 	;
@@ -1602,13 +1668,25 @@ functionExpressionBody
 functionExpressionBodyWithoutBraces
 @after { 
 	//favor the function expression's declared name, otherwise assign an anonymous function name
-	String tempName = ($functionExpression::funcName==null) ? "(anonymous " + $program::anonymousFunctionCount + ")" : $functionExpression::funcName;
-	$program::functions.add("\"" + tempName + "(" + $functionExpression::funcLine + ")\""); 
+	String tempName = ($functionExpression::funcName==null) ? "(anonymous " + $functionExpression::funcNum + ")" : $functionExpression::funcName;
+	$program::functions.add("\"" + tempName + ":" + $functionExpression::funcLine + "\""); 
+	
+	if (verbose){
+		if ($functionExpression::funcName!=null){
+			System.err.println("\n[INFO] Instrumenting function expression '" + $functionExpression::funcName + "' on line " + $functionExpression::funcLine);
+		} else {
+			System.err.println("\n[INFO] Instrumenting anonmyous function expression (tracked as 'anonymous " + $functionExpression::funcNum + "') on line " + $functionExpression::funcLine);
+		}
+	}	
+	
 }
 	: sourceElement sourceElement*
+	{
+	
+	}
 	//{ $program::functions += ",{name:\"" + $functionExpression::funcName + "\",line:" + $start.getLine() + ", anonId:" + $program::anonymousFunctionCount +"}"; }
 	-> {$functionExpression::funcName!=null}? cover_func(src={$program::name}, code={$text}, name={$functionExpression::funcName}, line={$functionExpression::funcLine})
-	-> cover_anon_func(src={$program::name}, code={$text}, num={$program::anonymousFunctionCount}, line={$functionExpression::funcLine})
+	-> cover_anon_func(src={$program::name}, code={$text}, num={$functionExpression::funcNum}, line={$functionExpression::funcLine})
 	;
 
 functionDeclarationBodyWithoutBraces
@@ -1623,7 +1701,7 @@ functionDeclarationBodyWithoutBraces
 program
 scope {
   java.util.List<Integer> executableLines;
-  java.util.List<String> functions;
+  java.util.List<String> functions;  
   int stopLine;
   String name;
   int anonymousFunctionCount;

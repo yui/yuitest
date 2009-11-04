@@ -151,8 +151,8 @@ public class YUITestCoverage {
                         + "  -h, --help                Displays this information.\n"
                         + "  --charset <charset>       Read the input file using <charset>.\n"
                         + "  --report <directory>      Output HTML reports to <directory>.\n"
-                        + "  -v, --verbose             Display informational messages and warnings.\n"
                         + "                            Input file is assumed to be a coverage report.\n"                        
+                        + "  -v, --verbose             Display informational messages and warnings.\n"
                         + "  -o <file>                 Place the output into <file>. Defaults to stdout.\n\n");
     }
 

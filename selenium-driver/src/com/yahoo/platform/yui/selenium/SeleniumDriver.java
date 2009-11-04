@@ -10,6 +10,12 @@ package com.yahoo.platform.yui.selenium;
 
 import com.thoughtworks.selenium.DefaultSelenium;
 import com.thoughtworks.selenium.Selenium;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Properties;
 
@@ -20,9 +26,14 @@ import java.util.Properties;
  */
 public class SeleniumDriver {
     
-    private static HashMap<String,String> testRunners = new HashMap<String,String>();
-    private static HashMap<String,String> testFormats = new HashMap<String,String>();
-    private static String jsWindow = "selenium.browserbot.getCurrentWindow()";
+    private static HashMap<String,String> testRunners = 
+            new HashMap<String,String>();
+    private static HashMap<String,String> testFormats = 
+            new HashMap<String,String>();
+    private static HashMap<String,String> coverageFormats = 
+            new HashMap<String,String>();
+    private static final String jsWindow = "selenium.browserbot.getCurrentWindow()";
+    private static final String datePattern = "\\{date:([^\\}]*)\\}";
     
     static {
         testRunners.put("2", "YAHOO.tool.TestRunner");
@@ -30,6 +41,9 @@ public class SeleniumDriver {
         
         testFormats.put("2", "YAHOO.tool.TestFormat");
         testFormats.put("3", "Y.Test.Format");
+        
+        coverageFormats.put("2", "YAHOO.tool.CoverageFormat");
+        coverageFormats.put("3", "Y.Coverage.Format");
     }
 
     /**
@@ -89,20 +103,26 @@ public class SeleniumDriver {
         String yuitestVersion = properties.getProperty("yuitest.version", "2");
         String testRunner = jsWindow + "." + testRunners.get(yuitestVersion);
         String testFormat = jsWindow + "." + testFormats.get(yuitestVersion);
-        
-        
-        //strings to use
+        String coverageFormat = jsWindow + "." + coverageFormats.get(yuitestVersion);
+                
+        //JS strings to use
         String testRunnerIsNotRunning = "!" + testRunner + ".isRunning()";
         String testResults = testRunner + ".getResults(" + testFormat + "." + 
                 properties.getProperty("yuitest.results.format", "JUnitXML") +
-                ");";      
+                ");";    
+        String testCoverage = testRunner + ".getCoverage(" + coverageFormat + "." + 
+                properties.getProperty("yuitest.coverage.format", "JSON") +
+                ");";    
         
         if (verbose){
             System.err.println("[INFO] Starting browser '" + browser + "'");
         }
         
         Selenium selenium = null;
+        String results = "";
+        String coverage = "";
         
+        //run the tests
         try {
             //start up selenium
             selenium = new DefaultSelenium(properties.getProperty("selenium.host"), 
@@ -113,8 +133,7 @@ public class SeleniumDriver {
             if (verbose){
                 System.err.println("[INFO] Navigating to '" + url + "'");
             }            
-            
-            //wait until the testrunner is done
+
             selenium.waitForPageToLoad(properties.getProperty("selenium.waitforload", "10000"));
             
             if (verbose){
@@ -128,19 +147,73 @@ public class SeleniumDriver {
             }            
             
             //get results
-            String results = selenium.getEval(testResults);
+            results = selenium.getEval(testResults);            
+            coverage = selenium.getEval(testCoverage);
 
-            System.out.println(results);
         } catch (Exception ex){
+            //TODO: What should happen here? Default file generation?
             throw ex;
         } finally {
             if (selenium != null){
                 selenium.stop();
             }
         }
+        try {
+            //output the reports
+            outputToFile(results, "results", browser);
+            if (!coverage.equals("")){
+                outputToFile(coverage, "coverage", browser);
+            }
+            
+        } catch (Exception ex){
+            //what to do?
+            throw ex;
+        }
+    }
+    
+    private void outputToFile(String results, String type, String browser) throws Exception {
+        String dirname = properties.getProperty("yuitest." + type + ".outputdir");
+        String filenameFormat = properties.getProperty("yuitest." + type + ".filename");
         
+        if (dirname == null){
+            throw new Exception("Missing 'yuitest." + type + ".outputdir' configuration parameter.");            
+        }
+        
+        if (filenameFormat == null){
+            throw new Exception("Missing 'yuitest." + type + ".outputdir' configuration parameter.");            
+        }
+        
+        //format filename
+        String filename = filenameFormat.replace("{browser}", browser.replace("*", "").trim());
+        
+        int pos = filename.indexOf("{date:");
+
+        if (pos > -1){
+
+            int endpos = filename.indexOf("}", pos);
+            String format = filename.substring(pos + 6, endpos);
+            
+            //get the format
+            Date now = new Date();
+            SimpleDateFormat formatter = new SimpleDateFormat(format);
+            
+            //insert into filename
+            filename = filename.replace("{date:" + format + "}", formatter.format(now));
+        }
+        
+        filename = filename.replaceAll("[^a-zA-Z0-9\\.\\-]", "_").replaceAll("_+", "_");
+        
+        if (verbose){
+            System.err.println("[INFO] Outputting " + type + " to " + dirname + File.separator + filename);
+        }
+        
+        //output to file
+        Writer out = new OutputStreamWriter(new FileOutputStream(dirname + File.separator + filename), "UTF-8");
+        out.write(results);
+        out.close();
         
     }
+    
     
     
     private void getURLsAndBrowsers() throws Exception {

@@ -32,13 +32,12 @@
     <target name="build.jar" depends="build.classes">
         <mkdir dir="${build.dir}/jar"/>
         <unjar src="${lib.dir}/jargs-1.0.jar" dest="${build.dir}/jar"/>
-        <unjar src="${lib.dir}/selenium-java-client-driver.jar" dest="${build.dir}/jar"/>
         <copy todir="${build.dir}/jar">
             <fileset dir="${build.dir}/classes" includes="**/*.class"/>
         </copy>
         <jar destfile="${build.dir}/${jar.name}" basedir="${build.dir}/jar">
             <manifest>
-                <attribute name="Main-Class" value="com.yahoo.platform.yui.selenium.YUITestSelenium"/>
+                <attribute name="Main-Class" value="com.yahoo.platform.yui.selenium.YUITestSeleniumDriver"/>
             </manifest>
         </jar>
     </target>

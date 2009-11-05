@@ -74,7 +74,7 @@ public class JavaScriptInstrumenter {
         TokenRewriteStream tokens = new TokenRewriteStream(lexer);
         ES3YUITestParser parser = new ES3YUITestParser(tokens);
         parser.setTemplateLib(group);
-        parser.setVerbose(verbose);
+        //parser.setVerbose(verbose);
 
         String result = "";
         parser.program();

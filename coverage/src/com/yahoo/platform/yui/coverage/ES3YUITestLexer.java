@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g 2009-11-03 18:13:02
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g 2009-11-04 16:50:13
 
 /*
  * YUI Test Coverage
@@ -16,174 +16,174 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class ES3YUITestLexer extends Lexer {
-    public static final int PACKAGE=52;
-    public static final int FUNCTION=17;
-    public static final int LOR=95;
-    public static final int VT=134;
-    public static final int SHR=87;
-    public static final int RegularExpressionChar=170;
-    public static final int LT=72;
-    public static final int WHILE=30;
-    public static final int MOD=83;
-    public static final int SHL=86;
+    public static final int COMMA=71;
     public static final int CONST=37;
     public static final int BackslashSequence=168;
-    public static final int LS=142;
-    public static final int CASE=8;
+    public static final int RegularExpressionLiteral=155;
+    public static final int ARGS=111;
+    public static final int ARRAY=112;
+    public static final int LF=140;
+    public static final int SYNCHRONIZED=59;
+    public static final int HexDigit=150;
+    public static final int DOUBLE=39;
+    public static final int EXPR=118;
+    public static final int ADDASS=99;
+    public static final int DecimalDigit=152;
+    public static final int FALSE=6;
+    public static final int USP=138;
+    public static final int ABSTRACT=32;
+    public static final int SP=136;
+    public static final int SEMIC=70;
+    public static final int IMPORT=47;
+    public static final int DQUOTE=131;
+    public static final int PACKAGE=52;
+    public static final int MODASS=102;
+    public static final int SHR=87;
+    public static final int SQUOTE=132;
+    public static final int CONTINUE=10;
+    public static final int DOT=69;
+    public static final int PRIVATE=53;
+    public static final int MultiLineComment=146;
+    public static final int AND=89;
+    public static final int HexIntegerLiteral=161;
+    public static final int FUNCTION=17;
+    public static final int DIVASS=110;
+    public static final int RegularExpressionFirstChar=169;
+    public static final int GTE=75;
+    public static final int OctalEscapeSequence=164;
+    public static final int HexEscapeSequence=165;
+    public static final int SingleLineComment=147;
+    public static final int RPAREN=66;
+    public static final int POS=129;
+    public static final int UnicodeEscapeSequence=166;
+    public static final int IdentifierStartASCII=151;
+    public static final int FINALLY=15;
+    public static final int IdentifierNameASCIIStart=154;
+    public static final int EXTENDS=42;
+    public static final int IdentifierPart=153;
+    public static final int SUPER=58;
+    public static final int Identifier=148;
+    public static final int SAME=78;
     public static final int CHAR=35;
     public static final int NEW=21;
-    public static final int DO=13;
-    public static final int DQUOTE=131;
-    public static final int NOT=92;
-    public static final int DecimalDigit=152;
-    public static final int BYFIELD=114;
-    public static final int EOF=-1;
-    public static final int BREAK=7;
-    public static final int CEXPR=117;
-    public static final int DIVASS=110;
-    public static final int Identifier=148;
-    public static final int BYINDEX=115;
-    public static final int INC=84;
-    public static final int RPAREN=66;
-    public static final int FINAL=43;
-    public static final int FORSTEP=120;
-    public static final int IMPORT=47;
-    public static final int EOL=145;
-    public static final int POS=129;
-    public static final int OctalDigit=156;
-    public static final int RETURN=22;
-    public static final int THIS=24;
-    public static final int DOUBLE=39;
-    public static final int ARGS=111;
-    public static final int ExponentPart=157;
-    public static final int WhiteSpace=139;
-    public static final int VAR=28;
-    public static final int EXPORT=41;
-    public static final int VOID=29;
-    public static final int LABELLED=122;
-    public static final int SUPER=58;
-    public static final int GOTO=45;
     public static final int EQ=76;
-    public static final int XORASS=108;
-    public static final int ADDASS=99;
-    public static final int ARRAY=112;
-    public static final int SHU=88;
-    public static final int RBRACK=68;
-    public static final int RBRACE=64;
-    public static final int PRIVATE=53;
-    public static final int STATIC=57;
-    public static final int INV=93;
-    public static final int SWITCH=23;
-    public static final int NULL=4;
-    public static final int ELSE=14;
-    public static final int NATIVE=51;
-    public static final int THROWS=60;
-    public static final int INT=48;
-    public static final int DELETE=12;
-    public static final int MUL=82;
-    public static final int IdentifierStartASCII=151;
-    public static final int TRY=26;
-    public static final int FF=135;
-    public static final int SHLASS=103;
-    public static final int OctalEscapeSequence=164;
-    public static final int USP=138;
-    public static final int RegularExpressionFirstChar=169;
-    public static final int ANDASS=106;
-    public static final int TYPEOF=27;
-    public static final int IdentifierNameASCIIStart=154;
-    public static final int QUE=96;
-    public static final int OR=90;
-    public static final int DEBUGGER=38;
-    public static final int GT=73;
-    public static final int PDEC=127;
-    public static final int CALL=116;
-    public static final int CharacterEscapeSequence=162;
-    public static final int CATCH=9;
-    public static final int FALSE=6;
-    public static final int EscapeSequence=167;
-    public static final int LAND=94;
-    public static final int MULASS=101;
-    public static final int THROW=25;
-    public static final int PINC=128;
-    public static final int DEC=85;
-    public static final int PROTECTED=54;
-    public static final int OctalIntegerLiteral=160;
-    public static final int CLASS=36;
-    public static final int LBRACK=67;
-    public static final int ORASS=107;
-    public static final int HexEscapeSequence=165;
-    public static final int NAMEDVALUE=123;
-    public static final int SingleLineComment=147;
-    public static final int GTE=75;
-    public static final int LBRACE=63;
-    public static final int FOR=16;
-    public static final int SUB=81;
-    public static final int RegularExpressionLiteral=155;
-    public static final int FLOAT=44;
-    public static final int ABSTRACT=32;
-    public static final int AND=89;
-    public static final int DecimalIntegerLiteral=158;
-    public static final int LTE=74;
-    public static final int HexDigit=150;
-    public static final int LPAREN=65;
-    public static final int IF=18;
+    public static final int LT=72;
+    public static final int FINAL=43;
     public static final int SUBASS=100;
-    public static final int SYNCHRONIZED=59;
-    public static final int BOOLEAN=33;
-    public static final int EXPR=118;
-    public static final int IN=19;
-    public static final int IMPLEMENTS=46;
-    public static final int CONTINUE=10;
-    public static final int OBJECT=125;
-    public static final int COMMA=71;
-    public static final int TRANSIENT=61;
-    public static final int FORITER=119;
-    public static final int MODASS=102;
-    public static final int SHRASS=104;
-    public static final int PS=143;
-    public static final int DOT=69;
-    public static final int MultiLineComment=146;
-    public static final int IdentifierPart=153;
-    public static final int WITH=31;
-    public static final int ADD=80;
-    public static final int BYTE=34;
-    public static final int XOR=91;
-    public static final int ZeroToThree=163;
-    public static final int VOLATILE=62;
-    public static final int ITEM=121;
-    public static final int UnicodeEscapeSequence=166;
-    public static final int NSAME=79;
-    public static final int DEFAULT=11;
-    public static final int SHUASS=105;
-    public static final int TAB=133;
-    public static final int SHORT=56;
-    public static final int INSTANCEOF=20;
-    public static final int SQUOTE=132;
-    public static final int DecimalLiteral=159;
-    public static final int TRUE=5;
-    public static final int SAME=78;
-    public static final int COLON=97;
-    public static final int StringLiteral=149;
-    public static final int NEQ=77;
-    public static final int PAREXPR=126;
-    public static final int ENUM=40;
-    public static final int FINALLY=15;
-    public static final int NBSP=137;
-    public static final int HexIntegerLiteral=161;
-    public static final int SP=136;
-    public static final int BLOCK=113;
-    public static final int NEG=124;
-    public static final int LineTerminator=144;
-    public static final int ASSIGN=98;
+    public static final int VT=134;
+    public static final int LAND=94;
+    public static final int LBRACK=67;
+    public static final int CATCH=9;
+    public static final int STATIC=57;
+    public static final int CASE=8;
+    public static final int MUL=82;
     public static final int INTERFACE=49;
-    public static final int DIV=109;
-    public static final int SEMIC=70;
-    public static final int LONG=50;
-    public static final int CR=141;
-    public static final int PUBLIC=55;
-    public static final int EXTENDS=42;
+    public static final int ExponentPart=157;
+    public static final int INV=93;
+    public static final int BOOLEAN=33;
+    public static final int ELSE=14;
+    public static final int CharacterEscapeSequence=162;
     public static final int BSLASH=130;
-    public static final int LF=140;
+    public static final int SHLASS=103;
+    public static final int DecimalLiteral=159;
+    public static final int BREAK=7;
+    public static final int NULL=4;
+    public static final int XOR=91;
+    public static final int COLON=97;
+    public static final int DIV=109;
+    public static final int ORASS=107;
+    public static final int TRUE=5;
+    public static final int ADD=80;
+    public static final int THROW=25;
+    public static final int SHORT=56;
+    public static final int LABELLED=122;
+    public static final int CR=141;
+    public static final int RegularExpressionChar=170;
+    public static final int PUBLIC=55;
+    public static final int SHL=86;
+    public static final int LONG=50;
+    public static final int LOR=95;
+    public static final int TYPEOF=27;
+    public static final int INC=84;
+    public static final int TRANSIENT=61;
+    public static final int FLOAT=44;
+    public static final int TAB=133;
+    public static final int THROWS=60;
+    public static final int ZeroToThree=163;
+    public static final int FF=135;
+    public static final int FORITER=119;
+    public static final int MOD=83;
+    public static final int GOTO=45;
+    public static final int EXPORT=41;
+    public static final int OR=90;
+    public static final int MULASS=101;
+    public static final int LBRACE=63;
+    public static final int RBRACE=64;
+    public static final int BLOCK=113;
+    public static final int PROTECTED=54;
+    public static final int ANDASS=106;
+    public static final int SHU=88;
+    public static final int LineTerminator=144;
+    public static final int PAREXPR=126;
+    public static final int EscapeSequence=167;
+    public static final int INT=48;
+    public static final int LS=142;
+    public static final int ASSIGN=98;
+    public static final int CEXPR=117;
+    public static final int INSTANCEOF=20;
+    public static final int VOID=29;
+    public static final int LPAREN=65;
+    public static final int WhiteSpace=139;
+    public static final int XORASS=108;
+    public static final int NEQ=77;
+    public static final int QUE=96;
+    public static final int NAMEDVALUE=123;
+    public static final int ENUM=40;
+    public static final int DEBUGGER=38;
+    public static final int PS=143;
+    public static final int DELETE=12;
+    public static final int OBJECT=125;
+    public static final int DO=13;
+    public static final int IMPLEMENTS=46;
+    public static final int SWITCH=23;
+    public static final int WHILE=30;
+    public static final int OctalIntegerLiteral=160;
+    public static final int BYINDEX=115;
+    public static final int FORSTEP=120;
+    public static final int PINC=128;
+    public static final int OctalDigit=156;
+    public static final int GT=73;
+    public static final int StringLiteral=149;
+    public static final int DecimalIntegerLiteral=158;
+    public static final int SHRASS=104;
+    public static final int ITEM=121;
+    public static final int THIS=24;
+    public static final int SHUASS=105;
+    public static final int WITH=31;
+    public static final int IN=19;
+    public static final int LTE=74;
+    public static final int VAR=28;
+    public static final int CLASS=36;
+    public static final int NATIVE=51;
+    public static final int DEC=85;
+    public static final int RETURN=22;
+    public static final int BYTE=34;
+    public static final int VOLATILE=62;
+    public static final int IF=18;
+    public static final int EOF=-1;
+    public static final int EOL=145;
+    public static final int CALL=116;
+    public static final int NBSP=137;
+    public static final int FOR=16;
+    public static final int RBRACK=68;
+    public static final int DEFAULT=11;
+    public static final int NEG=124;
+    public static final int SUB=81;
+    public static final int TRY=26;
+    public static final int NOT=92;
+    public static final int BYFIELD=114;
+    public static final int PDEC=127;
+    public static final int NSAME=79;
 
     private Token last;
 
@@ -276,15 +276,15 @@ public class ES3YUITestLexer extends Lexer {
         super(input,state);
 
     }
-    public String getGrammarFileName() { return "I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g"; }
+    public String getGrammarFileName() { return "C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g"; }
 
     // $ANTLR start "NULL"
     public final void mNULL() throws RecognitionException {
         try {
             int _type = NULL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:98:6: ( 'null' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:98:8: 'null'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:98:6: ( 'null' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:98:8: 'null'
             {
             match("null"); 
 
@@ -304,8 +304,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = TRUE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:99:6: ( 'true' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:99:8: 'true'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:99:6: ( 'true' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:99:8: 'true'
             {
             match("true"); 
 
@@ -325,8 +325,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = FALSE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:100:7: ( 'false' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:100:9: 'false'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:100:7: ( 'false' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:100:9: 'false'
             {
             match("false"); 
 
@@ -346,8 +346,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = BREAK;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:101:7: ( 'break' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:101:9: 'break'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:101:7: ( 'break' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:101:9: 'break'
             {
             match("break"); 
 
@@ -367,8 +367,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = CASE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:102:6: ( 'case' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:102:8: 'case'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:102:6: ( 'case' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:102:8: 'case'
             {
             match("case"); 
 
@@ -388,8 +388,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = CATCH;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:103:7: ( 'catch' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:103:9: 'catch'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:103:7: ( 'catch' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:103:9: 'catch'
             {
             match("catch"); 
 
@@ -409,8 +409,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = CONTINUE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:104:10: ( 'continue' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:104:12: 'continue'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:104:10: ( 'continue' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:104:12: 'continue'
             {
             match("continue"); 
 
@@ -430,8 +430,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = DEFAULT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:105:9: ( 'default' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:105:11: 'default'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:105:9: ( 'default' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:105:11: 'default'
             {
             match("default"); 
 
@@ -451,8 +451,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = DELETE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:106:8: ( 'delete' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:106:10: 'delete'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:106:8: ( 'delete' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:106:10: 'delete'
             {
             match("delete"); 
 
@@ -472,8 +472,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = DO;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:107:4: ( 'do' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:107:6: 'do'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:107:4: ( 'do' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:107:6: 'do'
             {
             match("do"); 
 
@@ -493,8 +493,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = ELSE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:108:6: ( 'else' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:108:8: 'else'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:108:6: ( 'else' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:108:8: 'else'
             {
             match("else"); 
 
@@ -514,8 +514,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = FINALLY;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:109:9: ( 'finally' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:109:11: 'finally'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:109:9: ( 'finally' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:109:11: 'finally'
             {
             match("finally"); 
 
@@ -535,8 +535,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = FOR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:110:5: ( 'for' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:110:7: 'for'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:110:5: ( 'for' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:110:7: 'for'
             {
             match("for"); 
 
@@ -556,8 +556,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = FUNCTION;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:111:10: ( 'function' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:111:12: 'function'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:111:10: ( 'function' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:111:12: 'function'
             {
             match("function"); 
 
@@ -577,8 +577,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = IF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:112:4: ( 'if' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:112:6: 'if'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:112:4: ( 'if' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:112:6: 'if'
             {
             match("if"); 
 
@@ -598,8 +598,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = IN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:113:4: ( 'in' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:113:6: 'in'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:113:4: ( 'in' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:113:6: 'in'
             {
             match("in"); 
 
@@ -619,8 +619,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = INSTANCEOF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:114:12: ( 'instanceof' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:114:14: 'instanceof'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:114:12: ( 'instanceof' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:114:14: 'instanceof'
             {
             match("instanceof"); 
 
@@ -640,8 +640,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = NEW;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:115:5: ( 'new' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:115:7: 'new'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:115:5: ( 'new' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:115:7: 'new'
             {
             match("new"); 
 
@@ -661,8 +661,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = RETURN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:116:8: ( 'return' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:116:10: 'return'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:116:8: ( 'return' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:116:10: 'return'
             {
             match("return"); 
 
@@ -682,8 +682,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = SWITCH;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:117:8: ( 'switch' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:117:10: 'switch'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:117:8: ( 'switch' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:117:10: 'switch'
             {
             match("switch"); 
 
@@ -703,8 +703,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = THIS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:118:6: ( 'this' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:118:8: 'this'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:118:6: ( 'this' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:118:8: 'this'
             {
             match("this"); 
 
@@ -724,8 +724,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = THROW;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:119:7: ( 'throw' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:119:9: 'throw'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:119:7: ( 'throw' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:119:9: 'throw'
             {
             match("throw"); 
 
@@ -745,8 +745,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = TRY;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:120:5: ( 'try' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:120:7: 'try'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:120:5: ( 'try' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:120:7: 'try'
             {
             match("try"); 
 
@@ -766,8 +766,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = TYPEOF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:121:8: ( 'typeof' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:121:10: 'typeof'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:121:8: ( 'typeof' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:121:10: 'typeof'
             {
             match("typeof"); 
 
@@ -787,8 +787,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = VAR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:122:5: ( 'var' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:122:7: 'var'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:122:5: ( 'var' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:122:7: 'var'
             {
             match("var"); 
 
@@ -808,8 +808,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = VOID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:123:6: ( 'void' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:123:8: 'void'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:123:6: ( 'void' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:123:8: 'void'
             {
             match("void"); 
 
@@ -829,8 +829,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = WHILE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:124:7: ( 'while' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:124:9: 'while'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:124:7: ( 'while' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:124:9: 'while'
             {
             match("while"); 
 
@@ -850,8 +850,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = WITH;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:125:6: ( 'with' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:125:8: 'with'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:125:6: ( 'with' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:125:8: 'with'
             {
             match("with"); 
 
@@ -871,8 +871,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = ABSTRACT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:126:10: ( 'abstract' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:126:12: 'abstract'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:126:10: ( 'abstract' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:126:12: 'abstract'
             {
             match("abstract"); 
 
@@ -892,8 +892,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = BOOLEAN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:127:9: ( 'boolean' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:127:11: 'boolean'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:127:9: ( 'boolean' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:127:11: 'boolean'
             {
             match("boolean"); 
 
@@ -913,8 +913,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = BYTE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:128:6: ( 'byte' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:128:8: 'byte'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:128:6: ( 'byte' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:128:8: 'byte'
             {
             match("byte"); 
 
@@ -934,8 +934,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = CHAR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:129:6: ( 'char' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:129:8: 'char'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:129:6: ( 'char' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:129:8: 'char'
             {
             match("char"); 
 
@@ -955,8 +955,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = CLASS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:130:7: ( 'class' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:130:9: 'class'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:130:7: ( 'class' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:130:9: 'class'
             {
             match("class"); 
 
@@ -976,8 +976,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = CONST;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:131:7: ( 'const' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:131:9: 'const'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:131:7: ( 'const' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:131:9: 'const'
             {
             match("const"); 
 
@@ -997,8 +997,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = DEBUGGER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:132:10: ( 'debugger' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:132:12: 'debugger'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:132:10: ( 'debugger' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:132:12: 'debugger'
             {
             match("debugger"); 
 
@@ -1018,8 +1018,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = DOUBLE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:133:8: ( 'double' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:133:10: 'double'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:133:8: ( 'double' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:133:10: 'double'
             {
             match("double"); 
 
@@ -1039,8 +1039,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = ENUM;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:134:6: ( 'enum' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:134:8: 'enum'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:134:6: ( 'enum' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:134:8: 'enum'
             {
             match("enum"); 
 
@@ -1060,8 +1060,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = EXPORT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:135:8: ( 'export' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:135:10: 'export'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:135:8: ( 'export' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:135:10: 'export'
             {
             match("export"); 
 
@@ -1081,8 +1081,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = EXTENDS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:136:9: ( 'extends' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:136:11: 'extends'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:136:9: ( 'extends' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:136:11: 'extends'
             {
             match("extends"); 
 
@@ -1102,8 +1102,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = FINAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:137:7: ( 'final' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:137:9: 'final'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:137:7: ( 'final' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:137:9: 'final'
             {
             match("final"); 
 
@@ -1123,8 +1123,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = FLOAT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:138:7: ( 'float' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:138:9: 'float'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:138:7: ( 'float' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:138:9: 'float'
             {
             match("float"); 
 
@@ -1144,8 +1144,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = GOTO;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:139:6: ( 'goto' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:139:8: 'goto'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:139:6: ( 'goto' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:139:8: 'goto'
             {
             match("goto"); 
 
@@ -1165,8 +1165,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = IMPLEMENTS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:140:12: ( 'implements' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:140:14: 'implements'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:140:12: ( 'implements' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:140:14: 'implements'
             {
             match("implements"); 
 
@@ -1186,8 +1186,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = IMPORT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:141:8: ( 'import' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:141:10: 'import'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:141:8: ( 'import' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:141:10: 'import'
             {
             match("import"); 
 
@@ -1207,8 +1207,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:142:5: ( 'int' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:142:7: 'int'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:142:5: ( 'int' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:142:7: 'int'
             {
             match("int"); 
 
@@ -1228,8 +1228,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = INTERFACE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:143:11: ( 'interface' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:143:13: 'interface'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:143:11: ( 'interface' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:143:13: 'interface'
             {
             match("interface"); 
 
@@ -1249,8 +1249,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = LONG;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:144:6: ( 'long' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:144:8: 'long'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:144:6: ( 'long' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:144:8: 'long'
             {
             match("long"); 
 
@@ -1270,8 +1270,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = NATIVE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:145:8: ( 'native' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:145:10: 'native'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:145:8: ( 'native' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:145:10: 'native'
             {
             match("native"); 
 
@@ -1291,8 +1291,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = PACKAGE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:146:9: ( 'package' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:146:11: 'package'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:146:9: ( 'package' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:146:11: 'package'
             {
             match("package"); 
 
@@ -1312,8 +1312,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = PRIVATE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:147:9: ( 'private' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:147:11: 'private'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:147:9: ( 'private' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:147:11: 'private'
             {
             match("private"); 
 
@@ -1333,8 +1333,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = PROTECTED;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:148:11: ( 'protected' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:148:13: 'protected'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:148:11: ( 'protected' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:148:13: 'protected'
             {
             match("protected"); 
 
@@ -1354,8 +1354,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = PUBLIC;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:149:8: ( 'public' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:149:10: 'public'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:149:8: ( 'public' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:149:10: 'public'
             {
             match("public"); 
 
@@ -1375,8 +1375,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = SHORT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:150:7: ( 'short' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:150:9: 'short'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:150:7: ( 'short' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:150:9: 'short'
             {
             match("short"); 
 
@@ -1396,8 +1396,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = STATIC;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:151:8: ( 'static' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:151:10: 'static'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:151:8: ( 'static' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:151:10: 'static'
             {
             match("static"); 
 
@@ -1417,8 +1417,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = SUPER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:152:7: ( 'super' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:152:9: 'super'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:152:7: ( 'super' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:152:9: 'super'
             {
             match("super"); 
 
@@ -1438,8 +1438,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = SYNCHRONIZED;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:153:14: ( 'synchronized' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:153:16: 'synchronized'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:153:14: ( 'synchronized' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:153:16: 'synchronized'
             {
             match("synchronized"); 
 
@@ -1459,8 +1459,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = THROWS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:154:8: ( 'throws' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:154:10: 'throws'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:154:8: ( 'throws' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:154:10: 'throws'
             {
             match("throws"); 
 
@@ -1480,8 +1480,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = TRANSIENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:155:11: ( 'transient' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:155:13: 'transient'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:155:11: ( 'transient' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:155:13: 'transient'
             {
             match("transient"); 
 
@@ -1501,8 +1501,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = VOLATILE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:156:10: ( 'volatile' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:156:12: 'volatile'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:156:10: ( 'volatile' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:156:12: 'volatile'
             {
             match("volatile"); 
 
@@ -1522,8 +1522,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = LBRACE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:157:8: ( '{' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:157:10: '{'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:157:8: ( '{' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:157:10: '{'
             {
             match('{'); 
 
@@ -1542,8 +1542,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = RBRACE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:158:8: ( '}' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:158:10: '}'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:158:8: ( '}' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:158:10: '}'
             {
             match('}'); 
 
@@ -1562,8 +1562,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = LPAREN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:159:8: ( '(' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:159:10: '('
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:159:8: ( '(' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:159:10: '('
             {
             match('('); 
 
@@ -1582,8 +1582,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = RPAREN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:160:8: ( ')' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:160:10: ')'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:160:8: ( ')' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:160:10: ')'
             {
             match(')'); 
 
@@ -1602,8 +1602,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = LBRACK;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:161:8: ( '[' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:161:10: '['
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:161:8: ( '[' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:161:10: '['
             {
             match('['); 
 
@@ -1622,8 +1622,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = RBRACK;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:162:8: ( ']' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:162:10: ']'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:162:8: ( ']' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:162:10: ']'
             {
             match(']'); 
 
@@ -1642,8 +1642,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = DOT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:163:5: ( '.' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:163:7: '.'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:163:5: ( '.' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:163:7: '.'
             {
             match('.'); 
 
@@ -1662,8 +1662,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = SEMIC;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:164:7: ( ';' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:164:9: ';'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:164:7: ( ';' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:164:9: ';'
             {
             match(';'); 
 
@@ -1682,8 +1682,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = COMMA;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:165:7: ( ',' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:165:9: ','
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:165:7: ( ',' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:165:9: ','
             {
             match(','); 
 
@@ -1702,8 +1702,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = LT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:166:4: ( '<' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:166:6: '<'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:166:4: ( '<' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:166:6: '<'
             {
             match('<'); 
 
@@ -1722,8 +1722,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = GT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:167:4: ( '>' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:167:6: '>'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:167:4: ( '>' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:167:6: '>'
             {
             match('>'); 
 
@@ -1742,8 +1742,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = LTE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:168:5: ( '<=' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:168:7: '<='
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:168:5: ( '<=' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:168:7: '<='
             {
             match("<="); 
 
@@ -1763,8 +1763,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = GTE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:169:5: ( '>=' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:169:7: '>='
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:169:5: ( '>=' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:169:7: '>='
             {
             match(">="); 
 
@@ -1784,8 +1784,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = EQ;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:170:4: ( '==' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:170:6: '=='
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:170:4: ( '==' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:170:6: '=='
             {
             match("=="); 
 
@@ -1805,8 +1805,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = NEQ;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:171:5: ( '!=' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:171:7: '!='
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:171:5: ( '!=' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:171:7: '!='
             {
             match("!="); 
 
@@ -1826,8 +1826,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = SAME;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:172:6: ( '===' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:172:8: '==='
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:172:6: ( '===' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:172:8: '==='
             {
             match("==="); 
 
@@ -1847,8 +1847,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = NSAME;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:173:7: ( '!==' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:173:9: '!=='
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:173:7: ( '!==' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:173:9: '!=='
             {
             match("!=="); 
 
@@ -1868,8 +1868,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = ADD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:174:5: ( '+' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:174:7: '+'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:174:5: ( '+' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:174:7: '+'
             {
             match('+'); 
 
@@ -1888,8 +1888,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = SUB;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:175:5: ( '-' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:175:7: '-'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:175:5: ( '-' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:175:7: '-'
             {
             match('-'); 
 
@@ -1908,8 +1908,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = MUL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:176:5: ( '*' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:176:7: '*'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:176:5: ( '*' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:176:7: '*'
             {
             match('*'); 
 
@@ -1928,8 +1928,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = MOD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:177:5: ( '%' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:177:7: '%'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:177:5: ( '%' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:177:7: '%'
             {
             match('%'); 
 
@@ -1948,8 +1948,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = INC;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:178:5: ( '++' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:178:7: '++'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:178:5: ( '++' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:178:7: '++'
             {
             match("++"); 
 
@@ -1969,8 +1969,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = DEC;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:179:5: ( '--' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:179:7: '--'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:179:5: ( '--' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:179:7: '--'
             {
             match("--"); 
 
@@ -1990,8 +1990,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = SHL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:180:5: ( '<<' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:180:7: '<<'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:180:5: ( '<<' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:180:7: '<<'
             {
             match("<<"); 
 
@@ -2011,8 +2011,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = SHR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:181:5: ( '>>' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:181:7: '>>'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:181:5: ( '>>' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:181:7: '>>'
             {
             match(">>"); 
 
@@ -2032,8 +2032,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = SHU;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:182:5: ( '>>>' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:182:7: '>>>'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:182:5: ( '>>>' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:182:7: '>>>'
             {
             match(">>>"); 
 
@@ -2053,8 +2053,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = AND;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:183:5: ( '&' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:183:7: '&'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:183:5: ( '&' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:183:7: '&'
             {
             match('&'); 
 
@@ -2073,8 +2073,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = OR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:184:4: ( '|' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:184:6: '|'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:184:4: ( '|' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:184:6: '|'
             {
             match('|'); 
 
@@ -2093,8 +2093,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = XOR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:185:5: ( '^' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:185:7: '^'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:185:5: ( '^' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:185:7: '^'
             {
             match('^'); 
 
@@ -2113,8 +2113,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = NOT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:186:5: ( '!' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:186:7: '!'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:186:5: ( '!' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:186:7: '!'
             {
             match('!'); 
 
@@ -2133,8 +2133,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = INV;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:187:5: ( '~' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:187:7: '~'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:187:5: ( '~' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:187:7: '~'
             {
             match('~'); 
 
@@ -2153,8 +2153,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = LAND;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:188:6: ( '&&' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:188:8: '&&'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:188:6: ( '&&' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:188:8: '&&'
             {
             match("&&"); 
 
@@ -2174,8 +2174,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = LOR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:189:5: ( '||' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:189:7: '||'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:189:5: ( '||' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:189:7: '||'
             {
             match("||"); 
 
@@ -2195,8 +2195,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = QUE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:190:5: ( '?' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:190:7: '?'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:190:5: ( '?' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:190:7: '?'
             {
             match('?'); 
 
@@ -2215,8 +2215,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = COLON;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:191:7: ( ':' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:191:9: ':'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:191:7: ( ':' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:191:9: ':'
             {
             match(':'); 
 
@@ -2235,8 +2235,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = ASSIGN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:192:8: ( '=' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:192:10: '='
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:192:8: ( '=' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:192:10: '='
             {
             match('='); 
 
@@ -2255,8 +2255,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = ADDASS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:193:8: ( '+=' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:193:10: '+='
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:193:8: ( '+=' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:193:10: '+='
             {
             match("+="); 
 
@@ -2276,8 +2276,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = SUBASS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:194:8: ( '-=' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:194:10: '-='
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:194:8: ( '-=' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:194:10: '-='
             {
             match("-="); 
 
@@ -2297,8 +2297,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = MULASS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:195:8: ( '*=' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:195:10: '*='
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:195:8: ( '*=' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:195:10: '*='
             {
             match("*="); 
 
@@ -2318,8 +2318,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = MODASS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:196:8: ( '%=' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:196:10: '%='
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:196:8: ( '%=' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:196:10: '%='
             {
             match("%="); 
 
@@ -2339,8 +2339,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = SHLASS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:197:8: ( '<<=' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:197:10: '<<='
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:197:8: ( '<<=' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:197:10: '<<='
             {
             match("<<="); 
 
@@ -2360,8 +2360,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = SHRASS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:198:8: ( '>>=' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:198:10: '>>='
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:198:8: ( '>>=' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:198:10: '>>='
             {
             match(">>="); 
 
@@ -2381,8 +2381,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = SHUASS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:199:8: ( '>>>=' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:199:10: '>>>='
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:199:8: ( '>>>=' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:199:10: '>>>='
             {
             match(">>>="); 
 
@@ -2402,8 +2402,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = ANDASS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:200:8: ( '&=' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:200:10: '&='
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:200:8: ( '&=' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:200:10: '&='
             {
             match("&="); 
 
@@ -2423,8 +2423,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = ORASS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:201:7: ( '|=' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:201:9: '|='
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:201:7: ( '|=' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:201:9: '|='
             {
             match("|="); 
 
@@ -2444,8 +2444,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = XORASS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:202:8: ( '^=' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:202:10: '^='
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:202:8: ( '^=' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:202:10: '^='
             {
             match("^="); 
 
@@ -2465,8 +2465,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = DIV;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:203:5: ( '/' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:203:7: '/'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:203:5: ( '/' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:203:7: '/'
             {
             match('/'); 
 
@@ -2485,8 +2485,8 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = DIVASS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:204:8: ( '/=' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:204:10: '/='
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:204:8: ( '/=' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:204:10: '/='
             {
             match("/="); 
 
@@ -2504,8 +2504,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "BSLASH"
     public final void mBSLASH() throws RecognitionException {
         try {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:458:2: ( '\\\\' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:458:4: '\\\\'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:458:2: ( '\\\\' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:458:4: '\\\\'
             {
             match('\\'); 
 
@@ -2520,8 +2520,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "DQUOTE"
     public final void mDQUOTE() throws RecognitionException {
         try {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:462:2: ( '\"' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:462:4: '\"'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:462:2: ( '\"' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:462:4: '\"'
             {
             match('\"'); 
 
@@ -2536,8 +2536,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "SQUOTE"
     public final void mSQUOTE() throws RecognitionException {
         try {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:466:2: ( '\\'' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:466:4: '\\''
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:466:2: ( '\\'' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:466:4: '\\''
             {
             match('\''); 
 
@@ -2552,8 +2552,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "TAB"
     public final void mTAB() throws RecognitionException {
         try {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:472:2: ( '\\u0009' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:472:4: '\\u0009'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:472:2: ( '\\u0009' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:472:4: '\\u0009'
             {
             match('\t'); 
 
@@ -2568,8 +2568,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "VT"
     public final void mVT() throws RecognitionException {
         try {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:476:2: ( '\\u000b' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:476:4: '\\u000b'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:476:2: ( '\\u000b' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:476:4: '\\u000b'
             {
             match('\u000B'); 
 
@@ -2584,8 +2584,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "FF"
     public final void mFF() throws RecognitionException {
         try {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:480:2: ( '\\u000c' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:480:4: '\\u000c'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:480:2: ( '\\u000c' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:480:4: '\\u000c'
             {
             match('\f'); 
 
@@ -2600,8 +2600,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "SP"
     public final void mSP() throws RecognitionException {
         try {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:484:2: ( '\\u0020' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:484:4: '\\u0020'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:484:2: ( '\\u0020' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:484:4: '\\u0020'
             {
             match(' '); 
 
@@ -2616,8 +2616,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "NBSP"
     public final void mNBSP() throws RecognitionException {
         try {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:488:2: ( '\\u00a0' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:488:4: '\\u00a0'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:488:2: ( '\\u00a0' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:488:4: '\\u00a0'
             {
             match('\u00A0'); 
 
@@ -2632,8 +2632,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "USP"
     public final void mUSP() throws RecognitionException {
         try {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:492:2: ( '\\u1680' | '\\u180E' | '\\u2000' | '\\u2001' | '\\u2002' | '\\u2003' | '\\u2004' | '\\u2005' | '\\u2006' | '\\u2007' | '\\u2008' | '\\u2009' | '\\u200A' | '\\u202F' | '\\u205F' | '\\u3000' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:492:2: ( '\\u1680' | '\\u180E' | '\\u2000' | '\\u2001' | '\\u2002' | '\\u2003' | '\\u2004' | '\\u2005' | '\\u2006' | '\\u2007' | '\\u2008' | '\\u2009' | '\\u200A' | '\\u202F' | '\\u205F' | '\\u3000' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:
             {
             if ( input.LA(1)=='\u1680'||input.LA(1)=='\u180E'||(input.LA(1)>='\u2000' && input.LA(1)<='\u200A')||input.LA(1)=='\u202F'||input.LA(1)=='\u205F'||input.LA(1)=='\u3000' ) {
                 input.consume();
@@ -2658,10 +2658,10 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = WhiteSpace;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:511:2: ( ( TAB | VT | FF | SP | NBSP | USP )+ )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:511:4: ( TAB | VT | FF | SP | NBSP | USP )+
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:511:2: ( ( TAB | VT | FF | SP | NBSP | USP )+ )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:511:4: ( TAB | VT | FF | SP | NBSP | USP )+
             {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:511:4: ( TAB | VT | FF | SP | NBSP | USP )+
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:511:4: ( TAB | VT | FF | SP | NBSP | USP )+
             int cnt1=0;
             loop1:
             do {
@@ -2675,7 +2675,7 @@ public class ES3YUITestLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:
+            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:
             	    {
             	    if ( input.LA(1)=='\t'||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||input.LA(1)==' '||input.LA(1)=='\u00A0'||input.LA(1)=='\u1680'||input.LA(1)=='\u180E'||(input.LA(1)>='\u2000' && input.LA(1)<='\u200A')||input.LA(1)=='\u202F'||input.LA(1)=='\u205F'||input.LA(1)=='\u3000' ) {
             	        input.consume();
@@ -2714,8 +2714,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "LF"
     public final void mLF() throws RecognitionException {
         try {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:519:2: ( '\\n' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:519:4: '\\n'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:519:2: ( '\\n' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:519:4: '\\n'
             {
             match('\n'); 
 
@@ -2730,8 +2730,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "CR"
     public final void mCR() throws RecognitionException {
         try {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:523:2: ( '\\r' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:523:4: '\\r'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:523:2: ( '\\r' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:523:4: '\\r'
             {
             match('\r'); 
 
@@ -2746,8 +2746,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "LS"
     public final void mLS() throws RecognitionException {
         try {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:527:2: ( '\\u2028' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:527:4: '\\u2028'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:527:2: ( '\\u2028' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:527:4: '\\u2028'
             {
             match('\u2028'); 
 
@@ -2762,8 +2762,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "PS"
     public final void mPS() throws RecognitionException {
         try {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:531:2: ( '\\u2029' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:531:4: '\\u2029'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:531:2: ( '\\u2029' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:531:4: '\\u2029'
             {
             match('\u2029'); 
 
@@ -2778,8 +2778,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "LineTerminator"
     public final void mLineTerminator() throws RecognitionException {
         try {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:535:2: ( CR | LF | LS | PS )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:535:2: ( CR | LF | LS | PS )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:
             {
             if ( input.LA(1)=='\n'||input.LA(1)=='\r'||(input.LA(1)>='\u2028' && input.LA(1)<='\u2029') ) {
                 input.consume();
@@ -2804,10 +2804,10 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = EOL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:539:2: ( ( ( CR ( LF )? ) | LF | LS | PS ) )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:539:4: ( ( CR ( LF )? ) | LF | LS | PS )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:539:2: ( ( ( CR ( LF )? ) | LF | LS | PS ) )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:539:4: ( ( CR ( LF )? ) | LF | LS | PS )
             {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:539:4: ( ( CR ( LF )? ) | LF | LS | PS )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:539:4: ( ( CR ( LF )? ) | LF | LS | PS )
             int alt3=4;
             switch ( input.LA(1) ) {
             case '\r':
@@ -2839,13 +2839,13 @@ public class ES3YUITestLexer extends Lexer {
 
             switch (alt3) {
                 case 1 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:539:6: ( CR ( LF )? )
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:539:6: ( CR ( LF )? )
                     {
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:539:6: ( CR ( LF )? )
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:539:8: CR ( LF )?
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:539:6: ( CR ( LF )? )
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:539:8: CR ( LF )?
                     {
                     mCR(); 
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:539:11: ( LF )?
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:539:11: ( LF )?
                     int alt2=2;
                     int LA2_0 = input.LA(1);
 
@@ -2854,7 +2854,7 @@ public class ES3YUITestLexer extends Lexer {
                     }
                     switch (alt2) {
                         case 1 :
-                            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:539:11: LF
+                            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:539:11: LF
                             {
                             mLF(); 
 
@@ -2870,21 +2870,21 @@ public class ES3YUITestLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:539:19: LF
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:539:19: LF
                     {
                     mLF(); 
 
                     }
                     break;
                 case 3 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:539:24: LS
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:539:24: LS
                     {
                     mLS(); 
 
                     }
                     break;
                 case 4 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:539:29: PS
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:539:29: PS
                     {
                     mPS(); 
 
@@ -2910,12 +2910,12 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = MultiLineComment;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:546:2: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:546:4: '/*' ( options {greedy=false; } : . )* '*/'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:546:2: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:546:4: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:546:9: ( options {greedy=false; } : . )*
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:546:9: ( options {greedy=false; } : . )*
             loop4:
             do {
                 int alt4=2;
@@ -2940,7 +2940,7 @@ public class ES3YUITestLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:546:41: .
+            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:546:41: .
             	    {
             	    matchAny(); 
 
@@ -2971,12 +2971,12 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = SingleLineComment;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:550:2: ( '//' (~ ( LineTerminator ) )* )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:550:4: '//' (~ ( LineTerminator ) )*
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:550:2: ( '//' (~ ( LineTerminator ) )* )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:550:4: '//' (~ ( LineTerminator ) )*
             {
             match("//"); 
 
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:550:9: (~ ( LineTerminator ) )*
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:550:9: (~ ( LineTerminator ) )*
             loop5:
             do {
                 int alt5=2;
@@ -2989,7 +2989,7 @@ public class ES3YUITestLexer extends Lexer {
 
                 switch (alt5) {
             	case 1 :
-            	    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:550:11: ~ ( LineTerminator )
+            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:550:11: ~ ( LineTerminator )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\u2027')||(input.LA(1)>='\u202A' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -3024,7 +3024,7 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "IdentifierStartASCII"
     public final void mIdentifierStartASCII() throws RecognitionException {
         try {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:651:2: ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | BSLASH 'u' HexDigit HexDigit HexDigit HexDigit )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:651:2: ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | BSLASH 'u' HexDigit HexDigit HexDigit HexDigit )
             int alt6=5;
             switch ( input.LA(1) ) {
             case 'a':
@@ -3111,35 +3111,35 @@ public class ES3YUITestLexer extends Lexer {
 
             switch (alt6) {
                 case 1 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:651:4: 'a' .. 'z'
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:651:4: 'a' .. 'z'
                     {
                     matchRange('a','z'); 
 
                     }
                     break;
                 case 2 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:651:15: 'A' .. 'Z'
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:651:15: 'A' .. 'Z'
                     {
                     matchRange('A','Z'); 
 
                     }
                     break;
                 case 3 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:652:4: '$'
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:652:4: '$'
                     {
                     match('$'); 
 
                     }
                     break;
                 case 4 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:653:4: '_'
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:653:4: '_'
                     {
                     match('_'); 
 
                     }
                     break;
                 case 5 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:654:4: BSLASH 'u' HexDigit HexDigit HexDigit HexDigit
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:654:4: BSLASH 'u' HexDigit HexDigit HexDigit HexDigit
                     {
                     mBSLASH(); 
                     match('u'); 
@@ -3161,7 +3161,7 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "IdentifierPart"
     public final void mIdentifierPart() throws RecognitionException {
         try {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:662:2: ( DecimalDigit | IdentifierStartASCII | {...}?)
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:662:2: ( DecimalDigit | IdentifierStartASCII | {...}?)
             int alt7=3;
             switch ( input.LA(1) ) {
             case '0':
@@ -3242,21 +3242,21 @@ public class ES3YUITestLexer extends Lexer {
 
             switch (alt7) {
                 case 1 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:662:4: DecimalDigit
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:662:4: DecimalDigit
                     {
                     mDecimalDigit(); 
 
                     }
                     break;
                 case 2 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:663:4: IdentifierStartASCII
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:663:4: IdentifierStartASCII
                     {
                     mIdentifierStartASCII(); 
 
                     }
                     break;
                 case 3 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:664:4: {...}?
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:664:4: {...}?
                     {
                     if ( !(( isIdentifierPartUnicode(input.LA(1)) )) ) {
                         throw new FailedPredicateException(input, "IdentifierPart", " isIdentifierPartUnicode(input.LA(1)) ");
@@ -3276,11 +3276,11 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "IdentifierNameASCIIStart"
     public final void mIdentifierNameASCIIStart() throws RecognitionException {
         try {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:668:2: ( IdentifierStartASCII ( IdentifierPart )* )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:668:4: IdentifierStartASCII ( IdentifierPart )*
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:668:2: ( IdentifierStartASCII ( IdentifierPart )* )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:668:4: IdentifierStartASCII ( IdentifierPart )*
             {
             mIdentifierStartASCII(); 
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:668:25: ( IdentifierPart )*
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:668:25: ( IdentifierPart )*
             loop8:
             do {
                 int alt8=2;
@@ -3296,7 +3296,7 @@ public class ES3YUITestLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:668:25: IdentifierPart
+            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:668:25: IdentifierPart
             	    {
             	    mIdentifierPart(); 
 
@@ -3322,7 +3322,7 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = Identifier;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:680:2: ( IdentifierNameASCIIStart | )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:680:2: ( IdentifierNameASCIIStart | )
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -3333,14 +3333,14 @@ public class ES3YUITestLexer extends Lexer {
                 alt9=2;}
             switch (alt9) {
                 case 1 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:680:4: IdentifierNameASCIIStart
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:680:4: IdentifierNameASCIIStart
                     {
                     mIdentifierNameASCIIStart(); 
 
                     }
                     break;
                 case 2 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:681:4: 
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:681:4: 
                     {
                      consumeIdentifierUnicodeStart(); 
 
@@ -3359,8 +3359,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "DecimalDigit"
     public final void mDecimalDigit() throws RecognitionException {
         try {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:764:2: ( '0' .. '9' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:764:4: '0' .. '9'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:764:2: ( '0' .. '9' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:764:4: '0' .. '9'
             {
             matchRange('0','9'); 
 
@@ -3375,8 +3375,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "HexDigit"
     public final void mHexDigit() throws RecognitionException {
         try {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:768:2: ( DecimalDigit | 'a' .. 'f' | 'A' .. 'F' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:768:2: ( DecimalDigit | 'a' .. 'f' | 'A' .. 'F' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:
             {
             if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='F')||(input.LA(1)>='a' && input.LA(1)<='f') ) {
                 input.consume();
@@ -3399,8 +3399,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "OctalDigit"
     public final void mOctalDigit() throws RecognitionException {
         try {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:772:2: ( '0' .. '7' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:772:4: '0' .. '7'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:772:2: ( '0' .. '7' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:772:4: '0' .. '7'
             {
             matchRange('0','7'); 
 
@@ -3415,8 +3415,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "ExponentPart"
     public final void mExponentPart() throws RecognitionException {
         try {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:776:2: ( ( 'e' | 'E' ) ( '+' | '-' )? ( DecimalDigit )+ )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:776:4: ( 'e' | 'E' ) ( '+' | '-' )? ( DecimalDigit )+
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:776:2: ( ( 'e' | 'E' ) ( '+' | '-' )? ( DecimalDigit )+ )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:776:4: ( 'e' | 'E' ) ( '+' | '-' )? ( DecimalDigit )+
             {
             if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                 input.consume();
@@ -3427,7 +3427,7 @@ public class ES3YUITestLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:776:18: ( '+' | '-' )?
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:776:18: ( '+' | '-' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -3436,7 +3436,7 @@ public class ES3YUITestLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:
                     {
                     if ( input.LA(1)=='+'||input.LA(1)=='-' ) {
                         input.consume();
@@ -3453,7 +3453,7 @@ public class ES3YUITestLexer extends Lexer {
 
             }
 
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:776:33: ( DecimalDigit )+
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:776:33: ( DecimalDigit )+
             int cnt11=0;
             loop11:
             do {
@@ -3467,7 +3467,7 @@ public class ES3YUITestLexer extends Lexer {
 
                 switch (alt11) {
             	case 1 :
-            	    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:776:33: DecimalDigit
+            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:776:33: DecimalDigit
             	    {
             	    mDecimalDigit(); 
 
@@ -3495,7 +3495,7 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "DecimalIntegerLiteral"
     public final void mDecimalIntegerLiteral() throws RecognitionException {
         try {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:780:2: ( '0' | '1' .. '9' ( DecimalDigit )* )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:780:2: ( '0' | '1' .. '9' ( DecimalDigit )* )
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -3513,17 +3513,17 @@ public class ES3YUITestLexer extends Lexer {
             }
             switch (alt13) {
                 case 1 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:780:4: '0'
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:780:4: '0'
                     {
                     match('0'); 
 
                     }
                     break;
                 case 2 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:781:4: '1' .. '9' ( DecimalDigit )*
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:781:4: '1' .. '9' ( DecimalDigit )*
                     {
                     matchRange('1','9'); 
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:781:13: ( DecimalDigit )*
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:781:13: ( DecimalDigit )*
                     loop12:
                     do {
                         int alt12=2;
@@ -3536,7 +3536,7 @@ public class ES3YUITestLexer extends Lexer {
 
                         switch (alt12) {
                     	case 1 :
-                    	    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:781:13: DecimalDigit
+                    	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:781:13: DecimalDigit
                     	    {
                     	    mDecimalDigit(); 
 
@@ -3564,16 +3564,16 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = DecimalLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:785:2: ( DecimalIntegerLiteral '.' ( DecimalDigit )* ( ExponentPart )? | '.' ( DecimalDigit )+ ( ExponentPart )? | DecimalIntegerLiteral ( ExponentPart )? )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:785:2: ( DecimalIntegerLiteral '.' ( DecimalDigit )* ( ExponentPart )? | '.' ( DecimalDigit )+ ( ExponentPart )? | DecimalIntegerLiteral ( ExponentPart )? )
             int alt19=3;
             alt19 = dfa19.predict(input);
             switch (alt19) {
                 case 1 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:785:4: DecimalIntegerLiteral '.' ( DecimalDigit )* ( ExponentPart )?
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:785:4: DecimalIntegerLiteral '.' ( DecimalDigit )* ( ExponentPart )?
                     {
                     mDecimalIntegerLiteral(); 
                     match('.'); 
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:785:30: ( DecimalDigit )*
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:785:30: ( DecimalDigit )*
                     loop14:
                     do {
                         int alt14=2;
@@ -3586,7 +3586,7 @@ public class ES3YUITestLexer extends Lexer {
 
                         switch (alt14) {
                     	case 1 :
-                    	    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:785:30: DecimalDigit
+                    	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:785:30: DecimalDigit
                     	    {
                     	    mDecimalDigit(); 
 
@@ -3598,7 +3598,7 @@ public class ES3YUITestLexer extends Lexer {
                         }
                     } while (true);
 
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:785:44: ( ExponentPart )?
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:785:44: ( ExponentPart )?
                     int alt15=2;
                     int LA15_0 = input.LA(1);
 
@@ -3607,7 +3607,7 @@ public class ES3YUITestLexer extends Lexer {
                     }
                     switch (alt15) {
                         case 1 :
-                            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:785:44: ExponentPart
+                            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:785:44: ExponentPart
                             {
                             mExponentPart(); 
 
@@ -3620,10 +3620,10 @@ public class ES3YUITestLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:786:4: '.' ( DecimalDigit )+ ( ExponentPart )?
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:786:4: '.' ( DecimalDigit )+ ( ExponentPart )?
                     {
                     match('.'); 
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:786:8: ( DecimalDigit )+
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:786:8: ( DecimalDigit )+
                     int cnt16=0;
                     loop16:
                     do {
@@ -3637,7 +3637,7 @@ public class ES3YUITestLexer extends Lexer {
 
                         switch (alt16) {
                     	case 1 :
-                    	    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:786:8: DecimalDigit
+                    	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:786:8: DecimalDigit
                     	    {
                     	    mDecimalDigit(); 
 
@@ -3653,7 +3653,7 @@ public class ES3YUITestLexer extends Lexer {
                         cnt16++;
                     } while (true);
 
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:786:22: ( ExponentPart )?
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:786:22: ( ExponentPart )?
                     int alt17=2;
                     int LA17_0 = input.LA(1);
 
@@ -3662,7 +3662,7 @@ public class ES3YUITestLexer extends Lexer {
                     }
                     switch (alt17) {
                         case 1 :
-                            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:786:22: ExponentPart
+                            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:786:22: ExponentPart
                             {
                             mExponentPart(); 
 
@@ -3675,10 +3675,10 @@ public class ES3YUITestLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:787:4: DecimalIntegerLiteral ( ExponentPart )?
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:787:4: DecimalIntegerLiteral ( ExponentPart )?
                     {
                     mDecimalIntegerLiteral(); 
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:787:26: ( ExponentPart )?
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:787:26: ( ExponentPart )?
                     int alt18=2;
                     int LA18_0 = input.LA(1);
 
@@ -3687,7 +3687,7 @@ public class ES3YUITestLexer extends Lexer {
                     }
                     switch (alt18) {
                         case 1 :
-                            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:787:26: ExponentPart
+                            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:787:26: ExponentPart
                             {
                             mExponentPart(); 
 
@@ -3714,11 +3714,11 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = OctalIntegerLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:791:2: ( '0' ( OctalDigit )+ )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:791:4: '0' ( OctalDigit )+
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:791:2: ( '0' ( OctalDigit )+ )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:791:4: '0' ( OctalDigit )+
             {
             match('0'); 
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:791:8: ( OctalDigit )+
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:791:8: ( OctalDigit )+
             int cnt20=0;
             loop20:
             do {
@@ -3732,7 +3732,7 @@ public class ES3YUITestLexer extends Lexer {
 
                 switch (alt20) {
             	case 1 :
-            	    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:791:8: OctalDigit
+            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:791:8: OctalDigit
             	    {
             	    mOctalDigit(); 
 
@@ -3764,10 +3764,10 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = HexIntegerLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:795:2: ( ( '0x' | '0X' ) ( HexDigit )+ )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:795:4: ( '0x' | '0X' ) ( HexDigit )+
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:795:2: ( ( '0x' | '0X' ) ( HexDigit )+ )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:795:4: ( '0x' | '0X' ) ( HexDigit )+
             {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:795:4: ( '0x' | '0X' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:795:4: ( '0x' | '0X' )
             int alt21=2;
             int LA21_0 = input.LA(1);
 
@@ -3795,7 +3795,7 @@ public class ES3YUITestLexer extends Lexer {
             }
             switch (alt21) {
                 case 1 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:795:6: '0x'
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:795:6: '0x'
                     {
                     match("0x"); 
 
@@ -3803,7 +3803,7 @@ public class ES3YUITestLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:795:13: '0X'
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:795:13: '0X'
                     {
                     match("0X"); 
 
@@ -3813,7 +3813,7 @@ public class ES3YUITestLexer extends Lexer {
 
             }
 
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:795:20: ( HexDigit )+
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:795:20: ( HexDigit )+
             int cnt22=0;
             loop22:
             do {
@@ -3827,7 +3827,7 @@ public class ES3YUITestLexer extends Lexer {
 
                 switch (alt22) {
             	case 1 :
-            	    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:795:20: HexDigit
+            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:795:20: HexDigit
             	    {
             	    mHexDigit(); 
 
@@ -3857,8 +3857,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "CharacterEscapeSequence"
     public final void mCharacterEscapeSequence() throws RecognitionException {
         try {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:814:2: (~ ( DecimalDigit | 'x' | 'u' | LineTerminator ) )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:814:4: ~ ( DecimalDigit | 'x' | 'u' | LineTerminator )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:814:2: (~ ( DecimalDigit | 'x' | 'u' | LineTerminator ) )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:814:4: ~ ( DecimalDigit | 'x' | 'u' | LineTerminator )
             {
             if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='/')||(input.LA(1)>=':' && input.LA(1)<='t')||(input.LA(1)>='v' && input.LA(1)<='w')||(input.LA(1)>='y' && input.LA(1)<='\u2027')||(input.LA(1)>='\u202A' && input.LA(1)<='\uFFFF') ) {
                 input.consume();
@@ -3881,8 +3881,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "ZeroToThree"
     public final void mZeroToThree() throws RecognitionException {
         try {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:818:2: ( '0' .. '3' )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:818:4: '0' .. '3'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:818:2: ( '0' .. '3' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:818:4: '0' .. '3'
             {
             matchRange('0','3'); 
 
@@ -3897,7 +3897,7 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "OctalEscapeSequence"
     public final void mOctalEscapeSequence() throws RecognitionException {
         try {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:822:2: ( OctalDigit | ZeroToThree OctalDigit | '4' .. '7' OctalDigit | ZeroToThree OctalDigit OctalDigit )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:822:2: ( OctalDigit | ZeroToThree OctalDigit | '4' .. '7' OctalDigit | ZeroToThree OctalDigit OctalDigit )
             int alt23=4;
             int LA23_0 = input.LA(1);
 
@@ -3933,14 +3933,14 @@ public class ES3YUITestLexer extends Lexer {
             }
             switch (alt23) {
                 case 1 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:822:4: OctalDigit
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:822:4: OctalDigit
                     {
                     mOctalDigit(); 
 
                     }
                     break;
                 case 2 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:823:4: ZeroToThree OctalDigit
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:823:4: ZeroToThree OctalDigit
                     {
                     mZeroToThree(); 
                     mOctalDigit(); 
@@ -3948,7 +3948,7 @@ public class ES3YUITestLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:824:4: '4' .. '7' OctalDigit
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:824:4: '4' .. '7' OctalDigit
                     {
                     matchRange('4','7'); 
                     mOctalDigit(); 
@@ -3956,7 +3956,7 @@ public class ES3YUITestLexer extends Lexer {
                     }
                     break;
                 case 4 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:825:4: ZeroToThree OctalDigit OctalDigit
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:825:4: ZeroToThree OctalDigit OctalDigit
                     {
                     mZeroToThree(); 
                     mOctalDigit(); 
@@ -3975,8 +3975,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "HexEscapeSequence"
     public final void mHexEscapeSequence() throws RecognitionException {
         try {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:829:2: ( 'x' HexDigit HexDigit )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:829:4: 'x' HexDigit HexDigit
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:829:2: ( 'x' HexDigit HexDigit )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:829:4: 'x' HexDigit HexDigit
             {
             match('x'); 
             mHexDigit(); 
@@ -3993,8 +3993,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "UnicodeEscapeSequence"
     public final void mUnicodeEscapeSequence() throws RecognitionException {
         try {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:833:2: ( 'u' HexDigit HexDigit HexDigit HexDigit )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:833:4: 'u' HexDigit HexDigit HexDigit HexDigit
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:833:2: ( 'u' HexDigit HexDigit HexDigit HexDigit )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:833:4: 'u' HexDigit HexDigit HexDigit HexDigit
             {
             match('u'); 
             mHexDigit(); 
@@ -4013,11 +4013,11 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "EscapeSequence"
     public final void mEscapeSequence() throws RecognitionException {
         try {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:837:2: ( BSLASH ( CharacterEscapeSequence | OctalEscapeSequence | HexEscapeSequence | UnicodeEscapeSequence ) )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:838:2: BSLASH ( CharacterEscapeSequence | OctalEscapeSequence | HexEscapeSequence | UnicodeEscapeSequence )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:837:2: ( BSLASH ( CharacterEscapeSequence | OctalEscapeSequence | HexEscapeSequence | UnicodeEscapeSequence ) )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:838:2: BSLASH ( CharacterEscapeSequence | OctalEscapeSequence | HexEscapeSequence | UnicodeEscapeSequence )
             {
             mBSLASH(); 
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:839:2: ( CharacterEscapeSequence | OctalEscapeSequence | HexEscapeSequence | UnicodeEscapeSequence )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:839:2: ( CharacterEscapeSequence | OctalEscapeSequence | HexEscapeSequence | UnicodeEscapeSequence )
             int alt24=4;
             int LA24_0 = input.LA(1);
 
@@ -4041,28 +4041,28 @@ public class ES3YUITestLexer extends Lexer {
             }
             switch (alt24) {
                 case 1 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:840:3: CharacterEscapeSequence
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:840:3: CharacterEscapeSequence
                     {
                     mCharacterEscapeSequence(); 
 
                     }
                     break;
                 case 2 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:841:5: OctalEscapeSequence
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:841:5: OctalEscapeSequence
                     {
                     mOctalEscapeSequence(); 
 
                     }
                     break;
                 case 3 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:842:5: HexEscapeSequence
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:842:5: HexEscapeSequence
                     {
                     mHexEscapeSequence(); 
 
                     }
                     break;
                 case 4 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:843:5: UnicodeEscapeSequence
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:843:5: UnicodeEscapeSequence
                     {
                     mUnicodeEscapeSequence(); 
 
@@ -4085,7 +4085,7 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = StringLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:848:2: ( SQUOTE (~ ( SQUOTE | BSLASH | LineTerminator ) | EscapeSequence )* SQUOTE | DQUOTE (~ ( DQUOTE | BSLASH | LineTerminator ) | EscapeSequence )* DQUOTE )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:848:2: ( SQUOTE (~ ( SQUOTE | BSLASH | LineTerminator ) | EscapeSequence )* SQUOTE | DQUOTE (~ ( DQUOTE | BSLASH | LineTerminator ) | EscapeSequence )* DQUOTE )
             int alt27=2;
             int LA27_0 = input.LA(1);
 
@@ -4103,10 +4103,10 @@ public class ES3YUITestLexer extends Lexer {
             }
             switch (alt27) {
                 case 1 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:848:4: SQUOTE (~ ( SQUOTE | BSLASH | LineTerminator ) | EscapeSequence )* SQUOTE
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:848:4: SQUOTE (~ ( SQUOTE | BSLASH | LineTerminator ) | EscapeSequence )* SQUOTE
                     {
                     mSQUOTE(); 
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:848:11: (~ ( SQUOTE | BSLASH | LineTerminator ) | EscapeSequence )*
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:848:11: (~ ( SQUOTE | BSLASH | LineTerminator ) | EscapeSequence )*
                     loop25:
                     do {
                         int alt25=3;
@@ -4122,7 +4122,7 @@ public class ES3YUITestLexer extends Lexer {
 
                         switch (alt25) {
                     	case 1 :
-                    	    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:848:13: ~ ( SQUOTE | BSLASH | LineTerminator )
+                    	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:848:13: ~ ( SQUOTE | BSLASH | LineTerminator )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\u2027')||(input.LA(1)>='\u202A' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -4137,7 +4137,7 @@ public class ES3YUITestLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:848:53: EscapeSequence
+                    	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:848:53: EscapeSequence
                     	    {
                     	    mEscapeSequence(); 
 
@@ -4154,10 +4154,10 @@ public class ES3YUITestLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:849:4: DQUOTE (~ ( DQUOTE | BSLASH | LineTerminator ) | EscapeSequence )* DQUOTE
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:849:4: DQUOTE (~ ( DQUOTE | BSLASH | LineTerminator ) | EscapeSequence )* DQUOTE
                     {
                     mDQUOTE(); 
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:849:11: (~ ( DQUOTE | BSLASH | LineTerminator ) | EscapeSequence )*
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:849:11: (~ ( DQUOTE | BSLASH | LineTerminator ) | EscapeSequence )*
                     loop26:
                     do {
                         int alt26=3;
@@ -4173,7 +4173,7 @@ public class ES3YUITestLexer extends Lexer {
 
                         switch (alt26) {
                     	case 1 :
-                    	    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:849:13: ~ ( DQUOTE | BSLASH | LineTerminator )
+                    	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:849:13: ~ ( DQUOTE | BSLASH | LineTerminator )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\u2027')||(input.LA(1)>='\u202A' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -4188,7 +4188,7 @@ public class ES3YUITestLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:849:53: EscapeSequence
+                    	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:849:53: EscapeSequence
                     	    {
                     	    mEscapeSequence(); 
 
@@ -4217,8 +4217,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "BackslashSequence"
     public final void mBackslashSequence() throws RecognitionException {
         try {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:857:2: ( BSLASH ~ ( LineTerminator ) )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:857:4: BSLASH ~ ( LineTerminator )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:857:2: ( BSLASH ~ ( LineTerminator ) )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:857:4: BSLASH ~ ( LineTerminator )
             {
             mBSLASH(); 
             if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\u2027')||(input.LA(1)>='\u202A' && input.LA(1)<='\uFFFF') ) {
@@ -4242,7 +4242,7 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "RegularExpressionFirstChar"
     public final void mRegularExpressionFirstChar() throws RecognitionException {
         try {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:861:2: (~ ( LineTerminator | MUL | BSLASH | DIV ) | BackslashSequence )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:861:2: (~ ( LineTerminator | MUL | BSLASH | DIV ) | BackslashSequence )
             int alt28=2;
             int LA28_0 = input.LA(1);
 
@@ -4260,7 +4260,7 @@ public class ES3YUITestLexer extends Lexer {
             }
             switch (alt28) {
                 case 1 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:861:4: ~ ( LineTerminator | MUL | BSLASH | DIV )
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:861:4: ~ ( LineTerminator | MUL | BSLASH | DIV )
                     {
                     if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<=')')||(input.LA(1)>='+' && input.LA(1)<='.')||(input.LA(1)>='0' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\u2027')||(input.LA(1)>='\u202A' && input.LA(1)<='\uFFFF') ) {
                         input.consume();
@@ -4275,7 +4275,7 @@ public class ES3YUITestLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:862:4: BackslashSequence
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:862:4: BackslashSequence
                     {
                     mBackslashSequence(); 
 
@@ -4292,7 +4292,7 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "RegularExpressionChar"
     public final void mRegularExpressionChar() throws RecognitionException {
         try {
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:866:2: (~ ( LineTerminator | BSLASH | DIV ) | BackslashSequence )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:866:2: (~ ( LineTerminator | BSLASH | DIV ) | BackslashSequence )
             int alt29=2;
             int LA29_0 = input.LA(1);
 
@@ -4310,7 +4310,7 @@ public class ES3YUITestLexer extends Lexer {
             }
             switch (alt29) {
                 case 1 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:866:4: ~ ( LineTerminator | BSLASH | DIV )
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:866:4: ~ ( LineTerminator | BSLASH | DIV )
                     {
                     if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='.')||(input.LA(1)>='0' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\u2027')||(input.LA(1)>='\u202A' && input.LA(1)<='\uFFFF') ) {
                         input.consume();
@@ -4325,7 +4325,7 @@ public class ES3YUITestLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:867:4: BackslashSequence
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:867:4: BackslashSequence
                     {
                     mBackslashSequence(); 
 
@@ -4344,15 +4344,15 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = RegularExpressionLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:871:2: ({...}? => DIV RegularExpressionFirstChar ( RegularExpressionChar )* DIV ( IdentifierPart )* )
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:871:4: {...}? => DIV RegularExpressionFirstChar ( RegularExpressionChar )* DIV ( IdentifierPart )*
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:871:2: ({...}? => DIV RegularExpressionFirstChar ( RegularExpressionChar )* DIV ( IdentifierPart )* )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:871:4: {...}? => DIV RegularExpressionFirstChar ( RegularExpressionChar )* DIV ( IdentifierPart )*
             {
             if ( !(( areRegularExpressionsEnabled() )) ) {
                 throw new FailedPredicateException(input, "RegularExpressionLiteral", " areRegularExpressionsEnabled() ");
             }
             mDIV(); 
             mRegularExpressionFirstChar(); 
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:871:73: ( RegularExpressionChar )*
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:871:73: ( RegularExpressionChar )*
             loop30:
             do {
                 int alt30=2;
@@ -4365,7 +4365,7 @@ public class ES3YUITestLexer extends Lexer {
 
                 switch (alt30) {
             	case 1 :
-            	    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:871:73: RegularExpressionChar
+            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:871:73: RegularExpressionChar
             	    {
             	    mRegularExpressionChar(); 
 
@@ -4378,7 +4378,7 @@ public class ES3YUITestLexer extends Lexer {
             } while (true);
 
             mDIV(); 
-            // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:871:100: ( IdentifierPart )*
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:871:100: ( IdentifierPart )*
             loop31:
             do {
                 int alt31=2;
@@ -4394,7 +4394,7 @@ public class ES3YUITestLexer extends Lexer {
 
                 switch (alt31) {
             	case 1 :
-            	    // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:871:100: IdentifierPart
+            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:871:100: IdentifierPart
             	    {
             	    mIdentifierPart(); 
 
@@ -4418,824 +4418,824 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR end "RegularExpressionLiteral"
 
     public void mTokens() throws RecognitionException {
-        // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:8: ( NULL | TRUE | FALSE | BREAK | CASE | CATCH | CONTINUE | DEFAULT | DELETE | DO | ELSE | FINALLY | FOR | FUNCTION | IF | IN | INSTANCEOF | NEW | RETURN | SWITCH | THIS | THROW | TRY | TYPEOF | VAR | VOID | WHILE | WITH | ABSTRACT | BOOLEAN | BYTE | CHAR | CLASS | CONST | DEBUGGER | DOUBLE | ENUM | EXPORT | EXTENDS | FINAL | FLOAT | GOTO | IMPLEMENTS | IMPORT | INT | INTERFACE | LONG | NATIVE | PACKAGE | PRIVATE | PROTECTED | PUBLIC | SHORT | STATIC | SUPER | SYNCHRONIZED | THROWS | TRANSIENT | VOLATILE | LBRACE | RBRACE | LPAREN | RPAREN | LBRACK | RBRACK | DOT | SEMIC | COMMA | LT | GT | LTE | GTE | EQ | NEQ | SAME | NSAME | ADD | SUB | MUL | MOD | INC | DEC | SHL | SHR | SHU | AND | OR | XOR | NOT | INV | LAND | LOR | QUE | COLON | ASSIGN | ADDASS | SUBASS | MULASS | MODASS | SHLASS | SHRASS | SHUASS | ANDASS | ORASS | XORASS | DIV | DIVASS | WhiteSpace | EOL | MultiLineComment | SingleLineComment | Identifier | DecimalLiteral | OctalIntegerLiteral | HexIntegerLiteral | StringLiteral | RegularExpressionLiteral )
+        // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:8: ( NULL | TRUE | FALSE | BREAK | CASE | CATCH | CONTINUE | DEFAULT | DELETE | DO | ELSE | FINALLY | FOR | FUNCTION | IF | IN | INSTANCEOF | NEW | RETURN | SWITCH | THIS | THROW | TRY | TYPEOF | VAR | VOID | WHILE | WITH | ABSTRACT | BOOLEAN | BYTE | CHAR | CLASS | CONST | DEBUGGER | DOUBLE | ENUM | EXPORT | EXTENDS | FINAL | FLOAT | GOTO | IMPLEMENTS | IMPORT | INT | INTERFACE | LONG | NATIVE | PACKAGE | PRIVATE | PROTECTED | PUBLIC | SHORT | STATIC | SUPER | SYNCHRONIZED | THROWS | TRANSIENT | VOLATILE | LBRACE | RBRACE | LPAREN | RPAREN | LBRACK | RBRACK | DOT | SEMIC | COMMA | LT | GT | LTE | GTE | EQ | NEQ | SAME | NSAME | ADD | SUB | MUL | MOD | INC | DEC | SHL | SHR | SHU | AND | OR | XOR | NOT | INV | LAND | LOR | QUE | COLON | ASSIGN | ADDASS | SUBASS | MULASS | MODASS | SHLASS | SHRASS | SHUASS | ANDASS | ORASS | XORASS | DIV | DIVASS | WhiteSpace | EOL | MultiLineComment | SingleLineComment | Identifier | DecimalLiteral | OctalIntegerLiteral | HexIntegerLiteral | StringLiteral | RegularExpressionLiteral )
         int alt32=117;
         alt32 = dfa32.predict(input);
         switch (alt32) {
             case 1 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:10: NULL
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:10: NULL
                 {
                 mNULL(); 
 
                 }
                 break;
             case 2 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:15: TRUE
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:15: TRUE
                 {
                 mTRUE(); 
 
                 }
                 break;
             case 3 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:20: FALSE
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:20: FALSE
                 {
                 mFALSE(); 
 
                 }
                 break;
             case 4 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:26: BREAK
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:26: BREAK
                 {
                 mBREAK(); 
 
                 }
                 break;
             case 5 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:32: CASE
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:32: CASE
                 {
                 mCASE(); 
 
                 }
                 break;
             case 6 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:37: CATCH
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:37: CATCH
                 {
                 mCATCH(); 
 
                 }
                 break;
             case 7 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:43: CONTINUE
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:43: CONTINUE
                 {
                 mCONTINUE(); 
 
                 }
                 break;
             case 8 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:52: DEFAULT
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:52: DEFAULT
                 {
                 mDEFAULT(); 
 
                 }
                 break;
             case 9 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:60: DELETE
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:60: DELETE
                 {
                 mDELETE(); 
 
                 }
                 break;
             case 10 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:67: DO
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:67: DO
                 {
                 mDO(); 
 
                 }
                 break;
             case 11 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:70: ELSE
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:70: ELSE
                 {
                 mELSE(); 
 
                 }
                 break;
             case 12 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:75: FINALLY
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:75: FINALLY
                 {
                 mFINALLY(); 
 
                 }
                 break;
             case 13 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:83: FOR
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:83: FOR
                 {
                 mFOR(); 
 
                 }
                 break;
             case 14 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:87: FUNCTION
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:87: FUNCTION
                 {
                 mFUNCTION(); 
 
                 }
                 break;
             case 15 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:96: IF
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:96: IF
                 {
                 mIF(); 
 
                 }
                 break;
             case 16 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:99: IN
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:99: IN
                 {
                 mIN(); 
 
                 }
                 break;
             case 17 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:102: INSTANCEOF
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:102: INSTANCEOF
                 {
                 mINSTANCEOF(); 
 
                 }
                 break;
             case 18 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:113: NEW
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:113: NEW
                 {
                 mNEW(); 
 
                 }
                 break;
             case 19 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:117: RETURN
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:117: RETURN
                 {
                 mRETURN(); 
 
                 }
                 break;
             case 20 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:124: SWITCH
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:124: SWITCH
                 {
                 mSWITCH(); 
 
                 }
                 break;
             case 21 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:131: THIS
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:131: THIS
                 {
                 mTHIS(); 
 
                 }
                 break;
             case 22 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:136: THROW
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:136: THROW
                 {
                 mTHROW(); 
 
                 }
                 break;
             case 23 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:142: TRY
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:142: TRY
                 {
                 mTRY(); 
 
                 }
                 break;
             case 24 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:146: TYPEOF
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:146: TYPEOF
                 {
                 mTYPEOF(); 
 
                 }
                 break;
             case 25 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:153: VAR
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:153: VAR
                 {
                 mVAR(); 
 
                 }
                 break;
             case 26 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:157: VOID
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:157: VOID
                 {
                 mVOID(); 
 
                 }
                 break;
             case 27 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:162: WHILE
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:162: WHILE
                 {
                 mWHILE(); 
 
                 }
                 break;
             case 28 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:168: WITH
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:168: WITH
                 {
                 mWITH(); 
 
                 }
                 break;
             case 29 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:173: ABSTRACT
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:173: ABSTRACT
                 {
                 mABSTRACT(); 
 
                 }
                 break;
             case 30 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:182: BOOLEAN
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:182: BOOLEAN
                 {
                 mBOOLEAN(); 
 
                 }
                 break;
             case 31 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:190: BYTE
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:190: BYTE
                 {
                 mBYTE(); 
 
                 }
                 break;
             case 32 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:195: CHAR
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:195: CHAR
                 {
                 mCHAR(); 
 
                 }
                 break;
             case 33 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:200: CLASS
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:200: CLASS
                 {
                 mCLASS(); 
 
                 }
                 break;
             case 34 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:206: CONST
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:206: CONST
                 {
                 mCONST(); 
 
                 }
                 break;
             case 35 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:212: DEBUGGER
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:212: DEBUGGER
                 {
                 mDEBUGGER(); 
 
                 }
                 break;
             case 36 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:221: DOUBLE
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:221: DOUBLE
                 {
                 mDOUBLE(); 
 
                 }
                 break;
             case 37 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:228: ENUM
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:228: ENUM
                 {
                 mENUM(); 
 
                 }
                 break;
             case 38 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:233: EXPORT
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:233: EXPORT
                 {
                 mEXPORT(); 
 
                 }
                 break;
             case 39 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:240: EXTENDS
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:240: EXTENDS
                 {
                 mEXTENDS(); 
 
                 }
                 break;
             case 40 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:248: FINAL
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:248: FINAL
                 {
                 mFINAL(); 
 
                 }
                 break;
             case 41 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:254: FLOAT
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:254: FLOAT
                 {
                 mFLOAT(); 
 
                 }
                 break;
             case 42 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:260: GOTO
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:260: GOTO
                 {
                 mGOTO(); 
 
                 }
                 break;
             case 43 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:265: IMPLEMENTS
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:265: IMPLEMENTS
                 {
                 mIMPLEMENTS(); 
 
                 }
                 break;
             case 44 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:276: IMPORT
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:276: IMPORT
                 {
                 mIMPORT(); 
 
                 }
                 break;
             case 45 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:283: INT
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:283: INT
                 {
                 mINT(); 
 
                 }
                 break;
             case 46 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:287: INTERFACE
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:287: INTERFACE
                 {
                 mINTERFACE(); 
 
                 }
                 break;
             case 47 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:297: LONG
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:297: LONG
                 {
                 mLONG(); 
 
                 }
                 break;
             case 48 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:302: NATIVE
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:302: NATIVE
                 {
                 mNATIVE(); 
 
                 }
                 break;
             case 49 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:309: PACKAGE
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:309: PACKAGE
                 {
                 mPACKAGE(); 
 
                 }
                 break;
             case 50 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:317: PRIVATE
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:317: PRIVATE
                 {
                 mPRIVATE(); 
 
                 }
                 break;
             case 51 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:325: PROTECTED
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:325: PROTECTED
                 {
                 mPROTECTED(); 
 
                 }
                 break;
             case 52 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:335: PUBLIC
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:335: PUBLIC
                 {
                 mPUBLIC(); 
 
                 }
                 break;
             case 53 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:342: SHORT
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:342: SHORT
                 {
                 mSHORT(); 
 
                 }
                 break;
             case 54 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:348: STATIC
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:348: STATIC
                 {
                 mSTATIC(); 
 
                 }
                 break;
             case 55 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:355: SUPER
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:355: SUPER
                 {
                 mSUPER(); 
 
                 }
                 break;
             case 56 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:361: SYNCHRONIZED
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:361: SYNCHRONIZED
                 {
                 mSYNCHRONIZED(); 
 
                 }
                 break;
             case 57 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:374: THROWS
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:374: THROWS
                 {
                 mTHROWS(); 
 
                 }
                 break;
             case 58 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:381: TRANSIENT
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:381: TRANSIENT
                 {
                 mTRANSIENT(); 
 
                 }
                 break;
             case 59 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:391: VOLATILE
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:391: VOLATILE
                 {
                 mVOLATILE(); 
 
                 }
                 break;
             case 60 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:400: LBRACE
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:400: LBRACE
                 {
                 mLBRACE(); 
 
                 }
                 break;
             case 61 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:407: RBRACE
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:407: RBRACE
                 {
                 mRBRACE(); 
 
                 }
                 break;
             case 62 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:414: LPAREN
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:414: LPAREN
                 {
                 mLPAREN(); 
 
                 }
                 break;
             case 63 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:421: RPAREN
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:421: RPAREN
                 {
                 mRPAREN(); 
 
                 }
                 break;
             case 64 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:428: LBRACK
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:428: LBRACK
                 {
                 mLBRACK(); 
 
                 }
                 break;
             case 65 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:435: RBRACK
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:435: RBRACK
                 {
                 mRBRACK(); 
 
                 }
                 break;
             case 66 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:442: DOT
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:442: DOT
                 {
                 mDOT(); 
 
                 }
                 break;
             case 67 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:446: SEMIC
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:446: SEMIC
                 {
                 mSEMIC(); 
 
                 }
                 break;
             case 68 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:452: COMMA
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:452: COMMA
                 {
                 mCOMMA(); 
 
                 }
                 break;
             case 69 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:458: LT
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:458: LT
                 {
                 mLT(); 
 
                 }
                 break;
             case 70 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:461: GT
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:461: GT
                 {
                 mGT(); 
 
                 }
                 break;
             case 71 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:464: LTE
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:464: LTE
                 {
                 mLTE(); 
 
                 }
                 break;
             case 72 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:468: GTE
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:468: GTE
                 {
                 mGTE(); 
 
                 }
                 break;
             case 73 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:472: EQ
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:472: EQ
                 {
                 mEQ(); 
 
                 }
                 break;
             case 74 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:475: NEQ
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:475: NEQ
                 {
                 mNEQ(); 
 
                 }
                 break;
             case 75 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:479: SAME
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:479: SAME
                 {
                 mSAME(); 
 
                 }
                 break;
             case 76 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:484: NSAME
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:484: NSAME
                 {
                 mNSAME(); 
 
                 }
                 break;
             case 77 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:490: ADD
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:490: ADD
                 {
                 mADD(); 
 
                 }
                 break;
             case 78 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:494: SUB
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:494: SUB
                 {
                 mSUB(); 
 
                 }
                 break;
             case 79 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:498: MUL
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:498: MUL
                 {
                 mMUL(); 
 
                 }
                 break;
             case 80 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:502: MOD
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:502: MOD
                 {
                 mMOD(); 
 
                 }
                 break;
             case 81 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:506: INC
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:506: INC
                 {
                 mINC(); 
 
                 }
                 break;
             case 82 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:510: DEC
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:510: DEC
                 {
                 mDEC(); 
 
                 }
                 break;
             case 83 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:514: SHL
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:514: SHL
                 {
                 mSHL(); 
 
                 }
                 break;
             case 84 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:518: SHR
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:518: SHR
                 {
                 mSHR(); 
 
                 }
                 break;
             case 85 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:522: SHU
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:522: SHU
                 {
                 mSHU(); 
 
                 }
                 break;
             case 86 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:526: AND
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:526: AND
                 {
                 mAND(); 
 
                 }
                 break;
             case 87 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:530: OR
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:530: OR
                 {
                 mOR(); 
 
                 }
                 break;
             case 88 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:533: XOR
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:533: XOR
                 {
                 mXOR(); 
 
                 }
                 break;
             case 89 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:537: NOT
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:537: NOT
                 {
                 mNOT(); 
 
                 }
                 break;
             case 90 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:541: INV
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:541: INV
                 {
                 mINV(); 
 
                 }
                 break;
             case 91 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:545: LAND
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:545: LAND
                 {
                 mLAND(); 
 
                 }
                 break;
             case 92 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:550: LOR
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:550: LOR
                 {
                 mLOR(); 
 
                 }
                 break;
             case 93 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:554: QUE
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:554: QUE
                 {
                 mQUE(); 
 
                 }
                 break;
             case 94 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:558: COLON
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:558: COLON
                 {
                 mCOLON(); 
 
                 }
                 break;
             case 95 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:564: ASSIGN
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:564: ASSIGN
                 {
                 mASSIGN(); 
 
                 }
                 break;
             case 96 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:571: ADDASS
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:571: ADDASS
                 {
                 mADDASS(); 
 
                 }
                 break;
             case 97 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:578: SUBASS
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:578: SUBASS
                 {
                 mSUBASS(); 
 
                 }
                 break;
             case 98 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:585: MULASS
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:585: MULASS
                 {
                 mMULASS(); 
 
                 }
                 break;
             case 99 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:592: MODASS
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:592: MODASS
                 {
                 mMODASS(); 
 
                 }
                 break;
             case 100 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:599: SHLASS
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:599: SHLASS
                 {
                 mSHLASS(); 
 
                 }
                 break;
             case 101 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:606: SHRASS
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:606: SHRASS
                 {
                 mSHRASS(); 
 
                 }
                 break;
             case 102 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:613: SHUASS
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:613: SHUASS
                 {
                 mSHUASS(); 
 
                 }
                 break;
             case 103 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:620: ANDASS
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:620: ANDASS
                 {
                 mANDASS(); 
 
                 }
                 break;
             case 104 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:627: ORASS
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:627: ORASS
                 {
                 mORASS(); 
 
                 }
                 break;
             case 105 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:633: XORASS
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:633: XORASS
                 {
                 mXORASS(); 
 
                 }
                 break;
             case 106 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:640: DIV
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:640: DIV
                 {
                 mDIV(); 
 
                 }
                 break;
             case 107 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:644: DIVASS
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:644: DIVASS
                 {
                 mDIVASS(); 
 
                 }
                 break;
             case 108 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:651: WhiteSpace
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:651: WhiteSpace
                 {
                 mWhiteSpace(); 
 
                 }
                 break;
             case 109 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:662: EOL
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:662: EOL
                 {
                 mEOL(); 
 
                 }
                 break;
             case 110 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:666: MultiLineComment
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:666: MultiLineComment
                 {
                 mMultiLineComment(); 
 
                 }
                 break;
             case 111 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:683: SingleLineComment
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:683: SingleLineComment
                 {
                 mSingleLineComment(); 
 
                 }
                 break;
             case 112 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:701: Identifier
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:701: Identifier
                 {
                 mIdentifier(); 
 
                 }
                 break;
             case 113 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:712: DecimalLiteral
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:712: DecimalLiteral
                 {
                 mDecimalLiteral(); 
 
                 }
                 break;
             case 114 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:727: OctalIntegerLiteral
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:727: OctalIntegerLiteral
                 {
                 mOctalIntegerLiteral(); 
 
                 }
                 break;
             case 115 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:747: HexIntegerLiteral
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:747: HexIntegerLiteral
                 {
                 mHexIntegerLiteral(); 
 
                 }
                 break;
             case 116 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:765: StringLiteral
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:765: StringLiteral
                 {
                 mStringLiteral(); 
 
                 }
                 break;
             case 117 :
-                // I:\\My Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:779: RegularExpressionLiteral
+                // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1:779: RegularExpressionLiteral
                 {
                 mRegularExpressionLiteral(); 
 

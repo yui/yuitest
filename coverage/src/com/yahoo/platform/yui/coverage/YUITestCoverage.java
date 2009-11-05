@@ -29,14 +29,14 @@ public class YUITestCoverage {
         CmdLineParser.Option helpOpt = parser.addBooleanOption('h', "help");
         CmdLineParser.Option charsetOpt = parser.addStringOption("charset");
         CmdLineParser.Option reportOpt = parser.addStringOption("report");
-        CmdLineParser.Option outputFilenameOpt = parser.addStringOption('o', "output");
-
-
+        CmdLineParser.Option outputLocationOpt = parser.addStringOption('o', "output");
+        CmdLineParser.Option directoryOpt = parser.addBooleanOption('d', "dir");
 
         Reader in = null;
         Writer out = null;
 
         try {
+
 
             parser.parse(args);
 
@@ -61,49 +61,60 @@ public class YUITestCoverage {
                     System.err.println("\n[INFO] Using charset " + charset);
                 }
             }
-            
+
             //report option
-            String outputReportDir = (String) parser.getOptionValue(reportOpt);            
-            
+            String outputReportDir = (String) parser.getOptionValue(reportOpt);
+
             //get the files to operate on
             String[] fileArgs = parser.getRemainingArgs();
 
             if (fileArgs.length == 0) {
-
                 usage();
                 System.exit(1);
-                
-            } else {
-               
-                in = new InputStreamReader(new FileInputStream(fileArgs[0]), charset);
-            }                           
+            } 
 
             if (outputReportDir != null){  //report mode
 
                 if (verbose) {
                     System.err.println("\n[INFO] Preparing to generate coverage reports.");
-                }                
-                
-                CoverageReport fullReport = new CoverageReport(in);   
+                }
+
+                CoverageReport fullReport = new CoverageReport(in);
                 ReportGenerator.setVerbose(verbose);
                 ReportGenerator.generateAll(fullReport, outputReportDir, charset);
 
-            } else {  //cover mode
+            } else {  //instrument mode
 
-                if (verbose) {
-                    System.err.println("\n[INFO] Preparing to instrument JavaScript file " + fileArgs[0] + ".");
-                }                 
-                
-                String outputFilename = (String) parser.getOptionValue(outputFilenameOpt);                                 
-                JavaScriptInstrumenter instrumenter = new JavaScriptInstrumenter(in, fileArgs[0]);
+                String outputLocation = (String) parser.getOptionValue(outputLocationOpt);
+                Boolean directories = parser.getOptionValue(directoryOpt) != null;
 
-                if (outputFilename == null) {
+                if (outputLocation == null){
+                    if (directories){
+                        throw new Exception("-o option is required with -d option.");
+                    }
+                    if (verbose) {
+                        System.err.println("\n[INFO] Preparing to instrument JavaScript file " + fileArgs[0] + ".");
+                    }
+
+                    in = new InputStreamReader(new FileInputStream(fileArgs[0]), charset);
+                    JavaScriptInstrumenter instrumenter = new JavaScriptInstrumenter(in, fileArgs[0]);
                     out = new OutputStreamWriter(System.out, charset);
-                } else {
-                    out = new OutputStreamWriter(new FileOutputStream(outputFilename), charset);
-                }
+                    instrumenter.instrument(out, verbose);
+                } else{
 
-                instrumenter.instrument(out, verbose);
+                    if (directories){
+                        DirectoryInstrumenter.setVerbose(verbose);
+
+                        //in this case fileArgs[0] and outputLocation are directories
+                        DirectoryInstrumenter.instrument(fileArgs[0], outputLocation);
+                    } else {
+                        FileInstrumenter.setVerbose(verbose);
+
+                        //in this case fileArgs[0] and outputLocation are files
+                        FileInstrumenter.instrument(fileArgs[0], outputLocation);
+                    }
+                }
+                
             }
 
 
@@ -145,15 +156,16 @@ public class YUITestCoverage {
 
     private static void usage() {
         System.out.println(
-                "\nUsage: java -jar yuitestcoverage-x.y.z.jar [options] [input file]\n\n"
+                "\nUsage: java -jar yuitest-coverage-x.y.z.jar [options] [file|dir]\n\n"
 
                         + "Global Options\n"
-                        + "  -h, --help                Displays this information.\n"
-                        + "  --charset <charset>       Read the input file using <charset>.\n"
-                        + "  --report <directory>      Output HTML reports to <directory>.\n"
-                        + "                            Input file is assumed to be a coverage report.\n"                        
-                        + "  -v, --verbose             Display informational messages and warnings.\n"
-                        + "  -o <file>                 Place the output into <file>. Defaults to stdout.\n\n");
+                        + "  -h, --help              Displays this information.\n"
+                        + "  --charset <charset>     Read the input file using <charset>.\n"
+                        + "  --report <directory>    Output HTML reports to <directory>.\n"
+                        + "                          Input file is assumed to be a coverage report.\n"
+                        + "  -d, --dir               Input and output (-o) are both directories.\n"
+                        + "  -v, --verbose           Display informational messages and warnings.\n"
+                        + "  -o <file|dir>           Place the output into <file|dir>. Defaults to stdout.\n\n");
     }
 
 

@@ -79,6 +79,7 @@ public class YUITestCoverage {
                     System.err.println("\n[INFO] Preparing to generate coverage reports.");
                 }
 
+                in = new InputStreamReader(new FileInputStream(fileArgs[0]), charset);
                 CoverageReport fullReport = new CoverageReport(in);
                 ReportGenerator.setVerbose(verbose);
                 ReportGenerator.generateAll(fullReport, outputReportDir, charset);

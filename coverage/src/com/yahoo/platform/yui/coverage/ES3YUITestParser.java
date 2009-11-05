@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g 2009-11-04 16:50:13
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g 2009-11-04 16:57:49
 
 /*
  * YUI Test Coverage
@@ -4657,7 +4657,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "ifStatement"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1311:1: ifStatement : IF LPAREN expression RPAREN statement ({...}? elseStatement )? -> template(p=input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)body=wrapInBraces($statement.start, $statement.stop, input)elseClause=\n\t $elseStatement.stop != null ? input.toString($statement.stop.getTokenIndex()+1, $elseStatement.stop.getTokenIndex() ) : null) \"<p><body><elseClause>\";
+    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1311:1: ifStatement : IF LPAREN expression RPAREN statement ({...}? elseStatement )? -> template(p=input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)body=wrapInBraces($statement.start, $statement.stop, input)elseClause=\r\n\t $elseStatement.stop != null ? input.toString($statement.stop.getTokenIndex()+1, $elseStatement.stop.getTokenIndex() ) : null) \"<p><body><elseClause>\";
     public final ES3YUITestParser.ifStatement_return ifStatement() throws RecognitionException {
         ES3YUITestParser.ifStatement_return retval = new ES3YUITestParser.ifStatement_return();
         retval.start = input.LT(1);
@@ -4668,7 +4668,7 @@ public class ES3YUITestParser extends Parser {
 
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1313:2: ( IF LPAREN expression RPAREN statement ({...}? elseStatement )? -> template(p=input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)body=wrapInBraces($statement.start, $statement.stop, input)elseClause=\n\t $elseStatement.stop != null ? input.toString($statement.stop.getTokenIndex()+1, $elseStatement.stop.getTokenIndex() ) : null) \"<p><body><elseClause>\")
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1313:2: ( IF LPAREN expression RPAREN statement ({...}? elseStatement )? -> template(p=input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)body=wrapInBraces($statement.start, $statement.stop, input)elseClause=\r\n\t $elseStatement.stop != null ? input.toString($statement.stop.getTokenIndex()+1, $elseStatement.stop.getTokenIndex() ) : null) \"<p><body><elseClause>\")
             // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\coverage\\src\\com\\yahoo\\platform\\yui\\coverage\\grammar\\ES3YUITest.g:1313:4: IF LPAREN expression RPAREN statement ({...}? elseStatement )?
             {
             match(input,IF,FOLLOW_IF_in_ifStatement4628); 
@@ -4716,7 +4716,7 @@ public class ES3YUITestParser extends Parser {
 
 
             // TEMPLATE REWRITE
-            // 1315:2: -> template(p=input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)body=wrapInBraces($statement.start, $statement.stop, input)elseClause=\n\t $elseStatement.stop != null ? input.toString($statement.stop.getTokenIndex()+1, $elseStatement.stop.getTokenIndex() ) : null) \"<p><body><elseClause>\"
+            // 1315:2: -> template(p=input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)body=wrapInBraces($statement.start, $statement.stop, input)elseClause=\r\n\t $elseStatement.stop != null ? input.toString($statement.stop.getTokenIndex()+1, $elseStatement.stop.getTokenIndex() ) : null) \"<p><body><elseClause>\"
             {
                 retval.st = new StringTemplate(templateLib, "<p><body><elseClause>",
               new STAttrMap().put("p", input.toString(((Token)retval.start).getTokenIndex(), (statement1!=null?((Token)statement1.start):null).getTokenIndex() - 1)).put("body", wrapInBraces((statement1!=null?((Token)statement1.start):null), (statement1!=null?((Token)statement1.stop):null), input)).put("elseClause", 

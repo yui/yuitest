@@ -39,7 +39,24 @@ public class CoverageReport {
     public CoverageReport(File file) throws IOException, JSONException {
         this(new InputStreamReader(new FileInputStream(file)));
     }
-    
+
+    /**
+     * Creates a new report object from data in multiple files.
+     * @param file The file from which to read the JSON data.
+     * @throws java.io.IOException
+     * @throws org.json.JSONException
+     */
+    public CoverageReport(File[] files) throws IOException, JSONException {
+
+        //start with the first file
+        this(files[0]);
+
+        //include the others
+        for (int i=1; i < files.length; i++){
+            include(new CoverageReport(files[i]));
+        }
+    }
+
     /**
      * Creates a new report object from a reader.
      * @param in The reader containing JSON information.
@@ -117,6 +134,24 @@ public class CoverageReport {
             }
         }
         return null;
+    }
+
+    public JSONObject toJSONObject(){
+        return data;
+    }
+
+    /**
+     * Include another report's data in this report.
+     * @param otherReport The other report to include.
+     */
+    public void include(CoverageReport otherReport) throws JSONException{
+
+        JSONObject otherData = otherReport.toJSONObject();
+        String[] keys = JSONObject.getNames(otherData);
+
+        for (int i=0; i < keys.length; i++){
+            data.put(keys[i], otherData.getJSONObject(keys[i]));
+        }
     }
     
 }

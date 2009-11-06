@@ -10,12 +10,7 @@ package com.yahoo.platform.yui.selenium;
 
 import com.thoughtworks.selenium.DefaultSelenium;
 import com.thoughtworks.selenium.Selenium;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import com.thoughtworks.selenium.SeleniumException;
 import java.util.HashMap;
 import java.util.Properties;
 
@@ -176,6 +171,11 @@ public class SeleniumDriver {
             coverage = selenium.getEval(testCoverage);
             name = selenium.getEval(testName);
 
+        } catch (SeleniumException ex){
+
+            //probably not a valid page
+            throw new Exception("Selenium failed with message: " + ex.getMessage() + ". Check the test URL " + url + " to ensure it is valid.", ex);
+
         } catch (Exception ex){
             //TODO: What should happen here? Default file generation?
             throw ex;
@@ -184,63 +184,21 @@ public class SeleniumDriver {
                 selenium.stop();
             }
         }
+
+        //save the results
         try {
+            FileGenerator generator = new FileGenerator(properties, verbose);
             //output the reports
-            outputToFile(name, results, "results", browser);
+            generator.generate(name, results, "results", browser);
             if (!coverage.equals("null")){
-                outputToFile(name, coverage, "coverage", browser);
+                generator.generate(name, coverage, "coverage", browser);
             }
             
         } catch (Exception ex){
             //what to do?
             throw ex;
         }
-    }
-    
-    private void outputToFile(String name, String results, String type, String browser) throws Exception {
-        String dirname = properties.getProperty(type + ".outputdir");
-        String filenameFormat = properties.getProperty(type + ".filename");
-        
-        if (dirname == null){
-            throw new Exception("Missing '" + type + ".outputdir' configuration parameter.");            
-        }
-        
-        if (filenameFormat == null){
-            throw new Exception("Missing '" + type + ".outputdir' configuration parameter.");            
-        }
-        
-        //format filename
-        String filename = filenameFormat.replace("{browser}", browser.replace("*", "")).replace("{name}", name).trim();
-        
-        int pos = filename.indexOf("{date:");
-
-        if (pos > -1){
-
-            int endpos = filename.indexOf("}", pos);
-            String format = filename.substring(pos + 6, endpos);
-            
-            //get the format
-            Date now = new Date();
-            SimpleDateFormat formatter = new SimpleDateFormat(format);
-            
-            //insert into filename
-            filename = filename.replace("{date:" + format + "}", formatter.format(now));
-        }
-        
-        filename = filename.replaceAll("[^a-zA-Z0-9\\.\\-]", "_").replaceAll("_+", "_");
-        
-        if (verbose){
-            System.err.println("[INFO] Outputting " + type + " to " + dirname + File.separator + filename);
-        }
-        
-        //output to file
-        Writer out = new OutputStreamWriter(new FileOutputStream(dirname + File.separator + filename), "UTF-8");
-        out.write(results);
-        out.close();
-        
-    }
-    
-    
+    }        
     
     private void getURLsAndBrowsers() throws Exception {
         

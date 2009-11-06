@@ -25,6 +25,7 @@ public class YUITestSeleniumDriver {
         CmdLineParser parser = new CmdLineParser();
         CmdLineParser.Option verboseOpt = parser.addBooleanOption('v', "verbose");
         CmdLineParser.Option helpOpt = parser.addBooleanOption('h', "help");
+        CmdLineParser.Option errorOnFailOpt = parser.addBooleanOption("erroronfail");
         CmdLineParser.Option confOpt = parser.addStringOption("conf");
         CmdLineParser.Option hostOpt = parser.addStringOption("host");
         CmdLineParser.Option portOpt = parser.addStringOption("port");
@@ -118,16 +119,17 @@ public class YUITestSeleniumDriver {
             usage();
             System.exit(1);
 
-        } catch (IOException e) {
-
-            e.printStackTrace();
-            System.exit(1);
-
         } catch (Exception e) {
 
-            e.printStackTrace();
-            // Return a special error code used specifically by the web front-end.
-            System.exit(2);
+            System.err.println("[ERROR] " + e.getMessage());
+            //e.printStackTrace();
+            System.exit(1);
+
+//        } catch (Exception e) {
+//
+//            e.printStackTrace();
+//            // Return a special error code used specifically by the web front-end.
+//            System.exit(2);
         
         } finally {
 
@@ -157,6 +159,8 @@ public class YUITestSeleniumDriver {
                         + "  -h, --help                Displays this information.\n"
                         + "  --browsers <browsers>     Run tests in these browseres (comma-delimited).\n"
                         + "  --conf <file>             Load options from <file>.\n"
+                        + "  --erroronfail             Indicates that a test failure should cause\n"
+                        + "                            an error to be reported to the console.\n"
                         + "  --host <host>             Use the Selenium host <host>.\n"
                         + "  --port <port>             Use <port> port on the Selenium host.\n"
                         + "  --yuitest <version>       The version of YUI Test to use (2 or 3).\n"

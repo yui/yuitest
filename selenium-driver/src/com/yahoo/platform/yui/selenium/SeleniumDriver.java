@@ -134,7 +134,8 @@ public class SeleniumDriver {
                 ");";    
         String testCoverage = testRunner + ".getCoverage(" + coverageFormat + "." + 
                 properties.getProperty("coverage.format", "JSON") +
-                ");";    
+                ");";
+        String testName = testRunner + ".getName();";
         
         if (verbose){
             System.err.println("[INFO] Starting browser '" + browser + "'");
@@ -143,12 +144,14 @@ public class SeleniumDriver {
         Selenium selenium = null;
         String results = "";
         String coverage = "";
+        String name = "";
         
         //run the tests
         try {
             //start up selenium
             selenium = new DefaultSelenium(properties.getProperty(SELENIUM_HOST),
                     Integer.parseInt(properties.getProperty(SELENIUM_PORT)), browser, url);
+            
             selenium.start();
             selenium.open(url);
             
@@ -171,6 +174,7 @@ public class SeleniumDriver {
             //get results
             results = selenium.getEval(testResults);            
             coverage = selenium.getEval(testCoverage);
+            name = selenium.getEval(testName);
 
         } catch (Exception ex){
             //TODO: What should happen here? Default file generation?
@@ -182,9 +186,9 @@ public class SeleniumDriver {
         }
         try {
             //output the reports
-            outputToFile(results, "results", browser);
+            outputToFile(name, results, "results", browser);
             if (!coverage.equals("null")){
-                outputToFile(coverage, "coverage", browser);
+                outputToFile(name, coverage, "coverage", browser);
             }
             
         } catch (Exception ex){
@@ -193,7 +197,7 @@ public class SeleniumDriver {
         }
     }
     
-    private void outputToFile(String results, String type, String browser) throws Exception {
+    private void outputToFile(String name, String results, String type, String browser) throws Exception {
         String dirname = properties.getProperty(type + ".outputdir");
         String filenameFormat = properties.getProperty(type + ".filename");
         
@@ -206,7 +210,7 @@ public class SeleniumDriver {
         }
         
         //format filename
-        String filename = filenameFormat.replace("{browser}", browser.replace("*", "").trim());
+        String filename = filenameFormat.replace("{browser}", browser.replace("*", "")).replace("{name}", name).trim();
         
         int pos = filename.indexOf("{date:");
 

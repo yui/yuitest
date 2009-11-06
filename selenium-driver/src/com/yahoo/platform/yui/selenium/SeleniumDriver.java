@@ -25,7 +25,30 @@ import java.util.Properties;
  * @author Nicholas C. Zakas
  */
 public class SeleniumDriver {
-    
+
+    //--------------------------------------------------------------------------
+    // Constants
+    //--------------------------------------------------------------------------
+
+    public static final String YUITEST_VERSION = "yuitest.version";
+
+    public static final String COVERAGE_OUTPUTDIR = "coverage.outputdir";
+    public static final String COVERAGE_FILENAME = "coverage.filename";
+    public static final String COVERAGE_FORMAT = "coverage.format";
+
+    public static final String RESULTS_OUTPUTDIR = "results.outputdir";
+    public static final String RESULTS_FILENAME = "results.filename";
+    public static final String RESULTS_FORMAT = "results.format";
+
+    public static final String SELENIUM_HOST = "selenium.host";
+    public static final String SELENIUM_PORT = "selenium.port";
+    public static final String SELENIUM_BROWSERS = "selenium.browsers";
+
+    //--------------------------------------------------------------------------
+    // Private Static
+    //--------------------------------------------------------------------------
+
+
     private static HashMap<String,String> testRunners = 
             new HashMap<String,String>();
     private static HashMap<String,String> testFormats = 
@@ -33,7 +56,6 @@ public class SeleniumDriver {
     private static HashMap<String,String> coverageFormats = 
             new HashMap<String,String>();
     private static final String jsWindow = "selenium.browserbot.getCurrentWindow()";
-    private static final String datePattern = "\\{date:([^\\}]*)\\}";
     
     static {
         testRunners.put("2", "YAHOO.tool.TestRunner");
@@ -108,10 +130,10 @@ public class SeleniumDriver {
         //JS strings to use
         String testRunnerIsNotRunning = "!" + testRunner + ".isRunning()";
         String testResults = testRunner + ".getResults(" + testFormat + "." + 
-                properties.getProperty("yuitest.results.format", "JUnitXML") +
+                properties.getProperty("results.format", "JUnitXML") +
                 ");";    
         String testCoverage = testRunner + ".getCoverage(" + coverageFormat + "." + 
-                properties.getProperty("yuitest.coverage.format", "JSON") +
+                properties.getProperty("coverage.format", "JSON") +
                 ");";    
         
         if (verbose){
@@ -125,8 +147,8 @@ public class SeleniumDriver {
         //run the tests
         try {
             //start up selenium
-            selenium = new DefaultSelenium(properties.getProperty("selenium.host"), 
-                    Integer.parseInt(properties.getProperty("selenium.port")), browser, url);        
+            selenium = new DefaultSelenium(properties.getProperty(SELENIUM_HOST),
+                    Integer.parseInt(properties.getProperty(SELENIUM_PORT)), browser, url);
             selenium.start();
             selenium.open(url);
             
@@ -140,7 +162,7 @@ public class SeleniumDriver {
                 System.err.println("[INFO] Page is loaded.");
             }
 
-            selenium.waitForCondition(testRunnerIsNotRunning, properties.getProperty("selenium.waitfordone", "10000"));
+            selenium.waitForCondition(testRunnerIsNotRunning, properties.getProperty("selenium.waitfordone", "1000000"));
 
             if (verbose){
                 System.err.println("[INFO] Tests are complete.");
@@ -161,7 +183,7 @@ public class SeleniumDriver {
         try {
             //output the reports
             outputToFile(results, "results", browser);
-            if (!coverage.equals("")){
+            if (!coverage.equals("null")){
                 outputToFile(coverage, "coverage", browser);
             }
             
@@ -172,15 +194,15 @@ public class SeleniumDriver {
     }
     
     private void outputToFile(String results, String type, String browser) throws Exception {
-        String dirname = properties.getProperty("yuitest." + type + ".outputdir");
-        String filenameFormat = properties.getProperty("yuitest." + type + ".filename");
+        String dirname = properties.getProperty(type + ".outputdir");
+        String filenameFormat = properties.getProperty(type + ".filename");
         
         if (dirname == null){
-            throw new Exception("Missing 'yuitest." + type + ".outputdir' configuration parameter.");            
+            throw new Exception("Missing '" + type + ".outputdir' configuration parameter.");            
         }
         
         if (filenameFormat == null){
-            throw new Exception("Missing 'yuitest." + type + ".outputdir' configuration parameter.");            
+            throw new Exception("Missing '" + type + ".outputdir' configuration parameter.");            
         }
         
         //format filename

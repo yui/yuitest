@@ -11,7 +11,10 @@ package com.yahoo.platform.yui.selenium;
 import com.thoughtworks.selenium.DefaultSelenium;
 import com.thoughtworks.selenium.Selenium;
 import com.thoughtworks.selenium.SeleniumException;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Properties;
 
 
@@ -99,13 +102,19 @@ public class SeleniumDriver {
     public void start() throws Exception{
         
         getURLsAndBrowsers();
-        
+
+        List<TestResult> results = new LinkedList<TestResult>();
+
+        //do the tests
         for(int i=0; i < urls.length; i++){
             for (int j=0; j < browsers.length; j++){
-                runTest(browsers[j], urls[i]);
+                results.add(runTest(browsers[j], urls[i]));
             }
         }
-        
+
+        //output the results
+        FileGenerator generator = new FileGenerator(properties, verbose);
+        generator.generateAll(results, new Date());        
     }
     
     /**
@@ -114,67 +123,17 @@ public class SeleniumDriver {
      * @param url The URL of the YUI Tests to run.
      * @throws java.lang.Exception
      */
-    private void runTest(String browser, String url) throws Exception {
-        
-        //basic YUI Test info
-        String yuitestVersion = properties.getProperty("yuitest.version", "2");
-        String testRunner = jsWindow + "." + testRunners.get(yuitestVersion);
-        String testFormat = jsWindow + "." + testFormats.get(yuitestVersion);
-        String coverageFormat = jsWindow + "." + coverageFormats.get(yuitestVersion);
-                
-        //JS strings to use
-        String testRunnerIsNotRunning = "!" + testRunner + ".isRunning()";
-        String testResults = testRunner + ".getResults(" + testFormat + "." + 
-                properties.getProperty("results.format", "JUnitXML") +
-                ");";    
-        String testCoverage = testRunner + ".getCoverage(" + coverageFormat + "." + 
-                properties.getProperty("coverage.format", "JSON") +
-                ");";
-        String testName = testRunner + ".getName();";
-        
-        if (verbose){
-            System.err.println("[INFO] Starting browser '" + browser + "'");
-        }
-        
+    private TestResult runTest(String browser, String url) throws Exception {
+
         Selenium selenium = null;
-        String results = "";
-        String coverage = "";
-        String name = "";
-        
-        //run the tests
+
         try {
-            //start up selenium
             selenium = new DefaultSelenium(properties.getProperty(SELENIUM_HOST),
                     Integer.parseInt(properties.getProperty(SELENIUM_PORT)), browser, url);
             
             selenium.start();
-            selenium.open(url);
-            
-            if (verbose){
-                System.err.println("[INFO] Navigating to '" + url + "'");
-            }            
 
-            selenium.waitForPageToLoad(properties.getProperty("selenium.waitforload", "10000"));
-            
-            if (verbose){
-                System.err.println("[INFO] Page is loaded.");
-            }
-
-            selenium.waitForCondition(testRunnerIsNotRunning, properties.getProperty("selenium.waitfordone", "1000000"));
-
-            if (verbose){
-                System.err.println("[INFO] Tests are complete.");
-            }            
-            
-            //get results
-            results = selenium.getEval(testResults);            
-            coverage = selenium.getEval(testCoverage);
-            name = selenium.getEval(testName);
-
-        } catch (SeleniumException ex){
-
-            //probably not a valid page
-            throw new Exception("Selenium failed with message: " + ex.getMessage() + ". Check the test URL " + url + " to ensure it is valid.", ex);
+            return runTest(selenium, browser, url);
 
         } catch (Exception ex){
             //TODO: What should happen here? Default file generation?
@@ -184,22 +143,83 @@ public class SeleniumDriver {
                 selenium.stop();
             }
         }
-
-        //save the results
-        try {
-            FileGenerator generator = new FileGenerator(properties, verbose);
-            //output the reports
-            generator.generate(name, results, "results", browser);
-            if (!coverage.equals("null")){
-                generator.generate(name, coverage, "coverage", browser);
-            }
-            
-        } catch (Exception ex){
-            //what to do?
-            throw ex;
-        }
-    }        
+    }
     
+    /**
+     * Runs a YUI Test url against a given browser.
+     * @param browser The Selenium browser to run against.
+     * @param url The URL of the YUI Tests to run.
+     * @throws java.lang.Exception
+     */
+    private TestResult runTest(Selenium selenium, String browser, String url) throws Exception {
+
+        //basic YUI Test info
+        String yuitestVersion = properties.getProperty("yuitest.version", "2");
+        String testRunner = jsWindow + "." + testRunners.get(yuitestVersion);
+        String testFormat = jsWindow + "." + testFormats.get(yuitestVersion);
+        String coverageFormat = jsWindow + "." + coverageFormats.get(yuitestVersion);
+
+        //JS strings to use
+        String testRunnerIsNotRunning = "!" + testRunner + ".isRunning()";
+        String testResults = testRunner + ".getResults(" + testFormat + "." +
+                properties.getProperty("results.format", "JUnitXML") +
+                ");";
+        String testCoverage = testRunner + ".getCoverage(" + coverageFormat + "." +
+                properties.getProperty("coverage.format", "JSON") +
+                ");";
+        String testName = testRunner + ".getName();";
+
+        //extracted from page
+        String results = "";
+        String coverage = "";
+        String name = "";
+
+        //run the tests
+        try {
+            selenium.open(url);
+
+            if (verbose){
+                System.err.println("[INFO] Navigating to '" + url + "'");
+            }
+
+            selenium.waitForPageToLoad(properties.getProperty("selenium.waitforload", "10000"));
+
+            if (verbose){
+                System.err.println("[INFO] Page is loaded.");
+            }
+
+            selenium.waitForCondition(testRunnerIsNotRunning, properties.getProperty("selenium.waitfordone", "1000000"));
+
+            if (verbose){
+                System.err.println("[INFO] Test complete.");
+            }
+
+            //get results
+            results = selenium.getEval(testResults);
+            if (results.equals("null")){
+                results = null;
+            }
+
+            coverage = selenium.getEval(testCoverage);
+            if (coverage.equals("null")){
+                coverage = null;
+            }
+
+            name = selenium.getEval(testName);
+
+            return new TestResult(name, browser, url, results, coverage);
+
+        } catch (SeleniumException ex){
+
+            //probably not a valid page
+            throw new Exception("Selenium failed with message: " + ex.getMessage() + ". Check the test URL " + url + " to ensure it is valid.", ex);
+
+        } catch (Exception ex){
+            throw ex;
+        } 
+    }
+
+
     private void getURLsAndBrowsers() throws Exception {
         
         //try to get list of URLs to hit
@@ -213,6 +233,10 @@ public class SeleniumDriver {
         if(browsers.length == 0){
             throw new Exception("The configuration property 'selenium.browsers' is missing.");
         }
+    }
+
+    private void outputResultsToConsole(){
+
     }
             
 

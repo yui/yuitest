@@ -114,6 +114,10 @@ public class YUITestSeleniumDriver {
             SeleniumDriver driver = new SeleniumDriver(properties, verbose);
             driver.start();
 
+            //TestConfig config = new TestConfig();
+            //config.load(new FileInputStream("../example/tests.xml"));
+
+            
         } catch (CmdLineParser.OptionException e) {
 
             usage();
@@ -122,7 +126,7 @@ public class YUITestSeleniumDriver {
         } catch (Exception e) {
 
             System.err.println("[ERROR] " + e.getMessage());
-            //e.printStackTrace();
+            e.printStackTrace();
             System.exit(1);
 
 //        } catch (Exception e) {

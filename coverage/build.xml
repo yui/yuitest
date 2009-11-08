@@ -21,6 +21,7 @@
                includes="**/*.java"
                deprecation="off"
                debug="on"
+               target="1.5"
                source="1.5">
             <classpath>
                 <pathelement location="${lib.dir}/jargs-1.0.jar"/>

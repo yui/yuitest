@@ -19,8 +19,30 @@ public class TestPage {
     private int timeout = 10000;
     private int version = -1;
 
+    public TestPage(String path){
+        this.path = path;
+    }
+
+    public TestPage(String path, int version){
+        this.path = path;
+        this.version = version;
+    }
+
+    public TestPage(String path, int version, int timeout){
+        this.path = path;
+        this.version = version;
+        this.timeout = timeout;
+    }
+
     public TestPage(TestPageGroup owner, int version, int timeout){
         this.owner = owner;
+        this.timeout = timeout;
+        this.version = version;
+    }
+
+    public TestPage(TestPageGroup owner, String path, int version, int timeout){
+        this.owner = owner;
+        this.path = path;
         this.timeout = timeout;
         this.version = version;
     }

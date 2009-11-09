@@ -21,16 +21,16 @@ public class TestResult {
 
     private String url;
     private String browser;
-    private String resultsText;
-    private String coverageText;
+    private String resultsReportText = null;
+    private String coverageReportText = null;
+    private String rawResults = null;
     private String name;
 
-    public TestResult(String name, String browser, String url, String resultsText, String coverageText) {
+    protected TestResult(String name, String browser, String url, String rawResults) {
         this.url = url;
         this.browser = browser;
-        this.resultsText = resultsText;
-        this.coverageText = coverageText;
         this.name = name;
+        this.rawResults = rawResults;
     }
 
     public String getBrowser() {
@@ -45,19 +45,31 @@ public class TestResult {
         return url;
     }
 
+    protected String getResults(){
+        return rawResults;
+    }
+
+    protected void setReport(String type, String reportText){
+        if (type.equals("coverage")){
+            coverageReportText = reportText;
+        } else {
+            resultsReportText = reportText;
+        }
+    }
+
     public String getReport(String type){
         if (type.equals("coverage")){
-            return coverageText;
+            return coverageReportText;
         } else {
-            return resultsText;
+            return resultsReportText;
         } 
     }
 
     public boolean hasReport(String type){
         if (type.equals("coverage")){
-            return coverageText != null;
+            return coverageReportText != null;
         } else {
-            return resultsText != null;
+            return resultsReportText != null;
         }
     }
 }

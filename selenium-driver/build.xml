@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<project name="YUITestSelenium" default="build.jar" basedir=".">
+<project name="YUITestSeleniumDriver" default="build.jar" basedir=".">
  
     <target name="clean" depends="-load.properties">
         <delete dir="${build.dir}" quiet="true"/>
@@ -32,8 +32,12 @@
     <target name="build.jar" depends="build.classes">
         <mkdir dir="${build.dir}/jar"/>
         <unjar src="${lib.dir}/jargs-1.0.jar" dest="${build.dir}/jar"/>
+        <!--<unjar src="${lib.dir}/selenium-java-client-driver.jar" dest="${build.dir}/jar"/>-->
         <copy todir="${build.dir}/jar">
             <fileset dir="${build.dir}/classes" includes="**/*.class"/>
+        </copy>
+        <copy todir="${build.dir}/jar/${root.package.dir}">
+            <fileset dir="${src.dir}/${root.package.dir}" includes="**/*.properties"/>
         </copy>
         <jar destfile="${build.dir}/${jar.name}" basedir="${build.dir}/jar">
             <manifest>

@@ -22,12 +22,12 @@ import java.util.Properties;
  * properties.
  * @author Nicholas C. Zakas
  */
-public class FileGenerator {
+public class TestResultFileGenerator {
 
     private boolean verbose = false;
     private Properties properties = null;
 
-    public FileGenerator(Properties properties, boolean verbose){
+    public TestResultFileGenerator(Properties properties, boolean verbose){
         this.properties = properties;
         this.verbose = verbose;
     }

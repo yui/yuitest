@@ -25,6 +25,9 @@ public class TestConfig {
 
     private TestPageGroup[] groups;
 
+    /**
+     * Creates a new instance.
+     */
     public TestConfig(){
     }
 
@@ -56,15 +59,4 @@ public class TestConfig {
     public TestPageGroup[] getGroups(){
         return groups;
     }
-
-    @Override
-    public String toString(){
-        StringBuilder builder = new StringBuilder();
-        for (int i=0; i < groups.length; i++){
-            builder.append(groups[i]);
-            builder.append(',');
-        }
-        return builder.toString();
-    }
-
 }

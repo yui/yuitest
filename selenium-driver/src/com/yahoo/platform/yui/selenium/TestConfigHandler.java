@@ -15,7 +15,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 /**
- *
+ * Parses a test config file to extract the test information.
  * @author Nicholas C. Zakas
  */
 public class TestConfigHandler extends DefaultHandler {
@@ -25,10 +25,17 @@ public class TestConfigHandler extends DefaultHandler {
     private TestPageGroup currentGroup = null;
     private TestPage currentPage = null;
 
+    /**
+     * Creates a new instance.
+     */
     public TestConfigHandler(){
         this.groups = new LinkedList<TestPageGroup>();
     }
 
+    /**
+     * Returns all TestPageGroups found in the file.
+     * @return All TestPageGroups found in the file.
+     */
     public TestPageGroup[] getGroups(){
         TestPageGroup[] groupsArray = new TestPageGroup[groups.size()];
         groups.toArray(groupsArray);
@@ -62,7 +69,7 @@ public class TestConfigHandler extends DefaultHandler {
             }
             String ver = attributes.getValue("version");
             String timeout = attributes.getValue("timeout");
-            currentPage = new TestPage(currentGroup, (ver == null ? currentGroup.getVersion() : Integer.parseInt(ver)), (timeout == null ? currentGroup.getTimeout() : Integer.parseInt(timeout)));
+            currentPage = new TestPage("", (ver == null ? currentGroup.getVersion() : Integer.parseInt(ver)), (timeout == null ? currentGroup.getTimeout() : Integer.parseInt(timeout)));
             currentGroup.add(currentPage);
         }
     }

@@ -20,7 +20,6 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
-
 /**
  * Controls Selenium to extract YUI Test information.
  * @author Nicholas C. Zakas
@@ -32,6 +31,7 @@ public class SeleniumDriver {
     //--------------------------------------------------------------------------
 
     public static final String YUITEST_VERSION = "yuitest.version";
+    public static final String YUITEST_TIMEOUT = "yuitest.timeout";
 
     public static final String COVERAGE_OUTPUTDIR = "coverage.outputdir";
     public static final String COVERAGE_FILENAME = "coverage.filename";
@@ -46,15 +46,12 @@ public class SeleniumDriver {
     public static final String SELENIUM_BROWSERS = "selenium.browsers";
 
     public static final String SELENIUM_WAIT_FOR_LOAD = "selenium.waitforload";
-    public static final String SELENIUM_WAIT_FOR_DONE = "selenium.waitfordone";
 
     public static final String CONSOLE_MODE = "console.enabled";
-
 
     //--------------------------------------------------------------------------
     // Private Static
     //--------------------------------------------------------------------------
-
 
     private static HashMap<String,String> testRunners = 
             new HashMap<String,String>();
@@ -75,6 +72,10 @@ public class SeleniumDriver {
         coverageFormats.put("3", "Y.Coverage.Format");
     }
 
+    //--------------------------------------------------------------------------
+    // Private
+    //--------------------------------------------------------------------------
+
     /**
      * Configuration properties for the instance.
      */
@@ -83,17 +84,33 @@ public class SeleniumDriver {
     /**
      * Indicates if additional information should be output to the console.
      */
-    private boolean verbose;
+    private boolean verbose = false;
     
     /**
      * The list of Selenium browsers to test.
      */
     private String[] browsers;
+
+    //--------------------------------------------------------------------------
+    // Constructors
+    //--------------------------------------------------------------------------
     
     /**
-     * Creates a new instance.
-     * @param properties
-     * @param verbose
+     * Creates a new instance of the Selenium driver based on the given
+     * properties.
+     * @param properties Properties defining how the driver should act.
+     */
+    public SeleniumDriver(Properties properties) throws Exception {
+        this.properties = properties;
+        getBrowserList();
+    }
+
+    /**
+     * Creates a new instance of the Selenium driver based on the given
+     * properties.
+     * @param properties Properties defining how the driver should act.
+     * @param verbose Indicates if additional information should be output to
+     *      the console.
      */
     public SeleniumDriver(Properties properties, boolean verbose) throws Exception {
         this.properties = properties;
@@ -101,10 +118,26 @@ public class SeleniumDriver {
         getBrowserList();
     }
 
+    //--------------------------------------------------------------------------
+    // Methods to run tests
+    //--------------------------------------------------------------------------
+
+    /**
+     * Runs all tests contained in the config object.
+     * @param config Information about tests to run.
+     * @return An array of test results based on the tests that were run.
+     * @throws Exception When a test cannot be run.
+     */
     public TestResult[] runTests(TestConfig config) throws Exception {
         return runTests(config.getGroups());
     }
    
+    /**
+     * Runs all tests contained in the TestPageGroup objects.
+     * @param groups Information about tests to run.
+     * @return An array of test results based on the tests that were run.
+     * @throws Exception When a test cannot be run.
+     */
     public TestResult[] runTests(TestPageGroup[] groups) throws Exception {
         
         List<TestResult> results = new LinkedList<TestResult>();        
@@ -119,6 +152,12 @@ public class SeleniumDriver {
         return results.toArray(new TestResult[results.size()]);        
     }
 
+    /**
+     * Runs all tests contained in the TestPageGroup object.
+     * @param groups Information about tests to run.
+     * @return An array of test results based on the tests that were run.
+     * @throws Exception When a test cannot be run.
+     */
     public TestResult[] runTests(TestPageGroup group) throws Exception {
         List<TestResult> results = new LinkedList<TestResult>();
 
@@ -130,8 +169,20 @@ public class SeleniumDriver {
     }
 
     //--------------------------------------------------------------------------
+    // Run a test page group
+    //--------------------------------------------------------------------------
 
-    private List<TestResult> runTestGroup(String browser, TestPageGroup group) throws Exception {
+    /**
+     * Runs all tests in a test group on the given browser. First, determines
+     * the most optimal way to run the tests, either by using a single Selenium
+     * instance or by creating multiple Selenium instances.
+     * @param browser The Selenium browser name to run the tests on.
+     * @param group The TestPageGroup containing tests to run.
+     * @return A list of TestResult objects.
+     * @throws Exception If any of the tests error out.
+     */
+    private List<TestResult> runTestGroup(String browser, TestPageGroup group)
+            throws Exception {
         
         //if there's a common base, try to optimize
         if (group.getBase().length() > 0){
@@ -141,7 +192,15 @@ public class SeleniumDriver {
         }
     }
 
-    private List<TestResult> runTestGroupOpt(String browser, TestPageGroup group) throws Exception {
+    /**
+     * Runs all tests in a test group using a single Selenium instance.
+     * @param browser The Selenium browser name to run the tests on.
+     * @param group The TestPageGroup containing tests to run.
+     * @return A list of TestResult objects.
+     * @throws Exception If any of the tests error out.
+     */
+    private List<TestResult> runTestGroupOpt(String browser, TestPageGroup group)
+            throws Exception {
 
         TestPage[] testpages = group.getTestPages();
         List<TestResult> results = new LinkedList<TestResult>();
@@ -160,7 +219,15 @@ public class SeleniumDriver {
         return results;
     }
 
-    private List<TestResult> runTestGroupUnopt(String browser, TestPageGroup group) throws Exception {
+    /**
+     * Runs all tests in a test group using multiple Selenium instances.
+     * @param browser The Selenium browser name to run the tests on.
+     * @param group The TestPageGroup containing tests to run.
+     * @return A list of TestResult objects.
+     * @throws Exception If any of the tests error out.
+     */
+    private List<TestResult> runTestGroupUnopt(String browser, TestPageGroup group)
+            throws Exception {
 
         TestPage[] testpages = group.getTestPages();
         List<TestResult> results = new LinkedList<TestResult>();
@@ -182,6 +249,18 @@ public class SeleniumDriver {
         return results;
     }
 
+    //--------------------------------------------------------------------------
+    // Run a single test page
+    //--------------------------------------------------------------------------
+
+    /**
+     * Runs a single test page in a given browser. It first creates a selenium
+     * instance for the given browser and then runs the tests.
+     * @param browser The Selenium name of the browser being run.
+     * @param page The test page to run.
+     * @return The results of the test being run.
+     * @throws Exception If there's an error while running the test.
+     */
     public TestResult runTestPage(String browser, TestPage page) throws Exception {
 
         Selenium selenium = null;
@@ -206,6 +285,14 @@ public class SeleniumDriver {
 
     }
 
+    /**
+     * Runs a single test page in a given browser.
+     * @param selenium The Selenium object to use to run the test.
+     * @param browser The Selenium name of the browser being run.
+     * @param page The test page to run.
+     * @return The results of the test being run.
+     * @throws Exception If there's an error while running the test.
+     */
     private TestResult runTestPage(Selenium selenium, String browser, 
             TestPage page) throws Exception {
     
@@ -236,11 +323,12 @@ public class SeleniumDriver {
         String url = page.getAbsolutePath();
         String pageTimeout = String.valueOf(page.getTimeout());
         if (pageTimeout.equals("-1")){
-            pageTimeout = properties.getProperty(SELENIUM_WAIT_FOR_DONE, "10000");
+            pageTimeout = properties.getProperty(YUITEST_TIMEOUT, "10000");
         }
 
         //run the tests
         try {
+
             selenium.open(url);
 
             if (verbose){
@@ -281,7 +369,7 @@ public class SeleniumDriver {
             result.setReport("results", results);
             result.setReport("coverage", coverage);
 
-            if (!properties.getProperty(CONSOLE_MODE, "normal").equals("silent")){
+            if (!isSilent()){
                 outputResultToConsole(result);
             }
             
@@ -298,6 +386,14 @@ public class SeleniumDriver {
 
     }
 
+    //--------------------------------------------------------------------------
+    // Helper methods
+    //--------------------------------------------------------------------------
+
+    /**
+     * Splits the comma-delimited list of browsers into an array of strings.
+     * @throws Exception If there are no browsers specified.
+     */
     private void getBrowserList() throws Exception {
 
         browsers = (properties.getProperty("selenium.browsers", "")).split("\\,");
@@ -306,6 +402,13 @@ public class SeleniumDriver {
         }
     }
 
+    /**
+     * Outputs results from a single test run to the console. It does this by
+     * taking the raw XML results from a test run and uses a SAX parser to walk
+     * the tree and output relevant information.
+     * @param result The TestResult object containing test details.
+     * @throws Exception If the test results XML file is invalid.
+     */
     private void outputResultToConsole(TestResult result) throws Exception {
 
         SAXParserFactory spf = SAXParserFactory.newInstance();
@@ -321,6 +424,13 @@ public class SeleniumDriver {
 
     }
 
+    /**
+     * Creates a Selenium instance for the given browser and with the given base
+     * URL. The instance is then started and returned.
+     * @param browser The Selenium browser name to create an instance for.
+     * @param base The base URL to test.
+     * @return A Selenium instance based on the given information.
+     */
     private Selenium startBrowser(String browser, String base){
         Selenium selenium = new DefaultSelenium(properties.getProperty(SELENIUM_HOST),
                 Integer.parseInt(properties.getProperty(SELENIUM_PORT)), browser, base);
@@ -330,5 +440,11 @@ public class SeleniumDriver {
         return selenium;
     }
             
-
+    /**
+     * Determines if the driver is being run in silent mode.
+     * @return True if the driver is in silent mode, false if not.
+     */
+    private boolean isSilent(){
+        return properties.getProperty(CONSOLE_MODE, "normal").equals("silent");
+    }
 }

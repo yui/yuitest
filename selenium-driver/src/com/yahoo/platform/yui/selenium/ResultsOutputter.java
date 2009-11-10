@@ -10,7 +10,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 /**
- *
+ * Outputs test results to the console.
  * @author Nicholas C. Zakas
  */
 public class ResultsOutputter extends DefaultHandler {
@@ -26,8 +26,11 @@ public class ResultsOutputter extends DefaultHandler {
 //Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.062 sec
 //Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.062 sec
 
-
-    public ResultsOutputter(TestResult result){
+    /**
+     * Creates a new instance.
+     * @param result The results to output.
+     */
+    protected ResultsOutputter(TestResult result){
         super();
         this.result = result;
     }

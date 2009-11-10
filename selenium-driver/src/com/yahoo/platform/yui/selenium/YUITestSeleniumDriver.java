@@ -138,12 +138,12 @@ public class YUITestSeleniumDriver {
 
                     TestPageGroup group = new TestPageGroup("", 
                             Integer.parseInt(properties.getProperty(SeleniumDriver.YUITEST_VERSION)),
-                            Integer.parseInt(properties.getProperty(SeleniumDriver.SELENIUM_WAIT_FOR_DONE)));
+                            Integer.parseInt(properties.getProperty(SeleniumDriver.YUITEST_TIMEOUT)));
 
                     for (int i=0; i < testFiles.length; i++){
-                        TestPage page = new TestPage(group, testFiles[i],
+                        TestPage page = new TestPage(testFiles[i],
                             Integer.parseInt(properties.getProperty(SeleniumDriver.YUITEST_VERSION)),
-                            Integer.parseInt(properties.getProperty(SeleniumDriver.SELENIUM_WAIT_FOR_DONE)));
+                            Integer.parseInt(properties.getProperty(SeleniumDriver.YUITEST_TIMEOUT)));
                         group.add(page);
                     }
 
@@ -210,7 +210,7 @@ public class YUITestSeleniumDriver {
 
                         + "Global Options\n"
                         + "  -h, --help                Displays this information.\n"
-                        + "  --browsers <browsers>     Run tests in these browseres (comma-delimited).\n"
+                        + "  --browsers <browsers>     Run tests in these browsers (comma-delimited).\n"
                         + "  --conf <file>             Load options from <file>.\n"
 //                        + "  --erroronfail             Indicates that a test failure should cause\n"
 //                        + "                            an error to be reported to the console.\n"

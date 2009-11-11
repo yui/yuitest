@@ -16,9 +16,6 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
 
 /**
  * Controls Selenium to extract YUI Test information.
@@ -46,6 +43,7 @@ public class SeleniumDriver {
     public static final String SELENIUM_BROWSERS = "selenium.browsers";
 
     public static final String SELENIUM_WAIT_FOR_LOAD = "selenium.waitforload";
+    public static final String ERROR_ON_FAIL = "console.erroronfail";
 
     public static final String CONSOLE_MODE = "console.enabled";
 
@@ -391,6 +389,11 @@ public class SeleniumDriver {
                         System.out.println(messages[i]);
                     }
                 }
+            }
+
+            //determine if a failure should throw an error
+            if (!properties.getProperty(ERROR_ON_FAIL).equals("0") && result.getFailed() > 0){
+                throw new Exception(String.format("There were %d failures in %s on %s", result.getFailed(), result.getName(), result.getBrowser()));
             }
             
             return result;

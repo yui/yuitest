@@ -112,6 +112,14 @@ public class YUITestSeleniumDriver {
                 }
             }
 
+            //erroronfail option
+            if (parser.getOptionValue(errorOnFailOpt) != null){
+                properties.setProperty(SeleniumDriver.ERROR_ON_FAIL, "1");
+                if (verbose){
+                    System.err.println("[INFO] Using command line value for " + SeleniumDriver.ERROR_ON_FAIL + ": 1 (enabled)");
+                }
+            }
+
             //create a new selenium driver with the properties
             SeleniumDriver driver = new SeleniumDriver(properties, verbose);
             TestResult[] results = null;
@@ -218,8 +226,8 @@ public class YUITestSeleniumDriver {
                         + "  -h, --help                Displays this information.\n"
                         + "  --browsers <browsers>     Run tests in these browsers (comma-delimited).\n"
                         + "  --conf <file>             Load options from <file>.\n"
-//                        + "  --erroronfail             Indicates that a test failure should cause\n"
-//                        + "                            an error to be reported to the console.\n"
+                        + "  --erroronfail             Indicates that a test failure should cause\n"
+                        + "                            an error to be reported to the console.\n"
                         + "  --host <host>             Use the Selenium host <host>.\n"
                         + "  --port <port>             Use <port> port on the Selenium host.\n"
                         + "  --silent                  Don't output test results to the console.\n"

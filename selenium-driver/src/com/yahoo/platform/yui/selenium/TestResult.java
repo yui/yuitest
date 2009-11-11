@@ -23,14 +23,16 @@ public class TestResult {
     private String browser;
     private String resultsReportText = null;
     private String coverageReportText = null;
-    private String rawResults = null;
     private String name;
+    private int failed = 0;
+    private int passed = 0;
+    private int ignored = 0;
+    private String[] messages;
 
-    protected TestResult(String name, String browser, String url, String rawResults) {
+    protected TestResult(String name, String browser, String url) {
         this.url = url;
         this.browser = browser;
         this.name = name;
-        this.rawResults = rawResults;
     }
 
     public String getBrowser() {
@@ -45,8 +47,40 @@ public class TestResult {
         return url;
     }
 
-    protected String getResults(){
-        return rawResults;
+    public int getFailed() {
+        return failed;
+    }
+
+    public void setFailed(int failures) {
+        this.failed = failures;
+    }
+
+    public int getIgnored() {
+        return ignored;
+    }
+
+    protected void setIgnored(int ignored) {
+        this.ignored = ignored;
+    }
+
+    public String[] getMessages() {
+        return messages;
+    }
+
+    protected void setMessages(String[] messages) {
+        this.messages = messages;
+    }
+
+    public int getPassed() {
+        return passed;
+    }
+
+    protected void setPassed(int passed) {
+        this.passed = passed;
+    }
+
+    public int getTotal(){
+        return passed + failed;
     }
 
     protected void setReport(String type, String reportText){

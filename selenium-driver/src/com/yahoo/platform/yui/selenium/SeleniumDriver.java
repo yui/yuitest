@@ -331,6 +331,10 @@ public class SeleniumDriver {
 
             selenium.open(url);
 
+            if (!isSilent()){
+                System.out.printf("\nRunning %s\n", url);
+            }
+
             if (verbose){
                 System.err.println("[INFO] Navigating to '" + url + "'");
             }
@@ -365,12 +369,28 @@ public class SeleniumDriver {
 
             name = selenium.getEval(testName);
 
-            TestResult result = new TestResult(name, browser, url, rawResults);
+            TestResult result = new TestResult(name, browser, url);
+            RawTestResultsParser.parse(new ByteArrayInputStream(rawResults.getBytes()), result);
             result.setReport("results", results);
             result.setReport("coverage", coverage);
 
+            //output results detail
             if (!isSilent()){
-                outputResultToConsole(result);
+
+                System.out.printf("Testsuite: %s on %s\n", result.getName(), result.getBrowser());
+                System.out.printf("Tests run: %d, Failures: %d, Ignored: %d\n", result.getTotal(), result.getFailed(), result.getIgnored());
+
+                if (result.getTotal() == 0){
+                    System.out.printf("Warning: No tests were run. Check the test page '%s'.\n", result.getName());
+                }
+
+                String messages[] = result.getMessages();
+                if (messages.length > 0){
+                    System.out.println();
+                    for (int i=0; i < messages.length; i++){
+                        System.out.println(messages[i]);
+                    }
+                }
             }
             
             return result;
@@ -400,28 +420,6 @@ public class SeleniumDriver {
         if(browsers.length == 0){
             throw new Exception("The configuration property 'selenium.browsers' is missing.");
         }
-    }
-
-    /**
-     * Outputs results from a single test run to the console. It does this by
-     * taking the raw XML results from a test run and uses a SAX parser to walk
-     * the tree and output relevant information.
-     * @param result The TestResult object containing test details.
-     * @throws Exception If the test results XML file is invalid.
-     */
-    private void outputResultToConsole(TestResult result) throws Exception {
-
-        SAXParserFactory spf = SAXParserFactory.newInstance();
-        SAXParser parser = null;
-        ResultsOutputter handler = new ResultsOutputter(result);
-
-        try {
-            parser = spf.newSAXParser();
-            parser.parse(new ByteArrayInputStream(result.getResults().getBytes()), handler);
-        } catch (ParserConfigurationException ex) {
-            throw new Exception("Could not parse results file: " + ex.getMessage(), ex);
-        }
-
     }
 
     /**

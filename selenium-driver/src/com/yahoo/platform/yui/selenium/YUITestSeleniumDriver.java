@@ -9,6 +9,7 @@ package com.yahoo.platform.yui.selenium;
 
 import jargs.gnu.CmdLineParser;
 import java.io.*;
+import java.net.URL;
 import java.util.Date;
 import java.util.Properties;
 
@@ -119,8 +120,13 @@ public class YUITestSeleniumDriver {
             String testFile = (String) parser.getOptionValue(testsOpt);
             if (testFile != null){
                 TestConfig config = new TestConfig();
-                config.load(new FileInputStream(testFile));
 
+                if (testFile.startsWith("http://")){  //it's a URL
+                    config.load((new URL(testFile)).openStream());
+                } else { //it's a local file
+                    config.load(new FileInputStream(testFile));
+                }
+                
                 if (verbose){
                     System.err.println("[INFO] Using tests from " + testFile + ".");
                 }

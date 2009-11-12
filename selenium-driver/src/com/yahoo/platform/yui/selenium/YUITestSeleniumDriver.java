@@ -36,7 +36,6 @@ public class YUITestSeleniumDriver {
         CmdLineParser.Option yuitestOpt = parser.addStringOption("yuitest");
         CmdLineParser.Option testsOpt = parser.addStringOption("tests");
 
-
         Reader in = null;
         Writer out = null;
         boolean verbose = false;
@@ -126,6 +125,13 @@ public class YUITestSeleniumDriver {
 
             //if --tests is specified, run just those tests
             String testFile = (String) parser.getOptionValue(testsOpt);
+
+            //if there's nothing on the command line, check the properties file
+            if (testFile == null){
+                testFile = properties.getProperty(SeleniumDriver.YUITEST_TESTS_FILE, null);
+            }
+
+            //figure out what to do
             if (testFile != null){
                 TestConfig config = new TestConfig();
 

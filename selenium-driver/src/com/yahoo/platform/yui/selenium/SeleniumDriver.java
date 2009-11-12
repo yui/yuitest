@@ -29,6 +29,7 @@ public class SeleniumDriver {
 
     public static final String YUITEST_VERSION = "yuitest.version";
     public static final String YUITEST_TIMEOUT = "yuitest.timeout";
+    public static final String YUITEST_TESTS_FILE = "yuitest.tests";
 
     public static final String COVERAGE_OUTPUTDIR = "coverage.outputdir";
     public static final String COVERAGE_FILENAME = "coverage.filename";
@@ -37,6 +38,7 @@ public class SeleniumDriver {
     public static final String RESULTS_OUTPUTDIR = "results.outputdir";
     public static final String RESULTS_FILENAME = "results.filename";
     public static final String RESULTS_FORMAT = "results.format";
+
 
     public static final String SELENIUM_HOST = "selenium.host";
     public static final String SELENIUM_PORT = "selenium.port";

@@ -35,6 +35,8 @@ public class YUITestSeleniumDriver {
         CmdLineParser.Option browsersOpt = parser.addStringOption("browsers");
         CmdLineParser.Option yuitestOpt = parser.addStringOption("yuitest");
         CmdLineParser.Option testsOpt = parser.addStringOption("tests");
+        CmdLineParser.Option resultsDirOpt = parser.addStringOption("resultsdir");
+        CmdLineParser.Option coverageDirOpt = parser.addStringOption("coveragedir");
 
         Reader in = null;
         Writer out = null;
@@ -108,6 +110,24 @@ public class YUITestSeleniumDriver {
                 properties.setProperty(SeleniumDriver.YUITEST_VERSION, yuitest);
                 if (verbose){
                     System.err.println("[INFO] Using command line value for " + SeleniumDriver.YUITEST_VERSION + ": " + yuitest);
+                }
+            }
+
+            //YUI Test version option
+            String resultsDir = (String) parser.getOptionValue(resultsDirOpt);
+            if (resultsDir != null){
+                properties.setProperty(SeleniumDriver.RESULTS_OUTPUTDIR, resultsDir);
+                if (verbose){
+                    System.err.println("[INFO] Using command line value for " + SeleniumDriver.RESULTS_OUTPUTDIR + ": " + resultsDir);
+                }
+            }
+
+            //YUI Test version option
+            String coverageDir = (String) parser.getOptionValue(coverageDirOpt);
+            if (coverageDir != null){
+                properties.setProperty(SeleniumDriver.COVERAGE_OUTPUTDIR, coverageDir);
+                if (verbose){
+                    System.err.println("[INFO] Using command line value for " + SeleniumDriver.COVERAGE_OUTPUTDIR + ": " + coverageDir);
                 }
             }
 
@@ -232,10 +252,12 @@ public class YUITestSeleniumDriver {
                         + "  -h, --help                Displays this information.\n"
                         + "  --browsers <browsers>     Run tests in these browsers (comma-delimited).\n"
                         + "  --conf <file>             Load options from <file>.\n"
+                        + "  --coveragedir <dir>       Output coverage files to <dir>.\n"
                         + "  --erroronfail             Indicates that a test failure should cause\n"
                         + "                            an error to be reported to the console.\n"
                         + "  --host <host>             Use the Selenium host <host>.\n"
                         + "  --port <port>             Use <port> port on the Selenium host.\n"
+                        + "  --resultsdir <dir>        Output test result files to <dir>.\n"
                         + "  --silent                  Don't output test results to the console.\n"
                         + "  --tests <file>            Loads test info from <file>.\n"
                         + "  --yuitest <version>       The version of YUI Test to use (2 or 3).\n"

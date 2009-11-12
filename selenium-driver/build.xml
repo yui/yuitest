@@ -20,20 +20,68 @@
                includes="**/*.java"
                deprecation="off"
                debug="on"
-               target="1.5"
-               source="1.5">
+               target="${class.version}"
+               source="${class.version}">
             <classpath>
-                <pathelement location="${lib.dir}/jargs-1.0.jar"/>
-                <pathelement location="${lib.dir}/selenium-java-client-driver.jar"/>
+                <pathelement location="${lib.dir}/${jargs.jar}"/>
+                <pathelement location="${lib.dir}/${selenium.jar}"/>
             </classpath>
         </javac>
         
     </target>
+
+    <target name="build.tests" depends="-init">
+        <mkdir dir="${build.dir}/testclasses"/>
+        <javac srcdir="${tests.dir}"
+               destdir="${build.dir}/testclasses"
+               includes="**/*.java"
+               deprecation="off"
+               debug="on"
+               source="${class.version}"
+               target="${class.version}">
+            <classpath>
+                <pathelement location="${lib.dir}/${jargs.jar}"/>
+                <pathelement location="${lib.dir}/${selenium.jar}"/>
+                <pathelement location="${lib.dir}/${junit.jar}"/>
+                <pathelement location="${build.dir}/classes"/>
+            </classpath>
+        </javac>
+        <copy todir="${build.dir}/testclasses/${root.package.dir}">
+            <fileset dir="${tests.dir}" includes="*.xml"/>
+        </copy>
+    </target>
+
+
+    <target name="test.classes" depends="build.classes,build.tests">
+	<junit printsummary="yes" fork="yes"  errorproperty="junit.failure" failureproperty="junit.failure" showoutput="true">
+
+                <jvmarg value="-Duser.dir=${res.dir}"/>
+
+	       	<!-- classpath must include all jar dependencies and classes -->
+                <classpath>
+                    <pathelement location="${build.dir}/classes"/>
+                    <pathelement location="${build.dir}/testclasses"/>
+                    <pathelement location="${lib.dir}/${jargs.jar}"/>
+                    <pathelement location="${lib.dir}/${selenium.jar}"/>
+                    <pathelement location="${lib.dir}/${junit.jar}"/>
+                </classpath>
+
+	      	<!-- formatter to use for output -->
+        	<formatter type="plain" usefile="false"/>
+
+		<!-- fully qualified classname of testsuite -->
+                <batchtest>
+                    <fileset dir="${build.dir}/testclasses">
+                        <include name="**/*Test.class" />
+                    </fileset>
+                </batchtest>
+	</junit>
+
+    </target>
  
     <target name="build.jar" depends="build.classes">
         <mkdir dir="${build.dir}/jar"/>
-        <unjar src="${lib.dir}/jargs-1.0.jar" dest="${build.dir}/jar"/>
-        <!--<unjar src="${lib.dir}/selenium-java-client-driver.jar" dest="${build.dir}/jar"/>-->
+        <unjar src="${lib.dir}/${jargs.jar}" dest="${build.dir}/jar"/>
         <copy todir="${build.dir}/jar">
             <fileset dir="${build.dir}/classes" includes="**/*.class"/>
         </copy>

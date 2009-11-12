@@ -57,7 +57,7 @@ public class TestConfig {
                 @Override
                 public void characters(char[] ch, int start, int length) throws SAXException {
                     if (currentPage != null){
-                        currentPage.setPath(new String(ch, start, length));
+                        currentPage.setPath(currentPage.getPath() + new String(ch, start, length));
                     }
                 }
 

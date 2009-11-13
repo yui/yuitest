@@ -76,7 +76,7 @@ public class TestConfigTest {
     @Test
     public void testGroupPageWithVersionOverride(){
         TestPage page = config.getGroups()[0].getTestPages()[2];
-
+fail("Booya");
         //make sure each test page's properties are correct
         assertEquals("test3/more?a=b", page.getPath());
         assertEquals("http://www.example.com/tests/test3/more?a=b", page.getAbsolutePath());

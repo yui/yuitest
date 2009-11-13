@@ -61,6 +61,7 @@ public class TestResultFileGenerator {
     private void generate(TestResult result, String type, Date timestamp) throws Exception {
         String dirname = properties.getProperty(type + ".outputdir");
         String filenameFormat = properties.getProperty(type + ".filename");
+        String browser = result.getBrowser().replace("*", "");
 
         if (dirname == null){
             throw new Exception("Missing '" + type + ".outputdir' configuration parameter.");
@@ -82,7 +83,7 @@ public class TestResultFileGenerator {
         }
 
         //format filename
-        String filename = filenameFormat.replace("{browser}", result.getBrowser().replace("*", "")).replace("{name}", result.getName()).trim();
+        String filename = filenameFormat.replace("{browser}", browser).replace("{name}", result.getName()).trim();
 
         int pos = filename.indexOf("{date:");
 
@@ -104,9 +105,17 @@ public class TestResultFileGenerator {
             System.err.println("[INFO] Outputting " + type + " to " + dirname + File.separator + filename);
         }
 
+        String reportText = result.getReport(type);
+
+        //for JUnit XML add browser information
+        //kind of hacky, better way to do this?
+        if (type.equals("results") && properties.getProperty(SeleniumDriver.RESULTS_FORMAT).equals("JUnitXML")){
+            reportText = reportText.replace("classname=\"", "classname=\"" + browser + ".");
+        }
+
         //output to file
         Writer out = new OutputStreamWriter(new FileOutputStream(dirname + File.separator + filename), "UTF-8");
-        out.write(result.getReport(type));
+        out.write(reportText);
         out.close();
 
     }

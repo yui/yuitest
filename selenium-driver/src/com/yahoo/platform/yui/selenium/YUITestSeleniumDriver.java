@@ -190,7 +190,7 @@ public class YUITestSeleniumDriver {
                     results = driver.runTests(group);
                 } else {
                     if (verbose){
-                        System.err.println("[INFO] No tests specified to run, existing..");
+                        System.err.println("[INFO] No tests specified to run, exiting...");
                     }
                 }
 

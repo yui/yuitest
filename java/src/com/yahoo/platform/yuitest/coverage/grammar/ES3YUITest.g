@@ -194,7 +194,7 @@ tokens
  * Code licensed under the BSD License:
  *     http://developer.yahoo.net/yui/license.txt
  */
-package com.yahoo.platform.yui.coverage;
+package com.yahoo.platform.yuitest.coverage;
 import org.antlr.runtime.tree.Tree;
 }
 
@@ -206,7 +206,7 @@ import org.antlr.runtime.tree.Tree;
  * Code licensed under the BSD License:
  *     http://developer.yahoo.net/yui/license.txt
  */
-package com.yahoo.platform.yui.coverage;
+package com.yahoo.platform.yuitest.coverage;
 }
 @lexer::members
 {

@@ -6,7 +6,7 @@
  *     http://developer.yahoo.net/yui/license.txt
  */
 
-package com.yahoo.platform.yui.selenium;
+package com.yahoo.platform.yuitest.selenium;
 
 import java.util.LinkedList;
 import java.util.List;

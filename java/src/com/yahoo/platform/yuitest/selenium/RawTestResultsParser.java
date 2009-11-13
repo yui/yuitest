@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package com.yahoo.platform.yui.selenium;
+package com.yahoo.platform.yuitest.selenium;
 
 import java.io.InputStream;
 import java.util.LinkedList;

@@ -6,7 +6,7 @@
  *     http://developer.yahoo.net/yui/license.txt
  */
 
-package com.yahoo.platform.yui.coverage.report;
+package com.yahoo.platform.yuitest.coverage.report;
 
 /**
  * Represents a single line in a file.

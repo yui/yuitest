@@ -5,7 +5,7 @@
  * Code licensed under the BSD License:
  *     http://developer.yahoo.net/yui/license.txt
  */
-package com.yahoo.platform.yui.selenium;
+package com.yahoo.platform.yuitest.selenium;
 
 import jargs.gnu.CmdLineParser;
 import java.io.*;

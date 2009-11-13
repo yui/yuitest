@@ -6,7 +6,7 @@
  *     http://developer.yahoo.net/yui/license.txt
  */
 
-package com.yahoo.platform.yui.coverage;
+package com.yahoo.platform.yuitest.coverage;
 
 import org.antlr.runtime.RecognitionException;
 import java.io.FileInputStream;

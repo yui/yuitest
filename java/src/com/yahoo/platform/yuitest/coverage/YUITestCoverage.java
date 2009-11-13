@@ -5,10 +5,10 @@
  * Code licensed under the BSD License:
  *     http://developer.yahoo.net/yui/license.txt
  */
-package com.yahoo.platform.yui.coverage;
+package com.yahoo.platform.yuitest.coverage;
 
-import com.yahoo.platform.yui.coverage.report.CoverageReport;
-import com.yahoo.platform.yui.coverage.report.ReportGenerator;
+import com.yahoo.platform.yuitest.coverage.report.CoverageReport;
+import com.yahoo.platform.yuitest.coverage.report.ReportGenerator;
 import jargs.gnu.CmdLineParser;
 import java.io.*;
 import java.nio.charset.Charset;

@@ -6,7 +6,7 @@
  *     http://developer.yahoo.net/yui/license.txt
  */
 
-package com.yahoo.platform.yui.coverage;
+package com.yahoo.platform.yuitest.coverage;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -70,6 +70,17 @@ public class TestResultFileGenerator {
             throw new Exception("Missing '" + type + ".outputdir' configuration parameter.");
         }
 
+        //create the directory if necessary
+        File dir = new File(dirname);
+        if (!dir.exists()){
+
+            if (verbose){
+                System.err.println("[INFO] Creating directory " + dir.getPath());
+            }
+
+            dir.mkdirs();
+        }
+
         //format filename
         String filename = filenameFormat.replace("{browser}", result.getBrowser().replace("*", "")).replace("{name}", result.getName()).trim();
 

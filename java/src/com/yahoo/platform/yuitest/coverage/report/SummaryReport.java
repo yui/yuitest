@@ -21,7 +21,7 @@ import org.json.JSONObject;
  * Represents a code coverage report.
  * @author Nicholas C. Zakas
  */
-public class CoverageReport {
+public class SummaryReport {
 
     private JSONObject data;
     private FileReport[] items;
@@ -36,7 +36,7 @@ public class CoverageReport {
      * @throws java.io.IOException
      * @throws org.json.JSONException
      */
-    public CoverageReport(File file) throws IOException, JSONException {
+    public SummaryReport(File file) throws IOException, JSONException {
         this(new InputStreamReader(new FileInputStream(file)));
     }
 
@@ -46,14 +46,14 @@ public class CoverageReport {
      * @throws java.io.IOException
      * @throws org.json.JSONException
      */
-    public CoverageReport(File[] files) throws IOException, JSONException {
+    public SummaryReport(File[] files) throws IOException, JSONException {
 
         //start with the first file
         this(files[0]);
 
         //include the others
         for (int i=1; i < files.length; i++){
-            include(new CoverageReport(files[i]));
+            include(new SummaryReport(files[i]));
         }
     }
 
@@ -63,7 +63,7 @@ public class CoverageReport {
      * @throws java.io.IOException
      * @throws org.json.JSONException
      */
-    public CoverageReport(Reader in) throws IOException, JSONException {
+    public SummaryReport(Reader in) throws IOException, JSONException {
         StringBuilder builder = new StringBuilder();
         int c;
         
@@ -79,7 +79,7 @@ public class CoverageReport {
      * Creates a new report object from a JSON object.
      * @param data The JSON object containing coverage data.
      */
-    public CoverageReport(JSONObject data)  throws JSONException{
+    public SummaryReport(JSONObject data)  throws JSONException{
         this.data = data;
         generateFileReports();
     }
@@ -144,7 +144,7 @@ public class CoverageReport {
      * Include another report's data in this report.
      * @param otherReport The other report to include.
      */
-    public void include(CoverageReport otherReport) throws JSONException{
+    public void include(SummaryReport otherReport) throws JSONException{
 
         JSONObject otherData = otherReport.toJSONObject();
         String[] keys = JSONObject.getNames(otherData);

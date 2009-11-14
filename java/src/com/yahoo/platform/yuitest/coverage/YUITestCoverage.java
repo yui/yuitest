@@ -7,7 +7,7 @@
  */
 package com.yahoo.platform.yuitest.coverage;
 
-import com.yahoo.platform.yuitest.coverage.report.CoverageReport;
+import com.yahoo.platform.yuitest.coverage.report.SummaryReport;
 import com.yahoo.platform.yuitest.coverage.report.ReportGenerator;
 import jargs.gnu.CmdLineParser;
 import java.io.*;
@@ -80,7 +80,7 @@ public class YUITestCoverage {
                 }
 
                 in = new InputStreamReader(new FileInputStream(fileArgs[0]), charset);
-                CoverageReport fullReport = new CoverageReport(in);
+                SummaryReport fullReport = new SummaryReport(in);
                 ReportGenerator.setVerbose(verbose);
                 ReportGenerator.generateAll(fullReport, outputReportDir, charset);
 

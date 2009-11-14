@@ -143,8 +143,8 @@
 
 	       	<!-- classpath must include all jar dependencies and classes -->
                 <classpath>
-                    <pathelement location="${build.dir}/classes"/>
-                    <pathelement location="${build.dir}/testclasses"/>
+                    <pathelement location="${tmp.dir}/classes"/>
+                    <pathelement location="${tmp.dir}/testclasses"/>
                     <pathelement location="${lib.dir}/${jargs.jar}"/>
                     <pathelement location="${lib.dir}/${selenium.jar}"/>
                     <pathelement location="${lib.dir}/${junit.jar}"/>

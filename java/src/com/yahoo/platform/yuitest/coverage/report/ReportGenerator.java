@@ -8,14 +8,14 @@
 
 package com.yahoo.platform.yuitest.coverage.report;
 
+import com.yahoo.platform.yuitest.coverage.writers.StringTemplateFileReportWriter;
+import com.yahoo.platform.yuitest.coverage.writers.StringTemplateSummaryReportWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.Date;
-import org.antlr.stringtemplate.StringTemplate;
-import org.antlr.stringtemplate.StringTemplateGroup;
 
 /**
  * Grouping for generation of coverage reports.
@@ -59,47 +59,30 @@ public class ReportGenerator {
      * @throws java.io.IOException
      */
     public static void generate(FileReport report, Writer out, Date date) throws IOException {
-
-        //get string template
-        StringTemplate template = getStringTemplate("FileReportTemplate");
-        
-        //assign report to the template
-        template.setAttribute("report", report);
-        template.setAttribute("date", date.toString());
-        
-        //output it
-        out.write(template.toString());        
+        StringTemplateFileReportWriter reportWriter = new StringTemplateFileReportWriter(out, "HTML");
+        reportWriter.write(report, date);
     }    
     
     /**
-     * Outputs an HTML report for the given CoverageReport object.
+     * Outputs an HTML report for the given SummaryReport object.
      * @param report Object containing information to be output.
      * @param out Where to write the data.
      * @throws java.io.IOException
      */    
-    public static void generate(CoverageReport report, Writer out) throws IOException {
+    public static void generate(SummaryReport report, Writer out) throws IOException {
         generate(report, out, new Date());        
     }
     
     /**
-     * Outputs an HTML report for the given CoverageReport object.
+     * Outputs an HTML report for the given SummaryReport object.
      * @param report Object containing information to be output.
      * @param out Where to write the data.
      * @param date The date stamp for the report.
      * @throws java.io.IOException
      */    
-    public static void generate(CoverageReport report, Writer out, Date date) throws IOException {
-        
-        //get string template
-        StringTemplate template = getStringTemplate("CoverageReportTemplate");        
-        
-        //assign report to the template
-        template.setAttribute("report", report);
-        template.setAttribute("date", date.toString());
-        
-        //output it
-        out.write(template.toString());          
-        
+    public static void generate(SummaryReport report, Writer out, Date date) throws IOException {
+        StringTemplateSummaryReportWriter reportWriter = new StringTemplateSummaryReportWriter(out, "HTML");
+        reportWriter.write(report, date);
     }
     
     /**
@@ -109,7 +92,7 @@ public class ReportGenerator {
      * @param directory The directory to output the HTML files to.
      * @throws java.io.IOException
      */
-    public static void generateAll(CoverageReport report, String directory, String charset) throws IOException {
+    public static void generateAll(SummaryReport report, String directory, String charset) throws IOException {
         
         File dir = new File(directory);        
         Date now = new Date();
@@ -134,19 +117,5 @@ public class ReportGenerator {
             generate(fileReports[i], out, now);
             out.close();
         }
-    }
-    
-    /**
-     * Retrieves a StringTemplate with the given name from the JAR.
-     * @param name The name of the StringTemplate to retrieve.
-     * @return A StringTemplate object.
-     */
-    private static StringTemplate getStringTemplate(String name){
-        String templatePath = ReportGenerator.class.getResource(name + ".st").getFile();
-        templatePath = templatePath.substring(0, templatePath.lastIndexOf("/") + 1);
-        StringTemplateGroup group = new StringTemplateGroup(name + "report", templatePath);
-        StringTemplate template = group.getInstanceOf(name);
-        group.setRefreshInterval(Integer.MAX_VALUE); //no refreshing          
-        return template;
     }
 }

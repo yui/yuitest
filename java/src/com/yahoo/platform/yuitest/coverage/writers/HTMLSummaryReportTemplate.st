@@ -91,8 +91,8 @@ h1{font-size:138.5%;}h2{font-size:123.1%;}h3{font-size:108%;}h1,h2,h3{margin:1em
                 $report.fileReports:{
                     <tr>
                         <td class="filename"><a href="$it.reportName$.html">$it.filename$</a></td>
-                        <td class="results">$it.calledLineCount$/$it.totalLineCount$ ($it.calledLinePercentage$)</td>
-                        <td class="results">$it.calledFunctionCount$/$it.totalFunctionCount$ ($it.calledFunctionPercentage$)</td>
+                        <td class="results">$it.calledLineCount$/$it.totalLineCount$ ($it.calledLinePercentage$%)</td>
+                        <td class="results">$it.calledFunctionCount$/$it.totalFunctionCount$ ($it.calledFunctionPercentage$%)</td>
                     </tr>
                 }$     
                 </tbody>

@@ -1,0 +1,2 @@
+    -:    0:Source:$report.filename$$report.lines:{
+$if(!it.isCovered)$    -:$it.lineNumber;format="gcovPadLeft"$:$it.text$$elseif(it.isCalled)$$it.callCount;format="gcovPadLeft"$:$it.lineNumber;format="gcovPadLeft"$:$it.text$$else$#####:$it.lineNumber;format="gcovPadLeft"$:$it.text$$endif$}$

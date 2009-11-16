@@ -8,10 +8,8 @@ package com.yahoo.platform.yuitest.coverage.writers;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Writer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.antlr.stringtemplate.AttributeRenderer;
 import org.antlr.stringtemplate.StringTemplate;
-import org.antlr.stringtemplate.StringTemplateGroup;
 
 /**
  * Provides basic string template loading for writers.
@@ -49,7 +47,39 @@ public abstract class AbstractStringTemplateReportWriter {
             while ((c = stream.read()) != -1) {
                 builder.append((char) c);
             }
-            return new StringTemplate(builder.toString());
+            StringTemplate template = new StringTemplate(builder.toString());
+            template.registerRenderer(Integer.class, new AttributeRenderer(){
+
+                public String toString(Object o) {
+                    return o.toString();
+                }
+
+                public String toString(Object o, String format) {
+                    if (format.equals("gcovPadLeft")){
+                        int value = Integer.parseInt(o.toString());
+                        String result = o.toString();
+                        if (value > 9999){
+                            return result;
+                        } else if (value > 999){
+                            return " " + result;
+                        } else if (value > 99){
+                            return "  " + result;
+                        } else if (value > 9){
+                            return "   " + result;
+                        } else {
+                            return "    " + result;
+                        }
+                    } else {
+                        return o.toString();
+                    }
+
+                    //throw new UnsupportedOperationException("Not supported yet.");
+                }
+            
+            });
+
+            return template;
+
         } catch (IOException ex) {
             throw new IllegalArgumentException("Couldn't open " + templateName);
         } finally {

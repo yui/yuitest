@@ -5,11 +5,11 @@
 
 package com.yahoo.platform.yuitest.coverage.writers;
 
-import com.yahoo.platform.yuitest.coverage.report.FileReport;
-import com.yahoo.platform.yuitest.coverage.report.ReportGenerator;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.Writer;
-import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.antlr.stringtemplate.StringTemplate;
 import org.antlr.stringtemplate.StringTemplateGroup;
 
@@ -41,11 +41,23 @@ public abstract class AbstractStringTemplateReportWriter {
      * @return A StringTemplate object.
      */
     protected StringTemplate getStringTemplate(){
-        String templatePath = ReportGenerator.class.getResource(templateName + ".st").getFile();
-        templatePath = templatePath.substring(0, templatePath.lastIndexOf("/") + 1);
-        StringTemplateGroup group = new StringTemplateGroup(templateName, templatePath);
-        StringTemplate template = group.getInstanceOf(templateName);
-        group.setRefreshInterval(Integer.MAX_VALUE); //no refreshing
-        return template;
+        InputStream stream = null;
+        try {
+            stream = AbstractStringTemplateReportWriter.class.getResource(templateName + ".st").openStream();
+            StringBuilder builder = new StringBuilder();
+            int c;
+            while ((c = stream.read()) != -1) {
+                builder.append((char) c);
+            }
+            return new StringTemplate(builder.toString());
+        } catch (IOException ex) {
+            throw new IllegalArgumentException("Couldn't open " + templateName);
+        } finally {
+            try {
+                stream.close();
+            } catch (IOException ex) {
+                //ignore
+            }
+        }
     }
 }

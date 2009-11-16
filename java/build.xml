@@ -28,12 +28,12 @@
     <!-- ================================================================== -->
     <!-- Build Classes                                                      -->
     <!-- ================================================================== -->
-    
-    <target name="build.classes" depends="-init">
-    
-        <!-- special step to create antlr parser -->
-        <antlr-gen dir="${src.dir}/${codepath.root.dir}/coverage/grammar/" grammar="ES3YUITest.g"/>       
-                
+
+    <target name="build.parsers" depends="-init">
+        <antlr-gen dir="${src.dir}/${codepath.root.dir}/coverage/grammar/" grammar="ES3YUITest.g"/>
+    </target>
+
+    <target name="build.classes" depends="-init">                    
         <mkdir dir="${tmp.dir}/classes"/>
         <javac srcdir="${src.dir}"
                destdir="${tmp.dir}/classes"
@@ -55,7 +55,7 @@
     <!-- Build Coverage JAR                                                 -->
     <!-- ================================================================== -->
  
-    <target name="build.coverage.jar" depends="build.classes">
+    <target name="build.coverage.jar" depends="build.parsers,build.classes">
         <mkdir dir="${tmp.dir}/coverage/jar"/>
         <unjar src="${lib.dir}/${jargs.jar}" dest="${tmp.dir}/coverage/jar"/>
         <unjar src="${lib.dir}/${antlr2.jar}" dest="${tmp.dir}/coverage/jar"/>
@@ -63,6 +63,7 @@
         <unjar src="${lib.dir}/${stringtemplate.jar}" dest="${tmp.dir}/coverage/jar"/>
         <copy todir="${tmp.dir}/coverage/jar">
             <fileset dir="${tmp.dir}/classes" includes="**/coverage/**/*.class"/>
+            <fileset dir="${tmp.dir}/classes" includes="**/json/*.class"/>
         </copy>
         <!-- copy string template files to JAR -->
         <copy todir="${tmp.dir}/coverage/jar/${coverage.root.dir}">

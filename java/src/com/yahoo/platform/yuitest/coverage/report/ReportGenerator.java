@@ -8,8 +8,11 @@
 
 package com.yahoo.platform.yuitest.coverage.report;
 
-import com.yahoo.platform.yuitest.coverage.writers.StringTemplateFileReportWriter;
-import com.yahoo.platform.yuitest.coverage.writers.StringTemplateSummaryReportWriter;
+import com.yahoo.platform.yuitest.coverage.writers.FileReportWriter;
+import com.yahoo.platform.yuitest.coverage.writers.GCOVFileReportWriter;
+import com.yahoo.platform.yuitest.coverage.writers.HTMLFileReportWriter;
+import com.yahoo.platform.yuitest.coverage.writers.HTMLSummaryReportWriter;
+import com.yahoo.platform.yuitest.coverage.writers.SummaryReportWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -28,6 +31,8 @@ public class ReportGenerator {
     private static HashMap<String,String> summaryReportExtensions;
     private static HashMap<String,String> fileReportExtensions;
     private static HashMap<String,String> summaryReportName;
+    private static HashMap<String,Class> fileReportWriters;
+    private static HashMap<String,Class> summaryReportWriters;
 
     static {
         summaryReportExtensions = new HashMap<String,String>();
@@ -39,6 +44,13 @@ public class ReportGenerator {
         fileReportExtensions = new HashMap<String,String>();
         fileReportExtensions.put("HTML", "html");
         fileReportExtensions.put("GCOV", "gcov");
+
+        fileReportWriters = new HashMap<String,Class>();
+        fileReportWriters.put("HTML", HTMLFileReportWriter.class);
+        fileReportWriters.put("GCOV", GCOVFileReportWriter.class);
+
+        summaryReportWriters = new HashMap<String,Class>();
+        summaryReportWriters.put("HTML", HTMLSummaryReportWriter.class);
 
 
     }
@@ -79,11 +91,18 @@ public class ReportGenerator {
     public static void generate(FileReport report, String format, Writer out, Date date) throws IOException {
 
         //make sure it's a valid format
-        if (!fileReportExtensions.containsKey(format)){
+        if (!fileReportWriters.containsKey(format)){
             throw new IllegalArgumentException("Unknown file report format '" + format + "'.");
         }
+
+        Class reportWriterClass = fileReportWriters.get(format);
+        FileReportWriter reportWriter;
+        try {
+            reportWriter = (FileReportWriter) reportWriterClass.getConstructor(new Class[]{ Writer.class }).newInstance(new Object[]{out});
+        } catch (Exception ex) {
+            throw new IOException("Could not create report writer.");
+        }
         
-        StringTemplateFileReportWriter reportWriter = new StringTemplateFileReportWriter(out, format);
         reportWriter.write(report, date);
     }    
     
@@ -107,11 +126,19 @@ public class ReportGenerator {
     public static void generate(SummaryReport report, String format, Writer out, Date date) throws IOException {
 
         //make sure it's a valid format
-        if (!summaryReportExtensions.containsKey(format)){
+        if (!summaryReportWriters.containsKey(format)){
             throw new IllegalArgumentException("Unknown summary report format '" + format + "'.");
         }
-        
-        StringTemplateSummaryReportWriter reportWriter = new StringTemplateSummaryReportWriter(out, format);
+
+        Class reportWriterClass = summaryReportWriters.get(format);
+        SummaryReportWriter reportWriter;
+        try {
+            reportWriter = (SummaryReportWriter) reportWriterClass.getConstructor(new Class[]{ Writer.class }).newInstance(new Object[]{out});
+        } catch (Exception ex) {
+            throw new IOException("Could not create report writer.");
+        }
+
+        //StringTemplateSummaryReportWriter reportWriter = new StringTemplateSummaryReportWriter(out, format);
         reportWriter.write(report, date);
     }
     
@@ -131,7 +158,7 @@ public class ReportGenerator {
         Writer out;
 
         //figure out if there should be a summary report
-        if (summaryReportName.containsKey(format)){
+        if (summaryReportWriters.containsKey(format)){
             outputFile = dir.getAbsolutePath() + File.separator + summaryReportName.get(format) + "." + summaryReportExtensions.get(format);
 
             //first, generate the index file

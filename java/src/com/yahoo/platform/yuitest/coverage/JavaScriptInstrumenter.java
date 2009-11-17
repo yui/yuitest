@@ -28,10 +28,16 @@ public class JavaScriptInstrumenter {
 
     private Reader in;
     private String name;
+    private String path;
 
     public JavaScriptInstrumenter(Reader in, String name){
+        this(in, name, name);
+    }
+
+    public JavaScriptInstrumenter(Reader in, String name, String path){
         this.in = in;
         this.name = name;
+        this.path = path;
     }
 
     public void instrument(Writer out, boolean verbose) throws IOException, RecognitionException {
@@ -66,7 +72,10 @@ public class JavaScriptInstrumenter {
         //there will be a dangling comma, so replace it
         codeLines.setCharAt(codeLines.length()-1, ']');
         codeLines.append(";");
-        
+
+        //output full path
+        codeLines.append(String.format("\n_yuitest_coverage[\"%s\"].path = \"%s\";", name, path.replace("\\", "\\\\")));
+
         //setup parser
         ANTLRReaderStream stream = new ANTLRReaderStream(new StringReader(code.toString()));
         stream.name = name;
@@ -85,7 +94,9 @@ public class JavaScriptInstrumenter {
 
         //output the resulting file
         out.write(result);
+        out.flush();
         out.write(codeLines.toString());
+        out.flush();
     }
 
 

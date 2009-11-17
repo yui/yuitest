@@ -8,6 +8,7 @@
 
 package com.yahoo.platform.yuitest.coverage;
 
+import java.io.File;
 import org.antlr.runtime.RecognitionException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -84,7 +85,7 @@ public class FileInstrumenter {
         try {
             in = new InputStreamReader(new FileInputStream(inputFilename), charset);
             out = new OutputStreamWriter(new FileOutputStream(outputFilename), charset);
-            JavaScriptInstrumenter instrumenter = new JavaScriptInstrumenter(in, inputFilename);
+            JavaScriptInstrumenter instrumenter = new JavaScriptInstrumenter(in, inputFilename, (new File(inputFilename)).getCanonicalPath());
             instrumenter.instrument(out, verbose);
         } catch (IOException ex){
             in.close();

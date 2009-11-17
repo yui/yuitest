@@ -141,7 +141,7 @@ public class YUITestSeleniumDriver {
 
             //create a new selenium driver with the properties
             SeleniumDriver driver = new SeleniumDriver(properties, verbose);
-            TestResult[] results = null;
+            SessionResult[] results = null;
 
             //if --tests is specified, run just those tests
             String testFile = (String) parser.getOptionValue(testsOpt);
@@ -199,7 +199,7 @@ public class YUITestSeleniumDriver {
 
             //output result files
             if (results != null){
-                TestResultFileGenerator generator = new TestResultFileGenerator(properties, verbose);
+                SessionResultFileGenerator generator = new SessionResultFileGenerator(properties, verbose);
                 generator.generateAll(results, new Date());
             }
             

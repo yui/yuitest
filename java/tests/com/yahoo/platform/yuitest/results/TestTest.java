@@ -85,4 +85,11 @@ public class TestTest {
         assertEquals("Hello", instance.getStackTrace());
     }
 
+    /**
+     * Test of getPath method, of class Test.
+     */
+    @Test
+    public void testGetPath() {
+        assertEquals("test1", instance.getPath());
+    }
 }

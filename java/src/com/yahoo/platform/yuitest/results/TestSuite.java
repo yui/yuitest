@@ -24,6 +24,7 @@ public class TestSuite {
     private int ignored;
     private List<TestCase> testCases;
     private List<TestSuite> testSuites;
+    private TestSuite parent;
 
     protected TestSuite(String name, int duration, int passed, int failed, int ignored) {
         this.name = name;
@@ -37,10 +38,12 @@ public class TestSuite {
 
     protected void addTestSuite(TestSuite suite){
         testSuites.add(suite);
+        suite.setParent(this);
     }
 
     protected void addTestCase(TestCase testCase){
         testCases.add(testCase);
+        testCase.setParent(this);
     }
 
     public int getDuration() {
@@ -69,6 +72,26 @@ public class TestSuite {
 
     public TestCase[] getTestCases(){
         return testCases.toArray(new TestCase[testCases.size()]);
+    }
+
+    public TestSuite getParent(){
+        return parent;
+    }
+
+    protected void setParent(TestSuite parent){
+        this.parent = parent;
+    }
+
+    public int getTotal(){
+        return passed + failed;
+    }
+    
+    public String getPath(){
+        return getPath(TestReport.PATH_SEPARATOR);
+    }
+
+    public String getPath(String separator){
+        return (parent != null ? parent.getPath() + separator : "") + name;
     }
 
 }

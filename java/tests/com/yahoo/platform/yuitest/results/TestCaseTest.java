@@ -89,4 +89,12 @@ public class TestCaseTest {
         assertEquals(5, instance.getPassed());
     }
 
+    /**
+     * Test of getPath method, of class TestCase.
+     */
+    @Test
+    public void testGetPath() {
+        assertEquals("testcase1", instance.getPath());
+    }
+
 }

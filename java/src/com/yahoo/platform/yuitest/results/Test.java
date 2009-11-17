@@ -23,6 +23,7 @@ public class Test {
     private String message;
     private String stackTrace;
     private int duration;
+    private TestCase parent;
 
     protected Test(String name, int duration, int result, String message) {
         this.name = name;
@@ -55,7 +56,23 @@ public class Test {
         this.stackTrace = stackTrace;
     }
 
+    public TestCase getParent(){
+        return parent;
+    }
 
+    protected void setParent(TestCase parent){
+        this.parent = parent;
+    }
 
+    public String getPath(){
+        return getPath(TestReport.PATH_SEPARATOR);
+    }
 
+    public String getPath(String separator){
+        return (parent != null ? parent.getPath() + separator : "") + name;
+    }
+
+    public boolean getFailed(){
+        return result == FAIL;
+    }
 }

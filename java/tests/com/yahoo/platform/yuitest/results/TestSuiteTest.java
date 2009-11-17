@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author nzakas
+ * @author Nicholas C. Zakas
  */
 public class TestSuiteTest {
 
@@ -42,6 +42,7 @@ public class TestSuiteTest {
         instance.addTestSuite(suite);
         assertEquals(1, instance.getTestSuites().length);
         assertEquals(suite, instance.getTestSuites()[0]);
+        assertEquals("testsuite1\\testsuite2", suite.getPath());
     }
 
     /**
@@ -53,6 +54,7 @@ public class TestSuiteTest {
         instance.addTestCase(testCase);
         assertEquals(1, instance.getTestCases().length);
         assertEquals(testCase, instance.getTestCases()[0]);
+        assertEquals("testsuite1\\testcase1", testCase.getPath());
     }
 
     /**
@@ -93,6 +95,15 @@ public class TestSuiteTest {
     @Test
     public void testGetIgnored() {
         assertEquals(2, instance.getIgnored());
+    }
+
+
+    /**
+     * Test of getPath method, of class TestSuite.
+     */
+    @Test
+    public void testGetPath() {
+        assertEquals("testsuite1", instance.getPath());
     }
 
 }

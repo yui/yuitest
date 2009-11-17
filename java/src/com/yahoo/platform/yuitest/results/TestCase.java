@@ -23,6 +23,7 @@ public class TestCase {
     private int passed = 0;
     private int failed = 0;
     private int ignored = 0;
+    private TestSuite parent;
 
     protected TestCase(String name, int duration, int passed, int failed, int ignored){
         this.name = name;
@@ -61,5 +62,24 @@ public class TestCase {
         return tests.toArray(new Test[tests.size()]);
     }
 
+    public TestSuite getParent(){
+        return parent;
+    }
+
+    protected void setParent(TestSuite parent){
+        this.parent = parent;
+    }
+
+    public int getTotal(){
+        return passed + failed;
+    }
+
+    public String getPath(){
+        return getPath(TestReport.PATH_SEPARATOR);
+    }
+
+    public String getPath(String separator){
+        return (parent != null ? parent.getPath() + separator : "") + name;
+    }
 
 }

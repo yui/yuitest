@@ -22,11 +22,11 @@ import org.xml.sax.helpers.DefaultHandler;
 public class RawTestResultsParser {
 
     /**
-     * Parses a raw YUI Test XML results stream and returns a TestResult object.
+     * Parses a raw YUI Test XML results stream and returns a SessionResult object.
      * @param in The stream to read the results from.
      * @throws Exception If a parsing error occurs.
      */
-    public static TestResult parse(InputStream in, final TestResult result) throws Exception {
+    public static SessionResult parse(InputStream in, final SessionResult result) throws Exception {
 
         SAXParserFactory spf = SAXParserFactory.newInstance();
         SAXParser parser = null;

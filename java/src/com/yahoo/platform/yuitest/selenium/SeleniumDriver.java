@@ -128,7 +128,7 @@ public class SeleniumDriver {
      * @return An array of test results based on the tests that were run.
      * @throws Exception When a test cannot be run.
      */
-    public TestResult[] runTests(TestConfig config) throws Exception {
+    public SessionResult[] runTests(TestConfig config) throws Exception {
         return runTests(config.getGroups());
     }
    
@@ -138,9 +138,9 @@ public class SeleniumDriver {
      * @return An array of test results based on the tests that were run.
      * @throws Exception When a test cannot be run.
      */
-    public TestResult[] runTests(TestPageGroup[] groups) throws Exception {
+    public SessionResult[] runTests(TestPageGroup[] groups) throws Exception {
         
-        List<TestResult> results = new LinkedList<TestResult>();        
+        List<SessionResult> results = new LinkedList<SessionResult>();
 
         //do the tests
         for(int i=0; i < groups.length; i++){
@@ -149,7 +149,7 @@ public class SeleniumDriver {
             }
         }
 
-        return results.toArray(new TestResult[results.size()]);        
+        return results.toArray(new SessionResult[results.size()]);
     }
 
     /**
@@ -158,14 +158,14 @@ public class SeleniumDriver {
      * @return An array of test results based on the tests that were run.
      * @throws Exception When a test cannot be run.
      */
-    public TestResult[] runTests(TestPageGroup group) throws Exception {
-        List<TestResult> results = new LinkedList<TestResult>();
+    public SessionResult[] runTests(TestPageGroup group) throws Exception {
+        List<SessionResult> results = new LinkedList<SessionResult>();
 
         for (int j=0; j < browsers.length; j++){
             results.addAll(runTestGroup(browsers[j], group));
         }
 
-        return results.toArray(new TestResult[results.size()]);
+        return results.toArray(new SessionResult[results.size()]);
     }
 
     //--------------------------------------------------------------------------
@@ -178,10 +178,10 @@ public class SeleniumDriver {
      * instance or by creating multiple Selenium instances.
      * @param browser The Selenium browser name to run the tests on.
      * @param group The TestPageGroup containing tests to run.
-     * @return A list of TestResult objects.
+     * @return A list of SessionResult objects.
      * @throws Exception If any of the tests error out.
      */
-    private List<TestResult> runTestGroup(String browser, TestPageGroup group)
+    private List<SessionResult> runTestGroup(String browser, TestPageGroup group)
             throws Exception {
         
         //if there's a common base, try to optimize
@@ -196,14 +196,14 @@ public class SeleniumDriver {
      * Runs all tests in a test group using a single Selenium instance.
      * @param browser The Selenium browser name to run the tests on.
      * @param group The TestPageGroup containing tests to run.
-     * @return A list of TestResult objects.
+     * @return A list of SessionResult objects.
      * @throws Exception If any of the tests error out.
      */
-    private List<TestResult> runTestGroupOpt(String browser, TestPageGroup group)
+    private List<SessionResult> runTestGroupOpt(String browser, TestPageGroup group)
             throws Exception {
 
         TestPage[] testpages = group.getTestPages();
-        List<TestResult> results = new LinkedList<TestResult>();
+        List<SessionResult> results = new LinkedList<SessionResult>();
         Selenium selenium = startBrowser(browser, group.getBase());
 
         try {
@@ -223,14 +223,14 @@ public class SeleniumDriver {
      * Runs all tests in a test group using multiple Selenium instances.
      * @param browser The Selenium browser name to run the tests on.
      * @param group The TestPageGroup containing tests to run.
-     * @return A list of TestResult objects.
+     * @return A list of SessionResult objects.
      * @throws Exception If any of the tests error out.
      */
-    private List<TestResult> runTestGroupUnopt(String browser, TestPageGroup group)
+    private List<SessionResult> runTestGroupUnopt(String browser, TestPageGroup group)
             throws Exception {
 
         TestPage[] testpages = group.getTestPages();
-        List<TestResult> results = new LinkedList<TestResult>();
+        List<SessionResult> results = new LinkedList<SessionResult>();
         Selenium selenium = null;
 
         try {
@@ -261,7 +261,7 @@ public class SeleniumDriver {
      * @return The results of the test being run.
      * @throws Exception If there's an error while running the test.
      */
-    public TestResult runTestPage(String browser, TestPage page) throws Exception {
+    public SessionResult runTestPage(String browser, TestPage page) throws Exception {
 
         Selenium selenium = null;
         String url = page.getAbsolutePath();
@@ -293,7 +293,7 @@ public class SeleniumDriver {
      * @return The results of the test being run.
      * @throws Exception If there's an error while running the test.
      */
-    private TestResult runTestPage(Selenium selenium, String browser, 
+    private SessionResult runTestPage(Selenium selenium, String browser,
             TestPage page) throws Exception {
     
         //basic YUI Test info
@@ -369,7 +369,7 @@ public class SeleniumDriver {
 
             name = selenium.getEval(testName);
 
-            TestResult result = new TestResult(name, browser, url);
+            SessionResult result = new SessionResult(name, browser, url);
             RawTestResultsParser.parse(new ByteArrayInputStream(rawResults.getBytes()), result);
             result.setReport("results", results);
             result.setReport("coverage", coverage);

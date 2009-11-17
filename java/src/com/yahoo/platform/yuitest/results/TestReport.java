@@ -23,8 +23,21 @@ import org.xml.sax.InputSource;
  */
 public class TestReport extends TestSuite {
 
+    public static final String PATH_SEPARATOR = "\\";
+
+    private String browser = "";
+
     protected TestReport(String name, int duration, int passed, int failed, int ignored) {
         super(name, duration, passed, failed, ignored);
+    }
+
+    protected void setBrowser(String browser){
+        this.browser = browser;
+    }
+
+    @Override
+    public String getPath(){
+        return (!browser.equals("") ? browser + " > " : "") + getName();
     }
 
     public static TestReport load(File file) throws IOException {

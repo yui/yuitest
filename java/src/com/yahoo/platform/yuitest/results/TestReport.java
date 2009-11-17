@@ -1,5 +1,5 @@
 /*
- * YUI Test Coverage
+ * YUI Test
  * Author: Nicholas C. Zakas <nzakas@yahoo-inc.com>
  * Copyright (c) 2009, Yahoo! Inc. All rights reserved.
  * Code licensed under the BSD License:
@@ -8,10 +8,14 @@
 
 package com.yahoo.platform.yuitest.results;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Reader;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
+import org.xml.sax.InputSource;
 
 /**
  *
@@ -23,7 +27,19 @@ public class TestReport extends TestSuite {
         super(name, duration, passed, failed, ignored);
     }
 
+    public static TestReport load(File file) throws IOException {
+        return load(new FileInputStream(file));
+    }
+
     public static TestReport load(InputStream in) throws IOException {
+        return load(new InputSource(in));
+    }
+
+    public static TestReport load(Reader in) throws IOException {
+        return load(new InputSource(in));
+    }
+
+    public static TestReport load(InputSource in) throws IOException {
         SAXParserFactory spf = SAXParserFactory.newInstance();
         SAXParser parser = null;
         TestReportXMLHandler handler = new TestReportXMLHandler();

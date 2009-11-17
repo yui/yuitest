@@ -8,7 +8,7 @@
 
 package com.yahoo.platform.yuitest.coverage.writers;
 
-import com.yahoo.platform.yuitest.coverage.report.FileReport;
+import com.yahoo.platform.yuitest.coverage.results.FileReport;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.Date;

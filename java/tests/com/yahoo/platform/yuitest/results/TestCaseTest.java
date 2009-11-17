@@ -1,5 +1,5 @@
 /*
- * YUI Test Selenium Driver
+ * YUI Test
  * Author: Nicholas C. Zakas <nzakas@yahoo-inc.com>
  * Copyright (c) 2009, Yahoo! Inc. All rights reserved.
  * Code licensed under the BSD License:
@@ -9,9 +9,7 @@
 package com.yahoo.platform.yuitest.results;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

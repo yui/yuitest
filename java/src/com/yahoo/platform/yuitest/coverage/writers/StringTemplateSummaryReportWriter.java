@@ -1,5 +1,5 @@
 /*
- * YUI Test Coverage
+ * YUI Test
  * Author: Nicholas C. Zakas <nzakas@yahoo-inc.com>
  * Copyright (c) 2009, Yahoo! Inc. All rights reserved.
  * Code licensed under the BSD License:
@@ -8,7 +8,7 @@
 
 package com.yahoo.platform.yuitest.coverage.writers;
 
-import com.yahoo.platform.yuitest.coverage.report.SummaryReport;
+import com.yahoo.platform.yuitest.coverage.results.SummaryReport;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.Date;

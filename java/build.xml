@@ -54,29 +54,53 @@
     <!-- ================================================================== -->
     <!-- Build Coverage JAR                                                 -->
     <!-- ================================================================== -->
- 
+
     <target name="build.coverage.jar" depends="build.parsers,build.classes">
         <mkdir dir="${tmp.dir}/coverage/jar"/>
         <unjar src="${lib.dir}/${jargs.jar}" dest="${tmp.dir}/coverage/jar"/>
-        <unjar src="${lib.dir}/${antlr2.jar}" dest="${tmp.dir}/coverage/jar"/>
         <unjar src="${lib.dir}/${antlr-runtime.jar}" dest="${tmp.dir}/coverage/jar"/>
+        <unjar src="${lib.dir}/${antlr2.jar}" dest="${tmp.dir}/coverage/jar"/>
         <unjar src="${lib.dir}/${stringtemplate.jar}" dest="${tmp.dir}/coverage/jar"/>
         <copy todir="${tmp.dir}/coverage/jar">
-            <fileset dir="${tmp.dir}/classes" includes="**/coverage/**/*.class"/>
+            <fileset dir="${tmp.dir}/classes" includes="**/coverage/*.class"/>
             <fileset dir="${tmp.dir}/classes" includes="**/json/*.class"/>
         </copy>
         <!-- copy string template files to JAR -->
         <copy todir="${tmp.dir}/coverage/jar/${coverage.root.dir}">
             <fileset dir="${src.dir}/${coverage.root.dir}" includes="**/*.stg"/>
-            <fileset dir="${src.dir}/${coverage.root.dir}" includes="**/*.st"/>
         </copy>
         <jar destfile="${build.dir}/${coverage.jar.name}" basedir="${tmp.dir}/coverage/jar">
             <manifest>
                 <attribute name="Main-Class" value="com.yahoo.platform.yuitest.coverage.YUITestCoverage"/>
             </manifest>
         </jar>
-        
-    </target>    
+
+    </target>
+
+    <!-- ================================================================== -->
+    <!-- Build Coverage Report JAR                                                 -->
+    <!-- ================================================================== -->
+
+    <target name="build.coverage-report.jar" depends="build.classes">
+        <mkdir dir="${tmp.dir}/coverage-report/jar"/>
+        <unjar src="${lib.dir}/${jargs.jar}" dest="${tmp.dir}/coverage-report/jar"/>
+        <unjar src="${lib.dir}/${antlr2.jar}" dest="${tmp.dir}/coverage-report/jar"/>
+        <unjar src="${lib.dir}/${stringtemplate.jar}" dest="${tmp.dir}/coverage-report/jar"/>
+        <copy todir="${tmp.dir}/coverage-report/jar">
+            <fileset dir="${tmp.dir}/classes" includes="**/coverage/*/*.class"/>
+            <fileset dir="${tmp.dir}/classes" includes="**/json/*.class"/>
+        </copy>
+        <!-- copy string template files to JAR -->
+        <copy todir="${tmp.dir}/coverage-report/jar/${coverage.root.dir}">
+            <fileset dir="${src.dir}/${coverage.root.dir}" includes="**/*.st"/>
+        </copy>
+        <jar destfile="${build.dir}/${coverage-report.jar.name}" basedir="${tmp.dir}/coverage-report/jar">
+            <manifest>
+                <attribute name="Main-Class" value="com.yahoo.platform.yuitest.coverage.report.YUITestCoverageReport"/>
+            </manifest>
+        </jar>
+
+    </target>
 
     <!-- ================================================================== -->
     <!-- Build Selenium Driver JAR                                          -->
@@ -106,7 +130,7 @@
     <!-- Build All JARs                                                     -->
     <!-- ================================================================== -->
 
-    <target name="build.all.jars" depends="build.coverage.jar,build.selenium-driver.jar">
+    <target name="build.all.jars" depends="build.coverage.jar,build.coverage-report.jar,build.selenium-driver.jar">
     </target>
 
     <!-- ================================================================== -->
@@ -132,8 +156,8 @@
         </javac>
         
         <!-- copy over XML files for testing-->
-        <copy todir="${tmp.dir}/testclasses/${selenium-driver.root.dir}">
-            <fileset dir="${tests.dir}" includes="*.xml"/>
+        <copy todir="${tmp.dir}/testclasses/${codepath.root.dir}">
+            <fileset dir="${tests.dir}/${codepath.root.dir}" includes="**/*.xml"/>
         </copy>
     </target>
 

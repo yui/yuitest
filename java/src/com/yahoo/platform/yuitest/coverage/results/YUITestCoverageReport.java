@@ -1,18 +1,14 @@
 /*
- * YUI Test Coverage
+ * YUI Test
  * Author: Nicholas C. Zakas <nzakas@yahoo-inc.com>
  * Copyright (c) 2009, Yahoo! Inc. All rights reserved.
  * Code licensed under the BSD License:
  *     http://developer.yahoo.net/yui/license.txt
  */
-package com.yahoo.platform.yuitest.coverage.report;
+package com.yahoo.platform.yuitest.coverage.results;
 
-import com.yahoo.platform.yuitest.coverage.*;
-import com.yahoo.platform.yuitest.coverage.report.SummaryReport;
-import com.yahoo.platform.yuitest.coverage.report.ReportGenerator;
 import jargs.gnu.CmdLineParser;
 import java.io.*;
-import java.nio.charset.Charset;
 
 /**
  * Main YUI Test Coverage class.

@@ -1,5 +1,5 @@
 /*
- * YUI Test Coverage
+ * YUI Test
  * Author: Nicholas C. Zakas <nzakas@yahoo-inc.com>
  * Copyright (c) 2009, Yahoo! Inc. All rights reserved.
  * Code licensed under the BSD License:
@@ -8,6 +8,7 @@
 
 package com.yahoo.platform.yuitest.results;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -30,6 +31,8 @@ public class TestSuite {
         this.passed = passed;
         this.failed = failed;
         this.ignored = ignored;
+        this.testSuites = new LinkedList<TestSuite>();
+        this.testCases = new LinkedList<TestCase>();
     }
 
     protected void addTestSuite(TestSuite suite){
@@ -64,7 +67,7 @@ public class TestSuite {
         return testSuites.toArray(new TestSuite[testSuites.size()]);
     }
 
-    public TestCase[] getTestCasees(){
+    public TestCase[] getTestCases(){
         return testCases.toArray(new TestCase[testCases.size()]);
     }
 

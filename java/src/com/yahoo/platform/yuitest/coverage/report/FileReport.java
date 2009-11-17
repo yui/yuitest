@@ -21,6 +21,7 @@ public class FileReport {
     private JSONObject data;
     private String filename;
     private FileLine[] lines;
+    private String path;
 
     /**
      * Creates a new FileReport for the given filename.
@@ -30,6 +31,7 @@ public class FileReport {
     protected FileReport(String filename, JSONObject data) throws JSONException {
         this.filename = filename;
         this.data = data;
+        this.path = data.getString("path");
         createFileLines();
     }
 
@@ -52,6 +54,14 @@ public class FileReport {
      */
     public String getFilename(){
         return filename;
+    }
+
+    /**
+     * Returns the file path for this item.
+     * @return The file path for this item.
+     */
+    public String getPath(){
+        return path;
     }
 
     /**

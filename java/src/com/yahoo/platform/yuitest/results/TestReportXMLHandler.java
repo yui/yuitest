@@ -22,9 +22,15 @@ public class TestReportXMLHandler extends DefaultHandler {
     private TestReport report = null;
     private Stack<TestSuite> suites = null;
     private TestCase curTestCase = null;
+    private String browser="";
 
-    public TestReportXMLHandler() {
+    public TestReportXMLHandler(){
         suites = new Stack<TestSuite>();
+    }
+
+    public TestReportXMLHandler(String browser) {
+        this();
+        this.browser = browser;
     }
 
     public TestReport getTestReport(){
@@ -51,7 +57,7 @@ public class TestReportXMLHandler extends DefaultHandler {
                     Integer.parseInt(attributes.getValue("passed")),
                     Integer.parseInt(attributes.getValue("failed")),
                     Integer.parseInt(attributes.getValue("ignored")));
-            
+            report.setBrowser(browser);
             suites.push(report);
         } else if (qName.equals("testsuite")){
             TestSuite suite = new TestSuite(attributes.getValue("name"),
@@ -73,7 +79,7 @@ public class TestReportXMLHandler extends DefaultHandler {
             //if there's another suite, add as a child
             suites.peek().addTestCase(testCase);
             curTestCase = testCase;
-        } else if (qName.equals("testcase")){
+        } else if (qName.equals("test")){
 
             //figure out the result
             String xmlResult = attributes.getValue("result");

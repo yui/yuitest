@@ -1,5 +1,5 @@
 /*
- * YUI Test Selenium Driver
+ * YUI Test
  * Author: Nicholas C. Zakas <nzakas@yahoo-inc.com>
  * Copyright (c) 2009, Yahoo! Inc. All rights reserved.
  * Code licensed under the BSD License:
@@ -8,6 +8,9 @@
 
 package com.yahoo.platform.yuitest.selenium;
 
+import com.yahoo.platform.yuitest.results.TestReport;
+import com.yahoo.platform.yuitest.writers.JUnitXMLTestReportWriter;
+import com.yahoo.platform.yuitest.writers.TestReportWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
@@ -47,15 +50,75 @@ public class SessionResultFileGenerator {
     public void generateAll(SessionResult result, Date timestamp) throws Exception {
 
         //generate test results file
-        if (result.hasReport("results")){
-            generate(result, "results", timestamp);
-        }
+        //if (result.hasReport("results")){
+            generate(result.getTestReport(), timestamp);
+            //generate(result, "results", timestamp);
+        //}
 
         //generate test coverage file
         if (result.hasReport("coverage")){
             generate(result, "coverage", timestamp);
         }
 
+    }
+
+    private void generate(TestReport report, Date timestamp) throws Exception {
+        
+        String type = "results";
+        String dirname = properties.getProperty(type + ".outputdir");
+        String filenameFormat = properties.getProperty(type + ".filename");
+        String browser = report.getBrowser().replace("*", "");
+
+        if (dirname == null){
+            throw new Exception("Missing '" + type + ".outputdir' configuration parameter.");
+        }
+
+        if (filenameFormat == null){
+            throw new Exception("Missing '" + type + ".outputdir' configuration parameter.");
+        }
+
+        //create the directory if necessary
+        File dir = new File(dirname);
+        if (!dir.exists()){
+
+            if (verbose){
+                System.err.println("[INFO] Creating directory " + dir.getPath());
+            }
+
+            dir.mkdirs();
+        }
+
+        //format filename
+        String filename = filenameFormat.replace("{browser}", browser).replace("{name}", report.getName()).trim();
+
+        int pos = filename.indexOf("{date:");
+
+        if (pos > -1){
+
+            int endpos = filename.indexOf("}", pos);
+            String format = filename.substring(pos + 6, endpos);
+
+            //get the format
+            SimpleDateFormat formatter = new SimpleDateFormat(format);
+
+            //insert into filename
+            filename = filename.replace("{date:" + format + "}", formatter.format(timestamp));
+        }
+
+        filename = filename.replaceAll("[^a-zA-Z0-9\\.\\-]", "_").replaceAll("_+", "_");
+
+        if (verbose){
+            System.err.println("[INFO] Outputting " + type + " to " + dirname + File.separator + filename);
+        }
+
+        Writer out = new OutputStreamWriter(new FileOutputStream(dirname + File.separator + filename), "UTF-8");
+        TestReportWriter writer = new JUnitXMLTestReportWriter(out);
+
+        //String reportText = result.getReport(type);
+
+        writer.write(report, timestamp);
+        writer.close();
+        
     }
 
     private void generate(SessionResult result, String type, Date timestamp) throws Exception {
@@ -106,12 +169,6 @@ public class SessionResultFileGenerator {
         }
 
         String reportText = result.getReport(type);
-
-        //for JUnit XML add browser information
-        //kind of hacky, better way to do this?
-        if (type.equals("results") && properties.getProperty(SeleniumDriver.RESULTS_FORMAT).equals("JUnitXML")){
-            reportText = reportText.replace("classname=\"", "classname=\"" + browser + ".");
-        }
 
         //output to file
         Writer out = new OutputStreamWriter(new FileOutputStream(dirname + File.separator + filename), "UTF-8");

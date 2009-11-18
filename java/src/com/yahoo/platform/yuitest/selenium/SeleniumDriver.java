@@ -11,7 +11,9 @@ package com.yahoo.platform.yuitest.selenium;
 import com.thoughtworks.selenium.DefaultSelenium;
 import com.thoughtworks.selenium.Selenium;
 import com.thoughtworks.selenium.SeleniumException;
+import com.yahoo.platform.yuitest.results.TestReport;
 import java.io.ByteArrayInputStream;
+import java.io.StringReader;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -352,10 +354,10 @@ public class SeleniumDriver {
             }
 
             //get results
-            results = selenium.getEval(testResults);
-            if (results.equals("null")){
-                results = null;
-            }
+//            results = selenium.getEval(testResults);
+//            if (results.equals("null")){
+//                results = null;
+//            }
 
             rawResults = selenium.getEval(testRawResults);
             if (rawResults.equals("null")){
@@ -369,9 +371,12 @@ public class SeleniumDriver {
 
             name = selenium.getEval(testName);
 
+            TestReport testReport = TestReport.load(new StringReader(rawResults), browser);
+            
             SessionResult result = new SessionResult(name, browser, url);
-            RawTestResultsParser.parse(new ByteArrayInputStream(rawResults.getBytes()), result);
-            result.setReport("results", results);
+            result.setTestReport(testReport);
+            //RawTestResultsParser.parse(new ByteArrayInputStream(rawResults.getBytes()), result);
+            //result.setReport("results", results);
             result.setReport("coverage", coverage);
 
             //output results detail
@@ -384,7 +389,7 @@ public class SeleniumDriver {
                     System.out.printf("Warning: No tests were run. Check the test page '%s'.\n", result.getName());
                 }
 
-                String messages[] = result.getMessages();
+                String messages[] = testReport.getFailureMessages();
                 if (messages.length > 0){
                     System.out.println();
                     for (int i=0; i < messages.length; i++){

@@ -1,0 +1,26 @@
+group JUnitXMLTemplates;
+
+report(report,date) ::= <<
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+$report.testSuites:testsuite()$
+$report.testSuites:testcases()$
+</testsuites>
+>>
+
+testsuite() ::= "$it.testSuites:testsuite()$"
+testcases() ::= "$it.testCases:testcase()$"
+
+testcase() ::= <<
+<testsuite name="$it.name$" failures="$it.failed$" total="$it.total$" time="$it.duration;format="seconds"$">
+$it.tests:test()$
+</testsuite>
+>>
+
+test() ::= <<
+<testcase name="$it.name$" time="$it.duration;format="seconds"$">
+$if(it.failed)$
+    <failure message="$it.message$"><![CDATA[$it.stack$]]></failure>
+$endif$
+</testcase>
+>>

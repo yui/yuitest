@@ -38,16 +38,16 @@ public class RawTestResultsParser {
 
                 @Override
                 public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-                    if (qName.equals("test")){
-                        String testResult = attributes.getValue("result");
-                        if (testResult.equals("fail")){
-                            messages.add(String.format("%s: %s", attributes.getValue("name"), attributes.getValue("message")));
-                        }
-                    } else if (qName.equals("report")){
-                        result.setFailed(Integer.parseInt(attributes.getValue("failed")));
-                        result.setPassed(Integer.parseInt(attributes.getValue("passed")));
-                        result.setIgnored(Integer.parseInt(attributes.getValue("ignored")));
-                    }
+//                    if (qName.equals("test")){
+//                        String testResult = attributes.getValue("result");
+//                        if (testResult.equals("fail")){
+//                            messages.add(String.format("%s: %s", attributes.getValue("name"), attributes.getValue("message")));
+//                        }
+//                    } else if (qName.equals("report")){
+//                        result.setFailed(Integer.parseInt(attributes.getValue("failed")));
+//                        result.setPassed(Integer.parseInt(attributes.getValue("passed")));
+//                        result.setIgnored(Integer.parseInt(attributes.getValue("ignored")));
+//                    }
 
                 }
 

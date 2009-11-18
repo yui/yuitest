@@ -35,27 +35,47 @@ public class TestReport extends TestSuite {
         this.browser = browser;
     }
 
+    public String getBrowser(){
+        return browser;
+    }
+
     @Override
     public String getPath(){
         return (!browser.equals("") ? browser + " > " : "") + getName();
     }
 
     public static TestReport load(File file) throws IOException {
-        return load(new FileInputStream(file));
+        return load(file, "");
+    }
+
+    public static TestReport load(File file, String browser) throws IOException {
+        return load(new FileInputStream(file), browser);
     }
 
     public static TestReport load(InputStream in) throws IOException {
-        return load(new InputSource(in));
+        return load(in, "");
+    }
+
+    public static TestReport load(InputStream in, String browser) throws IOException {
+        return load(new InputSource(in), browser);
     }
 
     public static TestReport load(Reader in) throws IOException {
-        return load(new InputSource(in));
+        return load(in, "");
+    }
+
+    public static TestReport load(Reader in, String browser) throws IOException {
+        return load(new InputSource(in), browser);
     }
 
     public static TestReport load(InputSource in) throws IOException {
+        return load(in, "");
+    }
+
+    public static TestReport load(InputSource in, String browser) throws IOException {
         SAXParserFactory spf = SAXParserFactory.newInstance();
         SAXParser parser = null;
-        TestReportXMLHandler handler = new TestReportXMLHandler();
+        TestReportXMLHandler handler = new TestReportXMLHandler(browser);
 
         try {
             parser = spf.newSAXParser();

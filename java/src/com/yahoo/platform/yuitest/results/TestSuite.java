@@ -8,6 +8,7 @@
 
 package com.yahoo.platform.yuitest.results;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -92,6 +93,20 @@ public class TestSuite {
 
     public String getPath(String separator){
         return (parent != null ? parent.getPath() + separator : "") + name;
+    }
+
+    public String[] getFailureMessages(){
+        List<String> messages = new LinkedList<String>();
+
+        for (int i=0; i < testSuites.size(); i++){
+            messages.addAll(Arrays.asList(testSuites.get(i).getFailureMessages()));
+        }
+
+        for (int i=0; i < testCases.size(); i++){
+            messages.addAll(Arrays.asList(testCases.get(i).getFailureMessages()));
+        }
+
+        return messages.toArray(new String[messages.size()]);
     }
 
 }

@@ -82,4 +82,15 @@ public class TestCase {
         return (parent != null ? parent.getPath() + separator : "") + name;
     }
 
+    public String[] getFailureMessages(){
+        List<String> messages = new LinkedList<String>();
+        for (int i=0; i < tests.size(); i++){
+            if (tests.get(i).getResult() == Test.FAIL){
+                messages.add(String.format("%s: %s", tests.get(i).getName(),
+                        tests.get(i).getMessage()));
+            }
+        }
+        return messages.toArray(new String[messages.size()]);
+    }
+
 }

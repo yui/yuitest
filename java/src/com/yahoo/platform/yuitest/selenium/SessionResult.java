@@ -8,6 +8,8 @@
 
 package com.yahoo.platform.yuitest.selenium;
 
+import com.yahoo.platform.yuitest.results.TestReport;
+
 /**
  * Represents the relevant data related to a test run.
  * @author Nicholas C. Zakas
@@ -24,10 +26,8 @@ public class SessionResult {
     private String resultsReportText = null;
     private String coverageReportText = null;
     private String name;
-    private int failed = 0;
-    private int passed = 0;
-    private int ignored = 0;
     private String[] messages;
+    private TestReport testReport;
 
     protected SessionResult(String name, String browser, String url) {
         this.url = url;
@@ -48,19 +48,11 @@ public class SessionResult {
     }
 
     public int getFailed() {
-        return failed;
-    }
-
-    public void setFailed(int failures) {
-        this.failed = failures;
+        return testReport.getFailed();
     }
 
     public int getIgnored() {
-        return ignored;
-    }
-
-    protected void setIgnored(int ignored) {
-        this.ignored = ignored;
+        return testReport.getIgnored();
     }
 
     public String[] getMessages() {
@@ -72,15 +64,11 @@ public class SessionResult {
     }
 
     public int getPassed() {
-        return passed;
-    }
-
-    protected void setPassed(int passed) {
-        this.passed = passed;
+        return testReport.getPassed();
     }
 
     public int getTotal(){
-        return passed + failed;
+        return testReport.getTotal();
     }
 
     protected void setReport(String type, String reportText){
@@ -105,5 +93,13 @@ public class SessionResult {
         } else {
             return resultsReportText != null;
         }
+    }
+
+    public void setTestReport(TestReport report){
+        this.testReport = report;
+    }
+
+    public TestReport getTestReport(){
+        return testReport;
     }
 }

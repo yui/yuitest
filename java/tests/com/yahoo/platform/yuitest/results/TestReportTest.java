@@ -34,6 +34,12 @@ public class TestReportTest {
     }
 
     private void checkReport(TestReport report){
+
+        TestSuite firstSuite = report.getTestSuites()[0];
+
+        TestCase firstTestCase = firstSuite.getTestCases()[0];
+        TestCase secondTestCase = firstSuite.getTestCases()[1];
+
         //duration="729" passed="48" failed="0" ignored="0" total="48
         assertEquals("All Mock Tests", report.getName());
         assertEquals(729, report.getDuration());
@@ -42,9 +48,12 @@ public class TestReportTest {
         assertEquals(0, report.getIgnored());
 
         assertEquals(1, report.getTestSuites().length);
-        assertEquals(3, report.getTestSuites()[0].getTestCases().length);
+        assertEquals(3, firstSuite.getTestCases().length);
 
-        assertEquals("Arguments Tests", report.getTestSuites()[0].getTestCases()[1].getName());
+        assertEquals(40, secondTestCase.getTests().length);
+
+        assertEquals("Arguments Tests", secondTestCase.getName());
+        assertEquals("Passing correct number of arguments should make the test pass", secondTestCase.getTests()[0].getName());
     }
 
     /**

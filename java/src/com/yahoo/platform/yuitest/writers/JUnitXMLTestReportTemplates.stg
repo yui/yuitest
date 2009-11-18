@@ -20,7 +20,7 @@ $it.tests:test()$
 test() ::= <<
 <testcase name="$it.name$" time="$it.duration;format="seconds"$">
 $if(it.failed)$
-    <failure message="$it.message$"><![CDATA[$it.stack$]]></failure>
+    <failure message="$it.message$"><![CDATA[$it.stackTrace$]]></failure>
 $endif$
 </testcase>
 >>

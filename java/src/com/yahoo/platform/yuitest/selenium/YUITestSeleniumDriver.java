@@ -196,8 +196,6 @@ public class YUITestSeleniumDriver {
 
             }
 
-            System.out.println("Results count: " + results.length);
-
             //output result files
             if (results != null){
                 SessionResultFileGenerator generator = new SessionResultFileGenerator(properties, verbose);

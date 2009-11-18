@@ -90,9 +90,13 @@ public class TestReportXMLHandler extends DefaultHandler {
                 result = Test.IGNORE;
             }
 
+            int duration = 0;
+            if (attributes.getValue("duration") != null){
+                duration = Integer.parseInt(attributes.getValue("duration"));
+            }
+
             Test test = new Test(attributes.getValue("name"),
-                    Integer.parseInt(attributes.getValue("duration")),
-                    result, attributes.getValue("message"));
+                    duration, result, attributes.getValue("message"));
 
             curTestCase.addTest(test);
         }

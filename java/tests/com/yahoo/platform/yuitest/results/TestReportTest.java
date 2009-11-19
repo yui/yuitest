@@ -85,4 +85,21 @@ public class TestReportTest {
 
     }
 
+    /**
+     * Test of load method, of class TestReport.
+     */
+    @Test
+    public void testLoad_InputSourceWithBrowser() throws Exception {
+        TestReport report = TestReport.load(new InputSource(TestReportTest.class.getResource("results.xml").getFile()), "Firefox");
+        assertEquals("Firefox", report.getBrowser());
+    }
+
+    @Test
+    public void testGetPath() throws Exception {
+        TestReport report = new TestReport("testreport1", 100, 2, 3, 4);
+        report.setBrowser("firefox");
+        assertEquals("firefox", report.getPath());
+        assertEquals("firefox\\testreport1", report.getFullPath());
+    }
+
 }

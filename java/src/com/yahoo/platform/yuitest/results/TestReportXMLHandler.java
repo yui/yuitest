@@ -38,11 +38,6 @@ public class TestReportXMLHandler extends DefaultHandler {
     }
 
     @Override
-    public void characters(char[] ch, int start, int length) throws SAXException {
-        super.characters(ch, start, length);
-    }
-
-    @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
         if (qName.equals("testsuite")){
             suites.pop();

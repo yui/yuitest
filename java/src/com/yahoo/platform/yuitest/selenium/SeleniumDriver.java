@@ -371,9 +371,9 @@ public class SeleniumDriver {
 
             name = selenium.getEval(testName);
 
-            TestReport testReport = TestReport.load(new StringReader(rawResults), browser);
+            TestReport testReport = TestReport.load(new StringReader(rawResults), browser.replace("*", ""));
             
-            SessionResult result = new SessionResult(name, browser, url);
+            SessionResult result = new SessionResult(name, browser.replace("*", ""), url);
             result.setTestReport(testReport);
             //RawTestResultsParser.parse(new ByteArrayInputStream(rawResults.getBytes()), result);
             //result.setReport("results", results);

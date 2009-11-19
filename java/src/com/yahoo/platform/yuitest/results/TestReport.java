@@ -40,8 +40,8 @@ public class TestReport extends TestSuite {
     }
 
     @Override
-    public String getPath(){
-        return (!browser.equals("") ? browser + " > " : "") + getName();
+    public String getPath(String separator){
+        return (!browser.equals("") ? browser : "");
     }
 
     public static TestReport load(File file) throws IOException {

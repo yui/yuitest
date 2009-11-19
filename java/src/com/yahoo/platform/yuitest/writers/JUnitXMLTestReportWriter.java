@@ -47,7 +47,20 @@ public class JUnitXMLTestReportWriter extends StringTemplateTestReportWriter
             }
         });
 
-        
+        template.registerRenderer(String.class, new AttributeRenderer(){
+
+            public String toString(Object o) {
+                return o.toString();
+            }
+
+            public String toString(Object o, String format) {
+                if (format.equals("classname")){
+                    return o.toString().replace("\\", ".");
+                } else {
+                    return o.toString();
+                }
+            }
+        });
 
         out.write(template.toString());
     }

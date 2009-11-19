@@ -21,7 +21,7 @@ $endif$
 
 test() ::= <<
 $if(!it.ignored)$
-<testcase classname="$it.path$" name="$it.name$" time="$it.duration;format="seconds"$">
+<testcase classname="$it.path;format="classname"$" name="$it.name$" time="$it.duration;format="seconds"$">
 $if(it.failed)$
     <failure message="$it.message$"><![CDATA[$it.stackTrace$]]></failure>
 $endif$

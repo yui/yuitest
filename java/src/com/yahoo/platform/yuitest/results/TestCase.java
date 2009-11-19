@@ -112,4 +112,8 @@ public class TestCase {
         return messages.toArray(new String[messages.size()]);
     }
 
+    public boolean hasResults(){
+        return getTotal() > 0;
+    }
+
 }

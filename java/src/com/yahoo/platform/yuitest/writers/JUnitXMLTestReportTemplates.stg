@@ -4,6 +4,7 @@ report(report,date) ::= <<
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
 $report.testSuites:testsuite()$
+$report:testcases()$
 $report.testSuites:testcases()$
 </testsuites>
 >>

@@ -126,4 +126,8 @@ public class TestSuite {
         return messages.toArray(new String[messages.size()]);
     }
 
+    public boolean hasResults(){
+        return getTotal() > 0;
+    }
+
 }

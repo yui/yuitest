@@ -98,8 +98,8 @@ public class TestReportTest {
     public void testGetPath() throws Exception {
         TestReport report = new TestReport("testreport1", 100, 2, 3, 4);
         report.setBrowser("firefox");
-        assertEquals("firefox", report.getPath());
-        assertEquals("firefox\\testreport1", report.getFullPath());
+        assertEquals("YUITest\\firefox", report.getPath());
+        assertEquals("YUITest\\firefox\\testreport1", report.getFullPath());
     }
 
 }

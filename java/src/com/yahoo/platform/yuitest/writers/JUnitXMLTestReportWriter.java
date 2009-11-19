@@ -55,7 +55,9 @@ public class JUnitXMLTestReportWriter extends StringTemplateTestReportWriter
 
             public String toString(Object o, String format) {
                 if (format.equals("classname")){
-                    return o.toString().replace("\\", ".");
+                    return o.toString().replace(TestReport.PATH_SEPARATOR, ".").replaceAll("[^a-zA-Z0-9\\\\.]", "");
+                } else if (format.equals("escape")){
+                    return o.toString().replace("&", "&amp;").replace(">", "&gt;").replace("<", "&lt;").replace("\"", "&quot;").replace("'", "&apos;");
                 } else {
                     return o.toString();
                 }

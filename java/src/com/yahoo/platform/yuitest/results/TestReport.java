@@ -41,7 +41,7 @@ public class TestReport extends TestSuite {
 
     @Override
     public String getPath(String separator){
-        return (!browser.equals("") ? browser : "");
+        return "YUITest" + (!browser.equals("") ? separator + browser : "");
     }
 
     public static TestReport load(File file) throws IOException {

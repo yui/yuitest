@@ -66,12 +66,15 @@ public class SeleniumDriver {
     static {
         testRunners.put("2", "YAHOO.tool.TestRunner");
         testRunners.put("3", "Y.Test.Runner");
+        testRunners.put("4", "YUITest.Runner");
         
         testFormats.put("2", "YAHOO.tool.TestFormat");
         testFormats.put("3", "Y.Test.Format");
+        testFormats.put("4", "YUITest.Format");
         
         coverageFormats.put("2", "YAHOO.tool.CoverageFormat");
         coverageFormats.put("3", "Y.Coverage.Format");
+        coverageFormats.put("4", "YUITest.Coverage.Format");
     }
 
     //--------------------------------------------------------------------------

@@ -72,7 +72,11 @@ public class Test {
         return (parent != null ? parent.getPath() + separator : "") + name;
     }
 
-    public boolean getFailed(){
+    public boolean isFailed(){
         return result == FAIL;
+    }
+
+    public boolean isIgnored(){
+        return result == IGNORE;
     }
 }

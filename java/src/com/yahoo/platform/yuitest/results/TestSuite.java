@@ -92,7 +92,24 @@ public class TestSuite {
     }
 
     public String getPath(String separator){
-        return (parent != null ? parent.getPath() + separator : "") + name;
+        String path = "";
+        if (parent != null){
+            path = parent.getFullPath();
+        }
+        return path;
+    }
+
+    public String getFullPath(){
+        return getFullPath(TestReport.PATH_SEPARATOR);
+    }
+
+    public String getFullPath(String separator){
+        String fullPath = getPath(separator);
+        if (fullPath.length() > 0){
+            fullPath += separator;
+        }
+        fullPath += name;
+        return fullPath;
     }
 
     public String[] getFailureMessages(){

@@ -12,14 +12,16 @@ testsuite() ::= "$it.testSuites:testsuite()$"
 testcases() ::= "$it.testCases:testcase()$"
 
 testcase() ::= <<
+$if(it.total)$
 <testsuite name="$it.name$" failures="$it.failed$" total="$it.total$" time="$it.duration;format="seconds"$">
 $it.tests:test()$
 </testsuite>
+$endif$
 >>
 
 test() ::= <<
 $if(!it.ignored)$
-<testcase name="$it.name$" time="$it.duration;format="seconds"$">
+<testcase classname="$it.path$" name="$it.name$" time="$it.duration;format="seconds"$">
 $if(it.failed)$
     <failure message="$it.message$"><![CDATA[$it.stackTrace$]]></failure>
 $endif$

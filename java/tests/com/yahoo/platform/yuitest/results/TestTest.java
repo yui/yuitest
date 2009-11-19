@@ -90,6 +90,19 @@ public class TestTest {
      */
     @Test
     public void testGetPath() {
-        assertEquals("test1", instance.getPath());
+        assertEquals("", instance.getPath());
+        assertEquals("test1", instance.getFullPath());
     }
+
+    /**
+     * Test of getPath method, of class Test.
+     */
+    @Test
+    public void testGetPathWithParent() {
+        TestCase testCase = new TestCase("testcase1", 20, 1, 2, 0);
+        testCase.addTest(instance);
+        assertEquals("testcase1", instance.getPath("."));
+        assertEquals("testcase1.test1", instance.getFullPath("."));
+    }
+
 }

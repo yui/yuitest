@@ -45,8 +45,10 @@ public class JUnitXMLTestReportWriter extends StringTemplateTestReportWriter
                     return o.toString();
                 }
             }
-
         });
+
+        
+
         out.write(template.toString());
     }
 

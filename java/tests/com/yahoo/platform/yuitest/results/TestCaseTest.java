@@ -39,12 +39,12 @@ public class TestCaseTest {
      */
     @Test
     public void testAddTest() {
-        System.out.println("addTest");
         com.yahoo.platform.yuitest.results.Test test = new com.yahoo.platform.yuitest.results.Test("test1", 50, 0, null);
         instance.addTest(test);
 
         assertEquals(1, instance.getTests().length);
         assertEquals(test, instance.getTests()[0]);
+        assertEquals(instance, test.getParent());
     }
 
     /**
@@ -94,7 +94,8 @@ public class TestCaseTest {
      */
     @Test
     public void testGetPath() {
-        assertEquals("testcase1", instance.getPath());
+        assertEquals("", instance.getPath());
+        assertEquals("testcase1", instance.getFullPath());
     }
 
 }

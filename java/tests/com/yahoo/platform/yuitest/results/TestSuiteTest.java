@@ -42,7 +42,10 @@ public class TestSuiteTest {
         instance.addTestSuite(suite);
         assertEquals(1, instance.getTestSuites().length);
         assertEquals(suite, instance.getTestSuites()[0]);
-        assertEquals("testsuite1\\testsuite2", suite.getPath());
+        assertEquals("testsuite1", suite.getPath());
+        assertEquals("testsuite1\\testsuite2", suite.getFullPath());
+        assertEquals(instance, suite.getParent());
+
     }
 
     /**
@@ -52,9 +55,12 @@ public class TestSuiteTest {
     public void testAddTestCase() {
         TestCase testCase = new TestCase("testcase1", 30, 3, 2, 1);
         instance.addTestCase(testCase);
+
         assertEquals(1, instance.getTestCases().length);
         assertEquals(testCase, instance.getTestCases()[0]);
-        assertEquals("testsuite1\\testcase1", testCase.getPath());
+        assertEquals("testsuite1", testCase.getPath());
+        assertEquals("testsuite1\\testcase1", testCase.getFullPath());
+        assertEquals(instance, testCase.getParent());
     }
 
     /**
@@ -103,7 +109,8 @@ public class TestSuiteTest {
      */
     @Test
     public void testGetPath() {
-        assertEquals("testsuite1", instance.getPath());
+        assertEquals("", instance.getPath());
+        assertEquals("testsuite1", instance.getFullPath());
     }
 
 }

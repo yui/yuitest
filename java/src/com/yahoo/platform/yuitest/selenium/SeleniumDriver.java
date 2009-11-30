@@ -310,16 +310,10 @@ public class SeleniumDriver {
         //JS strings to use
         String testRunnerIsNotRunning = "!" + testRunner + ".isRunning()";
         String testRawResults = testRunner + ".getResults(" + testFormat + ".XML);";
-        String testResults = testRunner + ".getResults(" + testFormat + "." +
-                properties.getProperty("results.format", "JUnitXML") +
-                ");";
         String testCoverage = testRunner + ".getCoverage(" + coverageFormat + "." +
                 properties.getProperty("coverage.format", "JSON") +
                 ");";
         String testName = testRunner + ".getName();";
-
-        //extracted from page
-        String results = "";
         String rawResults = "";
         String coverage = "";
         String name = "";
@@ -350,17 +344,11 @@ public class SeleniumDriver {
                 System.err.println("[INFO] Page is loaded.");
             }
 
-            selenium.waitForCondition(testRunnerIsNotRunning, pageTimeout);
+            selenium.waitForCondition("(function(){ try { return " + testRunnerIsNotRunning + "}catch(ex){return false}})()", pageTimeout);
 
             if (verbose){
                 System.err.println("[INFO] Test complete.");
             }
-
-            //get results
-//            results = selenium.getEval(testResults);
-//            if (results.equals("null")){
-//                results = null;
-//            }
 
             rawResults = selenium.getEval(testRawResults);
             if (rawResults.equals("null")){

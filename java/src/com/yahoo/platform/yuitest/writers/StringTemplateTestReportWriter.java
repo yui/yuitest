@@ -14,6 +14,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Writer;
 import java.util.Date;
+import org.antlr.stringtemplate.AttributeRenderer;
 import org.antlr.stringtemplate.StringTemplate;
 import org.antlr.stringtemplate.StringTemplateGroup;
 import org.antlr.stringtemplate.language.DefaultTemplateLexer;
@@ -49,6 +50,41 @@ public class StringTemplateTestReportWriter implements TestReportWriter {
         StringTemplate template = templateGroup.getInstanceOf("report");
         template.setAttribute("report", report);
         template.setAttribute("date", date);
+
+        //renderer for strings
+        template.registerRenderer(String.class, new AttributeRenderer(){
+
+            public String toString(Object o) {
+                return o.toString();
+            }
+
+            public String toString(Object o, String format) {
+                if (format.equals("classname")){
+                    return o.toString().replace(TestReport.PATH_SEPARATOR, ".").replaceAll("[^a-zA-Z0-9\\\\.]", "");
+                } else if (format.equals("xmlescape")){
+                    return o.toString().replace("&", "&amp;").replace(">", "&gt;").replace("<", "&lt;").replace("\"", "&quot;").replace("'", "&apos;");
+                } else {
+                    return o.toString();
+                }
+            }
+        });
+
+        //renderer for numbers
+        template.registerRenderer(Integer.class, new AttributeRenderer(){
+
+            public String toString(Object o) {
+                return o.toString();
+            }
+
+            public String toString(Object o, String format) {
+                if (format.equals("ms_to_s")){
+                    return String.valueOf(Double.parseDouble(o.toString()) / 1000);
+                } else {
+                    return o.toString();
+                }
+            }
+        });
+
         out.write(template.toString());
     }
 

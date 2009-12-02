@@ -87,7 +87,7 @@
         <unjar src="${lib.dir}/${antlr2.jar}" dest="${tmp.dir}/coverage-report/jar"/>
         <unjar src="${lib.dir}/${stringtemplate.jar}" dest="${tmp.dir}/coverage-report/jar"/>
         <copy todir="${tmp.dir}/coverage-report/jar">
-            <fileset dir="${tmp.dir}/classes" includes="**/coverage/*/*.class"/>
+            <fileset dir="${tmp.dir}/classes" includes="**/coverage/**/*.class"/>
             <fileset dir="${tmp.dir}/classes" includes="**/json/*.class"/>
         </copy>
         <!-- copy string template files to JAR -->
@@ -96,7 +96,7 @@
         </copy>
         <jar destfile="${build.dir}/${coverage-report.jar.name}" basedir="${tmp.dir}/coverage-report/jar">
             <manifest>
-                <attribute name="Main-Class" value="com.yahoo.platform.yuitest.coverage.report.YUITestCoverageReport"/>
+                <attribute name="Main-Class" value="com.yahoo.platform.yuitest.coverage.results.YUITestCoverageReport"/>
             </manifest>
         </jar>
 

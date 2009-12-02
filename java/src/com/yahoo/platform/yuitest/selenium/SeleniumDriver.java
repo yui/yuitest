@@ -362,12 +362,15 @@ public class SeleniumDriver {
 
             name = selenium.getEval(testName);
 
+            //some basic error checking, make sure we have some results!
+            if (rawResults == null){
+                throw new Exception("Couldn't retrieve test results. Please double-check that the test is running correctly.");
+            }
+
             TestReport testReport = TestReport.load(new StringReader(rawResults), browser.replace("*", ""));
             
             SessionResult result = new SessionResult(name, browser.replace("*", ""), url);
             result.setTestReport(testReport);
-            //RawTestResultsParser.parse(new ByteArrayInputStream(rawResults.getBytes()), result);
-            //result.setReport("results", results);
             result.setReport("coverage", coverage);
 
             //output results detail

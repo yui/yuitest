@@ -44,6 +44,14 @@ public class Test {
         return result;
     }
 
+    public String getResultText(){
+        switch(result){
+            case PASS: return "pass";
+            case FAIL: return "fail";
+            default: return "ignore";
+        }
+    }
+
     public String getStackTrace() {
         return stackTrace;
     }

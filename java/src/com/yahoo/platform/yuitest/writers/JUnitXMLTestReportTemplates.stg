@@ -14,7 +14,7 @@ testcases() ::= "$it.testCases:testcase()$"
 
 testcase() ::= <<
 $if(it.total)$
-<testsuite name="$it.name;format="escape"$" failures="$it.failed$" total="$it.total$" time="$it.duration;format="seconds"$">
+<testsuite name="$it.name;format="xmlescape"$" failures="$it.failed$" total="$it.total$" time="$it.duration;format="ms_to_s"$">
 $it.tests:test()$
 </testsuite>
 $endif$
@@ -22,9 +22,9 @@ $endif$
 
 test() ::= <<
 $if(!it.ignored)$
-<testcase classname="$it.path;format="classname"$" name="$it.name;format="escape"$" time="$it.duration;format="seconds"$">
+<testcase classname="$it.path;format="classname"$" name="$it.name;format="xmlescape"$" time="$it.duration;format="ms_to_s"$">
 $if(it.failed)$
-    <failure message="$it.message;format="escape"$"><![CDATA[$it.stackTrace$]]></failure>
+    <failure message="$it.message;format="xmlescape"$"><![CDATA[$it.stackTrace$]]></failure>
 $endif$
 </testcase>
 $endif$

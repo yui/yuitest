@@ -9,8 +9,8 @@
 package com.yahoo.platform.yuitest.selenium;
 
 import com.yahoo.platform.yuitest.results.TestReport;
-import com.yahoo.platform.yuitest.converters.TestReportConverter;
-import com.yahoo.platform.yuitest.converters.TestReportConverterFactory;
+import com.yahoo.platform.yuitest.writers.TestReportWriter;
+import com.yahoo.platform.yuitest.writers.TestReportWriterFactory;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
@@ -112,7 +112,7 @@ public class SessionResultFileGenerator {
         }
 
         Writer out = new OutputStreamWriter(new FileOutputStream(dirname + File.separator + filename), "UTF-8");
-        TestReportConverter writer = TestReportConverterFactory.getConverter(properties.getProperty(SeleniumDriver.RESULTS_FORMAT), out);
+        TestReportWriter writer = TestReportWriterFactory.getWriter( out, properties.getProperty(SeleniumDriver.RESULTS_FORMAT));
 
         //String reportText = result.getReport(type);
 

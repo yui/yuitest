@@ -9,6 +9,7 @@
 package com.yahoo.platform.yuitest.coverage.results;
 
 import com.yahoo.platform.yuitest.coverage.writers.FileReportWriter;
+import com.yahoo.platform.yuitest.coverage.writers.FileReportWriterFactory;
 import com.yahoo.platform.yuitest.coverage.writers.GCOVFileReportWriter;
 import com.yahoo.platform.yuitest.coverage.writers.HTMLFileReportWriter;
 import com.yahoo.platform.yuitest.coverage.writers.HTMLSummaryReportWriter;
@@ -77,7 +78,7 @@ public class ReportGenerator {
      * @param out Where to write the data.
      * @throws java.io.IOException
      */
-    public static void generate(FileReport report, String format, Writer out) throws IOException {
+    public static void generate(FileReport report, String format, Writer out) throws Exception, IOException {
         generate(report, format,  out, new Date());
     }
     
@@ -88,21 +89,8 @@ public class ReportGenerator {
      * @param date The date stamp for the report.
      * @throws java.io.IOException
      */
-    public static void generate(FileReport report, String format, Writer out, Date date) throws IOException {
-
-        //make sure it's a valid format
-        if (!fileReportWriters.containsKey(format)){
-            throw new IllegalArgumentException("Unknown file report format '" + format + "'.");
-        }
-
-        Class reportWriterClass = fileReportWriters.get(format);
-        FileReportWriter reportWriter;
-        try {
-            reportWriter = (FileReportWriter) reportWriterClass.getConstructor(new Class[]{ Writer.class }).newInstance(new Object[]{out});
-        } catch (Exception ex) {
-            throw new IOException("Could not create report writer.");
-        }
-        
+    public static void generate(FileReport report, String format, Writer out, Date date) throws Exception, IOException {
+        FileReportWriter reportWriter = FileReportWriterFactory.getWriter(out, format);        
         reportWriter.write(report, date);
     }    
     
@@ -149,7 +137,7 @@ public class ReportGenerator {
      * @param directory The directory to output the HTML files to.
      * @throws java.io.IOException
      */
-    public static void generateAll(SummaryReport report, String format, String directory) throws IOException, IllegalArgumentException {
+    public static void generateAll(SummaryReport report, String format, String directory) throws Exception, IOException, IllegalArgumentException {
         
         File dir = new File(directory);        
         Date now = new Date();

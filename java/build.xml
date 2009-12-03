@@ -93,6 +93,7 @@
         <!-- copy string template files to JAR -->
         <copy todir="${tmp.dir}/coverage-report/jar/${coverage.root.dir}">
             <fileset dir="${src.dir}/${coverage.root.dir}" includes="**/*.st"/>
+            <fileset dir="${src.dir}/${coverage.root.dir}" includes="**/*.stg"/>
         </copy>
         <jar destfile="${build.dir}/${coverage-report.jar.name}" basedir="${tmp.dir}/coverage-report/jar">
             <manifest>

@@ -112,9 +112,13 @@
         <unjar src="${lib.dir}/${antlr2.jar}" dest="${tmp.dir}/selenium-driver/jar"/>
         <unjar src="${lib.dir}/${stringtemplate.jar}" dest="${tmp.dir}/selenium-driver/jar"/>
         <copy todir="${tmp.dir}/selenium-driver/jar">
+            <fileset dir="${tmp.dir}/classes" includes="**/*.class"/>
+<!--
+            <fileset dir="${tmp.dir}/classes" includes="**/config/*.class"/>
             <fileset dir="${tmp.dir}/classes" includes="**/selenium/*.class"/>
             <fileset dir="${tmp.dir}/classes" includes="**/results/*.class"/>
             <fileset dir="${tmp.dir}/classes" includes="**/writers/*.class"/>
+-->
         </copy>
 
         <copy todir="${tmp.dir}/selenium-driver/jar/${selenium-driver.root.dir}">

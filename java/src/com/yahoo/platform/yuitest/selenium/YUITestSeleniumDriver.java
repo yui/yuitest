@@ -7,6 +7,9 @@
  */
 package com.yahoo.platform.yuitest.selenium;
 
+import com.yahoo.platform.yuitest.config.TestPageGroup;
+import com.yahoo.platform.yuitest.config.TestPage;
+import com.yahoo.platform.yuitest.config.TestConfig;
 import jargs.gnu.CmdLineParser;
 import java.io.*;
 import java.net.URL;

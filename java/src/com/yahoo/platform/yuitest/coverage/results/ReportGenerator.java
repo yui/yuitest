@@ -8,12 +8,10 @@
 
 package com.yahoo.platform.yuitest.coverage.results;
 
-import com.yahoo.platform.yuitest.coverage.writers.FileReportWriter;
-import com.yahoo.platform.yuitest.coverage.writers.FileReportWriterFactory;
-import com.yahoo.platform.yuitest.coverage.writers.GCOVFileReportWriter;
-import com.yahoo.platform.yuitest.coverage.writers.HTMLFileReportWriter;
 import com.yahoo.platform.yuitest.coverage.writers.HTMLSummaryReportWriter;
 import com.yahoo.platform.yuitest.coverage.writers.SummaryReportWriter;
+import com.yahoo.platform.yuitest.writers.ReportWriter;
+import com.yahoo.platform.yuitest.writers.ReportWriterFactory;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -47,8 +45,8 @@ public class ReportGenerator {
         fileReportExtensions.put("GCOV", "gcov");
 
         fileReportWriters = new HashMap<String,Class>();
-        fileReportWriters.put("HTML", HTMLFileReportWriter.class);
-        fileReportWriters.put("GCOV", GCOVFileReportWriter.class);
+//        fileReportWriters.put("HTML", HTMLFileReportWriter.class);
+//        fileReportWriters.put("GCOV", GCOVFileReportWriter.class);
 
         summaryReportWriters = new HashMap<String,Class>();
         summaryReportWriters.put("HTML", HTMLSummaryReportWriter.class);
@@ -90,7 +88,8 @@ public class ReportGenerator {
      * @throws java.io.IOException
      */
     public static void generate(FileReport report, String format, Writer out, Date date) throws Exception, IOException {
-        FileReportWriter reportWriter = FileReportWriterFactory.getWriter(out, format);        
+        //FileReportWriter reportWriter = FileReportWriterFactory.getWriter(out, format);
+        ReportWriter reportWriter = (new ReportWriterFactory<FileReport>()).getWriter(out, "CoverageFileReport" + format);
         reportWriter.write(report, date);
     }    
     
@@ -100,7 +99,7 @@ public class ReportGenerator {
      * @param out Where to write the data.
      * @throws java.io.IOException
      */    
-    public static void generate(SummaryReport report, String format, Writer out) throws IOException {
+    public static void generate(SummaryReport report, String format, Writer out) throws Exception, IOException {
         generate(report, format, out, new Date());
     }
     
@@ -111,20 +110,9 @@ public class ReportGenerator {
      * @param date The date stamp for the report.
      * @throws java.io.IOException
      */    
-    public static void generate(SummaryReport report, String format, Writer out, Date date) throws IOException {
+    public static void generate(SummaryReport report, String format, Writer out, Date date) throws Exception, IOException {
 
-        //make sure it's a valid format
-        if (!summaryReportWriters.containsKey(format)){
-            throw new IllegalArgumentException("Unknown summary report format '" + format + "'.");
-        }
-
-        Class reportWriterClass = summaryReportWriters.get(format);
-        SummaryReportWriter reportWriter;
-        try {
-            reportWriter = (SummaryReportWriter) reportWriterClass.getConstructor(new Class[]{ Writer.class }).newInstance(new Object[]{out});
-        } catch (Exception ex) {
-            throw new IOException("Could not create report writer.");
-        }
+        ReportWriter reportWriter = (new ReportWriterFactory<FileReport>()).getWriter(out, "CoverageSummaryReport" + format);
 
         //StringTemplateSummaryReportWriter reportWriter = new StringTemplateSummaryReportWriter(out, format);
         reportWriter.write(report, date);

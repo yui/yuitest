@@ -183,7 +183,7 @@ public class FileReport {
      * @return A name containing only A-Z,0-9, and _.
      */
     public String getReportName(){
-        return filename.replaceAll("[^A-Za-z0-9]", "_");
+        return filename.replaceAll("[^A-Za-z0-9\\.]", "_");
     }
     
     /**

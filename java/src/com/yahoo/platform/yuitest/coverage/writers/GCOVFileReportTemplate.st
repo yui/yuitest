@@ -1,2 +1,0 @@
-    -:    0:Source:$report.filename$$report.lines:{
-$if(!it.isCovered)$    -:$it.lineNumber;format="padLeft"$:$it.text$$elseif(it.isCalled)$$it.callCount;format="padLeft"$:$it.lineNumber;format="padLeft"$:$it.text$$else$#####:$it.lineNumber;format="padLeft"$:$it.text$$endif$}$

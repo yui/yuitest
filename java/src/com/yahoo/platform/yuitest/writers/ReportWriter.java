@@ -8,7 +8,6 @@
 
 package com.yahoo.platform.yuitest.writers;
 
-import com.yahoo.platform.yuitest.results.TestReport;
 import java.io.IOException;
 import java.util.Date;
 
@@ -16,8 +15,8 @@ import java.util.Date;
  *
  * @author Nicholas C. Zakas
  */
-public interface TestReportWriter {
-    public void write(TestReport report) throws IOException;
-    public void write(TestReport report, Date date) throws IOException;
+public interface ReportWriter <T> {
+    public void write(T report) throws IOException;
+    public void write(T report, Date date) throws IOException;
     public void close() throws IOException;
 }

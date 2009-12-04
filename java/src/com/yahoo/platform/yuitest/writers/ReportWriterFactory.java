@@ -14,13 +14,17 @@ import java.io.Writer;
  *
  * @author Nicholas C. Zakas
  */
-public class TestReportWriterFactory {
+public class ReportWriterFactory<T> {
 
-    public static TestReportWriter getWriter(Writer out, String format) throws Exception {
+    public ReportWriterFactory(){
+        
+    }
+
+    public  ReportWriter<T> getWriter(Writer out, String groupName) throws Exception {
         try {
-            return new StringTemplateTestReportWriter(out, format);
+            return new StringTemplateWriter<T>(out, groupName);
         } catch(Exception ex){
-            throw new Exception(String.format("No writer for '%s' found.", format));
+            throw new Exception(String.format("No writer for '%s' found.", groupName));
         }
     }
 }

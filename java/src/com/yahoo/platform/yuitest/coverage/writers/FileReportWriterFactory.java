@@ -18,7 +18,7 @@ public class FileReportWriterFactory {
 
     public static FileReportWriter getWriter(Writer out, String format) throws Exception {
         try {
-            return new StringTemplateFileReportWriter2(out, format);
+            return new StringTemplateFileReportWriter(out, format);
         } catch(Exception ex){
             throw new Exception(String.format("No writer for '%s' found.", format));
         }

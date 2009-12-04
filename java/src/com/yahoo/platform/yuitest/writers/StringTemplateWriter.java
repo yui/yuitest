@@ -23,30 +23,30 @@ import org.antlr.stringtemplate.language.DefaultTemplateLexer;
  *
  * @author Nicholas C. Zakas
  */
-public class StringTemplateTestReportWriter implements TestReportWriter {
+public class StringTemplateWriter<T> implements ReportWriter<T> {
 
     protected Writer out;
     protected StringTemplateGroup templateGroup;
 
-    public StringTemplateTestReportWriter(Writer out, String format) throws IOException {
+    public StringTemplateWriter(Writer out, String groupName) throws IOException {
         this.out = out;
-        this.templateGroup = getStringTemplateGroup(format);
+        this.templateGroup = getStringTemplateGroup(groupName);
     }
 
-    private StringTemplateGroup getStringTemplateGroup(String format) throws IOException{
+    private StringTemplateGroup getStringTemplateGroup(String groupName) throws IOException{
         //get string template group
-        InputStream stgstream = StringTemplateTestReportWriter.class.getResourceAsStream(format + "TestReportTemplates.stg");
+        InputStream stgstream = StringTemplateWriter.class.getResourceAsStream(groupName + ".stg");
         InputStreamReader reader = new InputStreamReader(stgstream);
         StringTemplateGroup group = new StringTemplateGroup(reader, DefaultTemplateLexer.class);
         reader.close();
         return group;
     }
 
-    public void write(TestReport report) throws IOException {
+    public void write(T report) throws IOException {
         write(report, new Date());
     }
 
-    public void write(TestReport report, Date date) throws IOException {
+    public void write(T report, Date date) throws IOException {
         StringTemplate template = templateGroup.getInstanceOf("report");
         template.setAttribute("report", report);
         template.setAttribute("date", date);
@@ -61,8 +61,12 @@ public class StringTemplateTestReportWriter implements TestReportWriter {
             public String toString(Object o, String format) {
                 if (format.equals("classname")){
                     return o.toString().replace(TestReport.PATH_SEPARATOR, ".").replaceAll("[^a-zA-Z0-9\\\\.]", "");
-                } else if (format.equals("xmlescape")){
+                } else if (format.equals("xmlEscape")){
                     return o.toString().replace("&", "&amp;").replace(">", "&gt;").replace("<", "&lt;").replace("\"", "&quot;").replace("'", "&apos;");
+                } else if (format.equals("htmlEscape")){
+                    return o.toString().replace("&", "&amp;").replace("\"", "&quot;").replace("<", "&lt;").replace(">", "&gt;");
+                } else if (format.equals("htmlEscapeSpace")){
+                    return o.toString().replace("&", "&amp;").replace("\"", "&quot;").replace("<", "&lt;").replace(">", "&gt;").replace(" ", "&nbsp;");
                 } else {
                     return o.toString();
                 }
@@ -79,6 +83,12 @@ public class StringTemplateTestReportWriter implements TestReportWriter {
             public String toString(Object o, String format) {
                 if (format.equals("ms_to_s")){
                     return String.valueOf(Double.parseDouble(o.toString()) / 1000);
+                } else if (format.equals("padLeft5")){
+                    String num = o.toString();
+                    while(num.length() < 5){
+                        num = " " + num;
+                    }
+                    return num;
                 } else {
                     return o.toString();
                 }

@@ -76,12 +76,16 @@ public class StringTemplateWriter<T> implements ReportWriter<T> {
         //renderer for numbers
         template.registerRenderer(Integer.class, new AttributeRenderer(){
 
+            private int count=1;
+
             public String toString(Object o) {
                 return o.toString();
             }
 
             public String toString(Object o, String format) {
-                if (format.equals("ms_to_s")){
+                if (format.equals("count")){
+                    return String.valueOf(count++);
+                } else if (format.equals("ms_to_s")){
                     return String.valueOf(Double.parseDouble(o.toString()) / 1000);
                 } else if (format.equals("padLeft5")){
                     String num = o.toString();

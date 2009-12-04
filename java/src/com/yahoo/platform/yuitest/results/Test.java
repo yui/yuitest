@@ -104,4 +104,8 @@ public class Test {
     public boolean isIgnored(){
         return result == IGNORE;
     }
+
+    public boolean isPassed(){
+        return result == PASS;
+    }
 }

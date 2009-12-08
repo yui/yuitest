@@ -69,7 +69,7 @@ public class FileReport {
      * @return The total number of lines tracked.
      * @throws org.json.JSONException
      */
-    public int getTotalLineCount() throws JSONException {
+    public int getCoveredLineCount() throws JSONException {
         return data.getInt("totalLines");
     }
 
@@ -89,7 +89,7 @@ public class FileReport {
      */
     public double getCalledLinePercentage() throws JSONException {
         DecimalFormat twoDForm = new DecimalFormat("#.##");
-	return Double.valueOf(twoDForm.format(((double) getCalledLineCount() / (double) getTotalLineCount()) * 100));
+	return Double.valueOf(twoDForm.format(((double) getCalledLineCount() / (double) getCoveredLineCount()) * 100));
     }    
 
     /**
@@ -145,8 +145,14 @@ public class FileReport {
      * @return The number of times that the lines was called.
      * @throws org.json.JSONException
      */
-    public int getLineCallCount(int line)  throws JSONException{            
-        return data.getJSONObject("lines").getInt(String.valueOf(line));
+    public int getLineCallCount(int line)  throws JSONException{
+
+        //error for uncovered lines
+        try {
+            return data.getJSONObject("lines").getInt(String.valueOf(line));
+        } catch (Exception ex){
+            return -1;
+        }
     }
 
     /**

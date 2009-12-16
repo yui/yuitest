@@ -70,7 +70,7 @@ public class FileReport {
      * @throws org.json.JSONException
      */
     public int getCoveredLineCount() throws JSONException {
-        return data.getInt("totalLines");
+        return data.getInt("coveredLines");
     }
 
     /**
@@ -97,8 +97,8 @@ public class FileReport {
      * @return The total number of functions tracked.
      * @throws org.json.JSONException
      */
-    public int getTotalFunctionCount() throws JSONException {
-        return data.getInt("totalFunctions");
+    public int getCoveredFunctionCount() throws JSONException {
+        return data.getInt("coveredFunctions");
     }
 
     /**
@@ -117,7 +117,7 @@ public class FileReport {
      */
     public double getCalledFunctionPercentage() throws JSONException {
         DecimalFormat twoDForm = new DecimalFormat("#.##");
-	return Double.valueOf(twoDForm.format(((double) getCalledFunctionCount() / (double) getTotalFunctionCount()) * 100));
+	return Double.valueOf(twoDForm.format(((double) getCalledFunctionCount() / (double) getCoveredFunctionCount()) * 100));
     }
 
     /**

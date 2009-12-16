@@ -124,13 +124,13 @@ h1{font-size:138.5%;}h2{font-size:123.1%;}h3{font-size:108%;}h1,h2,h3{margin:1em
                     <tr>
                         <th>Lines</th>
                         <td class="results">$report.calledLineCount$</td>
-                        <td class="results">$report.totalLineCount$</td>
+                        <td class="results">$report.coveredLineCount$</td>
                         <td class="results">$report.calledLinePercentage$%</td>
                     </tr>
                     <tr>
                         <th>Functions</th>
                         <td class="results">$report.calledFunctionCount$</td>
-                        <td class="results">$report.totalFunctionCount$</td>
+                        <td class="results">$report.coveredFunctionCount$</td>
                         <td class="results">$report.calledFunctionPercentage$%</td>
                     </tr>
                 </tbody>

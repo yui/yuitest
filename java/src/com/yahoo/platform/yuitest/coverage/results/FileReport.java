@@ -21,6 +21,7 @@ public class FileReport {
     private JSONObject data;
     private String filename;
     private FileLine[] lines;
+    private FileFunction[] functions;
     private String path;
 
     /**
@@ -33,6 +34,7 @@ public class FileReport {
         this.data = data;
         this.path = data.getString("path");
         createFileLines();
+        createFileFunctions();
     }
 
     /**
@@ -42,12 +44,27 @@ public class FileReport {
     private void createFileLines() throws JSONException {
         int count = data.getJSONArray("code").length();
         lines = new FileLine[count];
-        
+
         for (int i=0; i < count; i++){
-            lines[i] = new FileLine(i+1, data.getJSONArray("code").getString(i), data.getJSONObject("lines").optInt(String.valueOf(i+1), -1));            
+            lines[i] = new FileLine(i+1, data.getJSONArray("code").getString(i), data.getJSONObject("lines").optInt(String.valueOf(i+1), -1));
         }
     }
-    
+
+    /**
+     * Creates the FileFunction objects for the file.
+     * @throws org.json.JSONException
+     */
+    private void createFileFunctions() throws JSONException {
+        JSONObject functionData = data.getJSONObject("functions");
+        String[] keys = JSONObject.getNames(functionData);
+        
+        functions = new FileFunction[keys.length];
+
+        for (int i=0; i < keys.length; i++){
+            functions[i] = new FileFunction(keys[i], functionData.optInt(keys[i], -1));
+        }
+    }
+
     /**
      * Returns the filename for this item.
      * @return The filename for this item.
@@ -140,6 +157,15 @@ public class FileReport {
     }
 
     /**
+     * Returns all information about all functions.
+     * @return An array of functions for the file.
+     * @throws org.json.JSONException
+     */
+    public FileFunction[] getFunctions() throws JSONException {
+        return functions;
+    }
+
+    /**
      * Returns the number of times that a given line was called.
      * @param line The line number to check.
      * @return The number of times that the lines was called.
@@ -199,5 +225,48 @@ public class FileReport {
     @Override
     public String toString(){
         return data.toString();
+    }
+
+    /**
+     * Merges the data in another report with this report.
+     * @param report The report to merge data from.
+     */
+    public void merge(FileReport report) throws JSONException {
+
+        //make sure the file is the same
+        if (this.getPath().equals(report.getPath())){
+
+            //update calledFunctions
+            if (this.getCalledFunctionCount() < report.getCalledFunctionCount()){
+                data.put("calledFunctions", report.getCalledFunctionCount());
+            }
+
+            //update calledLines
+            if (this.getCalledLineCount() < report.getCalledLineCount()){
+                data.put("calledLines", report.getCalledLineCount());
+            }
+
+            //update line calls
+            for (int i=0; i < lines.length; i++){
+                data.getJSONObject("lines").put(String.valueOf(lines[i].getLineNumber()),
+                        (lines[i].getCallCount() + report.getLineCallCount(lines[i].getLineNumber())));
+
+            }
+
+            //update function calls
+            String[] functionNames = getFunctionNames();
+            for (int i=0; i < functionNames.length; i++){
+                data.getJSONObject("functions").put(functionNames[i],
+                        (getFunctionCallCount(functionNames[i]) + report.getFunctionCallCount(functionNames[i])));
+
+            }
+
+            //re-create file lines and functions
+            createFileLines();
+            createFileFunctions();
+        } else {
+            throw new IllegalArgumentException("Expected a report for " + this.getPath());
+        }
+
     }
 }

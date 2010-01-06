@@ -28,6 +28,10 @@ public class FileLine {
         return callCount;
     }
 
+    protected void setCallCount(int callCount){
+        this.callCount = callCount;
+    }
+
     public int getLineNumber() {
         return lineNumber;
     }

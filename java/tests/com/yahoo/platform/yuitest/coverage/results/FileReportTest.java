@@ -97,11 +97,11 @@ public class FileReportTest {
     }
 
     /**
-     * Test of getTotalFunctionCount method, of class FileReport.
+     * Test of getCoveredFunctionCount method, of class FileReport.
      */
     @Test
     public void testGetTotalFunctionCount() throws Exception {
-        assertEquals(14, report.getTotalFunctionCount());
+        assertEquals(14, report.getCoveredFunctionCount());
     }
 
     /**
@@ -168,7 +168,7 @@ public class FileReportTest {
     public void testGetLines() throws Exception {
         FileLine[] result = report.getLines();
         assertEquals(476, result.length);
-        
+
         FileLine line = report.getLine(1);
         assertEquals(line.getCallCount(), result[0].getCallCount());
         assertEquals(line.isCovered(), result[0].isCovered());
@@ -176,6 +176,21 @@ public class FileReportTest {
         assertEquals(line.getText(), result[0].getText());
         assertEquals(line.getLineNumber(), result[0].getLineNumber());
     }
+
+    /**
+     * Test of getFunctions method, of class FileReport.
+     */
+    @Test
+    public void testGetFunctions() throws Exception {
+        FileFunction[] result = report.getFunctions();
+        assertEquals(14, result.length);
+
+        FileFunction function = result[1];
+        assertEquals("get", function.getName());
+        assertEquals(198, function.getLineNumber());
+        assertEquals(17, function.getCallCount());
+    }
+
 
     /**
      * Test of getLineCallCount method, of class FileReport.
@@ -192,14 +207,9 @@ public class FileReportTest {
      */
     @Test
     public void testGetFunctionCallCount() throws Exception {
-        System.out.println("getFunctionCallCount");
-        String functionName = "";
-        FileReport instance = null;
-        int expResult = 0;
-        int result = instance.getFunctionCallCount(functionName);
+        int expResult = 72;
+        int result = report.getFunctionCallCount("_createCookieString:30");
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -207,27 +217,10 @@ public class FileReportTest {
      */
     @Test
     public void testGetFunctionNames() throws Exception {
-        System.out.println("getFunctionNames");
-        FileReport instance = null;
-        String[] expResult = null;
-        String[] result = instance.getFunctionNames();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
-    /**
-     * Test of toJSONObject method, of class FileReport.
-     */
-    @Test
-    public void testToJSONObject() {
-        System.out.println("toJSONObject");
-        FileReport instance = null;
-        JSONObject expResult = null;
-        JSONObject result = instance.toJSONObject();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String[] result = report.getFunctionNames();
+        assertEquals(14, result.length);
+        assertEquals("_parseCookieString:123", result[0]);
     }
 
     /**
@@ -237,20 +230,6 @@ public class FileReportTest {
     public void testGetReportName() {
         assertEquals("cookie.js", report.getReportName());
 
-    }
-
-    /**
-     * Test of toString method, of class FileReport.
-     */
-    @Test
-    public void testToString() {
-        System.out.println("toString");
-        FileReport instance = null;
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
 }

@@ -9,6 +9,7 @@
 package com.yahoo.platform.yuitest.coverage.results;
 
 import java.text.DecimalFormat;
+import java.util.Arrays;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -18,7 +19,7 @@ import org.json.JSONObject;
  */
 public class FileReport {
 
-    private JSONObject data;
+    private JSONObject report1;
     private String filename;
     private FileLine[] lines;
     private FileFunction[] functions;
@@ -27,11 +28,11 @@ public class FileReport {
     /**
      * Creates a new FileReport for the given filename.
      * @param filename The filename of the item.
-     * @param data The associated coverage data.
+     * @param report1 The associated coverage report1.
      */
     protected FileReport(String filename, JSONObject data) throws JSONException {
         this.filename = filename;
-        this.data = data;
+        this.report1 = data;
         this.path = data.getString("path");
         createFileLines();
         createFileFunctions();
@@ -42,11 +43,11 @@ public class FileReport {
      * @throws org.json.JSONException
      */
     private void createFileLines() throws JSONException {
-        int count = data.getJSONArray("code").length();
+        int count = report1.getJSONArray("code").length();
         lines = new FileLine[count];
 
         for (int i=0; i < count; i++){
-            lines[i] = new FileLine(i+1, data.getJSONArray("code").getString(i), data.getJSONObject("lines").optInt(String.valueOf(i+1), -1));
+            lines[i] = new FileLine(i+1, report1.getJSONArray("code").getString(i), report1.getJSONObject("lines").optInt(String.valueOf(i+1), -1));
         }
     }
 
@@ -55,14 +56,15 @@ public class FileReport {
      * @throws org.json.JSONException
      */
     private void createFileFunctions() throws JSONException {
-        JSONObject functionData = data.getJSONObject("functions");
+        JSONObject functionData = report1.getJSONObject("functions");
         String[] keys = JSONObject.getNames(functionData);
-        
         functions = new FileFunction[keys.length];
 
         for (int i=0; i < keys.length; i++){
             functions[i] = new FileFunction(keys[i], functionData.optInt(keys[i], -1));
         }
+
+        Arrays.sort(functions, new FileFunctionComparator());
     }
 
     /**
@@ -87,7 +89,7 @@ public class FileReport {
      * @throws org.json.JSONException
      */
     public int getCoveredLineCount() throws JSONException {
-        return data.getInt("coveredLines");
+        return report1.getInt("coveredLines");
     }
 
     /**
@@ -96,7 +98,7 @@ public class FileReport {
      * @throws org.json.JSONException
      */
     public int getCalledLineCount() throws JSONException {
-        return data.getInt("calledLines");
+        return report1.getInt("calledLines");
     }    
         
     /**
@@ -115,7 +117,7 @@ public class FileReport {
      * @throws org.json.JSONException
      */
     public int getCoveredFunctionCount() throws JSONException {
-        return data.getInt("coveredFunctions");
+        return report1.getInt("coveredFunctions");
     }
 
     /**
@@ -124,7 +126,7 @@ public class FileReport {
      * @throws org.json.JSONException
      */
     public int getCalledFunctionCount() throws JSONException {
-        return data.getInt("calledFunctions");
+        return report1.getInt("calledFunctions");
     }          
     
     /**
@@ -175,7 +177,7 @@ public class FileReport {
 
         //error for uncovered lines
         try {
-            return data.getJSONObject("lines").getInt(String.valueOf(line));
+            return report1.getJSONObject("lines").getInt(String.valueOf(line));
         } catch (Exception ex){
             return -1;
         }
@@ -189,7 +191,7 @@ public class FileReport {
      * @throws org.json.JSONException
      */
     public int getFunctionCallCount(String functionName) throws JSONException {
-        return data.getJSONObject("functions").getInt(functionName);
+        return report1.getJSONObject("functions").getInt(functionName);
     }
 
     /**
@@ -198,7 +200,7 @@ public class FileReport {
      * @throws org.json.JSONException
      */
     public String[] getFunctionNames() throws JSONException {
-        return JSONObject.getNames(data.getJSONObject("functions"));         
+        return JSONObject.getNames(report1.getJSONObject("functions"));
     }
 
     /**
@@ -206,7 +208,7 @@ public class FileReport {
      * @return The JSONObject associated with the report item.
      */
     public JSONObject toJSONObject() {
-        return data;
+        return report1;
     }
     
     /**
@@ -224,12 +226,12 @@ public class FileReport {
      */
     @Override
     public String toString(){
-        return data.toString();
+        return report1.toString();
     }
 
     /**
-     * Merges the data in another report with this report.
-     * @param report The report to merge data from.
+     * Merges the report1 in another report with this report.
+     * @param report The report to merge report1 from.
      */
     public void merge(FileReport report) throws JSONException {
 
@@ -238,17 +240,17 @@ public class FileReport {
 
             //update calledFunctions
             if (this.getCalledFunctionCount() < report.getCalledFunctionCount()){
-                data.put("calledFunctions", report.getCalledFunctionCount());
+                report1.put("calledFunctions", report.getCalledFunctionCount());
             }
 
             //update calledLines
             if (this.getCalledLineCount() < report.getCalledLineCount()){
-                data.put("calledLines", report.getCalledLineCount());
+                report1.put("calledLines", report.getCalledLineCount());
             }
 
             //update line calls
             for (int i=0; i < lines.length; i++){
-                data.getJSONObject("lines").put(String.valueOf(lines[i].getLineNumber()),
+                report1.getJSONObject("lines").put(String.valueOf(lines[i].getLineNumber()),
                         (lines[i].getCallCount() + report.getLineCallCount(lines[i].getLineNumber())));
 
             }
@@ -256,7 +258,7 @@ public class FileReport {
             //update function calls
             String[] functionNames = getFunctionNames();
             for (int i=0; i < functionNames.length; i++){
-                data.getJSONObject("functions").put(functionNames[i],
+                report1.getJSONObject("functions").put(functionNames[i],
                         (getFunctionCallCount(functionNames[i]) + report.getFunctionCallCount(functionNames[i])));
 
             }

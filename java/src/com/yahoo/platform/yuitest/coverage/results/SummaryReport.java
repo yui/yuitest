@@ -51,9 +51,9 @@ public class SummaryReport {
         //start with the first file
         this(files[0]);
 
-        //include the others
+        //merge the others
         for (int i=1; i < files.length; i++){
-            include(new SummaryReport(files[i]));
+            merge(new SummaryReport(files[i]));
         }
     }
 
@@ -102,7 +102,9 @@ public class SummaryReport {
      * @return The filenames tracked in the report.
      */
     public String[] getFilenames(){
-        return JSONObject.getNames(data);
+        String[] filenames = JSONObject.getNames(data);
+        Arrays.sort(filenames);
+        return filenames;
     }
     
     /**
@@ -142,15 +144,28 @@ public class SummaryReport {
 
     /**
      * Include another report's data in this report.
-     * @param otherReport The other report to include.
+     * @param otherReport The other report to merge.
      */
-    public void include(SummaryReport otherReport) throws JSONException{
+    public void merge(SummaryReport otherReport) throws JSONException{
 
-        JSONObject otherData = otherReport.toJSONObject();
-        String[] keys = JSONObject.getNames(otherData);
+        FileReport[] reports = otherReport.getFileReports();
 
-        for (int i=0; i < keys.length; i++){
-            data.put(keys[i], otherData.getJSONObject(keys[i]));
+        boolean needsRegeneration = false;
+
+        for (int i=0; i < reports.length; i++){
+            FileReport fileReport = getFileReport(reports[i].getFilename());
+            if (fileReport != null){
+                fileReport.merge(reports[i]);
+            } else {
+                //need to add to the JSON object
+                data.put(reports[i].getFilename(), otherReport.toJSONObject().getJSONObject(reports[i].getFilename()));
+                needsRegeneration = true;
+            }
+        }
+
+        //regenerate file reports if necessary
+        if (needsRegeneration){
+            generateFileReports();
         }
     }
     

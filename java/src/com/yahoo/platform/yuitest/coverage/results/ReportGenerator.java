@@ -36,9 +36,11 @@ public class ReportGenerator {
     static {
         summaryReportExtensions = new HashMap<String,String>();
         summaryReportExtensions.put("HTML", "html");
+        summaryReportExtensions.put("LCOV", "info");
 
         summaryReportName = new HashMap<String,String>();
         summaryReportName.put("HTML", "index");
+        summaryReportName.put("LCOV", "lcov");
 
         fileReportExtensions = new HashMap<String,String>();
         fileReportExtensions.put("HTML", "html");
@@ -50,6 +52,7 @@ public class ReportGenerator {
 
         summaryReportWriters = new HashMap<String,Class>();
         summaryReportWriters.put("HTML", HTMLSummaryReportWriter.class);
+        summaryReportWriters.put("LCOV", HTMLSummaryReportWriter.class);
 
 
     }
@@ -133,6 +136,11 @@ public class ReportGenerator {
         String outputFile = "";
         Writer out;
 
+        //create directory if not already there
+        if (!dir.exists()){
+            dir.mkdirs();
+        }
+
         //figure out if there should be a summary report
         if (summaryReportWriters.containsKey(format)){
             outputFile = dir.getAbsolutePath() + File.separator + summaryReportName.get(format) + "." + summaryReportExtensions.get(format);
@@ -145,16 +153,18 @@ public class ReportGenerator {
             generate(report, format, out, now);
             out.close();
         }
-        
-        //next, generate the file reports
-        for (int i=0; i < fileReports.length; i++){
-            outputFile = dir.getAbsolutePath() + File.separator + fileReports[i].getReportName() + "." + fileReportExtensions.get(format);
-            if (verbose){
-                System.err.println("[INFO] Outputting " + outputFile);
-            }            
-            out = new OutputStreamWriter(new FileOutputStream(outputFile));
-            generate(fileReports[i], format, out, now);
-            out.close();
+
+        if (!format.equals("LCOV")){
+            //next, generate the file reports
+            for (int i=0; i < fileReports.length; i++){
+                outputFile = dir.getAbsolutePath() + File.separator + fileReports[i].getReportName() + "." + fileReportExtensions.get(format);
+                if (verbose){
+                    System.err.println("[INFO] Outputting " + outputFile);
+                }
+                out = new OutputStreamWriter(new FileOutputStream(outputFile));
+                generate(fileReports[i], format, out, now);
+                out.close();
+            }
         }
     }
 }

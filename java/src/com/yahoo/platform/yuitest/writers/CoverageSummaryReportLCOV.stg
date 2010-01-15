@@ -1,0 +1,36 @@
+group LCOVSummaryReportTemplates;
+
+report(report,date) ::= <<
+$report.fileReports:file()$
+>>
+
+file() ::= <<
+TN:
+SF:$it.path$
+$it.functions:function()$
+$it.functions:functionCall()$
+FNF:$it.coveredFunctionCount$
+FNH:$it.calledFunctionCount$
+$it.lines:line()$
+LF:$it.coveredLineCount$
+LH:$it.calledLineCount$
+end_of_record
+
+>>
+
+line() ::= <<
+$if(it.called)$
+DA:$it.lineNumber$,$it.callCount$
+
+$endif$
+>>
+
+function() ::= <<
+FN:$it.lineNumber$,$it.name$
+
+>>
+
+functionCall() ::= <<
+FNDA:$it.callCount$,$it.name$
+
+>>

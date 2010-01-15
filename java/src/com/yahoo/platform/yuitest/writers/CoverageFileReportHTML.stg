@@ -161,13 +161,7 @@ line() ::= <<
 >>
 
 rowclass() ::= <<
-$if(!it.covered)$
-uncovered
-$elseif(it.called)$
-called
-$else$
-not-called
-$endif$
+$if(!it.covered)$uncovered$elseif(it.called)$called$else$not-called$endif$
 >>
 
 callcount() ::= <<

@@ -229,7 +229,39 @@ public class FileReportTest {
     @Test
     public void testGetReportName() {
         assertEquals("cookie.js", report.getReportName());
+    }
 
+    /**
+     * Test of merge() method.
+     */
+    @Test
+    public void testMerge() throws JSONException {
+
+        //get clone of JSONObject
+        JSONObject clone = new JSONObject(report.toJSONObject().toString());
+        clone.put("calledLines", 110);
+        clone.getJSONObject("lines").put("207", 1);
+
+        FileReport newReport = new FileReport("cookie.js", clone);
+        report.merge(newReport);
+
+        assertEquals(110, report.getCalledLineCount());
+        assertEquals(1, report.getLineCallCount(207));
+        assertEquals(18, report.getLineCallCount(222));
+    }
+
+    /**
+     * Test of merge() method.
+     */
+    @Test(expected=IllegalArgumentException.class)
+    public void testInvalidMerge() throws JSONException {
+
+        //get clone of JSONObject
+        JSONObject clone = new JSONObject(report.toJSONObject().toString());
+        clone.put("path", "cookie2.js");
+        FileReport newReport = new FileReport("cookie2.js", clone);
+        report.merge(newReport);
+        
     }
 
 }

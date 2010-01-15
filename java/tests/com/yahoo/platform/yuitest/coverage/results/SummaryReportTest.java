@@ -41,7 +41,51 @@ public class SummaryReportTest {
 
         //make sure the number of file reports is correct
         FileReport[] fileReports = report.getFileReports();
+        String[] filenames = report.getFilenames();
         assertEquals(1, fileReports.length);
+        assertEquals("cookie.js", filenames[0]);
+    }
+
+    @Test
+    public void testSummaryReportMergeNewData() throws IOException, JSONException {
+        Reader in = new InputStreamReader(SummaryReportTest.class.getResourceAsStream("coverage.json"));
+        SummaryReport report1 = new SummaryReport(in);
+
+        //another coverage report with a different file
+        in = new InputStreamReader(SummaryReportTest.class.getResourceAsStream("coverage2.json"));
+        SummaryReport report2 = new SummaryReport(in);
+
+        //merge into the first
+        report1.merge(report2);
+
+        //make sure the number of file reports is correct
+        FileReport[] fileReports = report1.getFileReports();
+        String[] filenames = report1.getFilenames();
+        assertEquals(2, fileReports.length);
+        assertEquals("cookie.js", filenames[0]);
+        assertEquals("profiler.js", filenames[1]);
+    }
+
+    @Test
+    public void testSummaryReportMergeExistingData() throws IOException, JSONException {
+        Reader in = new InputStreamReader(SummaryReportTest.class.getResourceAsStream("coverage.json"));
+        SummaryReport report1 = new SummaryReport(in);
+
+        //another coverage report with the same file, some different results
+        in = new InputStreamReader(SummaryReportTest.class.getResourceAsStream("coverage3.json"));
+        SummaryReport report2 = new SummaryReport(in);
+
+        //merge into the first
+        report1.merge(report2);
+
+        //make sure the number of file reports is correct
+        FileReport[] fileReports = report1.getFileReports();
+        String[] filenames = report1.getFilenames();
+        assertEquals(1, fileReports.length);
+        assertEquals("cookie.js", filenames[0]);
+        assertEquals(32, fileReports[0].getFunctionCallCount("setSub:418"));
+        assertEquals(31, fileReports[0].getFunctionCallCount("setSubs:457"));
+        assertEquals(91, fileReports[0].getLineCallCount(111));
     }
 
 }

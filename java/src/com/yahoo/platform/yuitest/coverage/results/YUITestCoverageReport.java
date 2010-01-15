@@ -70,9 +70,7 @@ public class YUITestCoverageReport {
             if (fileArgs.length == 0) {
                 usage();
                 System.exit(1);
-            } 
-
-            
+            }            
 
             if (verbose) {
                 System.err.println("\n[INFO] Preparing to generate coverage reports.");
@@ -80,6 +78,14 @@ public class YUITestCoverageReport {
 
             in = new InputStreamReader(new FileInputStream(fileArgs[0]));
             SummaryReport fullReport = new SummaryReport(in);
+            in.close();
+
+            for (int i=1; i < fileArgs.length; i++){
+                in = new InputStreamReader(new FileInputStream(fileArgs[i]));
+                fullReport.merge(new SummaryReport(in));
+                in.close();
+            }
+
             ReportGenerator.setVerbose(verbose);
             ReportGenerator.generateAll(fullReport, format, outputLocation);
 

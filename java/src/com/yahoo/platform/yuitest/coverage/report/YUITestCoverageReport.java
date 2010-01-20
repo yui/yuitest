@@ -5,8 +5,9 @@
  * Code licensed under the BSD License:
  *     http://developer.yahoo.net/yui/license.txt
  */
-package com.yahoo.platform.yuitest.coverage.results;
+package com.yahoo.platform.yuitest.coverage.report;
 
+import com.yahoo.platform.yuitest.coverage.results.SummaryReport;
 import jargs.gnu.CmdLineParser;
 import java.io.*;
 
@@ -86,9 +87,11 @@ public class YUITestCoverageReport {
                 in.close();
             }
 
-            ReportGenerator.setVerbose(verbose);
-            ReportGenerator.generateAll(fullReport, format, outputLocation);
-
+            //ReportGeneratorX.setVerbose(verbose);
+            //ReportGeneratorX.generateAll(fullReport, format, outputLocation);
+            ReportGenerator generator = ReportGeneratorFactory.getGenerator(format, outputLocation, verbose);
+            generator.generate(fullReport);
+            
         } catch (CmdLineParser.OptionException e) {
 
             usage();

@@ -97,7 +97,7 @@
         </copy>
         <jar destfile="${build.dir}/${coverage-report.jar.name}" basedir="${tmp.dir}/coverage-report/jar">
             <manifest>
-                <attribute name="Main-Class" value="com.yahoo.platform.yuitest.coverage.results.YUITestCoverageReport"/>
+                <attribute name="Main-Class" value="com.yahoo.platform.yuitest.coverage.report.YUITestCoverageReport"/>
             </manifest>
         </jar>
 
@@ -168,9 +168,10 @@
             </classpath>
         </javac>
         
-        <!-- copy over XML files for testing-->
+        <!-- copy over XML/JSON files for testing-->
         <copy todir="${tmp.dir}/testclasses/${codepath.root.dir}">
             <fileset dir="${tests.dir}/${codepath.root.dir}" includes="**/*.xml"/>
+            <fileset dir="${tests.dir}/${codepath.root.dir}" includes="**/*.json"/>
         </copy>
     </target>
 

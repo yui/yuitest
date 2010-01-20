@@ -20,11 +20,11 @@ public class ReportWriterFactory<T> {
         
     }
 
-    public  ReportWriter<T> getWriter(Writer out, String groupName) throws Exception {
+    public  ReportWriter<T> getWriter(Writer out, String groupName) {
         try {
             return new StringTemplateWriter<T>(out, groupName);
         } catch(Exception ex){
-            throw new Exception(String.format("No writer for '%s' found.", groupName));
+            throw new IllegalArgumentException(String.format("No writer for '%s' found.", groupName));
         }
     }
 }

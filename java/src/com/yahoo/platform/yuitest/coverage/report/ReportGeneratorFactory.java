@@ -1,0 +1,24 @@
+/*
+ *  YUI Test
+ *  Author: Nicholas C. Zakas <nzakas@yahoo-inc.com>
+ *  Copyright (c) 2009, Yahoo! Inc. All rights reserved.
+ *  Code licensed under the BSD License:
+ *      http://developer.yahoo.net/yui/license.txt
+ */
+
+package com.yahoo.platform.yuitest.coverage.report;
+
+/**
+ *
+ * @author Nicholas C. Zakas
+ */
+public class ReportGeneratorFactory {
+
+    public static ReportGenerator getGenerator(String format, String outputDirectory, boolean verbose){
+        if (format.equalsIgnoreCase("html")){
+            return new HTMLReportGenerator(outputDirectory, verbose);
+        } else {
+            throw new IllegalArgumentException("Unsupported format '" + format + "'.");
+        }
+    }
+}

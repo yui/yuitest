@@ -6,10 +6,11 @@
  *     http://developer.yahoo.net/yui/license.txt
  */
 
-package com.yahoo.platform.yuitest.coverage.results;
+package com.yahoo.platform.yuitest.coverage.report;
 
+import com.yahoo.platform.yuitest.coverage.results.FileReport;
+import com.yahoo.platform.yuitest.coverage.results.SummaryReport;
 import com.yahoo.platform.yuitest.coverage.writers.HTMLSummaryReportWriter;
-import com.yahoo.platform.yuitest.coverage.writers.SummaryReportWriter;
 import com.yahoo.platform.yuitest.writers.ReportWriter;
 import com.yahoo.platform.yuitest.writers.ReportWriterFactory;
 import java.io.File;
@@ -24,7 +25,7 @@ import java.util.HashMap;
  * Grouping for generation of coverage reports.
  * @author Nicholas C. Zakas
  */
-public class ReportGenerator {
+public class ReportGeneratorX {
     
     private static boolean verbose = false;
     private static HashMap<String,String> summaryReportExtensions;

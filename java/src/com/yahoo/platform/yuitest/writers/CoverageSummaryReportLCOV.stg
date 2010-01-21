@@ -14,23 +14,19 @@ FNH:$it.calledFunctionCount$
 $it.lines:line()$
 LF:$it.coveredLineCount$
 LH:$it.calledLineCount$
-end_of_record
-
+end_of_record$\n$
 >>
 
 line() ::= <<
 $if(it.called)$
-DA:$it.lineNumber$,$it.callCount$
-
+DA:$it.lineNumber$,$it.callCount$$\n$
 $endif$
 >>
 
 function() ::= <<
-FN:$it.lineNumber$,$it.name$
-
+FN:$it.lineNumber$,$it.name$$\n$
 >>
 
 functionCall() ::= <<
-FNDA:$it.callCount$,$it.name$
-
+FNDA:$it.callCount$,$it.name$$\n$
 >>

@@ -87,9 +87,10 @@ public class StringTemplateWriter<T> implements ReportWriter<T> {
                     return String.valueOf(count++);
                 } else if (format.equals("ms_to_s")){
                     return String.valueOf(Double.parseDouble(o.toString()) / 1000);
-                } else if (format.equals("padLeft5")){
+                } else if (format.startsWith("padLeft")){
                     String num = o.toString();
-                    while(num.length() < 5){
+                    int max = Integer.parseInt(format.substring(7));
+                    while(num.length() < max){
                         num = " " + num;
                     }
                     return num;

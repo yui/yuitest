@@ -17,7 +17,7 @@ import java.util.Comparator;
 public class FileFunctionComparator implements Comparator<FileFunction> {
 
     public int compare(FileFunction o1, FileFunction o2) {
-       return o1.getLineNumber() - o2.getLineNumber();
+       return o1.getName().compareToIgnoreCase(o2.getName());
     }
 
 }

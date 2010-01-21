@@ -8,6 +8,7 @@
 
 package com.yahoo.platform.yuitest.coverage.results;
 
+import java.io.File;
 import java.text.DecimalFormat;
 import java.util.Arrays;
 import org.json.JSONException;
@@ -75,12 +76,21 @@ public class FileReport {
         return filename;
     }
 
+    public File getFile(){
+        return new File(filename);
+    }
+
     /**
      * Returns the file path for this item.
      * @return The file path for this item.
      */
-    public String getPath(){
+    public String getAbsolutePath(){
         return path;
+    }
+
+    
+    public String getFileParent(){
+        return getFile().getParent().replace("\\", "/");
     }
 
     /**
@@ -112,6 +122,23 @@ public class FileReport {
     }    
 
     /**
+     * Returns a string indicating the coverage level for lines in the file.
+     * This string is suitable for use in generating HTML reports.
+     * @return A string value of "high", "med", "low" depending on the coverage.
+     * @throws JSONException
+     */
+    public String getCalledLinePercentageName() throws JSONException {
+        double percentage = getCalledLinePercentage();
+        if (percentage >= 50){
+            return "high";
+        } else if (percentage <= 15){
+            return "low";
+        } else {
+            return "med";
+        }
+    }
+
+    /**
      * Returns the total number of functions tracked.
      * @return The total number of functions tracked.
      * @throws org.json.JSONException
@@ -137,6 +164,23 @@ public class FileReport {
     public double getCalledFunctionPercentage() throws JSONException {
         DecimalFormat twoDForm = new DecimalFormat("#.##");
 	return Double.valueOf(twoDForm.format(((double) getCalledFunctionCount() / (double) getCoveredFunctionCount()) * 100));
+    }
+
+    /**
+     * Returns a string indicating the coverage level for lines in the file.
+     * This string is suitable for use in generating HTML reports.
+     * @return A string value of "high", "med", "low" depending on the coverage.
+     * @throws JSONException
+     */
+    public String getCalledFunctionPercentageName() throws JSONException {
+        double percentage = getCalledFunctionPercentage();
+        if (percentage >= 90){
+            return "high";
+        } else if (percentage <= 75){
+            return "low";
+        } else {
+            return "med";
+        }
     }
 
     /**
@@ -236,7 +280,7 @@ public class FileReport {
     public void merge(FileReport report) throws JSONException {
 
         //make sure the file is the same
-        if (this.getPath().equals(report.getPath())){
+        if (this.getAbsolutePath().equals(report.getAbsolutePath())){
 
             //update calledFunctions
             if (this.getCalledFunctionCount() < report.getCalledFunctionCount()){
@@ -267,7 +311,7 @@ public class FileReport {
             createFileLines();
             createFileFunctions();
         } else {
-            throw new IllegalArgumentException("Expected a report for " + this.getPath());
+            throw new IllegalArgumentException("Expected a report for " + this.getAbsolutePath());
         }
 
     }

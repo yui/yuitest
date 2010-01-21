@@ -23,48 +23,60 @@ import java.util.Date;
  *
  * @author Nicholas C. Zakas
  */
-public class HTMLReportGenerator implements ReportGenerator {
+public class LCOVReportGenerator implements ReportGenerator {
 
     private File outputdir = null;
     private boolean verbose = false;
+    private File reportdir = null;
 
     /**
      * Creates a new HTMLReportGenerator
      * @param outputdir The output directory for the HTML report.
      * @param verbose True to output additional information to the console.
      */
-    public HTMLReportGenerator(String outputdir, boolean verbose){
+    public LCOVReportGenerator(String outputdir, boolean verbose){
         this.outputdir = new File(outputdir);
         this.verbose = verbose;
+        this.reportdir = new File(outputdir + File.separator + "lcov-report");
 
-        //create directory if not already there
+        //create directories if not already there
         if (!this.outputdir.exists()){
             this.outputdir.mkdirs();
         }
+
     }
 
     public void generate(SummaryReport report) throws IOException {
         Date now = new Date();
         generateSummaryPage(report, now);
+
+        //create the report directory now
+        if (!this.reportdir.exists()){
+            this.reportdir.mkdirs();
+            if (verbose){
+                System.err.println("[INFO] Creating " + reportdir.getCanonicalPath());
+            }
+        }
+
         generateFilePages(report, now);
     }
 
     /**
-     * Generates the index.html page for the HTML report.
+     * Generates the lcov.info file for the coverage information.
      * @param report The coverage information to generate a report for.
      * @param date The date associated with the report.
      * @throws IOException When a file cannot be written to.
      */
     private void generateSummaryPage(SummaryReport report, Date date) throws IOException {
 
-        String outputFile = outputdir.getAbsolutePath() + File.separator + "index.html";
+        String outputFile = outputdir.getAbsolutePath() + File.separator + "lcov.info";
         Writer out = new OutputStreamWriter(new FileOutputStream(outputFile));
 
         if (verbose){
             System.err.println("[INFO] Outputting " + outputFile);
         }
 
-        ReportWriter reportWriter = (new ReportWriterFactory<SummaryReport>()).getWriter(out, "CoverageSummaryReportHTML");
+        ReportWriter reportWriter = (new ReportWriterFactory<SummaryReport>()).getWriter(out, "CoverageSummaryReportLCOV");
         reportWriter.write(report, date);
         out.close();
     }
@@ -81,6 +93,7 @@ public class HTMLReportGenerator implements ReportGenerator {
 
         for (int i=0; i < fileReports.length; i++){
             generateFilePage(fileReports[i], date);
+            generateFunctionPage(fileReports[i], date);
         }
     }
 
@@ -91,15 +104,36 @@ public class HTMLReportGenerator implements ReportGenerator {
      * @throws IOException When a file cannot be written to.
      */
     private void generateFilePage(FileReport report, Date date) throws IOException {
-        String outputFile = outputdir.getAbsolutePath() + File.separator + report.getReportName() + ".html";
+        String outputFile = reportdir.getAbsolutePath() + File.separator + report.getFile().getName() + ".gcov.html";
 
         if (verbose){
             System.err.println("[INFO] Outputting " + outputFile);
         }
 
         Writer out = new OutputStreamWriter(new FileOutputStream(outputFile));
-        ReportWriter reportWriter = (new ReportWriterFactory<FileReport>()).getWriter(out, "CoverageFileReportHTML");
+        ReportWriter reportWriter = (new ReportWriterFactory<FileReport>()).getWriter(out, "LCOVHTMLFileReport");
         reportWriter.write(report, date);
         out.close();
     }
+
+    /**
+     * Generates a report page for the function coverage information.
+     * @param report The coverage information to generate reports for.
+     * @param date The date associated with the report.
+     * @throws IOException When a file cannot be written to.
+     */
+    private void generateFunctionPage(FileReport report, Date date) throws IOException {
+        String outputFile = reportdir.getAbsolutePath() + File.separator + report.getFile().getName() + ".func.html";
+
+        if (verbose){
+            System.err.println("[INFO] Outputting " + outputFile);
+        }
+
+        Writer out = new OutputStreamWriter(new FileOutputStream(outputFile));
+        ReportWriter reportWriter = (new ReportWriterFactory<FileReport>()).getWriter(out, "LCOVHTMLFunctionReport");
+        reportWriter.write(report, date);
+        out.close();
+    }
+
+
 }

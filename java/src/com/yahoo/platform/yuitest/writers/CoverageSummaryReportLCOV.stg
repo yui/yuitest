@@ -6,7 +6,7 @@ $report.fileReports:file()$
 
 file() ::= <<
 TN:
-SF:$it.path$
+SF:$it.absolutePath$
 $it.functions:function()$
 $it.functions:functionCall()$
 FNF:$it.coveredFunctionCount$

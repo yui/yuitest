@@ -92,8 +92,19 @@ public class LCOVReportGenerator implements ReportGenerator {
         FileReport[] fileReports = report.getFileReports();
 
         for (int i=0; i < fileReports.length; i++){
-            generateFilePage(fileReports[i], date);
-            generateFunctionPage(fileReports[i], date);
+
+            //make the directory to mimic the source file
+            String parentDir = fileReports[i].getFile().getParent();
+            if (parentDir == null || parentDir.equals("")){
+                parentDir = "root"; //default to "root" directory for cleanliness
+            }
+            File parent = new File(reportdir.getAbsolutePath() + File.separator + parentDir);
+            if (!parent.exists()){
+                parent.mkdirs();
+            }
+            
+            generateFilePage(fileReports[i], date, parent);
+            generateFunctionPage(fileReports[i], date, parent);
         }
     }
 
@@ -103,8 +114,8 @@ public class LCOVReportGenerator implements ReportGenerator {
      * @param date The date associated with the report.
      * @throws IOException When a file cannot be written to.
      */
-    private void generateFilePage(FileReport report, Date date) throws IOException {
-        String outputFile = reportdir.getAbsolutePath() + File.separator + report.getFile().getName() + ".gcov.html";
+    private void generateFilePage(FileReport report, Date date, File parent) throws IOException {
+        String outputFile = parent.getAbsolutePath() + File.separator + report.getFile().getName() + ".gcov.html";
 
         if (verbose){
             System.err.println("[INFO] Outputting " + outputFile);
@@ -122,8 +133,8 @@ public class LCOVReportGenerator implements ReportGenerator {
      * @param date The date associated with the report.
      * @throws IOException When a file cannot be written to.
      */
-    private void generateFunctionPage(FileReport report, Date date) throws IOException {
-        String outputFile = reportdir.getAbsolutePath() + File.separator + report.getFile().getName() + ".func.html";
+    private void generateFunctionPage(FileReport report, Date date, File parent) throws IOException {
+        String outputFile = parent.getAbsolutePath() + File.separator + report.getFile().getName() + ".func.html";
 
         if (verbose){
             System.err.println("[INFO] Outputting " + outputFile);

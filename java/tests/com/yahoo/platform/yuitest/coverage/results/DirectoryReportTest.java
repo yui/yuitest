@@ -89,7 +89,7 @@ public class DirectoryReportTest {
     @Test
     public void testGetCalledLinePercentage() throws Exception {
         FileReport[] fileReports = report.getFileReports();
-        assertEquals((double)(fileReports[0].getCalledLinePercentage() + fileReports[1].getCalledLinePercentage())/2, report.getCalledLinePercentage(), 0.0);
+        assertEquals((double)(fileReports[0].getCalledLinePercentage() + fileReports[1].getCalledLinePercentage())/2, report.getCalledLinePercentage(), 0.2);
     }
 
     /**
@@ -123,7 +123,8 @@ public class DirectoryReportTest {
      */
     @Test
     public void testGetCalledFunctionPercentage() throws Exception {
-        assertEquals(0, report.getCalledFunctionPercentage(), 0.0);
+        FileReport[] fileReports = report.getFileReports();
+        assertEquals((double)(fileReports[0].getCalledFunctionPercentage() + fileReports[1].getCalledFunctionPercentage())/2, report.getCalledLinePercentage(), 1.0);
     }
 
     /**

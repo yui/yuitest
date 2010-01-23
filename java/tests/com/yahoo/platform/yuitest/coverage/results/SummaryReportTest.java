@@ -44,6 +44,8 @@ public class SummaryReportTest {
         String[] filenames = report.getFilenames();
         assertEquals(1, fileReports.length);
         assertEquals("build/cookie.js", filenames[0]);
+        assertEquals(1, report.getDirectoryReports().length);
+        assertEquals("build", report.getDirectoryReports()[0].getDirectory());
     }
 
     @Test

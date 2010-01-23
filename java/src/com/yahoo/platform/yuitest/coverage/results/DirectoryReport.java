@@ -8,21 +8,40 @@
 
 package com.yahoo.platform.yuitest.coverage.results;
 
+import java.text.DecimalFormat;
+import java.util.LinkedList;
+import java.util.List;
+import org.json.JSONException;
+
 /**
  *
  * @author Nicholas C. Zakas
  */
 public class DirectoryReport {
 
-    private FileReport[] items;
+    private List<FileReport> fileReports;
     private String directory = "";
+
+
+    public DirectoryReport(String directory){
+        this.directory = directory;
+        this.fileReports = new LinkedList<FileReport>();
+    }
 
     public String getDirectory(){
         return directory;
     }
 
-    public String getAbsolutePath(){
-        return directory;  //TODO
+//    public String getAbsolutePath(){
+//        return directory;  //TODO
+//    }
+
+    protected void addFileReport(FileReport report){
+        fileReports.add(report);
+    }
+
+    public FileReport[] getFileReports(){
+        return fileReports.toArray(new FileReport[fileReports.size()]);
     }
 
     /**
@@ -32,8 +51,8 @@ public class DirectoryReport {
      */
     public int getCoveredLineCount() throws JSONException {
         int sum = 0;
-        for (int i=0; i < items.length; i++){
-            sum += items[i].getCoveredLineCount();
+        for (int i=0; i < fileReports.size(); i++){
+            sum += fileReports.get(i).getCoveredLineCount();
         }
         return sum;
     }
@@ -45,8 +64,8 @@ public class DirectoryReport {
      */
     public int getCalledLineCount() throws JSONException {
         int sum = 0;
-        for (int i=0; i < items.length; i++){
-            sum += items[i].getCalledLineCount();
+        for (int i=0; i < fileReports.size(); i++){
+            sum += fileReports.get(i).getCalledLineCount();
         }
         return sum;    }
 
@@ -84,8 +103,8 @@ public class DirectoryReport {
      */
     public int getCoveredFunctionCount() throws JSONException {
         int sum = 0;
-        for (int i=0; i < items.length; i++){
-            sum += items[i].getCoveredFunctionCount();
+        for (int i=0; i < fileReports.size(); i++){
+            sum += fileReports.get(i).getCoveredFunctionCount();
         }
         return sum;    }
 
@@ -96,8 +115,8 @@ public class DirectoryReport {
      */
     public int getCalledFunctionCount() throws JSONException {
         int sum = 0;
-        for (int i=0; i < items.length; i++){
-            sum += items[i].getCalledFunctionCount();
+        for (int i=0; i < fileReports.size(); i++){
+            sum += fileReports.get(i).getCalledFunctionCount();
         }
         return sum;
     }

@@ -57,18 +57,28 @@ public class FileReportTest {
      */
     @Test
     public void testGetFilename() {
-        String expResult = "cookie.js";
+        String expResult = "build/cookie.js";
         String result = report.getFilename();
         assertEquals(expResult, result);
     }
 
     /**
-     * Test of getPath method, of class FileReport.
+     * Test of getFilename method, of class FileReport.
      */
     @Test
-    public void testGetPath() {
+    public void testGetFileParent() {
+        String expResult = "build";
+        String result = report.getFileParent();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of getAbsolutePath method, of class FileReport.
+     */
+    @Test
+    public void testGetAbsolutePath() {
         String expResult = "C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\tests\\cookie.js";
-        String result = report.getPath();
+        String result = report.getAbsolutePath();
         assertEquals(expResult, result);
     }
 
@@ -186,9 +196,9 @@ public class FileReportTest {
         assertEquals(14, result.length);
 
         FileFunction function = result[1];
-        assertEquals("get", function.getName());
-        assertEquals(198, function.getLineNumber());
-        assertEquals(17, function.getCallCount());
+        assertEquals("_createCookieHashString", function.getName());
+        assertEquals(70, function.getLineNumber());
+        assertEquals(33, function.getCallCount());
     }
 
 
@@ -228,7 +238,7 @@ public class FileReportTest {
      */
     @Test
     public void testGetReportName() {
-        assertEquals("cookie.js", report.getReportName());
+        assertEquals("build_cookie.js", report.getReportName());
     }
 
     /**

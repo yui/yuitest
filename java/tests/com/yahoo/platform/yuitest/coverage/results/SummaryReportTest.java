@@ -43,7 +43,7 @@ public class SummaryReportTest {
         FileReport[] fileReports = report.getFileReports();
         String[] filenames = report.getFilenames();
         assertEquals(1, fileReports.length);
-        assertEquals("cookie.js", filenames[0]);
+        assertEquals("build/cookie.js", filenames[0]);
     }
 
     @Test
@@ -62,8 +62,8 @@ public class SummaryReportTest {
         FileReport[] fileReports = report1.getFileReports();
         String[] filenames = report1.getFilenames();
         assertEquals(2, fileReports.length);
-        assertEquals("cookie.js", filenames[0]);
-        assertEquals("profiler.js", filenames[1]);
+        assertEquals("build/cookie.js", filenames[0]);
+        assertEquals("build/profiler.js", filenames[1]);
     }
 
     @Test
@@ -82,7 +82,7 @@ public class SummaryReportTest {
         FileReport[] fileReports = report1.getFileReports();
         String[] filenames = report1.getFilenames();
         assertEquals(1, fileReports.length);
-        assertEquals("cookie.js", filenames[0]);
+        assertEquals("build/cookie.js", filenames[0]);
         assertEquals(32, fileReports[0].getFunctionCallCount("setSub:418"));
         assertEquals(31, fileReports[0].getFunctionCallCount("setSubs:457"));
         assertEquals(91, fileReports[0].getLineCallCount(111));

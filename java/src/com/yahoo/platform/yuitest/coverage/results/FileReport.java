@@ -87,10 +87,14 @@ public class FileReport {
     public String getAbsolutePath(){
         return path;
     }
-
     
     public String getFileParent(){
-        return getFile().getParent().replace("\\", "/");
+        String parent = getFile().getParent();
+        if (parent != null){
+            return parent.replace("\\", "/");
+        } else {
+            return "base";
+        }
     }
 
     /**

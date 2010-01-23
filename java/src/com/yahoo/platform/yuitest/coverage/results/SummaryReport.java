@@ -15,6 +15,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.text.DecimalFormat;
 import java.util.Arrays;
+import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -25,7 +26,8 @@ import org.json.JSONObject;
 public class SummaryReport {
 
     private JSONObject data;
-    private FileReport[] items;
+    private FileReport[] files;
+    private HashMap<String,DirectoryReport> directories;
     
     //--------------------------------------------------------------------------
     // Constructors
@@ -73,6 +75,7 @@ public class SummaryReport {
         }
         
         this.data = new JSONObject(builder.toString());
+        this.directories = new HashMap<String,DirectoryReport>();
         generateFileReports();
     }
     
@@ -91,10 +94,15 @@ public class SummaryReport {
     private void generateFileReports()  throws JSONException{
         String[] filenames = getFilenames();
         Arrays.sort(filenames);
-        items = new FileReport[filenames.length];
+        files = new FileReport[filenames.length];
+        directories.clear();
         
         for (int i=0; i < filenames.length; i++){
-            items[i] = new FileReport(filenames[i], data.getJSONObject(filenames[i]));
+            files[i] = new FileReport(filenames[i], data.getJSONObject(filenames[i]));
+            if (!directories.containsKey(files[i].getFileParent())){
+                directories.put(files[i].getFileParent(), new DirectoryReport(files[i].getFileParent()));
+            }
+            directories.get(files[i].getFileParent()).addFileReport(files[i]);
         }        
     }
     
@@ -107,13 +115,17 @@ public class SummaryReport {
         Arrays.sort(filenames);
         return filenames;
     }
+
+    public DirectoryReport[] getDirectoryReports(){
+        return directories.values().toArray(new DirectoryReport[directories.size()]);
+    }
     
     /**
      * Returns all FileReport objects in the report.
      * @return All FileReport objects in the report.
      */
     public FileReport[] getFileReports(){
-        return items;
+        return files;
     }
     
     /**
@@ -122,7 +134,7 @@ public class SummaryReport {
      * @return The FileReport for the position.
      */
     public FileReport getFileReport(int index){
-        return items[index];
+        return files[index];
     }
     
     /**
@@ -131,9 +143,9 @@ public class SummaryReport {
      * @return The FileReport if found or null if not found.
      */
     public FileReport getFileReport(String filename){
-        for (int i=0; i < items.length; i++){
-            if (items[i].getFilename().equals(filename)){
-                return items[i];
+        for (int i=0; i < files.length; i++){
+            if (files[i].getFilename().equals(filename)){
+                return files[i];
             }
         }
         return null;
@@ -146,8 +158,8 @@ public class SummaryReport {
      */
     public int getCoveredLineCount() throws JSONException {
         int sum = 0;
-        for (int i=0; i < items.length; i++){
-            sum += items[i].getCoveredLineCount();
+        for (int i=0; i < files.length; i++){
+            sum += files[i].getCoveredLineCount();
         }
         return sum;
     }
@@ -159,8 +171,8 @@ public class SummaryReport {
      */
     public int getCalledLineCount() throws JSONException {
         int sum = 0;
-        for (int i=0; i < items.length; i++){
-            sum += items[i].getCalledLineCount();
+        for (int i=0; i < files.length; i++){
+            sum += files[i].getCalledLineCount();
         }
         return sum;    }
 
@@ -198,8 +210,8 @@ public class SummaryReport {
      */
     public int getCoveredFunctionCount() throws JSONException {
         int sum = 0;
-        for (int i=0; i < items.length; i++){
-            sum += items[i].getCoveredFunctionCount();
+        for (int i=0; i < files.length; i++){
+            sum += files[i].getCoveredFunctionCount();
         }
         return sum;    }
 
@@ -210,8 +222,8 @@ public class SummaryReport {
      */
     public int getCalledFunctionCount() throws JSONException {
         int sum = 0;
-        for (int i=0; i < items.length; i++){
-            sum += items[i].getCalledFunctionCount();
+        for (int i=0; i < files.length; i++){
+            sum += files[i].getCalledFunctionCount();
         }
         return sum;
     }

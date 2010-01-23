@@ -95,9 +95,6 @@ public class LCOVReportGenerator implements ReportGenerator {
 
             //make the directory to mimic the source file
             String parentDir = fileReports[i].getFile().getParent();
-            if (parentDir == null || parentDir.equals("")){
-                parentDir = "root"; //default to "root" directory for cleanliness
-            }
             File parent = new File(reportdir.getAbsolutePath() + File.separator + parentDir);
             if (!parent.exists()){
                 parent.mkdirs();

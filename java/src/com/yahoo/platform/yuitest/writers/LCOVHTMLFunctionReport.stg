@@ -588,7 +588,3 @@ span.LegendDiffCov
 </body>
 </html>
 >>
-
-function(report,func) ::= <<
-
->>

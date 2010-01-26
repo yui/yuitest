@@ -6,7 +6,7 @@ report(report,date) ::= <<
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-    <title>LCOV - lcov.info - $report.filename$</title>
+    <title>LCOV - lcov.info - $report.directory$</title>
     <style type="text/css">
 /* All views: initial background and text color */
 body
@@ -104,6 +104,18 @@ td.headerCovTableEntry-high
   padding-left: 12px;
   padding-right: 4px;
   background-color: #A7FC9D;
+}
+
+.progress-high {
+  background-color: #A7FC9D;
+}
+
+.progress-med {
+  background-color: #FFEA20;
+}
+
+.progress-low {
+  background-color: #FF0000;
 }
 
 /* All views: header item coverage table entry for medium coverage rate */
@@ -219,7 +231,7 @@ td.coverBarOutline
 
 /* Directory view/File view (all): percentage entry for files with
    high coverage rate */
-td.coverPerHi
+td.coverPer-high
 {
   text-align: right;
   padding-left: 10px;
@@ -230,7 +242,7 @@ td.coverPerHi
 
 /* Directory view/File view (all): line count entry for files with
    high coverage rate */
-td.coverNumHi
+td.coverNum-high
 {
   text-align: right;
   padding-left: 10px;
@@ -251,7 +263,7 @@ span.coverLegendHi
 
 /* Directory view/File view (all): percentage entry for files with
    medium coverage rate */
-td.coverPerMed
+td.coverPer-med
 {
   text-align: right;
   padding-left: 10px;
@@ -262,7 +274,7 @@ td.coverPerMed
 
 /* Directory view/File view (all): line count entry for files with
    medium coverage rate */
-td.coverNumMed
+td.coverNum-med
 {
   text-align: right;
   padding-left: 10px;
@@ -283,7 +295,7 @@ span.coverLegendMed
 
 /* Directory view/File view (all): percentage entry for files with
    low coverage rate */
-td.coverPerLo
+td.coverPer-low
 {
   text-align: right;
   padding-left: 10px;
@@ -294,7 +306,7 @@ td.coverPerLo
 
 /* Directory view/File view (all): line count entry for files with
    low coverage rate */
-td.coverNumLo
+td.coverNum-low
 {
   text-align: right;
   padding-left: 10px;
@@ -541,13 +553,25 @@ span.LegendDiffCov
         </tr>
         <tr>
           <td></td>
-          <td class="headerItem">Colors:</td>
-          <td class="headerValueLeg" colspan=5>
-            <span class="coverLegendNoCov">not hit</span>
-            <span class="coverLegendCov">hit</span>
+
+          <td class="headerItemLeg">Colors:</td>
+          <td class="headerValueLeg">
+            Line coverage:<br>
+            <span class="coverLegendLo">0% to 15%</span>
+            <span class="coverLegendMed">15% to 50%</span>
+            <span class="coverLegendHi">50% to 100%</span>
+
+          </td>
+          <td></td>
+          <td class="headerValueLeg" colspan=3>
+            Function coverage:<br>
+            <span class="coverLegendLo">0% to 75%</span>
+            <span class="coverLegendMed">75% to 90%</span>
+            <span class="coverLegendHi">90% to 100%</span>
 
           </td>
         </tr>
+
                 <tr><td>&nbsp;</td></tr>
         </table>
       </td>
@@ -556,26 +580,42 @@ span.LegendDiffCov
   </table>
 
   <center>
-  <table width="60%" cellpadding=1 cellspacing=1 border=0>
-    <tr><td><br></td></tr>
+  <table width="80%" cellpadding=1 cellspacing=1 border=0>
+
     <tr>
-      <td width="80%" class="tableHead">Function Name <!--<span class="tableHeadSort"><img src="../../glass.png" width=10 height=14 alt="Sort by function name" title="Sort by function name" border=0></span>--></td>
-      <td width="20%" class="tableHead">Hit count <!--<span class="tableHeadSort"><a href="component_test.h.func-sort-c.html"><img src="../../updown.png" width=10 height=14 alt="Sort by hit count" title="Sort by hit count" border=0></a></span>--></td>
+      <td width="45%"><br></td>
+      <td width="15%"></td>
+      <td width="10%"></td>
+      <td width="10%"></td>
+      <td width="10%"></td>
+
+      <td width="10%"></td>
     </tr>
-    $report.functions:{
+
+    <tr>
+      <td class="tableHead">Filename<!-- <span class="tableHeadSort"><img src="../../glass.png" width=10 height=14 alt="Sort by name" title="Sort by name" border=0></span>--></td>
+      <td class="tableHead" colspan=3>Line Coverage<!-- ( <a class="detail" href="index-detail.html">show details</a> ) <span class="tableHeadSort"><a href="index-sort-l.html"><img src="../../updown.png" width=10 height=14 alt="Sort by line coverage" title="Sort by line coverage" border=0></a></span>--></td>
+      <td class="tableHead" colspan=2>Functions<!-- <span class="tableHeadSort"><a href="index-sort-f.html"><img src="../../updown.png" width=10 height=14 alt="Sort by function coverage" title="Sort by function coverage" border=0></a></span>--></td>
+
+    </tr>
+    $report.fileReports:{
         <tr>
-            <td class="coverFn"><a href="$report.file.name$.gcov.html#$it.lineNumber$">$it.name$</a></td>
-        $if(it.called)$
-            <td class="coverFnHi">$it.callCount$</td>
-        $else$
-            <td class="coverFnLo">0</td>
-        $endif$
+            <td class="coverFile"><a href="$it.file.name$.gcov.html">$it.file.name$</a></td>
+            <td class="coverBar" align="center">
+            <table border=0 cellspacing=0 cellpadding=1><tr><td class="coverBarOutline"><div style="width: 100px; height: 10px"><div class="progress-$it.calledLinePercentageName$" style="width: $it.calledLinePercentage$%; height: 100%"></div></div></td></tr></table>
+            </td>
+            <td class="coverPer-$it.calledLinePercentageName$">$it.calledLinePercentage$&nbsp;%</td>
+
+            <td class="coverNum-$it.calledLinePercentageName$">$it.calledLineCount$ / $it.coveredLineCount$</td>
+            <td class="coverPer-$it.calledFunctionPercentageName$">$it.calledFunctionPercentage$&nbsp;%</td>
+            <td class="coverNum-$it.calledFunctionPercentageName$">$it.calledFunctionCount$ / $it.coveredFunctionCount$</td>
         </tr>
     }$
-
   </table>
-  <br>
   </center>
+  <br>
+
+
 
 
   <table width="100%" border=0 cellspacing=0 cellpadding=0>
@@ -587,8 +627,4 @@ span.LegendDiffCov
 
 </body>
 </html>
->>
-
-function(report,func) ::= <<
-
 >>

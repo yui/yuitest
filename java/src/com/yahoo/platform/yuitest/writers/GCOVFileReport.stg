@@ -20,13 +20,11 @@ uncoveredline() ::= <<
 >>
 
 uncalledline() ::= <<
-#####:$it:linedetail()$
-
+#####:$it:linedetail()$$\n$
 >>
 
 calledline() ::= <<
-$it.callCount;format="padLeft5"$:$it:linedetail()$
-
+$it.callCount;format="padLeft5"$:$it:linedetail()$$\n$
 >>
 
 linedetail() ::= <<

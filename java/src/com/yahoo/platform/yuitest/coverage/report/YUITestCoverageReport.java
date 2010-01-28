@@ -87,8 +87,6 @@ public class YUITestCoverageReport {
                 in.close();
             }
 
-            //ReportGeneratorX.setVerbose(verbose);
-            //ReportGeneratorX.generateAll(fullReport, format, outputLocation);
             ReportGenerator generator = ReportGeneratorFactory.getGenerator(format, outputLocation, verbose);
             generator.generate(fullReport);
             

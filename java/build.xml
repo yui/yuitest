@@ -6,9 +6,7 @@
     <!-- ================================================================== -->
   
     <target name="-load.properties">
-        <property file="common.properties"/>
-        <property file="coverage.properties"/>
-        <property file="selenium-driver.properties"/>
+        <property file="ant.properties"/>
     </target>    
     
     <!-- ================================================================== -->

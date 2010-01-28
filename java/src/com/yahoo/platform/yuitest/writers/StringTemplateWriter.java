@@ -67,6 +67,8 @@ public class StringTemplateWriter<T> implements ReportWriter<T> {
                     return o.toString().replace("&", "&amp;").replace("\"", "&quot;").replace("<", "&lt;").replace(">", "&gt;");
                 } else if (format.equals("htmlEscapeSpace")){
                     return o.toString().replace("&", "&amp;").replace("\"", "&quot;").replace("<", "&lt;").replace(">", "&gt;").replace(" ", "&nbsp;");
+                } else if (format.equals("relativePath")){
+                    return o.toString().replaceAll("[^\\\\\\/]+", "..");
                 } else {
                     return o.toString();
                 }

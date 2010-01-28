@@ -19,6 +19,8 @@ public class ReportGeneratorFactory {
             return new HTMLReportGenerator(outputDirectory, verbose);
         } else if (format.equalsIgnoreCase("lcov")){
             return new LCOVReportGenerator(outputDirectory, verbose);
+        } else if (format.equalsIgnoreCase("gcov")){
+            return new GCOVReportGenerator(outputDirectory, verbose);
         } else {
             throw new IllegalArgumentException("Unsupported format '" + format + "'.");
         }

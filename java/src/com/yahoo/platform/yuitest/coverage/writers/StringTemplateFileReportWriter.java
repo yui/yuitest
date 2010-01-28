@@ -8,7 +8,7 @@
 
 package com.yahoo.platform.yuitest.coverage.writers;
 
-import com.yahoo.platform.yuitest.coverage.results.FileReport;
+import com.yahoo.platform.yuitest.coverage.results.FileCoverageReport;
 import com.yahoo.platform.yuitest.results.TestReport;
 import java.io.IOException;
 import java.io.InputStream;
@@ -43,11 +43,11 @@ public class StringTemplateFileReportWriter implements FileReportWriter {
         return group;
     }
 
-    public void write(FileReport report) throws IOException {
+    public void write(FileCoverageReport report) throws IOException {
         write(report, new Date());
     }
 
-    public void write(FileReport report, Date date) throws IOException {
+    public void write(FileCoverageReport report, Date date) throws IOException {
         StringTemplate template = templateGroup.getInstanceOf("report");
         template.setAttribute("report", report);
         template.setAttribute("date", date);

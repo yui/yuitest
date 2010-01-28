@@ -8,9 +8,9 @@
 
 package com.yahoo.platform.yuitest.coverage.report;
 
-import com.yahoo.platform.yuitest.coverage.results.DirectoryReport;
-import com.yahoo.platform.yuitest.coverage.results.FileReport;
-import com.yahoo.platform.yuitest.coverage.results.SummaryReport;
+import com.yahoo.platform.yuitest.coverage.results.DirectoryCoverageReport;
+import com.yahoo.platform.yuitest.coverage.results.FileCoverageReport;
+import com.yahoo.platform.yuitest.coverage.results.SummaryCoverageReport;
 import com.yahoo.platform.yuitest.writers.ReportWriter;
 import com.yahoo.platform.yuitest.writers.ReportWriterFactory;
 import java.io.File;
@@ -24,7 +24,7 @@ import java.util.Date;
  *
  * @author Nicholas C. Zakas
  */
-public class GCOVReportGenerator implements ReportGenerator {
+public class GCOVReportGenerator implements CoverageReportGenerator {
 
     private File outputdir = null;
     private boolean verbose = false;
@@ -39,9 +39,22 @@ public class GCOVReportGenerator implements ReportGenerator {
         this.verbose = verbose;
     }
 
-    public void generate(SummaryReport report) throws IOException {
-        Date now = new Date();
+    /**
+     * Generates report files for the given coverage report.
+     * @param report The report to generate files for.
+     * @throws IOException When the files cannot be written.
+     */
+    public void generate(SummaryCoverageReport report) throws IOException {
+        generate(report, new Date());
+    }
 
+    /**
+     * Generates report files for the given coverage report.
+     * @param report The report to generate files for.
+     * @param timestamp The timestamp to apply to the files.
+     * @throws IOException When the files cannot be written.
+     */
+    public void generate(SummaryCoverageReport report, Date timestamp) throws IOException {
         //create the report directory now
         if (!outputdir.exists()){
             outputdir.mkdirs();
@@ -50,20 +63,21 @@ public class GCOVReportGenerator implements ReportGenerator {
             }
         }
 
-        DirectoryReport[] reports = report.getDirectoryReports();
+        DirectoryCoverageReport[] reports = report.getDirectoryReports();
         for (int i=0; i < reports.length; i++){
-            generateDirectories(reports[i], now);
+            generateDirectories(reports[i], timestamp);
         }
     }
+
     /**
      * Generates a report page for each file in the coverage information.
      * @param report The coverage information to generate reports for.
      * @param date The date associated with the report.
      * @throws IOException When a file cannot be written to.
      */
-    private void generateDirectories(DirectoryReport report, Date date) throws IOException {
+    private void generateDirectories(DirectoryCoverageReport report, Date date) throws IOException {
 
-        FileReport[] fileReports = report.getFileReports();
+        FileCoverageReport[] fileReports = report.getFileReports();
 
         //make the directory to mimic the source file
         String parentDir = fileReports[0].getFile().getParent();
@@ -83,7 +97,7 @@ public class GCOVReportGenerator implements ReportGenerator {
      * @param date The date associated with the report.
      * @throws IOException When a file cannot be written to.
      */
-    private void generateGCOVFile(FileReport report, Date date, File parent) throws IOException {
+    private void generateGCOVFile(FileCoverageReport report, Date date, File parent) throws IOException {
         String outputFile = parent.getAbsolutePath() + File.separator + report.getFile().getName() + ".gcov";
 
         if (verbose){
@@ -91,7 +105,7 @@ public class GCOVReportGenerator implements ReportGenerator {
         }
 
         Writer out = new OutputStreamWriter(new FileOutputStream(outputFile));
-        ReportWriter reportWriter = (new ReportWriterFactory<FileReport>()).getWriter(out, "GCOVFileReport");
+        ReportWriter reportWriter = (new ReportWriterFactory<FileCoverageReport>()).getWriter(out, "GCOVFileReport");
         reportWriter.write(report, date);
         out.close();
     }

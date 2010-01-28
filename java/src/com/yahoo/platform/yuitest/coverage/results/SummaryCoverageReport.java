@@ -23,11 +23,11 @@ import org.json.JSONObject;
  * Represents a code coverage report.
  * @author Nicholas C. Zakas
  */
-public class SummaryReport {
+public class SummaryCoverageReport {
 
     private JSONObject data;
-    private FileReport[] files;
-    private HashMap<String,DirectoryReport> directories;
+    private FileCoverageReport[] files;
+    private HashMap<String,DirectoryCoverageReport> directories;
     
     //--------------------------------------------------------------------------
     // Constructors
@@ -39,7 +39,7 @@ public class SummaryReport {
      * @throws java.io.IOException
      * @throws org.json.JSONException
      */
-    public SummaryReport(File file) throws IOException, JSONException {
+    public SummaryCoverageReport(File file) throws IOException, JSONException {
         this(new InputStreamReader(new FileInputStream(file)));
     }
 
@@ -49,14 +49,14 @@ public class SummaryReport {
      * @throws java.io.IOException
      * @throws org.json.JSONException
      */
-    public SummaryReport(File[] files) throws IOException, JSONException {
+    public SummaryCoverageReport(File[] files) throws IOException, JSONException {
 
         //start with the first file
         this(files[0]);
 
         //merge the others
         for (int i=1; i < files.length; i++){
-            merge(new SummaryReport(files[i]));
+            merge(new SummaryCoverageReport(files[i]));
         }
     }
 
@@ -66,7 +66,7 @@ public class SummaryReport {
      * @throws java.io.IOException
      * @throws org.json.JSONException
      */
-    public SummaryReport(Reader in) throws IOException, JSONException {
+    public SummaryCoverageReport(Reader in) throws IOException, JSONException {
         StringBuilder builder = new StringBuilder();
         int c;
         
@@ -75,7 +75,7 @@ public class SummaryReport {
         }
         
         this.data = new JSONObject(builder.toString());
-        this.directories = new HashMap<String,DirectoryReport>();
+        this.directories = new HashMap<String,DirectoryCoverageReport>();
         generateFileReports();
     }
     
@@ -83,24 +83,24 @@ public class SummaryReport {
      * Creates a new report object from a JSON object.
      * @param data The JSON object containing coverage data.
      */
-    public SummaryReport(JSONObject data)  throws JSONException{
+    public SummaryCoverageReport(JSONObject data)  throws JSONException{
         this.data = data;
         generateFileReports();
     }
   
     /**
-     * Generates FileReport objects for every file in the report.
+     * Generates FileCoverageReport objects for every file in the report.
      */
     private void generateFileReports()  throws JSONException{
         String[] filenames = getFilenames();
         Arrays.sort(filenames);
-        files = new FileReport[filenames.length];
+        files = new FileCoverageReport[filenames.length];
         directories.clear();
         
         for (int i=0; i < filenames.length; i++){
-            files[i] = new FileReport(filenames[i], data.getJSONObject(filenames[i]));
+            files[i] = new FileCoverageReport(filenames[i], data.getJSONObject(filenames[i]));
             if (!directories.containsKey(files[i].getFileParent())){
-                directories.put(files[i].getFileParent(), new DirectoryReport(files[i].getFileParent()));
+                directories.put(files[i].getFileParent(), new DirectoryCoverageReport(files[i].getFileParent()));
             }
             directories.get(files[i].getFileParent()).addFileReport(files[i]);
         }        
@@ -116,33 +116,33 @@ public class SummaryReport {
         return filenames;
     }
 
-    public DirectoryReport[] getDirectoryReports(){
-        return directories.values().toArray(new DirectoryReport[directories.size()]);
+    public DirectoryCoverageReport[] getDirectoryReports(){
+        return directories.values().toArray(new DirectoryCoverageReport[directories.size()]);
     }
     
     /**
-     * Returns all FileReport objects in the report.
-     * @return All FileReport objects in the report.
+     * Returns all FileCoverageReport objects in the report.
+     * @return All FileCoverageReport objects in the report.
      */
-    public FileReport[] getFileReports(){
+    public FileCoverageReport[] getFileReports(){
         return files;
     }
     
     /**
-     * Returns the FileReport in the given position in the report.
+     * Returns the FileCoverageReport in the given position in the report.
      * @param index The position in the report to retrieve.
-     * @return The FileReport for the position.
+     * @return The FileCoverageReport for the position.
      */
-    public FileReport getFileReport(int index){
+    public FileCoverageReport getFileReport(int index){
         return files[index];
     }
     
     /**
-     * Returns the FileReport associated with a given filename.
+     * Returns the FileCoverageReport associated with a given filename.
      * @param filename The filename to retrieve.
-     * @return The FileReport if found or null if not found.
+     * @return The FileCoverageReport if found or null if not found.
      */
-    public FileReport getFileReport(String filename){
+    public FileCoverageReport getFileReport(String filename){
         for (int i=0; i < files.length; i++){
             if (files[i].getFilename().equals(filename)){
                 return files[i];
@@ -263,14 +263,14 @@ public class SummaryReport {
      * Include another report's data in this report.
      * @param otherReport The other report to merge.
      */
-    public void merge(SummaryReport otherReport) throws JSONException{
+    public void merge(SummaryCoverageReport otherReport) throws JSONException{
 
-        FileReport[] reports = otherReport.getFileReports();
+        FileCoverageReport[] reports = otherReport.getFileReports();
 
         boolean needsRegeneration = false;
 
         for (int i=0; i < reports.length; i++){
-            FileReport fileReport = getFileReport(reports[i].getFilename());
+            FileCoverageReport fileReport = getFileReport(reports[i].getFilename());
             if (fileReport != null){
                 fileReport.merge(reports[i]);
             } else {

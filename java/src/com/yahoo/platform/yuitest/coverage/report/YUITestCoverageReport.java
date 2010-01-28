@@ -7,7 +7,7 @@
  */
 package com.yahoo.platform.yuitest.coverage.report;
 
-import com.yahoo.platform.yuitest.coverage.results.SummaryReport;
+import com.yahoo.platform.yuitest.coverage.results.SummaryCoverageReport;
 import jargs.gnu.CmdLineParser;
 import java.io.*;
 
@@ -78,16 +78,16 @@ public class YUITestCoverageReport {
             }
 
             in = new InputStreamReader(new FileInputStream(fileArgs[0]));
-            SummaryReport fullReport = new SummaryReport(in);
+            SummaryCoverageReport fullReport = new SummaryCoverageReport(in);
             in.close();
 
             for (int i=1; i < fileArgs.length; i++){
                 in = new InputStreamReader(new FileInputStream(fileArgs[i]));
-                fullReport.merge(new SummaryReport(in));
+                fullReport.merge(new SummaryCoverageReport(in));
                 in.close();
             }
 
-            ReportGenerator generator = ReportGeneratorFactory.getGenerator(format, outputLocation, verbose);
+            CoverageReportGenerator generator = CoverageReportGeneratorFactory.getGenerator(format, outputLocation, verbose);
             generator.generate(fullReport);
             
         } catch (CmdLineParser.OptionException e) {

@@ -12,9 +12,9 @@ package com.yahoo.platform.yuitest.coverage.report;
  *
  * @author Nicholas C. Zakas
  */
-public class ReportGeneratorFactory {
+public class CoverageReportGeneratorFactory {
 
-    public static ReportGenerator getGenerator(String format, String outputDirectory, boolean verbose){
+    public static CoverageReportGenerator getGenerator(String format, String outputDirectory, boolean verbose){
         if (format.equalsIgnoreCase("html")){
             return new HTMLReportGenerator(outputDirectory, verbose);
         } else if (format.equalsIgnoreCase("lcov")){

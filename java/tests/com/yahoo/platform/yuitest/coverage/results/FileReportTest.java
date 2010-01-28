@@ -26,7 +26,7 @@ import static org.junit.Assert.*;
  */
 public class FileReportTest {
 
-    private FileReport report;
+    private FileCoverageReport report;
 
 
     public FileReportTest() {
@@ -43,7 +43,7 @@ public class FileReportTest {
     @Before
     public void setUp() throws IOException, JSONException {
         Reader in = new InputStreamReader(SummaryReportTest.class.getResourceAsStream("coverage.json"));
-        SummaryReport summaryReport = new SummaryReport(in);
+        SummaryCoverageReport summaryReport = new SummaryCoverageReport(in);
         report = summaryReport.getFileReport(0);
     }
 
@@ -53,7 +53,7 @@ public class FileReportTest {
     }
 
     /**
-     * Test of getFilename method, of class FileReport.
+     * Test of getFilename method, of class FileCoverageReport.
      */
     @Test
     public void testGetFilename() {
@@ -63,7 +63,7 @@ public class FileReportTest {
     }
 
     /**
-     * Test of getFilename method, of class FileReport.
+     * Test of getFilename method, of class FileCoverageReport.
      */
     @Test
     public void testGetFileParent() {
@@ -73,7 +73,7 @@ public class FileReportTest {
     }
 
     /**
-     * Test of getAbsolutePath method, of class FileReport.
+     * Test of getAbsolutePath method, of class FileCoverageReport.
      */
     @Test
     public void testGetAbsolutePath() {
@@ -83,7 +83,7 @@ public class FileReportTest {
     }
 
     /**
-     * Test of getCoveredLineCount method, of class FileReport.
+     * Test of getCoveredLineCount method, of class FileCoverageReport.
      */
     @Test
     public void testGetTotalLineCount() throws Exception {
@@ -91,7 +91,7 @@ public class FileReportTest {
     }
 
     /**
-     * Test of getCalledLineCount method, of class FileReport.
+     * Test of getCalledLineCount method, of class FileCoverageReport.
      */
     @Test
     public void testGetCalledLineCount() throws Exception {
@@ -99,7 +99,7 @@ public class FileReportTest {
     }
 
     /**
-     * Test of getCalledLinePercentage method, of class FileReport.
+     * Test of getCalledLinePercentage method, of class FileCoverageReport.
      */
     @Test
     public void testGetCalledLinePercentage() throws Exception {
@@ -107,7 +107,7 @@ public class FileReportTest {
     }
 
     /**
-     * Test of getCoveredFunctionCount method, of class FileReport.
+     * Test of getCoveredFunctionCount method, of class FileCoverageReport.
      */
     @Test
     public void testGetTotalFunctionCount() throws Exception {
@@ -115,7 +115,7 @@ public class FileReportTest {
     }
 
     /**
-     * Test of getCalledFunctionCount method, of class FileReport.
+     * Test of getCalledFunctionCount method, of class FileCoverageReport.
      */
     @Test
     public void testGetCalledFunctionCount() throws Exception {
@@ -123,7 +123,7 @@ public class FileReportTest {
     }
 
     /**
-     * Test of getCalledFunctionPercentage method, of class FileReport.
+     * Test of getCalledFunctionPercentage method, of class FileCoverageReport.
      */
     @Test
     public void testGetCalledFunctionPercentage() throws Exception {
@@ -131,7 +131,7 @@ public class FileReportTest {
     }
 
     /**
-     * Test of getLine method, of class FileReport.
+     * Test of getLine method, of class FileCoverageReport.
      */
     @Test
     public void testGetUncoveredLine() throws Exception {
@@ -144,7 +144,7 @@ public class FileReportTest {
     }
 
     /**
-     * Test of getLine method, of class FileReport.
+     * Test of getLine method, of class FileCoverageReport.
      */
     @Test
     public void testGetCoveredandCalledLine() throws Exception {
@@ -158,7 +158,7 @@ public class FileReportTest {
     }
 
     /**
-     * Test of getLine method, of class FileReport.
+     * Test of getLine method, of class FileCoverageReport.
      */
     @Test
     public void testGetCoveredandNotCalledLine() throws Exception {
@@ -172,7 +172,7 @@ public class FileReportTest {
     }
 
     /**
-     * Test of getLines method, of class FileReport.
+     * Test of getLines method, of class FileCoverageReport.
      */
     @Test
     public void testGetLines() throws Exception {
@@ -188,7 +188,7 @@ public class FileReportTest {
     }
 
     /**
-     * Test of getFunctions method, of class FileReport.
+     * Test of getFunctions method, of class FileCoverageReport.
      */
     @Test
     public void testGetFunctions() throws Exception {
@@ -203,7 +203,7 @@ public class FileReportTest {
 
 
     /**
-     * Test of getLineCallCount method, of class FileReport.
+     * Test of getLineCallCount method, of class FileCoverageReport.
      */
     @Test
     public void testGetLineCallCount() throws Exception {
@@ -213,7 +213,7 @@ public class FileReportTest {
     }
 
     /**
-     * Test of getFunctionCallCount method, of class FileReport.
+     * Test of getFunctionCallCount method, of class FileCoverageReport.
      */
     @Test
     public void testGetFunctionCallCount() throws Exception {
@@ -223,7 +223,7 @@ public class FileReportTest {
     }
 
     /**
-     * Test of getFunctionNames method, of class FileReport.
+     * Test of getFunctionNames method, of class FileCoverageReport.
      */
     @Test
     public void testGetFunctionNames() throws Exception {
@@ -234,7 +234,7 @@ public class FileReportTest {
     }
 
     /**
-     * Test of getReportName method, of class FileReport.
+     * Test of getReportName method, of class FileCoverageReport.
      */
     @Test
     public void testGetReportName() {
@@ -252,7 +252,7 @@ public class FileReportTest {
         clone.put("calledLines", 110);
         clone.getJSONObject("lines").put("207", 1);
 
-        FileReport newReport = new FileReport("cookie.js", clone);
+        FileCoverageReport newReport = new FileCoverageReport("cookie.js", clone);
         report.merge(newReport);
 
         assertEquals(110, report.getCalledLineCount());
@@ -269,7 +269,7 @@ public class FileReportTest {
         //get clone of JSONObject
         JSONObject clone = new JSONObject(report.toJSONObject().toString());
         clone.put("path", "cookie2.js");
-        FileReport newReport = new FileReport("cookie2.js", clone);
+        FileCoverageReport newReport = new FileCoverageReport("cookie2.js", clone);
         report.merge(newReport);
         
     }

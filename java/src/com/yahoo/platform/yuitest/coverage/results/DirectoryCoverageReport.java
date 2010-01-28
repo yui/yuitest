@@ -17,15 +17,15 @@ import org.json.JSONException;
  *
  * @author Nicholas C. Zakas
  */
-public class DirectoryReport {
+public class DirectoryCoverageReport {
 
-    private List<FileReport> fileReports;
+    private List<FileCoverageReport> fileReports;
     private String directory = "";
 
 
-    public DirectoryReport(String directory){
+    public DirectoryCoverageReport(String directory){
         this.directory = directory;
-        this.fileReports = new LinkedList<FileReport>();
+        this.fileReports = new LinkedList<FileCoverageReport>();
     }
 
     public String getDirectory(){
@@ -36,12 +36,12 @@ public class DirectoryReport {
 //        return directory;  //TODO
 //    }
 
-    protected void addFileReport(FileReport report){
+    protected void addFileReport(FileCoverageReport report){
         fileReports.add(report);
     }
 
-    public FileReport[] getFileReports(){
-        return fileReports.toArray(new FileReport[fileReports.size()]);
+    public FileCoverageReport[] getFileReports(){
+        return fileReports.toArray(new FileCoverageReport[fileReports.size()]);
     }
 
     /**

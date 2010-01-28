@@ -8,8 +8,8 @@
 
 package com.yahoo.platform.yuitest.coverage.report;
 
-import com.yahoo.platform.yuitest.coverage.results.FileReport;
-import com.yahoo.platform.yuitest.coverage.results.SummaryReport;
+import com.yahoo.platform.yuitest.coverage.results.FileCoverageReport;
+import com.yahoo.platform.yuitest.coverage.results.SummaryCoverageReport;
 import com.yahoo.platform.yuitest.writers.ReportWriter;
 import com.yahoo.platform.yuitest.writers.ReportWriterFactory;
 import java.io.File;
@@ -23,7 +23,7 @@ import java.util.Date;
  *
  * @author Nicholas C. Zakas
  */
-public class HTMLReportGenerator implements ReportGenerator {
+public class HTMLReportGenerator implements CoverageReportGenerator {
 
     private File outputdir = null;
     private boolean verbose = false;
@@ -43,10 +43,25 @@ public class HTMLReportGenerator implements ReportGenerator {
         }
     }
 
-    public void generate(SummaryReport report) throws IOException {
-        Date now = new Date();
-        generateSummaryPage(report, now);
-        generateFilePages(report, now);
+    /**
+     * Generates report files for the given coverage report.
+     * @param report The report to generate files for.
+     * @throws IOException When the files cannot be written.
+     */
+    public void generate(SummaryCoverageReport report) throws IOException {
+        generate(report, new Date());
+    }
+
+    /**
+     * Generates report files for the given coverage report.
+     * @param report The report to generate files for.
+     * @param timestamp The timestamp to apply to the files.
+     * @throws IOException When the files cannot be written.
+     */
+
+    public void generate(SummaryCoverageReport report, Date timestamp) throws IOException {
+        generateSummaryPage(report, timestamp);
+        generateFilePages(report, timestamp);
     }
 
     /**
@@ -55,7 +70,7 @@ public class HTMLReportGenerator implements ReportGenerator {
      * @param date The date associated with the report.
      * @throws IOException When a file cannot be written to.
      */
-    private void generateSummaryPage(SummaryReport report, Date date) throws IOException {
+    private void generateSummaryPage(SummaryCoverageReport report, Date date) throws IOException {
 
         String outputFile = outputdir.getAbsolutePath() + File.separator + "index.html";
         Writer out = new OutputStreamWriter(new FileOutputStream(outputFile));
@@ -64,7 +79,7 @@ public class HTMLReportGenerator implements ReportGenerator {
             System.err.println("[INFO] Outputting " + outputFile);
         }
 
-        ReportWriter reportWriter = (new ReportWriterFactory<SummaryReport>()).getWriter(out, "CoverageSummaryReportHTML");
+        ReportWriter reportWriter = (new ReportWriterFactory<SummaryCoverageReport>()).getWriter(out, "CoverageSummaryReportHTML");
         reportWriter.write(report, date);
         out.close();
     }
@@ -75,9 +90,9 @@ public class HTMLReportGenerator implements ReportGenerator {
      * @param date The date associated with the report.
      * @throws IOException When a file cannot be written to.
      */
-    private void generateFilePages(SummaryReport report, Date date) throws IOException {
+    private void generateFilePages(SummaryCoverageReport report, Date date) throws IOException {
 
-        FileReport[] fileReports = report.getFileReports();
+        FileCoverageReport[] fileReports = report.getFileReports();
 
         for (int i=0; i < fileReports.length; i++){
             generateFilePage(fileReports[i], date);
@@ -90,7 +105,7 @@ public class HTMLReportGenerator implements ReportGenerator {
      * @param date The date associated with the report.
      * @throws IOException When a file cannot be written to.
      */
-    private void generateFilePage(FileReport report, Date date) throws IOException {
+    private void generateFilePage(FileCoverageReport report, Date date) throws IOException {
         String outputFile = outputdir.getAbsolutePath() + File.separator + report.getReportName() + ".html";
 
         if (verbose){
@@ -98,7 +113,7 @@ public class HTMLReportGenerator implements ReportGenerator {
         }
 
         Writer out = new OutputStreamWriter(new FileOutputStream(outputFile));
-        ReportWriter reportWriter = (new ReportWriterFactory<FileReport>()).getWriter(out, "CoverageFileReportHTML");
+        ReportWriter reportWriter = (new ReportWriterFactory<FileCoverageReport>()).getWriter(out, "CoverageFileReportHTML");
         reportWriter.write(report, date);
         out.close();
     }

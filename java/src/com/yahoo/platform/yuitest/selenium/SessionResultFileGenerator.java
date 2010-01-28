@@ -8,6 +8,9 @@
 
 package com.yahoo.platform.yuitest.selenium;
 
+import com.yahoo.platform.yuitest.coverage.report.CoverageReportGenerator;
+import com.yahoo.platform.yuitest.coverage.report.CoverageReportGeneratorFactory;
+import com.yahoo.platform.yuitest.coverage.results.SummaryCoverageReport;
 import com.yahoo.platform.yuitest.results.TestReport;
 import com.yahoo.platform.yuitest.writers.ReportWriter;
 import com.yahoo.platform.yuitest.writers.ReportWriterFactory;
@@ -36,37 +39,35 @@ public class SessionResultFileGenerator {
     }
 
     public void generateAll(List<SessionResult> results, Date timestamp) throws Exception {
-        for (int i=0; i < results.size(); i++){
-            generateAll(results.get(i), timestamp);
-        }
+        generateAll(results.toArray(new SessionResult[results.size()]), timestamp);
     }
 
     public void generateAll(SessionResult[] results, Date timestamp) throws Exception {
+        SummaryCoverageReport coverageReport = null;
         for (int i=0; i < results.length; i++){
-            generateAll(results[i], timestamp);
+            generateTestResultFile(results[i].getTestReport(), timestamp);
+
+            //if there's a coverage report, merge it in
+            if (results[i].getCoverageReport() != null){
+                if (coverageReport == null){
+                    coverageReport = results[i].getCoverageReport();
+                } else {
+                    coverageReport.merge(results[i].getCoverageReport());
+                }
+            }
+        }
+
+        //generate the coverage files
+        if (coverageReport != null){
+            generateCoverageFiles(coverageReport, timestamp);
         }
     }
 
-    public void generateAll(SessionResult result, Date timestamp) throws Exception {
-
-        //generate test results file
-        //if (result.hasReport("results")){
-            generate(result.getTestReport(), timestamp);
-            //generate(result, "results", timestamp);
-        //}
-
-        //generate test coverage file
-        if (result.hasReport("coverage")){
-            generate(result, "coverage", timestamp);
-        }
-
-    }
-
-    private void generate(TestReport report, Date timestamp) throws Exception {
+    private void generateTestResultFile(TestReport report, Date timestamp) throws Exception {
         
         String type = "results";
-        String dirname = properties.getProperty(type + ".outputdir");
-        String filenameFormat = properties.getProperty(type + ".filename");
+        String dirname = properties.getProperty(SeleniumDriver.RESULTS_OUTPUTDIR);
+        String filenameFormat = properties.getProperty(SeleniumDriver.RESULTS_FILENAME);
         String browser = report.getBrowser().replace("*", "");
 
         if (dirname == null){
@@ -121,59 +122,16 @@ public class SessionResultFileGenerator {
         
     }
 
-    private void generate(SessionResult result, String type, Date timestamp) throws Exception {
-        String dirname = properties.getProperty(type + ".outputdir");
-        String filenameFormat = properties.getProperty(type + ".filename");
-        String browser = result.getBrowser().replace("*", "");
+    private void generateCoverageFiles(SummaryCoverageReport report, Date timestamp) throws Exception {
+        String dirname = properties.getProperty(SeleniumDriver.COVERAGE_OUTPUTDIR);
 
+        //there should always be a directory
         if (dirname == null){
-            throw new Exception("Missing '" + type + ".outputdir' configuration parameter.");
+            throw new Exception("Missing 'coverage.outputdir' configuration parameter.");
         }
 
-        if (filenameFormat == null){
-            throw new Exception("Missing '" + type + ".outputdir' configuration parameter.");
-        }
-
-        //create the directory if necessary
-        File dir = new File(dirname);
-        if (!dir.exists()){
-
-            if (verbose){
-                System.err.println("[INFO] Creating directory " + dir.getPath());
-            }
-
-            dir.mkdirs();
-        }
-
-        //format filename
-        String filename = filenameFormat.replace("{browser}", browser).replace("{name}", result.getName()).trim();
-
-        int pos = filename.indexOf("{date:");
-
-        if (pos > -1){
-
-            int endpos = filename.indexOf("}", pos);
-            String format = filename.substring(pos + 6, endpos);
-
-            //get the format
-            SimpleDateFormat formatter = new SimpleDateFormat(format);
-
-            //insert into filename
-            filename = filename.replace("{date:" + format + "}", formatter.format(timestamp));
-        }
-
-        filename = filename.replaceAll("[^a-zA-Z0-9\\.\\-]", "_").replaceAll("_+", "_");
-
-        if (verbose){
-            System.err.println("[INFO] Outputting " + type + " to " + dirname + File.separator + filename);
-        }
-
-        String reportText = result.getReport(type);
-
-        //output to file
-        Writer out = new OutputStreamWriter(new FileOutputStream(dirname + File.separator + filename), "UTF-8");
-        out.write(reportText);
-        out.close();
-
+        CoverageReportGenerator generator =
+                CoverageReportGeneratorFactory.getGenerator(properties.getProperty(SeleniumDriver.COVERAGE_FORMAT), dirname, verbose);
+        generator.generate(report, timestamp);
     }
 }

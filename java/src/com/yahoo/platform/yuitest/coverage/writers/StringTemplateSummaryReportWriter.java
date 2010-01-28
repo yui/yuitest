@@ -8,7 +8,7 @@
 
 package com.yahoo.platform.yuitest.coverage.writers;
 
-import com.yahoo.platform.yuitest.coverage.results.SummaryReport;
+import com.yahoo.platform.yuitest.coverage.results.SummaryCoverageReport;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.Date;
@@ -29,7 +29,7 @@ public class StringTemplateSummaryReportWriter extends AbstractStringTemplateRep
      * @param report The file report to write
      * @throws IOException
      */
-    public void write(SummaryReport report) throws IOException {
+    public void write(SummaryCoverageReport report) throws IOException {
         write(report, new Date());
     }
 
@@ -39,7 +39,7 @@ public class StringTemplateSummaryReportWriter extends AbstractStringTemplateRep
      * @param date The date to specify in the report.
      * @throws IOException
      */
-    public void write(SummaryReport report, Date date) throws IOException {
+    public void write(SummaryCoverageReport report, Date date) throws IOException {
         template.setAttribute("report", report);
         template.setAttribute("date", date);
         out.write(template.toString());

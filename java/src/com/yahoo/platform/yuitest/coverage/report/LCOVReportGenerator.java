@@ -8,9 +8,9 @@
 
 package com.yahoo.platform.yuitest.coverage.report;
 
-import com.yahoo.platform.yuitest.coverage.results.DirectoryReport;
-import com.yahoo.platform.yuitest.coverage.results.FileReport;
-import com.yahoo.platform.yuitest.coverage.results.SummaryReport;
+import com.yahoo.platform.yuitest.coverage.results.DirectoryCoverageReport;
+import com.yahoo.platform.yuitest.coverage.results.FileCoverageReport;
+import com.yahoo.platform.yuitest.coverage.results.SummaryCoverageReport;
 import com.yahoo.platform.yuitest.writers.ReportWriter;
 import com.yahoo.platform.yuitest.writers.ReportWriterFactory;
 import java.io.File;
@@ -24,15 +24,15 @@ import java.util.Date;
  *
  * @author Nicholas C. Zakas
  */
-public class LCOVReportGenerator implements ReportGenerator {
+public class LCOVReportGenerator implements CoverageReportGenerator {
 
     private File outputdir = null;
     private boolean verbose = false;
     private File reportdir = null;
 
     /**
-     * Creates a new HTMLReportGenerator
-     * @param outputdir The output directory for the HTML report.
+     * Creates a new LCOVReportGenerator
+     * @param outputdir The output directory for the LCOV report.
      * @param verbose True to output additional information to the console.
      */
     public LCOVReportGenerator(String outputdir, boolean verbose){
@@ -47,11 +47,25 @@ public class LCOVReportGenerator implements ReportGenerator {
 
     }
 
-    public void generate(SummaryReport report) throws IOException {
-        Date now = new Date();
-        generateLCOVInfo(report, now);
+    /**
+     * Generates report files for the given coverage report.
+     * @param report The report to generate files for.
+     * @throws IOException When the files cannot be written.
+     */
+    public void generate(SummaryCoverageReport report) throws IOException {
+        generate(report, new Date());
+    }
 
-        //create the report directory now
+    /**
+     * Generates report files for the given coverage report.
+     * @param report The report to generate files for.
+     * @param timestamp The timestamp to tie to the files.
+     * @throws IOException When the files cannot be written.
+     */
+    public void generate(SummaryCoverageReport report, Date timestamp) throws IOException {
+        generateLCOVInfo(report, timestamp);
+
+        //create the report directory timestamp
         if (!this.reportdir.exists()){
             this.reportdir.mkdirs();
             if (verbose){
@@ -59,12 +73,11 @@ public class LCOVReportGenerator implements ReportGenerator {
             }
         }
 
-        generateIndexPage(report, now);
-        DirectoryReport[] reports = report.getDirectoryReports();
+        generateIndexPage(report, timestamp);
+        DirectoryCoverageReport[] reports = report.getDirectoryReports();
         for (int i=0; i < reports.length; i++){
-            generateDirectoryPages(reports[i], now);
+            generateDirectoryPages(reports[i], timestamp);
         }
-        //generateDirectoryPages(report, now);
     }
 
     /**
@@ -73,7 +86,7 @@ public class LCOVReportGenerator implements ReportGenerator {
      * @param date The date associated with the report.
      * @throws IOException When a file cannot be written to.
      */
-    private void generateLCOVInfo(SummaryReport report, Date date) throws IOException {
+    private void generateLCOVInfo(SummaryCoverageReport report, Date date) throws IOException {
 
         String outputFile = outputdir.getAbsolutePath() + File.separator + "lcov.info";
         Writer out = new OutputStreamWriter(new FileOutputStream(outputFile));
@@ -82,7 +95,7 @@ public class LCOVReportGenerator implements ReportGenerator {
             System.err.println("[INFO] Outputting " + outputFile);
         }
 
-        ReportWriter reportWriter = (new ReportWriterFactory<SummaryReport>()).getWriter(out, "CoverageSummaryReportLCOV");
+        ReportWriter reportWriter = (new ReportWriterFactory<SummaryCoverageReport>()).getWriter(out, "CoverageSummaryReportLCOV");
         reportWriter.write(report, date);
         out.close();
     }
@@ -93,9 +106,9 @@ public class LCOVReportGenerator implements ReportGenerator {
      * @param date The date associated with the report.
      * @throws IOException When a file cannot be written to.
      */
-    private void generateDirectoryPages(DirectoryReport report, Date date) throws IOException {
+    private void generateDirectoryPages(DirectoryCoverageReport report, Date date) throws IOException {
 
-        FileReport[] fileReports = report.getFileReports();
+        FileCoverageReport[] fileReports = report.getFileReports();
 
         //make the directory to mimic the source file
         String parentDir = fileReports[0].getFile().getParent();
@@ -118,7 +131,7 @@ public class LCOVReportGenerator implements ReportGenerator {
      * @param date The date associated with the report.
      * @throws IOException When a file cannot be written to.
      */
-    private void generateDirectoryPage(DirectoryReport report, Date date, File parent) throws IOException {
+    private void generateDirectoryPage(DirectoryCoverageReport report, Date date, File parent) throws IOException {
         String outputFile = parent.getAbsolutePath() + File.separator + "index.html";
 
         if (verbose){
@@ -126,7 +139,7 @@ public class LCOVReportGenerator implements ReportGenerator {
         }
 
         Writer out = new OutputStreamWriter(new FileOutputStream(outputFile));
-        ReportWriter reportWriter = (new ReportWriterFactory<FileReport>()).getWriter(out, "LCOVHTMLDirectoryReport");
+        ReportWriter reportWriter = (new ReportWriterFactory<FileCoverageReport>()).getWriter(out, "LCOVHTMLDirectoryReport");
         reportWriter.write(report, date);
         out.close();
 
@@ -139,7 +152,7 @@ public class LCOVReportGenerator implements ReportGenerator {
      * @param date The date associated with the report.
      * @throws IOException When a file cannot be written to.
      */
-    private void generateIndexPage(SummaryReport report, Date date) throws IOException {
+    private void generateIndexPage(SummaryCoverageReport report, Date date) throws IOException {
         String outputFile = this.reportdir.getAbsolutePath() + File.separator + "index.html";
 
         if (verbose){
@@ -147,7 +160,7 @@ public class LCOVReportGenerator implements ReportGenerator {
         }
 
         Writer out = new OutputStreamWriter(new FileOutputStream(outputFile));
-        ReportWriter reportWriter = (new ReportWriterFactory<SummaryReport>()).getWriter(out, "LCOVHTMLIndexReport");
+        ReportWriter reportWriter = (new ReportWriterFactory<SummaryCoverageReport>()).getWriter(out, "LCOVHTMLIndexReport");
         reportWriter.write(report, date);
         out.close();
 
@@ -160,7 +173,7 @@ public class LCOVReportGenerator implements ReportGenerator {
      * @param date The date associated with the report.
      * @throws IOException When a file cannot be written to.
      */
-    private void generateFilePage(FileReport report, Date date, File parent) throws IOException {
+    private void generateFilePage(FileCoverageReport report, Date date, File parent) throws IOException {
         String outputFile = parent.getAbsolutePath() + File.separator + report.getFile().getName() + ".gcov.html";
 
         if (verbose){
@@ -168,7 +181,7 @@ public class LCOVReportGenerator implements ReportGenerator {
         }
 
         Writer out = new OutputStreamWriter(new FileOutputStream(outputFile));
-        ReportWriter reportWriter = (new ReportWriterFactory<FileReport>()).getWriter(out, "LCOVHTMLFileReport");
+        ReportWriter reportWriter = (new ReportWriterFactory<FileCoverageReport>()).getWriter(out, "LCOVHTMLFileReport");
         reportWriter.write(report, date);
         out.close();
     }
@@ -179,7 +192,7 @@ public class LCOVReportGenerator implements ReportGenerator {
      * @param date The date associated with the report.
      * @throws IOException When a file cannot be written to.
      */
-    private void generateFunctionPage(FileReport report, Date date, File parent) throws IOException {
+    private void generateFunctionPage(FileCoverageReport report, Date date, File parent) throws IOException {
         String outputFile = parent.getAbsolutePath() + File.separator + report.getFile().getName() + ".func.html";
 
         if (verbose){
@@ -187,7 +200,7 @@ public class LCOVReportGenerator implements ReportGenerator {
         }
 
         Writer out = new OutputStreamWriter(new FileOutputStream(outputFile));
-        ReportWriter reportWriter = (new ReportWriterFactory<FileReport>()).getWriter(out, "LCOVHTMLFunctionReport");
+        ReportWriter reportWriter = (new ReportWriterFactory<FileCoverageReport>()).getWriter(out, "LCOVHTMLFunctionReport");
         reportWriter.write(report, date);
         out.close();
     }

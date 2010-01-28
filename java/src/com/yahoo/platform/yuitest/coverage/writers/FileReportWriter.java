@@ -8,7 +8,7 @@
 
 package com.yahoo.platform.yuitest.coverage.writers;
 
-import com.yahoo.platform.yuitest.coverage.results.FileReport;
+import com.yahoo.platform.yuitest.coverage.results.FileCoverageReport;
 import java.io.IOException;
 import java.util.Date;
 
@@ -17,7 +17,7 @@ import java.util.Date;
  * @author Nicholas C. Zakas
  */
 public interface FileReportWriter {
-    public void write(FileReport report) throws IOException;
-    public void write(FileReport report, Date date) throws IOException;
+    public void write(FileCoverageReport report) throws IOException;
+    public void write(FileCoverageReport report, Date date) throws IOException;
     public void close() throws IOException;
 }

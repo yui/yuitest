@@ -37,10 +37,10 @@ public class SummaryReportTest {
     @Test
     public void testSummaryReportLoad() throws IOException, JSONException {
         Reader in = new InputStreamReader(SummaryReportTest.class.getResourceAsStream("coverage.json"));
-        SummaryReport report = new SummaryReport(in);
+        SummaryCoverageReport report = new SummaryCoverageReport(in);
 
         //make sure the number of file reports is correct
-        FileReport[] fileReports = report.getFileReports();
+        FileCoverageReport[] fileReports = report.getFileReports();
         String[] filenames = report.getFilenames();
         assertEquals(1, fileReports.length);
         assertEquals("build/cookie.js", filenames[0]);
@@ -58,17 +58,17 @@ public class SummaryReportTest {
     @Test
     public void testSummaryReportMergeNewData() throws IOException, JSONException {
         Reader in = new InputStreamReader(SummaryReportTest.class.getResourceAsStream("coverage.json"));
-        SummaryReport report1 = new SummaryReport(in);
+        SummaryCoverageReport report1 = new SummaryCoverageReport(in);
 
         //another coverage report with a different file
         in = new InputStreamReader(SummaryReportTest.class.getResourceAsStream("coverage2.json"));
-        SummaryReport report2 = new SummaryReport(in);
+        SummaryCoverageReport report2 = new SummaryCoverageReport(in);
 
         //merge into the first
         report1.merge(report2);
 
         //make sure the number of file reports is correct
-        FileReport[] fileReports = report1.getFileReports();
+        FileCoverageReport[] fileReports = report1.getFileReports();
         String[] filenames = report1.getFilenames();
         assertEquals(2, fileReports.length);
         assertEquals("build/cookie.js", filenames[0]);
@@ -78,17 +78,17 @@ public class SummaryReportTest {
     @Test
     public void testSummaryReportMergeExistingData() throws IOException, JSONException {
         Reader in = new InputStreamReader(SummaryReportTest.class.getResourceAsStream("coverage.json"));
-        SummaryReport report1 = new SummaryReport(in);
+        SummaryCoverageReport report1 = new SummaryCoverageReport(in);
 
         //another coverage report with the same file, some different results
         in = new InputStreamReader(SummaryReportTest.class.getResourceAsStream("coverage3.json"));
-        SummaryReport report2 = new SummaryReport(in);
+        SummaryCoverageReport report2 = new SummaryCoverageReport(in);
 
         //merge into the first
         report1.merge(report2);
 
         //make sure the number of file reports is correct
-        FileReport[] fileReports = report1.getFileReports();
+        FileCoverageReport[] fileReports = report1.getFileReports();
         String[] filenames = report1.getFilenames();
         assertEquals(1, fileReports.length);
         assertEquals("build/cookie.js", filenames[0]);

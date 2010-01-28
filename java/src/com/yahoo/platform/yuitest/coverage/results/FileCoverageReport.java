@@ -18,7 +18,7 @@ import org.json.JSONObject;
  * Represents a single item on a report.
  * @author Nicholas C. Zakas
  */
-public class FileReport {
+public class FileCoverageReport {
 
     private JSONObject report1;
     private String filename;
@@ -27,11 +27,11 @@ public class FileReport {
     private String path;
 
     /**
-     * Creates a new FileReport for the given filename.
+     * Creates a new FileCoverageReport for the given filename.
      * @param filename The filename of the item.
      * @param report1 The associated coverage report1.
      */
-    protected FileReport(String filename, JSONObject data) throws JSONException {
+    protected FileCoverageReport(String filename, JSONObject data) throws JSONException {
         this.filename = filename;
         this.report1 = data;
         this.path = data.getString("path");
@@ -281,7 +281,7 @@ public class FileReport {
      * Merges the report1 in another report with this report.
      * @param report The report to merge report1 from.
      */
-    public void merge(FileReport report) throws JSONException {
+    public void merge(FileCoverageReport report) throws JSONException {
 
         //make sure the file is the same
         if (this.getAbsolutePath().equals(report.getAbsolutePath())){

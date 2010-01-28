@@ -23,7 +23,7 @@ import static org.junit.Assert.*;
  */
 public class DirectoryReportTest {
 
-    private DirectoryReport report;
+    private DirectoryCoverageReport report;
 
     public DirectoryReportTest() {
     }
@@ -39,8 +39,8 @@ public class DirectoryReportTest {
     @Before
     public void setUp() throws Exception {
         Reader in = new InputStreamReader(SummaryReportTest.class.getResourceAsStream("coverage.json"));
-        SummaryReport summaryReport = new SummaryReport(in);
-        summaryReport.merge(new SummaryReport(new InputStreamReader(SummaryReportTest.class.getResourceAsStream("coverage2.json"))));
+        SummaryCoverageReport summaryReport = new SummaryCoverageReport(in);
+        summaryReport.merge(new SummaryCoverageReport(new InputStreamReader(SummaryReportTest.class.getResourceAsStream("coverage2.json"))));
         report = summaryReport.getDirectoryReports()[0];
     }
 
@@ -49,51 +49,51 @@ public class DirectoryReportTest {
     }
 
     /**
-     * Test of getDirectory method, of class DirectoryReport.
+     * Test of getDirectory method, of class DirectoryCoverageReport.
      */
     @Test
     public void testGetDirectory() {
         assertEquals("build", report.getDirectory());
     }
     /**
-     * Test of getFileReports method, of class DirectoryReport.
+     * Test of getFileReports method, of class DirectoryCoverageReport.
      */
     @Test
     public void testGetFileReports() {
-        FileReport[] result = report.getFileReports();
+        FileCoverageReport[] result = report.getFileReports();
         assertEquals(2, result.length);
         assertEquals("build/cookie.js", result[0].getFilename());
     }
 
     /**
-     * Test of getCoveredLineCount method, of class DirectoryReport.
+     * Test of getCoveredLineCount method, of class DirectoryCoverageReport.
      */
     @Test
     public void testGetCoveredLineCount() throws Exception {
-        FileReport[] fileReports = report.getFileReports();
+        FileCoverageReport[] fileReports = report.getFileReports();
         assertEquals(fileReports[0].getCoveredLineCount() + fileReports[1].getCoveredLineCount(), report.getCoveredLineCount());
     }
 
     /**
-     * Test of getCalledLineCount method, of class DirectoryReport.
+     * Test of getCalledLineCount method, of class DirectoryCoverageReport.
      */
     @Test
     public void testGetCalledLineCount() throws Exception {
-        FileReport[] fileReports = report.getFileReports();
+        FileCoverageReport[] fileReports = report.getFileReports();
         assertEquals(fileReports[0].getCalledLineCount() + fileReports[1].getCalledLineCount(), report.getCalledLineCount());
     }
 
     /**
-     * Test of getCalledLinePercentage method, of class DirectoryReport.
+     * Test of getCalledLinePercentage method, of class DirectoryCoverageReport.
      */
     @Test
     public void testGetCalledLinePercentage() throws Exception {
-        FileReport[] fileReports = report.getFileReports();
+        FileCoverageReport[] fileReports = report.getFileReports();
         assertEquals((double)(fileReports[0].getCalledLinePercentage() + fileReports[1].getCalledLinePercentage())/2, report.getCalledLinePercentage(), 0.2);
     }
 
     /**
-     * Test of getCalledLinePercentageName method, of class DirectoryReport.
+     * Test of getCalledLinePercentageName method, of class DirectoryCoverageReport.
      */
     @Test
     public void testGetCalledLinePercentageName() throws Exception {
@@ -101,34 +101,34 @@ public class DirectoryReportTest {
     }
 
     /**
-     * Test of getCoveredFunctionCount method, of class DirectoryReport.
+     * Test of getCoveredFunctionCount method, of class DirectoryCoverageReport.
      */
     @Test
     public void testGetCoveredFunctionCount() throws Exception {
-        FileReport[] fileReports = report.getFileReports();
+        FileCoverageReport[] fileReports = report.getFileReports();
         assertEquals(fileReports[0].getCoveredFunctionCount() + fileReports[1].getCoveredFunctionCount(), report.getCoveredFunctionCount());
     }
 
     /**
-     * Test of getCalledFunctionCount method, of class DirectoryReport.
+     * Test of getCalledFunctionCount method, of class DirectoryCoverageReport.
      */
     @Test
     public void testGetCalledFunctionCount() throws Exception {
-        FileReport[] fileReports = report.getFileReports();
+        FileCoverageReport[] fileReports = report.getFileReports();
         assertEquals(fileReports[0].getCalledFunctionCount() + fileReports[1].getCalledFunctionCount(), report.getCalledFunctionCount());
     }
 
     /**
-     * Test of getCalledFunctionPercentage method, of class DirectoryReport.
+     * Test of getCalledFunctionPercentage method, of class DirectoryCoverageReport.
      */
     @Test
     public void testGetCalledFunctionPercentage() throws Exception {
-        FileReport[] fileReports = report.getFileReports();
+        FileCoverageReport[] fileReports = report.getFileReports();
         assertEquals((double)(fileReports[0].getCalledFunctionPercentage() + fileReports[1].getCalledFunctionPercentage())/2, report.getCalledLinePercentage(), 1.0);
     }
 
     /**
-     * Test of getCalledFunctionPercentageName method, of class DirectoryReport.
+     * Test of getCalledFunctionPercentageName method, of class DirectoryCoverageReport.
      */
     @Test
     public void testGetCalledFunctionPercentageName() throws Exception {

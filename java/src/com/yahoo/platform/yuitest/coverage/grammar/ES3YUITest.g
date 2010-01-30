@@ -1615,13 +1615,14 @@ functionExpression
 scope{
     String funcName;
     Integer funcLine;
-    Integer funcNum;
 }
 @init {
     $functionExpression::funcLine=$start.getLine();
-    $functionExpression::funcNum = ++$program::anonymousFunctionCount;
 
     /*
+     * The function expression might have an identifier, and if so, use that as
+     * the name.
+     *
      * This might be a function that's a method in an object literal. If so,
      * the previous token will be a colon and the one prior to that will be the
      * identifier.
@@ -1634,15 +1635,21 @@ scope{
      * as if it were a function declaration. If so, the declared function name
      * takes precendence over any object literal or variable assignment.
      */
-    int lastTT = input.LA(-1);
-    if (lastTT == COLON || lastTT == ASSIGN) { 
+    int lastTT = input.LA(-1);   //look for = or :
+    int nextTT = input.LA(2);    //look for an identifer
+
+    if (nextTT == Identifier){
+        $functionExpression::funcName = input.LT(2).getText();
+    } else if (lastTT == COLON || lastTT == ASSIGN) {
         $functionExpression::funcName = input.LT(-2).getText();
         //TODO: Continue walking back in case the identifier is object.name
         //right now, I end up just with name.
-    } 
+    } else {
+        $functionExpression::funcName = "(anonymous " +  (++$program::anonymousFunctionCount) + ")";
+    }
 
 }
-	: FUNCTION name=Identifier? { if ($Identifier.text != null){$functionExpression::funcName=$Identifier.text;} } formalParameterList functionExpressionBody
+	: FUNCTION Identifier? formalParameterList functionExpressionBody
 	;
 
 formalParameterList
@@ -1661,15 +1668,11 @@ functionExpressionBody
 functionExpressionBodyWithoutBraces
 @after { 
 	//favor the function expression's declared name, otherwise assign an anonymous function name
-	String tempName = ($functionExpression::funcName==null) ? "(anonymous " + $functionExpression::funcNum + ")" : $functionExpression::funcName;
-	$program::functions.add("\"" + tempName + ":" + $functionExpression::funcLine + "\""); 
+	$program::functions.add("\"" + $functionExpression::funcName + ":" + $functionExpression::funcLine + "\"");
 	
 	if (verbose){
-		if ($functionExpression::funcName!=null){
 			System.err.println("\n[INFO] Instrumenting function expression '" + $functionExpression::funcName + "' on line " + $functionExpression::funcLine);
-		} else {
-			System.err.println("\n[INFO] Instrumenting anonymous function expression (tracked as 'anonymous " + $functionExpression::funcNum + "') on line " + $functionExpression::funcLine);
-		}
+
 	}	
 	
 }
@@ -1678,7 +1681,7 @@ functionExpressionBodyWithoutBraces
 	
 	}
 	-> {$functionExpression::funcName!=null}? cover_func(src={$program::name}, code={$text}, name={escapeQuotes($functionExpression::funcName)}, line={$functionExpression::funcLine})
-	-> cover_anon_func(src={$program::name}, code={$text}, num={$functionExpression::funcNum}, line={$functionExpression::funcLine})
+	-> cover_func(src={$program::name}, code={$text}, name={$functionDeclaration::funcName}, line={$functionDeclaration::funcLine})
 	;
 
 functionDeclarationBodyWithoutBraces

@@ -9,11 +9,6 @@ _yuitest_coverfunc("<src>", "<name>", <line>);
 <code>
 >>
 
-cover_anon_func(src,code,num,line) ::= <<
-_yuitest_coverfunc("<src>", "(anonymous <num>)", <line>);
-<code>
->>
-
 ignore(code) ::= <<
 <code>
 >>

@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g 2010-01-28 11:07:34
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g 2010-01-29 16:45:16
 
 /*
  * YUI Test Coverage
@@ -6378,7 +6378,6 @@ public class ES3YUITestParser extends Parser {
     protected static class functionExpression_scope {
         String funcName;
         Integer funcLine;
-        Integer funcNum;
     }
     protected Stack functionExpression_stack = new Stack();
 
@@ -6389,19 +6388,19 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "functionExpression"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1614:1: functionExpression : FUNCTION (name= Identifier )? formalParameterList functionExpressionBody ;
+    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1614:1: functionExpression : FUNCTION ( Identifier )? formalParameterList functionExpressionBody ;
     public final ES3YUITestParser.functionExpression_return functionExpression() throws RecognitionException {
         functionExpression_stack.push(new functionExpression_scope());
         ES3YUITestParser.functionExpression_return retval = new ES3YUITestParser.functionExpression_return();
         retval.start = input.LT(1);
 
-        Token name=null;
-
 
             ((functionExpression_scope)functionExpression_stack.peek()).funcLine =((Token)retval.start).getLine();
-            ((functionExpression_scope)functionExpression_stack.peek()).funcNum = ++((program_scope)program_stack.peek()).anonymousFunctionCount;
 
             /*
+             * The function expression might have an identifier, and if so, use that as
+             * the name.
+             *
              * This might be a function that's a method in an object literal. If so,
              * the previous token will be a colon and the one prior to that will be the
              * identifier.
@@ -6414,20 +6413,26 @@ public class ES3YUITestParser extends Parser {
              * as if it were a function declaration. If so, the declared function name
              * takes precendence over any object literal or variable assignment.
              */
-            int lastTT = input.LA(-1);
-            if (lastTT == COLON || lastTT == ASSIGN) { 
+            int lastTT = input.LA(-1);   //look for = or :
+            int nextTT = input.LA(2);    //look for an identifer
+
+            if (nextTT == Identifier){
+                ((functionExpression_scope)functionExpression_stack.peek()).funcName = input.LT(2).getText();
+            } else if (lastTT == COLON || lastTT == ASSIGN) {
                 ((functionExpression_scope)functionExpression_stack.peek()).funcName = input.LT(-2).getText();
                 //TODO: Continue walking back in case the identifier is object.name
                 //right now, I end up just with name.
-            } 
+            } else {
+                ((functionExpression_scope)functionExpression_stack.peek()).funcName = "(anonymous " +  (++((program_scope)program_stack.peek()).anonymousFunctionCount) + ")";
+            }
 
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1645:2: ( FUNCTION (name= Identifier )? formalParameterList functionExpressionBody )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1645:4: FUNCTION (name= Identifier )? formalParameterList functionExpressionBody
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1652:2: ( FUNCTION ( Identifier )? formalParameterList functionExpressionBody )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1652:4: FUNCTION ( Identifier )? formalParameterList functionExpressionBody
             {
             match(input,FUNCTION,FOLLOW_FUNCTION_in_functionExpression5608); 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1645:17: (name= Identifier )?
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1652:13: ( Identifier )?
             int alt69=2;
             int LA69_0 = input.LA(1);
 
@@ -6436,22 +6441,21 @@ public class ES3YUITestParser extends Parser {
             }
             switch (alt69) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1645:17: name= Identifier
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1652:13: Identifier
                     {
-                    name=(Token)match(input,Identifier,FOLLOW_Identifier_in_functionExpression5612); 
+                    match(input,Identifier,FOLLOW_Identifier_in_functionExpression5610); 
 
                     }
                     break;
 
             }
 
-             if ((name!=null?name.getText():null) != null){((functionExpression_scope)functionExpression_stack.peek()).funcName =(name!=null?name.getText():null);} 
-            pushFollow(FOLLOW_formalParameterList_in_functionExpression5617);
+            pushFollow(FOLLOW_formalParameterList_in_functionExpression5613);
             formalParameterList();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_functionExpressionBody_in_functionExpression5619);
+            pushFollow(FOLLOW_functionExpressionBody_in_functionExpression5615);
             functionExpressionBody();
 
             state._fsp--;
@@ -6480,17 +6484,17 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "formalParameterList"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1648:1: formalParameterList : LPAREN ( Identifier ( COMMA Identifier )* )? RPAREN ;
+    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1655:1: formalParameterList : LPAREN ( Identifier ( COMMA Identifier )* )? RPAREN ;
     public final ES3YUITestParser.formalParameterList_return formalParameterList() throws RecognitionException {
         ES3YUITestParser.formalParameterList_return retval = new ES3YUITestParser.formalParameterList_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1649:2: ( LPAREN ( Identifier ( COMMA Identifier )* )? RPAREN )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1649:4: LPAREN ( Identifier ( COMMA Identifier )* )? RPAREN
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1656:2: ( LPAREN ( Identifier ( COMMA Identifier )* )? RPAREN )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1656:4: LPAREN ( Identifier ( COMMA Identifier )* )? RPAREN
             {
-            match(input,LPAREN,FOLLOW_LPAREN_in_formalParameterList5630); 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1649:11: ( Identifier ( COMMA Identifier )* )?
+            match(input,LPAREN,FOLLOW_LPAREN_in_formalParameterList5626); 
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1656:11: ( Identifier ( COMMA Identifier )* )?
             int alt71=2;
             int LA71_0 = input.LA(1);
 
@@ -6499,10 +6503,10 @@ public class ES3YUITestParser extends Parser {
             }
             switch (alt71) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1649:13: Identifier ( COMMA Identifier )*
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1656:13: Identifier ( COMMA Identifier )*
                     {
-                    match(input,Identifier,FOLLOW_Identifier_in_formalParameterList5634); 
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1649:24: ( COMMA Identifier )*
+                    match(input,Identifier,FOLLOW_Identifier_in_formalParameterList5630); 
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1656:24: ( COMMA Identifier )*
                     loop70:
                     do {
                         int alt70=2;
@@ -6515,10 +6519,10 @@ public class ES3YUITestParser extends Parser {
 
                         switch (alt70) {
                     	case 1 :
-                    	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1649:26: COMMA Identifier
+                    	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1656:26: COMMA Identifier
                     	    {
-                    	    match(input,COMMA,FOLLOW_COMMA_in_formalParameterList5638); 
-                    	    match(input,Identifier,FOLLOW_Identifier_in_formalParameterList5640); 
+                    	    match(input,COMMA,FOLLOW_COMMA_in_formalParameterList5634); 
+                    	    match(input,Identifier,FOLLOW_Identifier_in_formalParameterList5636); 
 
                     	    }
                     	    break;
@@ -6534,7 +6538,7 @@ public class ES3YUITestParser extends Parser {
 
             }
 
-            match(input,RPAREN,FOLLOW_RPAREN_in_formalParameterList5648); 
+            match(input,RPAREN,FOLLOW_RPAREN_in_formalParameterList5644); 
 
             }
 
@@ -6558,7 +6562,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "functionDeclarationBody"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1652:1: functionDeclarationBody : lb= LBRACE ( functionDeclarationBodyWithoutBraces )? RBRACE ;
+    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1659:1: functionDeclarationBody : lb= LBRACE ( functionDeclarationBodyWithoutBraces )? RBRACE ;
     public final ES3YUITestParser.functionDeclarationBody_return functionDeclarationBody() throws RecognitionException {
         ES3YUITestParser.functionDeclarationBody_return retval = new ES3YUITestParser.functionDeclarationBody_return();
         retval.start = input.LT(1);
@@ -6566,11 +6570,11 @@ public class ES3YUITestParser extends Parser {
         Token lb=null;
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1653:2: (lb= LBRACE ( functionDeclarationBodyWithoutBraces )? RBRACE )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1653:4: lb= LBRACE ( functionDeclarationBodyWithoutBraces )? RBRACE
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1660:2: (lb= LBRACE ( functionDeclarationBodyWithoutBraces )? RBRACE )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1660:4: lb= LBRACE ( functionDeclarationBodyWithoutBraces )? RBRACE
             {
-            lb=(Token)match(input,LBRACE,FOLLOW_LBRACE_in_functionDeclarationBody5661); 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1653:14: ( functionDeclarationBodyWithoutBraces )?
+            lb=(Token)match(input,LBRACE,FOLLOW_LBRACE_in_functionDeclarationBody5657); 
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1660:14: ( functionDeclarationBodyWithoutBraces )?
             int alt72=2;
             int LA72_0 = input.LA(1);
 
@@ -6579,9 +6583,9 @@ public class ES3YUITestParser extends Parser {
             }
             switch (alt72) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1653:14: functionDeclarationBodyWithoutBraces
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1660:14: functionDeclarationBodyWithoutBraces
                     {
-                    pushFollow(FOLLOW_functionDeclarationBodyWithoutBraces_in_functionDeclarationBody5663);
+                    pushFollow(FOLLOW_functionDeclarationBodyWithoutBraces_in_functionDeclarationBody5659);
                     functionDeclarationBodyWithoutBraces();
 
                     state._fsp--;
@@ -6592,7 +6596,7 @@ public class ES3YUITestParser extends Parser {
 
             }
 
-            match(input,RBRACE,FOLLOW_RBRACE_in_functionDeclarationBody5666); 
+            match(input,RBRACE,FOLLOW_RBRACE_in_functionDeclarationBody5662); 
 
             }
 
@@ -6616,7 +6620,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "functionExpressionBody"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1656:1: functionExpressionBody : lb= LBRACE ( functionExpressionBodyWithoutBraces )? RBRACE ;
+    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1663:1: functionExpressionBody : lb= LBRACE ( functionExpressionBodyWithoutBraces )? RBRACE ;
     public final ES3YUITestParser.functionExpressionBody_return functionExpressionBody() throws RecognitionException {
         ES3YUITestParser.functionExpressionBody_return retval = new ES3YUITestParser.functionExpressionBody_return();
         retval.start = input.LT(1);
@@ -6624,11 +6628,11 @@ public class ES3YUITestParser extends Parser {
         Token lb=null;
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1657:2: (lb= LBRACE ( functionExpressionBodyWithoutBraces )? RBRACE )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1657:4: lb= LBRACE ( functionExpressionBodyWithoutBraces )? RBRACE
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1664:2: (lb= LBRACE ( functionExpressionBodyWithoutBraces )? RBRACE )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1664:4: lb= LBRACE ( functionExpressionBodyWithoutBraces )? RBRACE
             {
-            lb=(Token)match(input,LBRACE,FOLLOW_LBRACE_in_functionExpressionBody5679); 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1657:14: ( functionExpressionBodyWithoutBraces )?
+            lb=(Token)match(input,LBRACE,FOLLOW_LBRACE_in_functionExpressionBody5675); 
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1664:14: ( functionExpressionBodyWithoutBraces )?
             int alt73=2;
             int LA73_0 = input.LA(1);
 
@@ -6637,9 +6641,9 @@ public class ES3YUITestParser extends Parser {
             }
             switch (alt73) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1657:14: functionExpressionBodyWithoutBraces
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1664:14: functionExpressionBodyWithoutBraces
                     {
-                    pushFollow(FOLLOW_functionExpressionBodyWithoutBraces_in_functionExpressionBody5681);
+                    pushFollow(FOLLOW_functionExpressionBodyWithoutBraces_in_functionExpressionBody5677);
                     functionExpressionBodyWithoutBraces();
 
                     state._fsp--;
@@ -6650,7 +6654,7 @@ public class ES3YUITestParser extends Parser {
 
             }
 
-            match(input,RBRACE,FOLLOW_RBRACE_in_functionExpressionBody5684); 
+            match(input,RBRACE,FOLLOW_RBRACE_in_functionExpressionBody5680); 
 
             }
 
@@ -6674,21 +6678,21 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "functionExpressionBodyWithoutBraces"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1661:1: functionExpressionBodyWithoutBraces : sourceElement ( sourceElement )* -> {$functionExpression::funcName!=null}? cover_func(src=$program::namecode=$textname=escapeQuotes($functionExpression::funcName)line=$functionExpression::funcLine) -> cover_anon_func(src=$program::namecode=$textnum=$functionExpression::funcNumline=$functionExpression::funcLine);
+    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1668:1: functionExpressionBodyWithoutBraces : sourceElement ( sourceElement )* -> {$functionExpression::funcName!=null}? cover_func(src=$program::namecode=$textname=escapeQuotes($functionExpression::funcName)line=$functionExpression::funcLine) -> cover_func(src=$program::namecode=$textname=$functionDeclaration::funcNameline=$functionDeclaration::funcLine);
     public final ES3YUITestParser.functionExpressionBodyWithoutBraces_return functionExpressionBodyWithoutBraces() throws RecognitionException {
         ES3YUITestParser.functionExpressionBodyWithoutBraces_return retval = new ES3YUITestParser.functionExpressionBodyWithoutBraces_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1676:2: ( sourceElement ( sourceElement )* -> {$functionExpression::funcName!=null}? cover_func(src=$program::namecode=$textname=escapeQuotes($functionExpression::funcName)line=$functionExpression::funcLine) -> cover_anon_func(src=$program::namecode=$textnum=$functionExpression::funcNumline=$functionExpression::funcLine))
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1676:4: sourceElement ( sourceElement )*
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1679:2: ( sourceElement ( sourceElement )* -> {$functionExpression::funcName!=null}? cover_func(src=$program::namecode=$textname=escapeQuotes($functionExpression::funcName)line=$functionExpression::funcLine) -> cover_func(src=$program::namecode=$textname=$functionDeclaration::funcNameline=$functionDeclaration::funcLine))
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1679:4: sourceElement ( sourceElement )*
             {
-            pushFollow(FOLLOW_sourceElement_in_functionExpressionBodyWithoutBraces5701);
+            pushFollow(FOLLOW_sourceElement_in_functionExpressionBodyWithoutBraces5697);
             sourceElement();
 
             state._fsp--;
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1676:18: ( sourceElement )*
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1679:18: ( sourceElement )*
             loop74:
             do {
                 int alt74=2;
@@ -6701,9 +6705,9 @@ public class ES3YUITestParser extends Parser {
 
                 switch (alt74) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1676:18: sourceElement
+            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1679:18: sourceElement
             	    {
-            	    pushFollow(FOLLOW_sourceElement_in_functionExpressionBodyWithoutBraces5703);
+            	    pushFollow(FOLLOW_sourceElement_in_functionExpressionBodyWithoutBraces5699);
             	    sourceElement();
 
             	    state._fsp--;
@@ -6723,15 +6727,15 @@ public class ES3YUITestParser extends Parser {
 
 
             // TEMPLATE REWRITE
-            // 1680:2: -> {$functionExpression::funcName!=null}? cover_func(src=$program::namecode=$textname=escapeQuotes($functionExpression::funcName)line=$functionExpression::funcLine)
+            // 1683:2: -> {$functionExpression::funcName!=null}? cover_func(src=$program::namecode=$textname=escapeQuotes($functionExpression::funcName)line=$functionExpression::funcLine)
             if (((functionExpression_scope)functionExpression_stack.peek()).funcName!=null) {
                 retval.st = templateLib.getInstanceOf("cover_func",
               new STAttrMap().put("src", ((program_scope)program_stack.peek()).name).put("code", input.toString(retval.start,input.LT(-1))).put("name", escapeQuotes(((functionExpression_scope)functionExpression_stack.peek()).funcName)).put("line", ((functionExpression_scope)functionExpression_stack.peek()).funcLine));
             }
-            else // 1681:2: -> cover_anon_func(src=$program::namecode=$textnum=$functionExpression::funcNumline=$functionExpression::funcLine)
+            else // 1684:2: -> cover_func(src=$program::namecode=$textname=$functionDeclaration::funcNameline=$functionDeclaration::funcLine)
             {
-                retval.st = templateLib.getInstanceOf("cover_anon_func",
-              new STAttrMap().put("src", ((program_scope)program_stack.peek()).name).put("code", input.toString(retval.start,input.LT(-1))).put("num", ((functionExpression_scope)functionExpression_stack.peek()).funcNum).put("line", ((functionExpression_scope)functionExpression_stack.peek()).funcLine));
+                retval.st = templateLib.getInstanceOf("cover_func",
+              new STAttrMap().put("src", ((program_scope)program_stack.peek()).name).put("code", input.toString(retval.start,input.LT(-1))).put("name", ((functionDeclaration_scope)functionDeclaration_stack.peek()).funcName).put("line", ((functionDeclaration_scope)functionDeclaration_stack.peek()).funcLine));
             }
 
             ((TokenRewriteStream)input).replace(
@@ -6744,15 +6748,11 @@ public class ES3YUITestParser extends Parser {
 
              
             	//favor the function expression's declared name, otherwise assign an anonymous function name
-            	String tempName = (((functionExpression_scope)functionExpression_stack.peek()).funcName==null) ? "(anonymous " + ((functionExpression_scope)functionExpression_stack.peek()).funcNum + ")" : ((functionExpression_scope)functionExpression_stack.peek()).funcName;
-            	((program_scope)program_stack.peek()).functions.add("\"" + tempName + ":" + ((functionExpression_scope)functionExpression_stack.peek()).funcLine + "\""); 
+            	((program_scope)program_stack.peek()).functions.add("\"" + ((functionExpression_scope)functionExpression_stack.peek()).funcName + ":" + ((functionExpression_scope)functionExpression_stack.peek()).funcLine + "\"");
             	
             	if (verbose){
-            		if (((functionExpression_scope)functionExpression_stack.peek()).funcName!=null){
             			System.err.println("\n[INFO] Instrumenting function expression '" + ((functionExpression_scope)functionExpression_stack.peek()).funcName + "' on line " + ((functionExpression_scope)functionExpression_stack.peek()).funcLine);
-            		} else {
-            			System.err.println("\n[INFO] Instrumenting anonymous function expression (tracked as 'anonymous " + ((functionExpression_scope)functionExpression_stack.peek()).funcNum + "') on line " + ((functionExpression_scope)functionExpression_stack.peek()).funcLine);
-            		}
+
             	}	
             	
 
@@ -6774,21 +6774,21 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "functionDeclarationBodyWithoutBraces"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1684:1: functionDeclarationBodyWithoutBraces : sourceElement ( sourceElement )* -> cover_func(src=$program::namecode=$textname=$functionDeclaration::funcNameline=$functionDeclaration::funcLine);
+    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1687:1: functionDeclarationBodyWithoutBraces : sourceElement ( sourceElement )* -> cover_func(src=$program::namecode=$textname=$functionDeclaration::funcNameline=$functionDeclaration::funcLine);
     public final ES3YUITestParser.functionDeclarationBodyWithoutBraces_return functionDeclarationBodyWithoutBraces() throws RecognitionException {
         ES3YUITestParser.functionDeclarationBodyWithoutBraces_return retval = new ES3YUITestParser.functionDeclarationBodyWithoutBraces_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1685:2: ( sourceElement ( sourceElement )* -> cover_func(src=$program::namecode=$textname=$functionDeclaration::funcNameline=$functionDeclaration::funcLine))
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1685:4: sourceElement ( sourceElement )*
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1688:2: ( sourceElement ( sourceElement )* -> cover_func(src=$program::namecode=$textname=$functionDeclaration::funcNameline=$functionDeclaration::funcLine))
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1688:4: sourceElement ( sourceElement )*
             {
-            pushFollow(FOLLOW_sourceElement_in_functionDeclarationBodyWithoutBraces5770);
+            pushFollow(FOLLOW_sourceElement_in_functionDeclarationBodyWithoutBraces5766);
             sourceElement();
 
             state._fsp--;
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1685:18: ( sourceElement )*
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1688:18: ( sourceElement )*
             loop75:
             do {
                 int alt75=2;
@@ -6801,9 +6801,9 @@ public class ES3YUITestParser extends Parser {
 
                 switch (alt75) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1685:18: sourceElement
+            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1688:18: sourceElement
             	    {
-            	    pushFollow(FOLLOW_sourceElement_in_functionDeclarationBodyWithoutBraces5772);
+            	    pushFollow(FOLLOW_sourceElement_in_functionDeclarationBodyWithoutBraces5768);
             	    sourceElement();
 
             	    state._fsp--;
@@ -6820,7 +6820,7 @@ public class ES3YUITestParser extends Parser {
 
 
             // TEMPLATE REWRITE
-            // 1686:2: -> cover_func(src=$program::namecode=$textname=$functionDeclaration::funcNameline=$functionDeclaration::funcLine)
+            // 1689:2: -> cover_func(src=$program::namecode=$textname=$functionDeclaration::funcNameline=$functionDeclaration::funcLine)
             {
                 retval.st = templateLib.getInstanceOf("cover_func",
               new STAttrMap().put("src", ((program_scope)program_stack.peek()).name).put("code", input.toString(retval.start,input.LT(-1))).put("name", ((functionDeclaration_scope)functionDeclaration_stack.peek()).funcName).put("line", ((functionDeclaration_scope)functionDeclaration_stack.peek()).funcLine));
@@ -6861,7 +6861,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "program"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1693:1: program : ( ( sourceElement )* ) -> cover_file(src=$program::namecode=$textlines=$program::executableLinesfuncs=$program::functions);
+    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1696:1: program : ( ( sourceElement )* ) -> cover_file(src=$program::namecode=$textlines=$program::executableLinesfuncs=$program::functions);
     public final ES3YUITestParser.program_return program() throws RecognitionException {
         program_stack.push(new program_scope());
         ES3YUITestParser.program_return retval = new ES3YUITestParser.program_return();
@@ -6875,13 +6875,13 @@ public class ES3YUITestParser extends Parser {
           ((program_scope)program_stack.peek()).anonymousFunctionCount = 0;
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1708:2: ( ( ( sourceElement )* ) -> cover_file(src=$program::namecode=$textlines=$program::executableLinesfuncs=$program::functions))
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1708:4: ( ( sourceElement )* )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1711:2: ( ( ( sourceElement )* ) -> cover_file(src=$program::namecode=$textlines=$program::executableLinesfuncs=$program::functions))
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1711:4: ( ( sourceElement )* )
             {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1708:4: ( ( sourceElement )* )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1708:5: ( sourceElement )*
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1711:4: ( ( sourceElement )* )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1711:5: ( sourceElement )*
             {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1708:5: ( sourceElement )*
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1711:5: ( sourceElement )*
             loop76:
             do {
                 int alt76=2;
@@ -6894,9 +6894,9 @@ public class ES3YUITestParser extends Parser {
 
                 switch (alt76) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1708:5: sourceElement
+            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1711:5: sourceElement
             	    {
-            	    pushFollow(FOLLOW_sourceElement_in_program5824);
+            	    pushFollow(FOLLOW_sourceElement_in_program5820);
             	    sourceElement();
 
             	    state._fsp--;
@@ -6917,7 +6917,7 @@ public class ES3YUITestParser extends Parser {
 
 
             // TEMPLATE REWRITE
-            // 1709:2: -> cover_file(src=$program::namecode=$textlines=$program::executableLinesfuncs=$program::functions)
+            // 1712:2: -> cover_file(src=$program::namecode=$textlines=$program::executableLinesfuncs=$program::functions)
             {
                 retval.st = templateLib.getInstanceOf("cover_file",
               new STAttrMap().put("src", ((program_scope)program_stack.peek()).name).put("code", input.toString(retval.start,input.LT(-1))).put("lines", ((program_scope)program_stack.peek()).executableLines).put("funcs", ((program_scope)program_stack.peek()).functions));
@@ -6950,23 +6950,23 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "sourceElement"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1717:1: sourceElement options {k=1; } : ({...}? functionDeclaration | statement );
+    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1720:1: sourceElement options {k=1; } : ({...}? functionDeclaration | statement );
     public final ES3YUITestParser.sourceElement_return sourceElement() throws RecognitionException {
         ES3YUITestParser.sourceElement_return retval = new ES3YUITestParser.sourceElement_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1722:2: ({...}? functionDeclaration | statement )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1725:2: ({...}? functionDeclaration | statement )
             int alt77=2;
             alt77 = dfa77.predict(input);
             switch (alt77) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1722:4: {...}? functionDeclaration
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1725:4: {...}? functionDeclaration
                     {
                     if ( !(( input.LA(1) == FUNCTION )) ) {
                         throw new FailedPredicateException(input, "sourceElement", " input.LA(1) == FUNCTION ");
                     }
-                    pushFollow(FOLLOW_functionDeclaration_in_sourceElement5885);
+                    pushFollow(FOLLOW_functionDeclaration_in_sourceElement5881);
                     functionDeclaration();
 
                     state._fsp--;
@@ -6975,9 +6975,9 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1723:4: statement
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1726:4: statement
                     {
-                    pushFollow(FOLLOW_statement_in_sourceElement5890);
+                    pushFollow(FOLLOW_statement_in_sourceElement5886);
                     statement();
 
                     state._fsp--;
@@ -7269,7 +7269,7 @@ public class ES3YUITestParser extends Parser {
             this.transition = DFA77_transition;
         }
         public String getDescription() {
-            return "1717:1: sourceElement options {k=1; } : ({...}? functionDeclaration | statement );";
+            return "1720:1: sourceElement options {k=1; } : ({...}? functionDeclaration | statement );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -7591,26 +7591,26 @@ public class ES3YUITestParser extends Parser {
     public static final BitSet FOLLOW_formalParameterList_in_functionDeclaration5551 = new BitSet(new long[]{0x8000000000000000L});
     public static final BitSet FOLLOW_functionDeclarationBody_in_functionDeclaration5553 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_FUNCTION_in_functionExpression5608 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L,0x0000000000100000L});
-    public static final BitSet FOLLOW_Identifier_in_functionExpression5612 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
-    public static final BitSet FOLLOW_formalParameterList_in_functionExpression5617 = new BitSet(new long[]{0x8000000000000000L});
-    public static final BitSet FOLLOW_functionExpressionBody_in_functionExpression5619 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LPAREN_in_formalParameterList5630 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L,0x0000000000100000L});
-    public static final BitSet FOLLOW_Identifier_in_formalParameterList5634 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000084L});
-    public static final BitSet FOLLOW_COMMA_in_formalParameterList5638 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000100000L});
-    public static final BitSet FOLLOW_Identifier_in_formalParameterList5640 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000084L});
-    public static final BitSet FOLLOW_RPAREN_in_formalParameterList5648 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LBRACE_in_functionDeclarationBody5661 = new BitSet(new long[]{0x80000000FFE734F0L,0x000000003033004BL,0x0000000388300000L});
-    public static final BitSet FOLLOW_functionDeclarationBodyWithoutBraces_in_functionDeclarationBody5663 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_RBRACE_in_functionDeclarationBody5666 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LBRACE_in_functionExpressionBody5679 = new BitSet(new long[]{0x80000000FFE734F0L,0x000000003033004BL,0x0000000388300000L});
-    public static final BitSet FOLLOW_functionExpressionBodyWithoutBraces_in_functionExpressionBody5681 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_RBRACE_in_functionExpressionBody5684 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_sourceElement_in_functionExpressionBodyWithoutBraces5701 = new BitSet(new long[]{0x80000000FFE734F2L,0x000000003033004AL,0x0000000388300000L});
-    public static final BitSet FOLLOW_sourceElement_in_functionExpressionBodyWithoutBraces5703 = new BitSet(new long[]{0x80000000FFE734F2L,0x000000003033004AL,0x0000000388300000L});
-    public static final BitSet FOLLOW_sourceElement_in_functionDeclarationBodyWithoutBraces5770 = new BitSet(new long[]{0x80000000FFE734F2L,0x000000003033004AL,0x0000000388300000L});
-    public static final BitSet FOLLOW_sourceElement_in_functionDeclarationBodyWithoutBraces5772 = new BitSet(new long[]{0x80000000FFE734F2L,0x000000003033004AL,0x0000000388300000L});
-    public static final BitSet FOLLOW_sourceElement_in_program5824 = new BitSet(new long[]{0x80000000FFE734F2L,0x000000003033004AL,0x0000000388300000L});
-    public static final BitSet FOLLOW_functionDeclaration_in_sourceElement5885 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_statement_in_sourceElement5890 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_Identifier_in_functionExpression5610 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_formalParameterList_in_functionExpression5613 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_functionExpressionBody_in_functionExpression5615 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LPAREN_in_formalParameterList5626 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L,0x0000000000100000L});
+    public static final BitSet FOLLOW_Identifier_in_formalParameterList5630 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000084L});
+    public static final BitSet FOLLOW_COMMA_in_formalParameterList5634 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000100000L});
+    public static final BitSet FOLLOW_Identifier_in_formalParameterList5636 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000084L});
+    public static final BitSet FOLLOW_RPAREN_in_formalParameterList5644 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LBRACE_in_functionDeclarationBody5657 = new BitSet(new long[]{0x80000000FFE734F0L,0x000000003033004BL,0x0000000388300000L});
+    public static final BitSet FOLLOW_functionDeclarationBodyWithoutBraces_in_functionDeclarationBody5659 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_RBRACE_in_functionDeclarationBody5662 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LBRACE_in_functionExpressionBody5675 = new BitSet(new long[]{0x80000000FFE734F0L,0x000000003033004BL,0x0000000388300000L});
+    public static final BitSet FOLLOW_functionExpressionBodyWithoutBraces_in_functionExpressionBody5677 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_RBRACE_in_functionExpressionBody5680 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_sourceElement_in_functionExpressionBodyWithoutBraces5697 = new BitSet(new long[]{0x80000000FFE734F2L,0x000000003033004AL,0x0000000388300000L});
+    public static final BitSet FOLLOW_sourceElement_in_functionExpressionBodyWithoutBraces5699 = new BitSet(new long[]{0x80000000FFE734F2L,0x000000003033004AL,0x0000000388300000L});
+    public static final BitSet FOLLOW_sourceElement_in_functionDeclarationBodyWithoutBraces5766 = new BitSet(new long[]{0x80000000FFE734F2L,0x000000003033004AL,0x0000000388300000L});
+    public static final BitSet FOLLOW_sourceElement_in_functionDeclarationBodyWithoutBraces5768 = new BitSet(new long[]{0x80000000FFE734F2L,0x000000003033004AL,0x0000000388300000L});
+    public static final BitSet FOLLOW_sourceElement_in_program5820 = new BitSet(new long[]{0x80000000FFE734F2L,0x000000003033004AL,0x0000000388300000L});
+    public static final BitSet FOLLOW_functionDeclaration_in_sourceElement5881 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_statement_in_sourceElement5886 = new BitSet(new long[]{0x0000000000000002L});
 
 }

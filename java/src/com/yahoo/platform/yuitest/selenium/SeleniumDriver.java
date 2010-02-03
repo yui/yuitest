@@ -8,11 +8,14 @@
 
 package com.yahoo.platform.yuitest.selenium;
 
+import com.yahoo.platform.yuitest.config.TestPageGroup;
+import com.yahoo.platform.yuitest.config.TestPage;
+import com.yahoo.platform.yuitest.config.TestConfig;
 import com.thoughtworks.selenium.DefaultSelenium;
 import com.thoughtworks.selenium.Selenium;
 import com.thoughtworks.selenium.SeleniumException;
+import com.yahoo.platform.yuitest.coverage.results.SummaryCoverageReport;
 import com.yahoo.platform.yuitest.results.TestReport;
-import java.io.ByteArrayInputStream;
 import java.io.StringReader;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -34,7 +37,6 @@ public class SeleniumDriver {
     public static final String YUITEST_TESTS_FILE = "yuitest.tests";
 
     public static final String COVERAGE_OUTPUTDIR = "coverage.outputdir";
-    public static final String COVERAGE_FILENAME = "coverage.filename";
     public static final String COVERAGE_FORMAT = "coverage.format";
 
     public static final String RESULTS_OUTPUTDIR = "results.outputdir";
@@ -310,18 +312,10 @@ public class SeleniumDriver {
         //JS strings to use
         String testRunnerIsNotRunning = "!" + testRunner + ".isRunning()";
         String testRawResults = testRunner + ".getResults(" + testFormat + ".XML);";
-        String testResults = testRunner + ".getResults(" + testFormat + "." +
-                properties.getProperty("results.format", "JUnitXML") +
-                ");";
-        String testCoverage = testRunner + ".getCoverage(" + coverageFormat + "." +
-                properties.getProperty("coverage.format", "JSON") +
-                ");";
+        String testCoverage = testRunner + ".getCoverage(" + coverageFormat + ".JSON);";
         String testName = testRunner + ".getName();";
-
-        //extracted from page
-        String results = "";
         String rawResults = "";
-        String coverage = "";
+        String coverageResults = "";
         String name = "";
 
         //page info
@@ -350,37 +344,38 @@ public class SeleniumDriver {
                 System.err.println("[INFO] Page is loaded.");
             }
 
-            selenium.waitForCondition(testRunnerIsNotRunning, pageTimeout);
+            selenium.waitForCondition("(function(){ try { return " + testRunnerIsNotRunning + "}catch(ex){return false}})()", pageTimeout);
 
             if (verbose){
                 System.err.println("[INFO] Test complete.");
             }
-
-            //get results
-//            results = selenium.getEval(testResults);
-//            if (results.equals("null")){
-//                results = null;
-//            }
 
             rawResults = selenium.getEval(testRawResults);
             if (rawResults.equals("null")){
                 rawResults = null;
             }
 
-            coverage = selenium.getEval(testCoverage);
-            if (coverage.equals("null")){
-                coverage = null;
+            coverageResults = selenium.getEval(testCoverage);
+            if (coverageResults.equals("null")){
+                coverageResults = null;
             }
 
             name = selenium.getEval(testName);
 
-            TestReport testReport = TestReport.load(new StringReader(rawResults), browser.replace("*", ""));
-            
+            //some basic error checking, make sure we have some results!
+            if (rawResults == null){
+                throw new Exception("Couldn't retrieve test results. Please double-check that the test is running correctly.");
+            }
+
+            TestReport testReport = TestReport.load(new StringReader(rawResults), browser.replace("*", ""));            
             SessionResult result = new SessionResult(name, browser.replace("*", ""), url);
             result.setTestReport(testReport);
-            //RawTestResultsParser.parse(new ByteArrayInputStream(rawResults.getBytes()), result);
-            //result.setReport("results", results);
-            result.setReport("coverage", coverage);
+
+            SummaryCoverageReport coverageReport = null;
+            if (coverageResults != null){
+                coverageReport = new SummaryCoverageReport(new StringReader(coverageResults));
+                result.setCoverageReport(coverageReport);
+            }
 
             //output results detail
             if (!isSilent()){

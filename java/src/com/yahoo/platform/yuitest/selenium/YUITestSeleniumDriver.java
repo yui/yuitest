@@ -1,5 +1,5 @@
 /*
- * YUI Test Selenium Driver
+ * YUI Test
  * Author: Nicholas C. Zakas <nzakas@yahoo-inc.com>
  * Copyright (c) 2009, Yahoo! Inc. All rights reserved.
  * Code licensed under the BSD License:
@@ -7,6 +7,9 @@
  */
 package com.yahoo.platform.yuitest.selenium;
 
+import com.yahoo.platform.yuitest.config.TestPageGroup;
+import com.yahoo.platform.yuitest.config.TestPage;
+import com.yahoo.platform.yuitest.config.TestConfig;
 import jargs.gnu.CmdLineParser;
 import java.io.*;
 import java.net.URL;

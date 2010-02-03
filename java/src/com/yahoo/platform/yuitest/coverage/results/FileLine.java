@@ -28,6 +28,10 @@ public class FileLine {
         return callCount;
     }
 
+    protected void setCallCount(int callCount){
+        this.callCount = callCount;
+    }
+
     public int getLineNumber() {
         return lineNumber;
     }
@@ -36,15 +40,11 @@ public class FileLine {
         return text;
     }
     
-    public String getHTML(){
-        return text.replace("&", "&amp;").replace("\"", "&quot;").replace("<", "&lt;").replace(">", "&gt;").replace(" ", "&nbsp;");
-    }
-    
-    public boolean getIsCovered(){
+    public boolean isCovered(){
         return callCount > -1;
     }
     
-    public boolean getIsCalled(){
+    public boolean isCalled(){
         return callCount > 0;
     }
   

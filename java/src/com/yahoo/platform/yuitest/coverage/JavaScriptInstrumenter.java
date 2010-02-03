@@ -18,6 +18,7 @@ import java.io.Writer;
 import org.antlr.runtime.ANTLRReaderStream;
 import org.antlr.runtime.TokenRewriteStream;
 import org.antlr.runtime.RecognitionException;
+import org.antlr.stringtemplate.StringTemplate;
 import org.antlr.stringtemplate.StringTemplateGroup;
 
 /**
@@ -42,12 +43,17 @@ public class JavaScriptInstrumenter {
 
     public void instrument(Writer out, boolean verbose) throws IOException, RecognitionException {
 
-        //get string template group
+        //get string headerTemplate group
         InputStream stgstream = JavaScriptInstrumenter.class.getResourceAsStream("ES3YUITestTemplates.stg");
         InputStreamReader reader = new InputStreamReader(stgstream);
         StringTemplateGroup group = new StringTemplateGroup(reader);
         reader.close();
-        
+
+        //get headerTemplate for file header
+        StringTemplate headerTemplate = group.getInstanceOf("file_header");
+        headerTemplate.setAttribute("src", name);
+        headerTemplate.setAttribute("path", path.replace("\\", "\\\\"));
+
         //read lines for later usage
         BufferedReader lineReader = new BufferedReader(in);
         StringBuilder codeLines = new StringBuilder();
@@ -74,7 +80,6 @@ public class JavaScriptInstrumenter {
         codeLines.append(";");
 
         //output full path
-        codeLines.append(String.format("\n_yuitest_coverage[\"%s\"].path = \"%s\";", name, path.replace("\\", "\\\\")));
 
         //setup parser
         ANTLRReaderStream stream = new ANTLRReaderStream(new StringReader(code.toString()));
@@ -93,9 +98,12 @@ public class JavaScriptInstrumenter {
         in.close(); in = null;
 
         //output the resulting file
-        out.write(result);
-        out.flush();
+        out.write(headerTemplate.toString());
+        out.write("\n");
         out.write(codeLines.toString());
+        out.write("\n");
+        out.flush();
+        out.write(result);
         out.flush();
     }
 

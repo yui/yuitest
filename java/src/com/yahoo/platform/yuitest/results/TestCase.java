@@ -75,6 +75,10 @@ public class TestCase {
         return passed + failed;
     }
 
+    public int getTotalIncludingIgnored(){
+        return getTotal() + ignored;
+    }
+
     public String getPath(){
         return getPath(TestReport.PATH_SEPARATOR);
     }

@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g 2009-11-19 11:31:54
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g 2010-01-29 16:45:17
 
 /*
  * YUI Test Coverage
@@ -16,174 +16,174 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class ES3YUITestLexer extends Lexer {
-    public static final int COMMA=71;
+    public static final int PACKAGE=52;
+    public static final int FUNCTION=17;
+    public static final int LOR=95;
+    public static final int VT=134;
+    public static final int SHR=87;
+    public static final int RegularExpressionChar=170;
+    public static final int LT=72;
+    public static final int WHILE=30;
+    public static final int MOD=83;
+    public static final int SHL=86;
     public static final int CONST=37;
     public static final int BackslashSequence=168;
-    public static final int RegularExpressionLiteral=155;
-    public static final int ARGS=111;
-    public static final int ARRAY=112;
-    public static final int LF=140;
-    public static final int SYNCHRONIZED=59;
-    public static final int HexDigit=150;
-    public static final int DOUBLE=39;
-    public static final int EXPR=118;
-    public static final int ADDASS=99;
-    public static final int DecimalDigit=152;
-    public static final int FALSE=6;
-    public static final int USP=138;
-    public static final int ABSTRACT=32;
-    public static final int SP=136;
-    public static final int SEMIC=70;
-    public static final int IMPORT=47;
-    public static final int DQUOTE=131;
-    public static final int PACKAGE=52;
-    public static final int MODASS=102;
-    public static final int SHR=87;
-    public static final int SQUOTE=132;
-    public static final int CONTINUE=10;
-    public static final int DOT=69;
-    public static final int PRIVATE=53;
-    public static final int MultiLineComment=146;
-    public static final int AND=89;
-    public static final int HexIntegerLiteral=161;
-    public static final int FUNCTION=17;
-    public static final int DIVASS=110;
-    public static final int RegularExpressionFirstChar=169;
-    public static final int GTE=75;
-    public static final int OctalEscapeSequence=164;
-    public static final int HexEscapeSequence=165;
-    public static final int SingleLineComment=147;
-    public static final int RPAREN=66;
-    public static final int POS=129;
-    public static final int UnicodeEscapeSequence=166;
-    public static final int IdentifierStartASCII=151;
-    public static final int FINALLY=15;
-    public static final int IdentifierNameASCIIStart=154;
-    public static final int EXTENDS=42;
-    public static final int IdentifierPart=153;
-    public static final int SUPER=58;
-    public static final int Identifier=148;
-    public static final int SAME=78;
+    public static final int LS=142;
+    public static final int CASE=8;
     public static final int CHAR=35;
     public static final int NEW=21;
-    public static final int EQ=76;
-    public static final int LT=72;
-    public static final int FINAL=43;
-    public static final int SUBASS=100;
-    public static final int VT=134;
-    public static final int LAND=94;
-    public static final int LBRACK=67;
-    public static final int CATCH=9;
-    public static final int STATIC=57;
-    public static final int CASE=8;
-    public static final int MUL=82;
-    public static final int INTERFACE=49;
-    public static final int ExponentPart=157;
-    public static final int INV=93;
-    public static final int BOOLEAN=33;
-    public static final int ELSE=14;
-    public static final int CharacterEscapeSequence=162;
-    public static final int BSLASH=130;
-    public static final int SHLASS=103;
-    public static final int DecimalLiteral=159;
-    public static final int BREAK=7;
-    public static final int NULL=4;
-    public static final int XOR=91;
-    public static final int COLON=97;
-    public static final int DIV=109;
-    public static final int ORASS=107;
-    public static final int TRUE=5;
-    public static final int ADD=80;
-    public static final int THROW=25;
-    public static final int SHORT=56;
-    public static final int LABELLED=122;
-    public static final int CR=141;
-    public static final int RegularExpressionChar=170;
-    public static final int PUBLIC=55;
-    public static final int SHL=86;
-    public static final int LONG=50;
-    public static final int LOR=95;
-    public static final int TYPEOF=27;
-    public static final int INC=84;
-    public static final int TRANSIENT=61;
-    public static final int FLOAT=44;
-    public static final int TAB=133;
-    public static final int THROWS=60;
-    public static final int ZeroToThree=163;
-    public static final int FF=135;
-    public static final int FORITER=119;
-    public static final int MOD=83;
-    public static final int GOTO=45;
-    public static final int EXPORT=41;
-    public static final int OR=90;
-    public static final int MULASS=101;
-    public static final int LBRACE=63;
-    public static final int RBRACE=64;
-    public static final int BLOCK=113;
-    public static final int PROTECTED=54;
-    public static final int ANDASS=106;
-    public static final int SHU=88;
-    public static final int LineTerminator=144;
-    public static final int PAREXPR=126;
-    public static final int EscapeSequence=167;
-    public static final int INT=48;
-    public static final int LS=142;
-    public static final int ASSIGN=98;
-    public static final int CEXPR=117;
-    public static final int INSTANCEOF=20;
-    public static final int VOID=29;
-    public static final int LPAREN=65;
-    public static final int WhiteSpace=139;
-    public static final int XORASS=108;
-    public static final int NEQ=77;
-    public static final int QUE=96;
-    public static final int NAMEDVALUE=123;
-    public static final int ENUM=40;
-    public static final int DEBUGGER=38;
-    public static final int PS=143;
-    public static final int DELETE=12;
-    public static final int OBJECT=125;
     public static final int DO=13;
-    public static final int IMPLEMENTS=46;
-    public static final int SWITCH=23;
-    public static final int WHILE=30;
-    public static final int OctalIntegerLiteral=160;
-    public static final int BYINDEX=115;
-    public static final int FORSTEP=120;
-    public static final int PINC=128;
-    public static final int OctalDigit=156;
-    public static final int GT=73;
-    public static final int StringLiteral=149;
-    public static final int DecimalIntegerLiteral=158;
-    public static final int SHRASS=104;
-    public static final int ITEM=121;
-    public static final int THIS=24;
-    public static final int SHUASS=105;
-    public static final int WITH=31;
-    public static final int IN=19;
-    public static final int LTE=74;
-    public static final int VAR=28;
-    public static final int CLASS=36;
-    public static final int NATIVE=51;
-    public static final int DEC=85;
-    public static final int RETURN=22;
-    public static final int BYTE=34;
-    public static final int VOLATILE=62;
-    public static final int IF=18;
-    public static final int EOF=-1;
-    public static final int EOL=145;
-    public static final int CALL=116;
-    public static final int NBSP=137;
-    public static final int FOR=16;
-    public static final int RBRACK=68;
-    public static final int DEFAULT=11;
-    public static final int NEG=124;
-    public static final int SUB=81;
-    public static final int TRY=26;
+    public static final int DQUOTE=131;
     public static final int NOT=92;
+    public static final int DecimalDigit=152;
     public static final int BYFIELD=114;
+    public static final int EOF=-1;
+    public static final int BREAK=7;
+    public static final int CEXPR=117;
+    public static final int DIVASS=110;
+    public static final int Identifier=148;
+    public static final int BYINDEX=115;
+    public static final int INC=84;
+    public static final int RPAREN=66;
+    public static final int FINAL=43;
+    public static final int FORSTEP=120;
+    public static final int IMPORT=47;
+    public static final int EOL=145;
+    public static final int POS=129;
+    public static final int OctalDigit=156;
+    public static final int RETURN=22;
+    public static final int THIS=24;
+    public static final int DOUBLE=39;
+    public static final int ARGS=111;
+    public static final int ExponentPart=157;
+    public static final int WhiteSpace=139;
+    public static final int VAR=28;
+    public static final int EXPORT=41;
+    public static final int VOID=29;
+    public static final int LABELLED=122;
+    public static final int SUPER=58;
+    public static final int GOTO=45;
+    public static final int EQ=76;
+    public static final int XORASS=108;
+    public static final int ADDASS=99;
+    public static final int ARRAY=112;
+    public static final int SHU=88;
+    public static final int RBRACK=68;
+    public static final int RBRACE=64;
+    public static final int PRIVATE=53;
+    public static final int STATIC=57;
+    public static final int INV=93;
+    public static final int SWITCH=23;
+    public static final int NULL=4;
+    public static final int ELSE=14;
+    public static final int NATIVE=51;
+    public static final int THROWS=60;
+    public static final int INT=48;
+    public static final int DELETE=12;
+    public static final int MUL=82;
+    public static final int IdentifierStartASCII=151;
+    public static final int TRY=26;
+    public static final int FF=135;
+    public static final int SHLASS=103;
+    public static final int OctalEscapeSequence=164;
+    public static final int USP=138;
+    public static final int RegularExpressionFirstChar=169;
+    public static final int ANDASS=106;
+    public static final int TYPEOF=27;
+    public static final int IdentifierNameASCIIStart=154;
+    public static final int QUE=96;
+    public static final int OR=90;
+    public static final int DEBUGGER=38;
+    public static final int GT=73;
     public static final int PDEC=127;
+    public static final int CALL=116;
+    public static final int CharacterEscapeSequence=162;
+    public static final int CATCH=9;
+    public static final int FALSE=6;
+    public static final int EscapeSequence=167;
+    public static final int LAND=94;
+    public static final int MULASS=101;
+    public static final int THROW=25;
+    public static final int PINC=128;
+    public static final int DEC=85;
+    public static final int PROTECTED=54;
+    public static final int OctalIntegerLiteral=160;
+    public static final int CLASS=36;
+    public static final int LBRACK=67;
+    public static final int ORASS=107;
+    public static final int HexEscapeSequence=165;
+    public static final int NAMEDVALUE=123;
+    public static final int SingleLineComment=147;
+    public static final int GTE=75;
+    public static final int LBRACE=63;
+    public static final int FOR=16;
+    public static final int SUB=81;
+    public static final int RegularExpressionLiteral=155;
+    public static final int FLOAT=44;
+    public static final int ABSTRACT=32;
+    public static final int AND=89;
+    public static final int DecimalIntegerLiteral=158;
+    public static final int LTE=74;
+    public static final int HexDigit=150;
+    public static final int LPAREN=65;
+    public static final int IF=18;
+    public static final int SUBASS=100;
+    public static final int SYNCHRONIZED=59;
+    public static final int BOOLEAN=33;
+    public static final int EXPR=118;
+    public static final int IN=19;
+    public static final int IMPLEMENTS=46;
+    public static final int CONTINUE=10;
+    public static final int OBJECT=125;
+    public static final int COMMA=71;
+    public static final int TRANSIENT=61;
+    public static final int FORITER=119;
+    public static final int MODASS=102;
+    public static final int SHRASS=104;
+    public static final int PS=143;
+    public static final int DOT=69;
+    public static final int MultiLineComment=146;
+    public static final int IdentifierPart=153;
+    public static final int WITH=31;
+    public static final int ADD=80;
+    public static final int BYTE=34;
+    public static final int XOR=91;
+    public static final int ZeroToThree=163;
+    public static final int VOLATILE=62;
+    public static final int ITEM=121;
+    public static final int UnicodeEscapeSequence=166;
     public static final int NSAME=79;
+    public static final int DEFAULT=11;
+    public static final int SHUASS=105;
+    public static final int TAB=133;
+    public static final int SHORT=56;
+    public static final int INSTANCEOF=20;
+    public static final int SQUOTE=132;
+    public static final int DecimalLiteral=159;
+    public static final int TRUE=5;
+    public static final int SAME=78;
+    public static final int COLON=97;
+    public static final int StringLiteral=149;
+    public static final int NEQ=77;
+    public static final int PAREXPR=126;
+    public static final int ENUM=40;
+    public static final int FINALLY=15;
+    public static final int NBSP=137;
+    public static final int HexIntegerLiteral=161;
+    public static final int SP=136;
+    public static final int BLOCK=113;
+    public static final int NEG=124;
+    public static final int LineTerminator=144;
+    public static final int ASSIGN=98;
+    public static final int INTERFACE=49;
+    public static final int DIV=109;
+    public static final int SEMIC=70;
+    public static final int LONG=50;
+    public static final int CR=141;
+    public static final int PUBLIC=55;
+    public static final int EXTENDS=42;
+    public static final int BSLASH=130;
+    public static final int LF=140;
 
     private Token last;
 
@@ -2504,8 +2504,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "BSLASH"
     public final void mBSLASH() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:458:2: ( '\\\\' )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:458:4: '\\\\'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:463:2: ( '\\\\' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:463:4: '\\\\'
             {
             match('\\'); 
 
@@ -2520,8 +2520,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "DQUOTE"
     public final void mDQUOTE() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:462:2: ( '\"' )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:462:4: '\"'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:467:2: ( '\"' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:467:4: '\"'
             {
             match('\"'); 
 
@@ -2536,8 +2536,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "SQUOTE"
     public final void mSQUOTE() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:466:2: ( '\\'' )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:466:4: '\\''
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:471:2: ( '\\'' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:471:4: '\\''
             {
             match('\''); 
 
@@ -2552,8 +2552,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "TAB"
     public final void mTAB() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:472:2: ( '\\u0009' )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:472:4: '\\u0009'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:477:2: ( '\\u0009' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:477:4: '\\u0009'
             {
             match('\t'); 
 
@@ -2568,8 +2568,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "VT"
     public final void mVT() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:476:2: ( '\\u000b' )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:476:4: '\\u000b'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:481:2: ( '\\u000b' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:481:4: '\\u000b'
             {
             match('\u000B'); 
 
@@ -2584,8 +2584,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "FF"
     public final void mFF() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:480:2: ( '\\u000c' )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:480:4: '\\u000c'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:485:2: ( '\\u000c' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:485:4: '\\u000c'
             {
             match('\f'); 
 
@@ -2600,8 +2600,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "SP"
     public final void mSP() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:484:2: ( '\\u0020' )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:484:4: '\\u0020'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:489:2: ( '\\u0020' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:489:4: '\\u0020'
             {
             match(' '); 
 
@@ -2616,8 +2616,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "NBSP"
     public final void mNBSP() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:488:2: ( '\\u00a0' )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:488:4: '\\u00a0'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:493:2: ( '\\u00a0' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:493:4: '\\u00a0'
             {
             match('\u00A0'); 
 
@@ -2632,7 +2632,7 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "USP"
     public final void mUSP() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:492:2: ( '\\u1680' | '\\u180E' | '\\u2000' | '\\u2001' | '\\u2002' | '\\u2003' | '\\u2004' | '\\u2005' | '\\u2006' | '\\u2007' | '\\u2008' | '\\u2009' | '\\u200A' | '\\u202F' | '\\u205F' | '\\u3000' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:497:2: ( '\\u1680' | '\\u180E' | '\\u2000' | '\\u2001' | '\\u2002' | '\\u2003' | '\\u2004' | '\\u2005' | '\\u2006' | '\\u2007' | '\\u2008' | '\\u2009' | '\\u200A' | '\\u202F' | '\\u205F' | '\\u3000' )
             // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:
             {
             if ( input.LA(1)=='\u1680'||input.LA(1)=='\u180E'||(input.LA(1)>='\u2000' && input.LA(1)<='\u200A')||input.LA(1)=='\u202F'||input.LA(1)=='\u205F'||input.LA(1)=='\u3000' ) {
@@ -2658,10 +2658,10 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = WhiteSpace;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:511:2: ( ( TAB | VT | FF | SP | NBSP | USP )+ )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:511:4: ( TAB | VT | FF | SP | NBSP | USP )+
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:516:2: ( ( TAB | VT | FF | SP | NBSP | USP )+ )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:516:4: ( TAB | VT | FF | SP | NBSP | USP )+
             {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:511:4: ( TAB | VT | FF | SP | NBSP | USP )+
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:516:4: ( TAB | VT | FF | SP | NBSP | USP )+
             int cnt1=0;
             loop1:
             do {
@@ -2714,8 +2714,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "LF"
     public final void mLF() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:519:2: ( '\\n' )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:519:4: '\\n'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:524:2: ( '\\n' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:524:4: '\\n'
             {
             match('\n'); 
 
@@ -2730,8 +2730,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "CR"
     public final void mCR() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:523:2: ( '\\r' )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:523:4: '\\r'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:528:2: ( '\\r' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:528:4: '\\r'
             {
             match('\r'); 
 
@@ -2746,8 +2746,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "LS"
     public final void mLS() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:527:2: ( '\\u2028' )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:527:4: '\\u2028'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:532:2: ( '\\u2028' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:532:4: '\\u2028'
             {
             match('\u2028'); 
 
@@ -2762,8 +2762,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "PS"
     public final void mPS() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:531:2: ( '\\u2029' )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:531:4: '\\u2029'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:536:2: ( '\\u2029' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:536:4: '\\u2029'
             {
             match('\u2029'); 
 
@@ -2778,7 +2778,7 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "LineTerminator"
     public final void mLineTerminator() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:535:2: ( CR | LF | LS | PS )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:540:2: ( CR | LF | LS | PS )
             // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:
             {
             if ( input.LA(1)=='\n'||input.LA(1)=='\r'||(input.LA(1)>='\u2028' && input.LA(1)<='\u2029') ) {
@@ -2804,10 +2804,10 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = EOL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:539:2: ( ( ( CR ( LF )? ) | LF | LS | PS ) )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:539:4: ( ( CR ( LF )? ) | LF | LS | PS )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:544:2: ( ( ( CR ( LF )? ) | LF | LS | PS ) )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:544:4: ( ( CR ( LF )? ) | LF | LS | PS )
             {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:539:4: ( ( CR ( LF )? ) | LF | LS | PS )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:544:4: ( ( CR ( LF )? ) | LF | LS | PS )
             int alt3=4;
             switch ( input.LA(1) ) {
             case '\r':
@@ -2839,13 +2839,13 @@ public class ES3YUITestLexer extends Lexer {
 
             switch (alt3) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:539:6: ( CR ( LF )? )
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:544:6: ( CR ( LF )? )
                     {
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:539:6: ( CR ( LF )? )
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:539:8: CR ( LF )?
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:544:6: ( CR ( LF )? )
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:544:8: CR ( LF )?
                     {
                     mCR(); 
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:539:11: ( LF )?
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:544:11: ( LF )?
                     int alt2=2;
                     int LA2_0 = input.LA(1);
 
@@ -2854,7 +2854,7 @@ public class ES3YUITestLexer extends Lexer {
                     }
                     switch (alt2) {
                         case 1 :
-                            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:539:11: LF
+                            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:544:11: LF
                             {
                             mLF(); 
 
@@ -2870,21 +2870,21 @@ public class ES3YUITestLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:539:19: LF
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:544:19: LF
                     {
                     mLF(); 
 
                     }
                     break;
                 case 3 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:539:24: LS
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:544:24: LS
                     {
                     mLS(); 
 
                     }
                     break;
                 case 4 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:539:29: PS
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:544:29: PS
                     {
                     mPS(); 
 
@@ -2910,12 +2910,12 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = MultiLineComment;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:546:2: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:546:4: '/*' ( options {greedy=false; } : . )* '*/'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:551:2: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:551:4: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:546:9: ( options {greedy=false; } : . )*
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:551:9: ( options {greedy=false; } : . )*
             loop4:
             do {
                 int alt4=2;
@@ -2940,7 +2940,7 @@ public class ES3YUITestLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:546:41: .
+            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:551:41: .
             	    {
             	    matchAny(); 
 
@@ -2971,12 +2971,12 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = SingleLineComment;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:550:2: ( '//' (~ ( LineTerminator ) )* )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:550:4: '//' (~ ( LineTerminator ) )*
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:555:2: ( '//' (~ ( LineTerminator ) )* )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:555:4: '//' (~ ( LineTerminator ) )*
             {
             match("//"); 
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:550:9: (~ ( LineTerminator ) )*
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:555:9: (~ ( LineTerminator ) )*
             loop5:
             do {
                 int alt5=2;
@@ -2989,7 +2989,7 @@ public class ES3YUITestLexer extends Lexer {
 
                 switch (alt5) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:550:11: ~ ( LineTerminator )
+            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:555:11: ~ ( LineTerminator )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\u2027')||(input.LA(1)>='\u202A' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -3024,7 +3024,7 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "IdentifierStartASCII"
     public final void mIdentifierStartASCII() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:651:2: ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | BSLASH 'u' HexDigit HexDigit HexDigit HexDigit )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:656:2: ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | BSLASH 'u' HexDigit HexDigit HexDigit HexDigit )
             int alt6=5;
             switch ( input.LA(1) ) {
             case 'a':
@@ -3111,35 +3111,35 @@ public class ES3YUITestLexer extends Lexer {
 
             switch (alt6) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:651:4: 'a' .. 'z'
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:656:4: 'a' .. 'z'
                     {
                     matchRange('a','z'); 
 
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:651:15: 'A' .. 'Z'
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:656:15: 'A' .. 'Z'
                     {
                     matchRange('A','Z'); 
 
                     }
                     break;
                 case 3 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:652:4: '$'
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:657:4: '$'
                     {
                     match('$'); 
 
                     }
                     break;
                 case 4 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:653:4: '_'
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:658:4: '_'
                     {
                     match('_'); 
 
                     }
                     break;
                 case 5 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:654:4: BSLASH 'u' HexDigit HexDigit HexDigit HexDigit
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:659:4: BSLASH 'u' HexDigit HexDigit HexDigit HexDigit
                     {
                     mBSLASH(); 
                     match('u'); 
@@ -3161,7 +3161,7 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "IdentifierPart"
     public final void mIdentifierPart() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:662:2: ( DecimalDigit | IdentifierStartASCII | {...}?)
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:667:2: ( DecimalDigit | IdentifierStartASCII | {...}?)
             int alt7=3;
             switch ( input.LA(1) ) {
             case '0':
@@ -3242,21 +3242,21 @@ public class ES3YUITestLexer extends Lexer {
 
             switch (alt7) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:662:4: DecimalDigit
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:667:4: DecimalDigit
                     {
                     mDecimalDigit(); 
 
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:663:4: IdentifierStartASCII
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:668:4: IdentifierStartASCII
                     {
                     mIdentifierStartASCII(); 
 
                     }
                     break;
                 case 3 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:664:4: {...}?
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:669:4: {...}?
                     {
                     if ( !(( isIdentifierPartUnicode(input.LA(1)) )) ) {
                         throw new FailedPredicateException(input, "IdentifierPart", " isIdentifierPartUnicode(input.LA(1)) ");
@@ -3276,11 +3276,11 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "IdentifierNameASCIIStart"
     public final void mIdentifierNameASCIIStart() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:668:2: ( IdentifierStartASCII ( IdentifierPart )* )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:668:4: IdentifierStartASCII ( IdentifierPart )*
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:673:2: ( IdentifierStartASCII ( IdentifierPart )* )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:673:4: IdentifierStartASCII ( IdentifierPart )*
             {
             mIdentifierStartASCII(); 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:668:25: ( IdentifierPart )*
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:673:25: ( IdentifierPart )*
             loop8:
             do {
                 int alt8=2;
@@ -3296,7 +3296,7 @@ public class ES3YUITestLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:668:25: IdentifierPart
+            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:673:25: IdentifierPart
             	    {
             	    mIdentifierPart(); 
 
@@ -3322,7 +3322,7 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = Identifier;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:680:2: ( IdentifierNameASCIIStart | )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:685:2: ( IdentifierNameASCIIStart | )
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -3333,14 +3333,14 @@ public class ES3YUITestLexer extends Lexer {
                 alt9=2;}
             switch (alt9) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:680:4: IdentifierNameASCIIStart
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:685:4: IdentifierNameASCIIStart
                     {
                     mIdentifierNameASCIIStart(); 
 
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:681:4: 
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:686:4: 
                     {
                      consumeIdentifierUnicodeStart(); 
 
@@ -3359,8 +3359,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "DecimalDigit"
     public final void mDecimalDigit() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:764:2: ( '0' .. '9' )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:764:4: '0' .. '9'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:769:2: ( '0' .. '9' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:769:4: '0' .. '9'
             {
             matchRange('0','9'); 
 
@@ -3375,7 +3375,7 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "HexDigit"
     public final void mHexDigit() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:768:2: ( DecimalDigit | 'a' .. 'f' | 'A' .. 'F' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:773:2: ( DecimalDigit | 'a' .. 'f' | 'A' .. 'F' )
             // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:
             {
             if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='F')||(input.LA(1)>='a' && input.LA(1)<='f') ) {
@@ -3399,8 +3399,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "OctalDigit"
     public final void mOctalDigit() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:772:2: ( '0' .. '7' )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:772:4: '0' .. '7'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:777:2: ( '0' .. '7' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:777:4: '0' .. '7'
             {
             matchRange('0','7'); 
 
@@ -3415,8 +3415,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "ExponentPart"
     public final void mExponentPart() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:776:2: ( ( 'e' | 'E' ) ( '+' | '-' )? ( DecimalDigit )+ )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:776:4: ( 'e' | 'E' ) ( '+' | '-' )? ( DecimalDigit )+
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:781:2: ( ( 'e' | 'E' ) ( '+' | '-' )? ( DecimalDigit )+ )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:781:4: ( 'e' | 'E' ) ( '+' | '-' )? ( DecimalDigit )+
             {
             if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                 input.consume();
@@ -3427,7 +3427,7 @@ public class ES3YUITestLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:776:18: ( '+' | '-' )?
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:781:18: ( '+' | '-' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -3453,7 +3453,7 @@ public class ES3YUITestLexer extends Lexer {
 
             }
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:776:33: ( DecimalDigit )+
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:781:33: ( DecimalDigit )+
             int cnt11=0;
             loop11:
             do {
@@ -3467,7 +3467,7 @@ public class ES3YUITestLexer extends Lexer {
 
                 switch (alt11) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:776:33: DecimalDigit
+            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:781:33: DecimalDigit
             	    {
             	    mDecimalDigit(); 
 
@@ -3495,7 +3495,7 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "DecimalIntegerLiteral"
     public final void mDecimalIntegerLiteral() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:780:2: ( '0' | '1' .. '9' ( DecimalDigit )* )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:785:2: ( '0' | '1' .. '9' ( DecimalDigit )* )
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -3513,17 +3513,17 @@ public class ES3YUITestLexer extends Lexer {
             }
             switch (alt13) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:780:4: '0'
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:785:4: '0'
                     {
                     match('0'); 
 
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:781:4: '1' .. '9' ( DecimalDigit )*
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:786:4: '1' .. '9' ( DecimalDigit )*
                     {
                     matchRange('1','9'); 
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:781:13: ( DecimalDigit )*
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:786:13: ( DecimalDigit )*
                     loop12:
                     do {
                         int alt12=2;
@@ -3536,7 +3536,7 @@ public class ES3YUITestLexer extends Lexer {
 
                         switch (alt12) {
                     	case 1 :
-                    	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:781:13: DecimalDigit
+                    	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:786:13: DecimalDigit
                     	    {
                     	    mDecimalDigit(); 
 
@@ -3564,16 +3564,16 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = DecimalLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:785:2: ( DecimalIntegerLiteral '.' ( DecimalDigit )* ( ExponentPart )? | '.' ( DecimalDigit )+ ( ExponentPart )? | DecimalIntegerLiteral ( ExponentPart )? )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:790:2: ( DecimalIntegerLiteral '.' ( DecimalDigit )* ( ExponentPart )? | '.' ( DecimalDigit )+ ( ExponentPart )? | DecimalIntegerLiteral ( ExponentPart )? )
             int alt19=3;
             alt19 = dfa19.predict(input);
             switch (alt19) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:785:4: DecimalIntegerLiteral '.' ( DecimalDigit )* ( ExponentPart )?
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:790:4: DecimalIntegerLiteral '.' ( DecimalDigit )* ( ExponentPart )?
                     {
                     mDecimalIntegerLiteral(); 
                     match('.'); 
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:785:30: ( DecimalDigit )*
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:790:30: ( DecimalDigit )*
                     loop14:
                     do {
                         int alt14=2;
@@ -3586,7 +3586,7 @@ public class ES3YUITestLexer extends Lexer {
 
                         switch (alt14) {
                     	case 1 :
-                    	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:785:30: DecimalDigit
+                    	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:790:30: DecimalDigit
                     	    {
                     	    mDecimalDigit(); 
 
@@ -3598,7 +3598,7 @@ public class ES3YUITestLexer extends Lexer {
                         }
                     } while (true);
 
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:785:44: ( ExponentPart )?
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:790:44: ( ExponentPart )?
                     int alt15=2;
                     int LA15_0 = input.LA(1);
 
@@ -3607,7 +3607,7 @@ public class ES3YUITestLexer extends Lexer {
                     }
                     switch (alt15) {
                         case 1 :
-                            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:785:44: ExponentPart
+                            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:790:44: ExponentPart
                             {
                             mExponentPart(); 
 
@@ -3620,10 +3620,10 @@ public class ES3YUITestLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:786:4: '.' ( DecimalDigit )+ ( ExponentPart )?
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:791:4: '.' ( DecimalDigit )+ ( ExponentPart )?
                     {
                     match('.'); 
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:786:8: ( DecimalDigit )+
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:791:8: ( DecimalDigit )+
                     int cnt16=0;
                     loop16:
                     do {
@@ -3637,7 +3637,7 @@ public class ES3YUITestLexer extends Lexer {
 
                         switch (alt16) {
                     	case 1 :
-                    	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:786:8: DecimalDigit
+                    	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:791:8: DecimalDigit
                     	    {
                     	    mDecimalDigit(); 
 
@@ -3653,7 +3653,7 @@ public class ES3YUITestLexer extends Lexer {
                         cnt16++;
                     } while (true);
 
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:786:22: ( ExponentPart )?
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:791:22: ( ExponentPart )?
                     int alt17=2;
                     int LA17_0 = input.LA(1);
 
@@ -3662,7 +3662,7 @@ public class ES3YUITestLexer extends Lexer {
                     }
                     switch (alt17) {
                         case 1 :
-                            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:786:22: ExponentPart
+                            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:791:22: ExponentPart
                             {
                             mExponentPart(); 
 
@@ -3675,10 +3675,10 @@ public class ES3YUITestLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:787:4: DecimalIntegerLiteral ( ExponentPart )?
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:792:4: DecimalIntegerLiteral ( ExponentPart )?
                     {
                     mDecimalIntegerLiteral(); 
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:787:26: ( ExponentPart )?
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:792:26: ( ExponentPart )?
                     int alt18=2;
                     int LA18_0 = input.LA(1);
 
@@ -3687,7 +3687,7 @@ public class ES3YUITestLexer extends Lexer {
                     }
                     switch (alt18) {
                         case 1 :
-                            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:787:26: ExponentPart
+                            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:792:26: ExponentPart
                             {
                             mExponentPart(); 
 
@@ -3714,11 +3714,11 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = OctalIntegerLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:791:2: ( '0' ( OctalDigit )+ )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:791:4: '0' ( OctalDigit )+
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:796:2: ( '0' ( OctalDigit )+ )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:796:4: '0' ( OctalDigit )+
             {
             match('0'); 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:791:8: ( OctalDigit )+
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:796:8: ( OctalDigit )+
             int cnt20=0;
             loop20:
             do {
@@ -3732,7 +3732,7 @@ public class ES3YUITestLexer extends Lexer {
 
                 switch (alt20) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:791:8: OctalDigit
+            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:796:8: OctalDigit
             	    {
             	    mOctalDigit(); 
 
@@ -3764,10 +3764,10 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = HexIntegerLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:795:2: ( ( '0x' | '0X' ) ( HexDigit )+ )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:795:4: ( '0x' | '0X' ) ( HexDigit )+
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:800:2: ( ( '0x' | '0X' ) ( HexDigit )+ )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:800:4: ( '0x' | '0X' ) ( HexDigit )+
             {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:795:4: ( '0x' | '0X' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:800:4: ( '0x' | '0X' )
             int alt21=2;
             int LA21_0 = input.LA(1);
 
@@ -3795,7 +3795,7 @@ public class ES3YUITestLexer extends Lexer {
             }
             switch (alt21) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:795:6: '0x'
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:800:6: '0x'
                     {
                     match("0x"); 
 
@@ -3803,7 +3803,7 @@ public class ES3YUITestLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:795:13: '0X'
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:800:13: '0X'
                     {
                     match("0X"); 
 
@@ -3813,7 +3813,7 @@ public class ES3YUITestLexer extends Lexer {
 
             }
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:795:20: ( HexDigit )+
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:800:20: ( HexDigit )+
             int cnt22=0;
             loop22:
             do {
@@ -3827,7 +3827,7 @@ public class ES3YUITestLexer extends Lexer {
 
                 switch (alt22) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:795:20: HexDigit
+            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:800:20: HexDigit
             	    {
             	    mHexDigit(); 
 
@@ -3857,8 +3857,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "CharacterEscapeSequence"
     public final void mCharacterEscapeSequence() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:814:2: (~ ( DecimalDigit | 'x' | 'u' | LineTerminator ) )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:814:4: ~ ( DecimalDigit | 'x' | 'u' | LineTerminator )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:819:2: (~ ( DecimalDigit | 'x' | 'u' | LineTerminator ) )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:819:4: ~ ( DecimalDigit | 'x' | 'u' | LineTerminator )
             {
             if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='/')||(input.LA(1)>=':' && input.LA(1)<='t')||(input.LA(1)>='v' && input.LA(1)<='w')||(input.LA(1)>='y' && input.LA(1)<='\u2027')||(input.LA(1)>='\u202A' && input.LA(1)<='\uFFFF') ) {
                 input.consume();
@@ -3881,8 +3881,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "ZeroToThree"
     public final void mZeroToThree() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:818:2: ( '0' .. '3' )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:818:4: '0' .. '3'
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:823:2: ( '0' .. '3' )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:823:4: '0' .. '3'
             {
             matchRange('0','3'); 
 
@@ -3897,7 +3897,7 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "OctalEscapeSequence"
     public final void mOctalEscapeSequence() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:822:2: ( OctalDigit | ZeroToThree OctalDigit | '4' .. '7' OctalDigit | ZeroToThree OctalDigit OctalDigit )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:827:2: ( OctalDigit | ZeroToThree OctalDigit | '4' .. '7' OctalDigit | ZeroToThree OctalDigit OctalDigit )
             int alt23=4;
             int LA23_0 = input.LA(1);
 
@@ -3933,14 +3933,14 @@ public class ES3YUITestLexer extends Lexer {
             }
             switch (alt23) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:822:4: OctalDigit
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:827:4: OctalDigit
                     {
                     mOctalDigit(); 
 
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:823:4: ZeroToThree OctalDigit
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:828:4: ZeroToThree OctalDigit
                     {
                     mZeroToThree(); 
                     mOctalDigit(); 
@@ -3948,7 +3948,7 @@ public class ES3YUITestLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:824:4: '4' .. '7' OctalDigit
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:829:4: '4' .. '7' OctalDigit
                     {
                     matchRange('4','7'); 
                     mOctalDigit(); 
@@ -3956,7 +3956,7 @@ public class ES3YUITestLexer extends Lexer {
                     }
                     break;
                 case 4 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:825:4: ZeroToThree OctalDigit OctalDigit
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:830:4: ZeroToThree OctalDigit OctalDigit
                     {
                     mZeroToThree(); 
                     mOctalDigit(); 
@@ -3975,8 +3975,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "HexEscapeSequence"
     public final void mHexEscapeSequence() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:829:2: ( 'x' HexDigit HexDigit )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:829:4: 'x' HexDigit HexDigit
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:834:2: ( 'x' HexDigit HexDigit )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:834:4: 'x' HexDigit HexDigit
             {
             match('x'); 
             mHexDigit(); 
@@ -3993,8 +3993,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "UnicodeEscapeSequence"
     public final void mUnicodeEscapeSequence() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:833:2: ( 'u' HexDigit HexDigit HexDigit HexDigit )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:833:4: 'u' HexDigit HexDigit HexDigit HexDigit
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:838:2: ( 'u' HexDigit HexDigit HexDigit HexDigit )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:838:4: 'u' HexDigit HexDigit HexDigit HexDigit
             {
             match('u'); 
             mHexDigit(); 
@@ -4013,11 +4013,11 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "EscapeSequence"
     public final void mEscapeSequence() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:837:2: ( BSLASH ( CharacterEscapeSequence | OctalEscapeSequence | HexEscapeSequence | UnicodeEscapeSequence ) )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:838:2: BSLASH ( CharacterEscapeSequence | OctalEscapeSequence | HexEscapeSequence | UnicodeEscapeSequence )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:842:2: ( BSLASH ( CharacterEscapeSequence | OctalEscapeSequence | HexEscapeSequence | UnicodeEscapeSequence ) )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:843:2: BSLASH ( CharacterEscapeSequence | OctalEscapeSequence | HexEscapeSequence | UnicodeEscapeSequence )
             {
             mBSLASH(); 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:839:2: ( CharacterEscapeSequence | OctalEscapeSequence | HexEscapeSequence | UnicodeEscapeSequence )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:844:2: ( CharacterEscapeSequence | OctalEscapeSequence | HexEscapeSequence | UnicodeEscapeSequence )
             int alt24=4;
             int LA24_0 = input.LA(1);
 
@@ -4041,28 +4041,28 @@ public class ES3YUITestLexer extends Lexer {
             }
             switch (alt24) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:840:3: CharacterEscapeSequence
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:845:3: CharacterEscapeSequence
                     {
                     mCharacterEscapeSequence(); 
 
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:841:5: OctalEscapeSequence
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:846:5: OctalEscapeSequence
                     {
                     mOctalEscapeSequence(); 
 
                     }
                     break;
                 case 3 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:842:5: HexEscapeSequence
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:847:5: HexEscapeSequence
                     {
                     mHexEscapeSequence(); 
 
                     }
                     break;
                 case 4 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:843:5: UnicodeEscapeSequence
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:848:5: UnicodeEscapeSequence
                     {
                     mUnicodeEscapeSequence(); 
 
@@ -4085,7 +4085,7 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = StringLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:848:2: ( SQUOTE (~ ( SQUOTE | BSLASH | LineTerminator ) | EscapeSequence )* SQUOTE | DQUOTE (~ ( DQUOTE | BSLASH | LineTerminator ) | EscapeSequence )* DQUOTE )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:853:2: ( SQUOTE (~ ( SQUOTE | BSLASH | LineTerminator ) | EscapeSequence )* SQUOTE | DQUOTE (~ ( DQUOTE | BSLASH | LineTerminator ) | EscapeSequence )* DQUOTE )
             int alt27=2;
             int LA27_0 = input.LA(1);
 
@@ -4103,10 +4103,10 @@ public class ES3YUITestLexer extends Lexer {
             }
             switch (alt27) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:848:4: SQUOTE (~ ( SQUOTE | BSLASH | LineTerminator ) | EscapeSequence )* SQUOTE
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:853:4: SQUOTE (~ ( SQUOTE | BSLASH | LineTerminator ) | EscapeSequence )* SQUOTE
                     {
                     mSQUOTE(); 
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:848:11: (~ ( SQUOTE | BSLASH | LineTerminator ) | EscapeSequence )*
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:853:11: (~ ( SQUOTE | BSLASH | LineTerminator ) | EscapeSequence )*
                     loop25:
                     do {
                         int alt25=3;
@@ -4122,7 +4122,7 @@ public class ES3YUITestLexer extends Lexer {
 
                         switch (alt25) {
                     	case 1 :
-                    	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:848:13: ~ ( SQUOTE | BSLASH | LineTerminator )
+                    	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:853:13: ~ ( SQUOTE | BSLASH | LineTerminator )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\u2027')||(input.LA(1)>='\u202A' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -4137,7 +4137,7 @@ public class ES3YUITestLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:848:53: EscapeSequence
+                    	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:853:53: EscapeSequence
                     	    {
                     	    mEscapeSequence(); 
 
@@ -4154,10 +4154,10 @@ public class ES3YUITestLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:849:4: DQUOTE (~ ( DQUOTE | BSLASH | LineTerminator ) | EscapeSequence )* DQUOTE
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:854:4: DQUOTE (~ ( DQUOTE | BSLASH | LineTerminator ) | EscapeSequence )* DQUOTE
                     {
                     mDQUOTE(); 
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:849:11: (~ ( DQUOTE | BSLASH | LineTerminator ) | EscapeSequence )*
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:854:11: (~ ( DQUOTE | BSLASH | LineTerminator ) | EscapeSequence )*
                     loop26:
                     do {
                         int alt26=3;
@@ -4173,7 +4173,7 @@ public class ES3YUITestLexer extends Lexer {
 
                         switch (alt26) {
                     	case 1 :
-                    	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:849:13: ~ ( DQUOTE | BSLASH | LineTerminator )
+                    	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:854:13: ~ ( DQUOTE | BSLASH | LineTerminator )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\u2027')||(input.LA(1)>='\u202A' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -4188,7 +4188,7 @@ public class ES3YUITestLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:849:53: EscapeSequence
+                    	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:854:53: EscapeSequence
                     	    {
                     	    mEscapeSequence(); 
 
@@ -4217,8 +4217,8 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "BackslashSequence"
     public final void mBackslashSequence() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:857:2: ( BSLASH ~ ( LineTerminator ) )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:857:4: BSLASH ~ ( LineTerminator )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:862:2: ( BSLASH ~ ( LineTerminator ) )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:862:4: BSLASH ~ ( LineTerminator )
             {
             mBSLASH(); 
             if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\u2027')||(input.LA(1)>='\u202A' && input.LA(1)<='\uFFFF') ) {
@@ -4242,7 +4242,7 @@ public class ES3YUITestLexer extends Lexer {
     // $ANTLR start "RegularExpressionFirstChar"
     public final void mRegularExpressionFirstChar() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:861:2: (~ ( LineTerminator | MUL | BSLASH | DIV ) | BackslashSequence )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:866:2: (~ ( LineTerminator | MUL | BSLASH | DIV ) | BackslashSequence )
             int alt28=2;
             int LA28_0 = input.LA(1);
 
@@ -4260,59 +4260,9 @@ public class ES3YUITestLexer extends Lexer {
             }
             switch (alt28) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:861:4: ~ ( LineTerminator | MUL | BSLASH | DIV )
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:866:4: ~ ( LineTerminator | MUL | BSLASH | DIV )
                     {
                     if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<=')')||(input.LA(1)>='+' && input.LA(1)<='.')||(input.LA(1)>='0' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\u2027')||(input.LA(1)>='\u202A' && input.LA(1)<='\uFFFF') ) {
-                        input.consume();
-
-                    }
-                    else {
-                        MismatchedSetException mse = new MismatchedSetException(null,input);
-                        recover(mse);
-                        throw mse;}
-
-
-                    }
-                    break;
-                case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:862:4: BackslashSequence
-                    {
-                    mBackslashSequence(); 
-
-                    }
-                    break;
-
-            }
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "RegularExpressionFirstChar"
-
-    // $ANTLR start "RegularExpressionChar"
-    public final void mRegularExpressionChar() throws RecognitionException {
-        try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:866:2: (~ ( LineTerminator | BSLASH | DIV ) | BackslashSequence )
-            int alt29=2;
-            int LA29_0 = input.LA(1);
-
-            if ( ((LA29_0>='\u0000' && LA29_0<='\t')||(LA29_0>='\u000B' && LA29_0<='\f')||(LA29_0>='\u000E' && LA29_0<='.')||(LA29_0>='0' && LA29_0<='[')||(LA29_0>=']' && LA29_0<='\u2027')||(LA29_0>='\u202A' && LA29_0<='\uFFFF')) ) {
-                alt29=1;
-            }
-            else if ( (LA29_0=='\\') ) {
-                alt29=2;
-            }
-            else {
-                NoViableAltException nvae =
-                    new NoViableAltException("", 29, 0, input);
-
-                throw nvae;
-            }
-            switch (alt29) {
-                case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:866:4: ~ ( LineTerminator | BSLASH | DIV )
-                    {
-                    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='.')||(input.LA(1)>='0' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\u2027')||(input.LA(1)>='\u202A' && input.LA(1)<='\uFFFF') ) {
                         input.consume();
 
                     }
@@ -4337,6 +4287,56 @@ public class ES3YUITestLexer extends Lexer {
         finally {
         }
     }
+    // $ANTLR end "RegularExpressionFirstChar"
+
+    // $ANTLR start "RegularExpressionChar"
+    public final void mRegularExpressionChar() throws RecognitionException {
+        try {
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:871:2: (~ ( LineTerminator | BSLASH | DIV ) | BackslashSequence )
+            int alt29=2;
+            int LA29_0 = input.LA(1);
+
+            if ( ((LA29_0>='\u0000' && LA29_0<='\t')||(LA29_0>='\u000B' && LA29_0<='\f')||(LA29_0>='\u000E' && LA29_0<='.')||(LA29_0>='0' && LA29_0<='[')||(LA29_0>=']' && LA29_0<='\u2027')||(LA29_0>='\u202A' && LA29_0<='\uFFFF')) ) {
+                alt29=1;
+            }
+            else if ( (LA29_0=='\\') ) {
+                alt29=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 29, 0, input);
+
+                throw nvae;
+            }
+            switch (alt29) {
+                case 1 :
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:871:4: ~ ( LineTerminator | BSLASH | DIV )
+                    {
+                    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='.')||(input.LA(1)>='0' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\u2027')||(input.LA(1)>='\u202A' && input.LA(1)<='\uFFFF') ) {
+                        input.consume();
+
+                    }
+                    else {
+                        MismatchedSetException mse = new MismatchedSetException(null,input);
+                        recover(mse);
+                        throw mse;}
+
+
+                    }
+                    break;
+                case 2 :
+                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:872:4: BackslashSequence
+                    {
+                    mBackslashSequence(); 
+
+                    }
+                    break;
+
+            }
+        }
+        finally {
+        }
+    }
     // $ANTLR end "RegularExpressionChar"
 
     // $ANTLR start "RegularExpressionLiteral"
@@ -4344,15 +4344,15 @@ public class ES3YUITestLexer extends Lexer {
         try {
             int _type = RegularExpressionLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:871:2: ({...}? => DIV RegularExpressionFirstChar ( RegularExpressionChar )* DIV ( IdentifierPart )* )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:871:4: {...}? => DIV RegularExpressionFirstChar ( RegularExpressionChar )* DIV ( IdentifierPart )*
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:876:2: ({...}? => DIV RegularExpressionFirstChar ( RegularExpressionChar )* DIV ( IdentifierPart )* )
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:876:4: {...}? => DIV RegularExpressionFirstChar ( RegularExpressionChar )* DIV ( IdentifierPart )*
             {
             if ( !(( areRegularExpressionsEnabled() )) ) {
                 throw new FailedPredicateException(input, "RegularExpressionLiteral", " areRegularExpressionsEnabled() ");
             }
             mDIV(); 
             mRegularExpressionFirstChar(); 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:871:73: ( RegularExpressionChar )*
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:876:73: ( RegularExpressionChar )*
             loop30:
             do {
                 int alt30=2;
@@ -4365,7 +4365,7 @@ public class ES3YUITestLexer extends Lexer {
 
                 switch (alt30) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:871:73: RegularExpressionChar
+            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:876:73: RegularExpressionChar
             	    {
             	    mRegularExpressionChar(); 
 
@@ -4378,7 +4378,7 @@ public class ES3YUITestLexer extends Lexer {
             } while (true);
 
             mDIV(); 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:871:100: ( IdentifierPart )*
+            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:876:100: ( IdentifierPart )*
             loop31:
             do {
                 int alt31=2;
@@ -4394,7 +4394,7 @@ public class ES3YUITestLexer extends Lexer {
 
                 switch (alt31) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:871:100: IdentifierPart
+            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:876:100: IdentifierPart
             	    {
             	    mIdentifierPart(); 
 
@@ -5301,7 +5301,7 @@ public class ES3YUITestLexer extends Lexer {
             this.transition = DFA19_transition;
         }
         public String getDescription() {
-            return "784:1: DecimalLiteral : ( DecimalIntegerLiteral '.' ( DecimalDigit )* ( ExponentPart )? | '.' ( DecimalDigit )+ ( ExponentPart )? | DecimalIntegerLiteral ( ExponentPart )? );";
+            return "789:1: DecimalLiteral : ( DecimalIntegerLiteral '.' ( DecimalDigit )* ( ExponentPart )? | '.' ( DecimalDigit )+ ( ExponentPart )? | DecimalIntegerLiteral ( ExponentPart )? );";
         }
     }
     static final String DFA32_eotS =

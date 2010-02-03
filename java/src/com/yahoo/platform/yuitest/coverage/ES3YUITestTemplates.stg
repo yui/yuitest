@@ -1,16 +1,11 @@
 group ES3YUITestTemplates;
 
 cover_line(src,code,line) ::= <<
-(_yuitest_coverline("<src>", <line>)); <code>
+_yuitest_coverline("<src>", <line>); <code>
 >>
 
 cover_func(src,code,name,line) ::= <<
-(_yuitest_coverfunc("<src>", "<name>", <line>));
-<code>
->>
-
-cover_anon_func(src,code,num,line) ::= <<
-(_yuitest_coverfunc("<src>", "(anonymous <num>)", <line>));
+_yuitest_coverfunc("<src>", "<name>", <line>);
 <code>
 >>
 
@@ -18,18 +13,18 @@ ignore(code) ::= <<
 <code>
 >>
 
-cover_file(src,code,lines,funcs) ::= <<
+file_header(src,path) ::= <<
 if (typeof _yuitest_coverage == "undefined"){
     _yuitest_coverage = {};
     _yuitest_coverline = function(src, line){
-        var coverage = _yuitest_coverage["<src>"];
+        var coverage = _yuitest_coverage[src];
         if (!coverage.lines[line]){
             coverage.calledLines++;
         }
         coverage.lines[line]++;
     };
     _yuitest_coverfunc = function(src, name, line){
-        var coverage = _yuitest_coverage["<src>"],
+        var coverage = _yuitest_coverage[src],
             funcId = name + ":" + line;
         if (!coverage.functions[funcId]){
             coverage.calledFunctions++;
@@ -38,12 +33,21 @@ if (typeof _yuitest_coverage == "undefined"){
     };
 }
 _yuitest_coverage["<src>"] = {
-    lines: {"<lines; separator="\":0,\"">":0},
-    functions: {<funcs; separator=":0,">:0},
-    totalLines: <length(lines)>,
+    lines: {},
+    functions: {},
+    coveredLines: 0,
     calledLines: 0,
-    totalFunctions: <length(funcs)>,
-    calledFunctions: 0
+    coveredFunctions: 0,
+    calledFunctions: 0,
+    path: "<path>",
+    code: []
 };
+>>
+
+cover_file(src,code,lines,funcs) ::= <<
+_yuitest_coverage["<src>"].lines = {"<lines; separator="\":0,\"">":0};
+_yuitest_coverage["<src>"].functions = {<funcs; separator=":0,">:0};
+_yuitest_coverage["<src>"].coveredLines = <length(lines)>;
+_yuitest_coverage["<src>"].coveredFunctions = <length(funcs)>;
 <code>
 >>

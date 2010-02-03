@@ -8,7 +8,7 @@
 
 package com.yahoo.platform.yuitest.coverage.writers;
 
-import com.yahoo.platform.yuitest.coverage.results.SummaryReport;
+import com.yahoo.platform.yuitest.coverage.results.SummaryCoverageReport;
 import java.io.IOException;
 import java.util.Date;
 
@@ -17,7 +17,7 @@ import java.util.Date;
  * @author Nicholas C. Zakas
  */
 public interface SummaryReportWriter {
-    public void write(SummaryReport report) throws IOException;
-    public void write(SummaryReport report, Date date) throws IOException;
+    public void write(SummaryCoverageReport report) throws IOException;
+    public void write(SummaryCoverageReport report, Date date) throws IOException;
     public void close() throws IOException;
 }

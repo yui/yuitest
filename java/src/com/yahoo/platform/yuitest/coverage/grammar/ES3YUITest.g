@@ -1641,7 +1641,8 @@ scope{
     if (nextTT == Identifier){
         $functionExpression::funcName = input.LT(2).getText();
     } else if (lastTT == COLON || lastTT == ASSIGN) {
-        $functionExpression::funcName = input.LT(-2).getText();
+        $functionExpression::funcName = input.LT(-2).getText().replace("\"", "\\\"").replace("'", "\\'");
+
         //TODO: Continue walking back in case the identifier is object.name
         //right now, I end up just with name.
     } else {

@@ -944,6 +944,7 @@ memberExpression
 
 newExpression
 	: NEW primaryExpression
+        | NEW functionExpression   //not per spec, but needed to support old coding patterns
 	;
 
 	

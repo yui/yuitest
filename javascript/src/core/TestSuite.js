@@ -26,7 +26,7 @@ YUITest.Suite = function (data) {
     this.items = [];
 
     //initialize the properties
-    if (typeof data == "string")){
+    if (typeof data == "string"){
         this.name = data;
     } else if (data instanceof Object){
         for (var prop in data){

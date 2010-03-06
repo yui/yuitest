@@ -8,7 +8,7 @@
  * @class YUITest
  * @static
  */
-/*global YUITest*/
-YUITest = {
+
+var YUITest = {
     version: "@VERSION@"
 };

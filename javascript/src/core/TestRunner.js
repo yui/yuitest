@@ -6,7 +6,7 @@
      * @class Runner
      * @static
      */
-    YUITest.Runner = (function(){
+    YUITest.Runner = function(){
     
         /**
          * A node in the test tree structure. May represent a TestSuite, TestCase, or
@@ -459,7 +459,7 @@
              * @private
              */
             _handleTestObjectComplete : function (node) {
-                if (typeof node.testObject == "object" && node != null){
+                if (typeof node.testObject == "object" && node !== null){
                     node.parent.results.passed += node.results.passed;
                     node.parent.results.failed += node.results.failed;
                     node.parent.results.total += node.results.total;                
@@ -547,7 +547,7 @@
                     var testObject = node.testObject;
                     
                     //figure out what to do
-                    if (typeof testObject == "object" && testObject != null){
+                    if (typeof testObject == "object" && testObject !== null){
                         if (testObject instanceof YUITest.Suite){
                             this.fire(this.TEST_SUITE_BEGIN_EVENT, { testSuite: testObject });
                             node._start = new Date();
@@ -675,7 +675,7 @@
                                     failed = true;
                                 }
                             
-                            } else if (typeof shouldError == "object" && shouldError != null)){
+                            } else if (typeof shouldError == "object" && shouldError !== null){
                             
                                 //if it's an object, check the instance and message
                                 if (!(thrown instanceof shouldError.constructor) || 
@@ -988,8 +988,8 @@
                 //begin the testing
                 runner._run();
             }    
-        });
+        };
         
         return new TestRunner();
         
-    })();
+    }();

@@ -2,11 +2,11 @@
  * Test case containing various tests to run.
  * @param template An object containing any number of test methods, other methods,
  *                 an optional name, and anything else the test case needs.
- * @class Case
+ * @class TestCase
  * @namespace YUITest
  * @constructor
  */
-YUITest.Case = function (template) {
+YUITest.TestCase = function (template) {
     
     /**
      * Special rules for the test case. Possible subobjects
@@ -27,10 +27,10 @@ YUITest.Case = function (template) {
 
 };
         
-YUITest.Case.prototype = {  
+YUITest.TestCase.prototype = {  
 
     //restore constructor
-    constructor: YUITest.Case,
+    constructor: YUITest.TestCase,
 
     /**
      * Resumes a paused test and runs the given function.
@@ -40,7 +40,7 @@ YUITest.Case.prototype = {
      * @method resume
      */
     resume : function (segment) {
-        YUITest.Runner.resume(segment);
+        YUITest.TestRunner.resume(segment);
     },
 
     /**

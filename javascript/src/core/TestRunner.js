@@ -6,7 +6,7 @@
      * @class Runner
      * @static
      */
-    YUITest.Runner = function(){
+    YUITest.TestRunner = function(){
     
         /**
          * A node in the test tree structure. May represent a TestSuite, TestCase, or
@@ -67,10 +67,10 @@
             };
             
             //initialize results
-            if (testObject instanceof YUITest.Suite){
+            if (testObject instanceof YUITest.TestSuite){
                 this.results.type = "testsuite";
                 this.results.name = testObject.name;
-            } else if (testObject instanceof YUITest.Case){
+            } else if (testObject instanceof YUITest.TestCase){
                 this.results.type = "testcase";
                 this.results.name = testObject.name;
             }
@@ -106,18 +106,15 @@
          * @static
          */
         function TestRunner(){
-        
-            //inherit from EventProvider
-            TestRunner.superclass.constructor.apply(this,arguments);
             
             /**
              * Suite on which to attach all TestSuites and TestCases to be run.
-             * @type YUITest.Suite
+             * @type YUITest.TestSuite
              * @property masterSuite
              * @static
              * @private
              */
-            this.masterSuite /*:YUITest.Suite*/ = new YUITest.Suite("yuitests" + (new Date()).getTime());        
+            this.masterSuite = new YUITest.TestSuite("yuitests" + (new Date()).getTime());        
     
             /**
              * Pointer to the current node in the test tree.
@@ -174,29 +171,22 @@
              * @static
              */
             this._lastResults = null;            
-            
-            //create events
-            var events = [
-                this.TEST_CASE_BEGIN_EVENT,
-                this.TEST_CASE_COMPLETE_EVENT,
-                this.TEST_SUITE_BEGIN_EVENT,
-                this.TEST_SUITE_COMPLETE_EVENT,
-                this.TEST_PASS_EVENT,
-                this.TEST_FAIL_EVENT,
-                this.TEST_IGNORE_EVENT,
-                this.COMPLETE_EVENT,
-                this.BEGIN_EVENT
-            ];
-            for (var i=0; i < events.length; i++){
-                this.subscribe(events[i], this._logEvent, this, true);
-            }      
+
+            /**
+             * Event handlers for the various events.
+             * @type Object
+             * @private
+             * @property _handlers
+             * @static
+             */
+            this._handlers = {};
        
         }
         
-        YUITest.Runner.prototype = {
+        TestRunner.prototype = {
         
             //restore prototype
-            constructor: YUITest.Runner,
+            constructor: YUITest.TestRunner,
         
             //-------------------------------------------------------------------------
             // Constants
@@ -269,103 +259,68 @@
             BEGIN_EVENT : "begin",    
             
             //-------------------------------------------------------------------------
-            // Logging-Related Methods
+            // Event Handling
             //-------------------------------------------------------------------------
-    
             
             /**
-             * Disable logging via Y.log(). Test output will not be visible unless
-             * TestRunner events are subscribed to.
-             * @return {Void}
-             * @method disableLogging
-             * @static
+             * Adds a listener for a given event type.
+             * @param {String} type The type of event to add a listener for.
+             * @param {Function} listener The function to call when the event occurs.
+             * @return {void}
+             * @method subscribe
              */
-            disableLogging: function(){
-                this._log = false;
-            },    
-            
-            /**
-             * Enable logging via Y.log(). Test output is published and can be read via
-             * logreader.
-             * @return {Void}
-             * @method enableLogging
-             * @static
-             */
-            enableLogging: function(){
-                this._log = true;
+            subscribe: function(type, listener){
+                if (typeof this._handlers[type] == "undefined"){
+                    this._handlers[type] = [];
+                }
+
+                this._handlers[type].push(listener);
             },
             
             /**
-             * Logs TestRunner events using Y.log().
-             * @param {Object} event The event object for the event.
-             * @return {Void}
-             * @method _logEvent
-             * @private
-             * @static
+             * Fires an event based on the passed-in object.
+             * @param {Object|String} event An object with at least a 'type' attribute
+             *      or a string indicating the event name.
+             * @return {void}
+             * @method fire
+             */    
+            fire: function(event){
+                if (typeof event == "string"){
+                    event = { type: event };
+                }
+                if (!event.target){
+                    event.target = this;
+                }
+                
+                if (!event.type){
+                    throw new Error("Event object missing 'type' property.");
+                }
+                
+                if (this._handlers[event.type] instanceof Array){
+                    var handlers = this._handlers[event.type];
+                    for (var i=0, len=handlers.length; i < len; i++){
+                        handlers[i].call(this, event);
+                    }
+                }            
+            },
+
+            /**
+             * Removes a listener for a given event type.
+             * @param {String} type The type of event to remove a listener from.
+             * @param {Function} listener The function to remove from the event.
+             * @return {void}
+             * @method unsubscribe
              */
-            _logEvent: function(event){
-                
-                //data variables
-                var message = "";
-                var messageType = "";
-                
-                switch(event.type){
-                    case this.BEGIN_EVENT:
-                        message = "Testing began at " + (new Date()).toString() + ".";
-                        messageType = "info";
-                        break;
-                        
-                    case this.COMPLETE_EVENT:
-                        message = "Testing completed at " + (new Date()).toString() + ".\nPassed:" + 
-                            event.results.passed + " Failed:" + event.results.failed + " Total:" + event.results.total;
-                        messageType = "info";
-                        break;
-                        
-                    case this.TEST_FAIL_EVENT:
-                        message = event.testName + ": failed.\n" + event.error.getMessage();
-                        messageType = "fail";
-                        break;
-                        
-                    case this.TEST_IGNORE_EVENT:
-                        message = event.testName + ": ignored.";
-                        messageType = "ignore";
-                        break;
-                        
-                    case this.TEST_PASS_EVENT:
-                        message = event.testName + ": passed.";
-                        messageType = "pass";
-                        break;
-                        
-                    case this.TEST_SUITE_BEGIN_EVENT:
-                        message = "Test suite \"" + event.testSuite.name + "\" started.";
-                        messageType = "info";
-                        break;
-                        
-                    case this.TEST_SUITE_COMPLETE_EVENT:
-                        message = "Test suite \"" + event.testSuite.name + "\" completed.\nPassed:" + 
-                            event.results.passed + " Failed:" + event.results.failed + " Total:" + event.results.total;
-                        messageType = "info";
-                        break;
-                        
-                    case this.TEST_CASE_BEGIN_EVENT:
-                        message = "Test case \"" + event.testCase.name + "\" started.";
-                        messageType = "info";
-                        break;
-                        
-                    case this.TEST_CASE_COMPLETE_EVENT:
-                        message = "Test case \"" + event.testCase.name + "\" completed.\nPassed:" + 
-                            event.results.passed + " Failed:" + event.results.failed + " Total:" + event.results.total;
-                        messageType = "info";
-                        break;
-                    default:
-                        message = "Unexpected event " + event.type;
-                        message = "info";
-                }
-            
-                //only log if required
-                if (this._log){
-                    Y.log(message, messageType, "TestRunner");
-                }
+            unsubscribe: function(type, listener){
+                if (this._handlers[type] instanceof Array){
+                    var handlers = this._handlers[type];
+                    for (var i=0, len=handlers.length; i < len; i++){
+                        if (handlers[i] === listener){
+                            handlers.splice(i, 1);
+                            break;
+                        }
+                    }
+                }            
             },
 
             //-------------------------------------------------------------------------
@@ -375,13 +330,13 @@
             /**
              * Adds a test case to the test tree as a child of the specified node.
              * @param {TestNode} parentNode The node to add the test case to as a child.
-             * @param {YUITest.Case} testCase The test case to add.
+             * @param {YUITest.TestCase} testCase The test case to add.
              * @return {Void}
              * @static
              * @private
              * @method _addTestCaseToTestTree
              */
-           _addTestCaseToTestTree : function (parentNode, testCase /*:YUITest.Case*/){
+           _addTestCaseToTestTree : function (parentNode, testCase){
                 
                 //add the test suite
                 var node = parentNode.appendChild(testCase),
@@ -400,22 +355,22 @@
             /**
              * Adds a test suite to the test tree as a child of the specified node.
              * @param {TestNode} parentNode The node to add the test suite to as a child.
-             * @param {YUITest.Suite} testSuite The test suite to add.
+             * @param {YUITest.TestSuite} testSuite The test suite to add.
              * @return {Void}
              * @static
              * @private
              * @method _addTestSuiteToTestTree
              */
-            _addTestSuiteToTestTree : function (parentNode, testSuite /*:YUITest.Suite*/) {
+            _addTestSuiteToTestTree : function (parentNode, testSuite) {
                 
                 //add the test suite
                 var node = parentNode.appendChild(testSuite);
                 
                 //iterate over the items in the master suite
                 for (var i=0; i < testSuite.items.length; i++){
-                    if (testSuite.items[i] instanceof YUITest.Suite) {
+                    if (testSuite.items[i] instanceof YUITest.TestSuite) {
                         this._addTestSuiteToTestTree(node, testSuite.items[i]);
-                    } else if (testSuite.items[i] instanceof YUITest.Case) {
+                    } else if (testSuite.items[i] instanceof YUITest.TestCase) {
                         this._addTestCaseToTestTree(node, testSuite.items[i]);
                     }                   
                 }            
@@ -437,9 +392,9 @@
                 
                 //iterate over the items in the master suite
                 for (var i=0; i < this.masterSuite.items.length; i++){
-                    if (this.masterSuite.items[i] instanceof YUITest.Suite) {
+                    if (this.masterSuite.items[i] instanceof YUITest.TestSuite) {
                         this._addTestSuiteToTestTree(this._root, this.masterSuite.items[i]);
-                    } else if (this.masterSuite.items[i] instanceof YUITest.Case) {
+                    } else if (this.masterSuite.items[i] instanceof YUITest.TestCase) {
                         this._addTestCaseToTestTree(this._root, this.masterSuite.items[i]);
                     }                   
                 }            
@@ -467,13 +422,13 @@
                     //node.parent.results.duration += node.results.duration;
                     node.parent.results[node.testObject.name] = node.results;
                 
-                    if (node.testObject instanceof YUITest.Suite){
+                    if (node.testObject instanceof YUITest.TestSuite){
                         node.testObject.tearDown();
                         node.results.duration = (new Date()) - node._start;
-                        this.fire(this.TEST_SUITE_COMPLETE_EVENT, { testSuite: node.testObject, results: node.results});
-                    } else if (node.testObject instanceof YUITest.Case){
+                        this.fire({ type: this.TEST_SUITE_COMPLETE_EVENT, testSuite: node.testObject, results: node.results});
+                    } else if (node.testObject instanceof YUITest.TestCase){
                         node.results.duration = (new Date()) - node._start;
-                        this.fire(this.TEST_CASE_COMPLETE_EVENT, { testCase: node.testObject, results: node.results});
+                        this.fire({ type: this.TEST_CASE_COMPLETE_EVENT, testCase: node.testObject, results: node.results});
                     }      
                 } 
             },                
@@ -509,7 +464,7 @@
                         this._cur.results.duration = (new Date()) - this._cur._start;   
                         this._lastResults = this._cur.results;
                         this._running = false;                         
-                        this.fire(this.COMPLETE_EVENT, { results: this._lastResults});
+                        this.fire({ type: this.COMPLETE_EVENT, results: this._lastResults});
                         this._cur = null;
                     } else {
                         this._handleTestObjectComplete(this._cur);               
@@ -522,7 +477,7 @@
             
             /**
              * Runs a test case or test suite, returning the results.
-             * @param {YUITest.Case|YUITest.Suite} testObject The test case or test suite to run.
+             * @param {YUITest.TestCase|YUITest.TestSuite} testObject The test case or test suite to run.
              * @return {Object} Results of the execution with properties passed, failed, and total.
              * @private
              * @method _run
@@ -548,19 +503,19 @@
                     
                     //figure out what to do
                     if (typeof testObject == "object" && testObject !== null){
-                        if (testObject instanceof YUITest.Suite){
-                            this.fire(this.TEST_SUITE_BEGIN_EVENT, { testSuite: testObject });
+                        if (testObject instanceof YUITest.TestSuite){
+                            this.fire({ type: this.TEST_SUITE_BEGIN_EVENT, testSuite: testObject });
                             node._start = new Date();
                             testObject.setUp();
-                        } else if (testObject instanceof YUITest.Case){
-                            this.fire(this.TEST_CASE_BEGIN_EVENT, { testCase: testObject });
+                        } else if (testObject instanceof YUITest.TestCase){
+                            this.fire({ type: this.TEST_CASE_BEGIN_EVENT, testCase: testObject });
                             node._start = new Date();
                         }
                         
                         //some environments don't support setTimeout
                         if (typeof setTimeout != "undefined"){                    
                             setTimeout(function(){
-                                YUITest.Runner._run();
+                                YUITest.TestRunner._run();
                             }, 0);
                         } else {
                             this._run();
@@ -589,7 +544,7 @@
                 }
                 
                 var testName = node.testObject;
-                var testCase /*:YUITest.Case*/ = node.parent.testObject;
+                var testCase = node.parent.testObject;
             
                 //cancel other waits if available
                 if (testCase.__yui_wait){
@@ -642,7 +597,7 @@
                                 //some environments don't support setTimeout
                                 if (typeof setTimeout != "undefined"){
                                     testCase.__yui_wait = setTimeout(function(){
-                                        YUITest.Runner._resumeTest(thrown.segment);
+                                        YUITest.TestRunner._resumeTest(thrown.segment);
                                     }, thrown.delay);
                                     this._waiting = true;
                                 } else {
@@ -693,9 +648,9 @@
                 
                 //fire appropriate event
                 if (failed) {
-                    this.fire(this.TEST_FAIL_EVENT, { testCase: testCase, testName: testName, error: error });
+                    this.fire({ type: this.TEST_FAIL_EVENT, testCase: testCase, testName: testName, error: error });
                 } else {
-                    this.fire(this.TEST_PASS_EVENT, { testCase: testCase, testName: testName });
+                    this.fire({ type: this.TEST_PASS_EVENT, testCase: testCase, testName: testName });
                 }
                 
                 //run the tear down
@@ -723,7 +678,7 @@
                 //set timeout not supported in all environments
                 if (typeof setTimeout != "undefined"){
                     setTimeout(function(){
-                        YUITest.Runner._run();
+                        YUITest.TestRunner._run();
                     }, 0);
                 } else {
                     this._run();
@@ -768,7 +723,7 @@
             
                 //get relevant information
                 var testName = node.testObject;
-                var testCase /*:YUITest.Case*/ = node.parent.testObject;
+                var testCase = node.parent.testObject;
                 var test = testCase[testName];
                 
                 //get the "should" test cases
@@ -788,12 +743,12 @@
                     node.parent.results.ignored++;
                     node.parent.results.total++;
                 
-                    this.fire(this.TEST_IGNORE_EVENT, { testCase: testCase, testName: testName });
+                    this.fire({ type: this.TEST_IGNORE_EVENT,  testCase: testCase, testName: testName });
                     
                     //some environments don't support setTimeout
                     if (typeof setTimeout != "undefined"){                    
                         setTimeout(function(){
-                            YUITest.Runner._run();
+                            YUITest.TestRunner._run();
                         }, 0);              
                     } else {
                         this._run();
@@ -838,26 +793,6 @@
             },            
             
             //-------------------------------------------------------------------------
-            // Protected Methods
-            //-------------------------------------------------------------------------   
-        
-            /*
-             * Fires events for the TestRunner. This overrides the default fire()
-             * method from EventProvider to add the type property to the data that is
-             * passed through on each event call.
-             * @param {String} type The type of event to fire.
-             * @param {Object} data (Optional) Data for the event.
-             * @method fire
-             * @static
-             * @protected
-             */
-            fire : function (type, data) {
-                data = data || {};
-                data.type = type;
-                TestRunner.superclass.fire.call(this, type, data);
-            },
-            
-            //-------------------------------------------------------------------------
             // Public Methods
             //-------------------------------------------------------------------------   
         
@@ -880,7 +815,7 @@
              * @static
              */
             clear : function () {
-                this.masterSuite = new YUITest.Suite("yuitests" + (new Date()).getTime());
+                this.masterSuite = new YUITest.TestSuite("yuitests" + (new Date()).getTime());
             },
             
             /**
@@ -969,10 +904,10 @@
             run : function (oldMode) {
                 
                 //pointer to runner to avoid scope issues 
-                var runner = YUITest.Runner;
+                var runner = YUITest.TestRunner;
                 
                 //if there's only one suite on the masterSuite, move it up
-                if (!oldMode && this.masterSuite.items.length == 1 && this.masterSuite.items[0] instanceof YUITest.Suite){
+                if (!oldMode && this.masterSuite.items.length == 1 && this.masterSuite.items[0] instanceof YUITest.TestSuite){
                     this.masterSuite = this.masterSuite.items[0];
                 }                
     

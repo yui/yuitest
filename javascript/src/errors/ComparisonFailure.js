@@ -51,7 +51,7 @@ YUITest.ComparisonFailure.prototype.constructor = YUITest.ComparisonFailure;
  * @method getMessage
  * @return {String} A string describing the error.
  */
-YUITest.ComparisonFailure.prototype.getMessage: function(){
+YUITest.ComparisonFailure.prototype.getMessage = function(){
     return this.message + "\nExpected: " + this.expected + " (" + (typeof this.expected) + ")"  +
             "\nActual: " + this.actual + " (" + (typeof this.actual) + ")";
 };

@@ -33,7 +33,7 @@ YUITest.UnexpectedValue = function (message, unexpected){
 };
 
 //inherit from YUITest.AssertionError
-YUITest.UnexpectedValue.prototype = YUITest.AssertionError.prototype;
+YUITest.UnexpectedValue.prototype = new YUITest.AssertionError();
 
 //restore constructor
 YUITest.UnexpectedValue.prototype.constructor = YUITest.UnexpectedValue;
@@ -44,6 +44,6 @@ YUITest.UnexpectedValue.prototype.constructor = YUITest.UnexpectedValue;
  * @method getMessage
  * @return {String} A string describing the error.
  */
-YUITest.UnexpectedValue.prototype.getMessage: function(){
+YUITest.UnexpectedValue.prototype.getMessage = function(){
     return this.message + "\nUnexpected: " + this.unexpected + " (" + (typeof this.unexpected) + ") ";
 };

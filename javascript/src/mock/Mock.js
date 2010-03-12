@@ -78,8 +78,8 @@ YUITest.Mock.expect = function(mock /*:Object*/, expectation /*:Object*/){
             
         //process arguments
         for (i=0; i < args.length; i++){
-             if (!(array[i] instanceof Y.Mock.Value)){
-                array[i] = YUITest.Mock.Value(YUITest.Assert.areSame, [args[i]], "Argument " + i + " of " + name + "() is incorrect.");
+             if (!(args[i] instanceof YUITest.Mock.Value)){
+                args[i] = YUITest.Mock.Value(YUITest.Assert.areSame, [args[i]], "Argument " + i + " of " + name + "() is incorrect.");
             }       
         }
     
@@ -88,7 +88,7 @@ YUITest.Mock.expect = function(mock /*:Object*/, expectation /*:Object*/){
             mock[name] = function(){   
                 try {
                     expectation.actualCallCount++;
-                    YYUITest.Assert.areEqual(args.length, arguments.length, "Method " + name + "() passed incorrect number of arguments.");
+                    YUITest.Assert.areEqual(args.length, arguments.length, "Method " + name + "() passed incorrect number of arguments.");
                     for (var i=0, len=args.length; i < len; i++){
                         //if (args[i]){
                             args[i].verify(arguments[i]);
@@ -105,7 +105,7 @@ YUITest.Mock.expect = function(mock /*:Object*/, expectation /*:Object*/){
                     }
                 } catch (ex){
                     //route through TestRunner for proper handling
-                    YUITest.Runner._handleError(ex);
+                    YUITest.TestRunner._handleError(ex);
                 }
                 
                 return result;
@@ -118,7 +118,7 @@ YUITest.Mock.expect = function(mock /*:Object*/, expectation /*:Object*/){
                     YUITest.Assert.fail("Method " + name + "() should not have been called.");
                 } catch (ex){
                     //route through TestRunner for proper handling
-                    YUITest.Runner._handleError(ex);
+                    YUITest.TestRunner._handleError(ex);
                 }                    
             };
         }
@@ -139,9 +139,9 @@ YUITest.Mock.expect = function(mock /*:Object*/, expectation /*:Object*/){
 YUITest.Mock.verify = function(mock){    
     try {
     
-        for (var name in mock._expectations){
-            if (mock._expectations.hasOwnProperty(name)){
-                var expectation = mock._expectations[name];
+        for (var name in mock.__expectations){
+            if (mock.__expectations.hasOwnProperty(name)){
+                var expectation = mock.__expectations[name];
                 if (expectation.method) {
                     YUITest.Assert.areEqual(expectation.callCount, expectation.actualCallCount, "Method " + expectation.method + "() wasn't called the expected number of times.");
                 } else if (expectation.property){
@@ -152,7 +152,7 @@ YUITest.Mock.verify = function(mock){
 
     } catch (ex){
         //route through TestRunner for proper handling
-        YUITest.Runner._handleError(ex);
+        YUITest.TestRunner._handleError(ex);
     }
 };
 

@@ -23,7 +23,7 @@ YUITest.ShouldError = function (message){
 };
 
 //inherit from YUITest.AssertionError
-YUITest.ShouldError.prototype = YUITest.AssertionError.prototype;
+YUITest.ShouldError.prototype = new YUITest.AssertionError();
 
 //restore constructor
 YUITest.ShouldError.prototype.constructor = YUITest.ShouldError;

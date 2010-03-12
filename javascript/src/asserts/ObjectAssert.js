@@ -110,7 +110,9 @@ YUITest.ObjectAssert = {
             }
         }
         
-        YUITest.Assert.fail(YUITest.Assert._formatMessage(message, "Object owns " + count + " properties but should own none."));        
+        if (count !== 0){
+            YUITest.Assert.fail(YUITest.Assert._formatMessage(message, "Object owns " + count + " properties but should own none."));        
+        }
 
     }     
 };

@@ -39,7 +39,7 @@ YUITest.UnexpectedError = function (cause){
 };
 
 //inherit from YUITest.AssertionError
-YUITest.UnexpectedError.prototype = YUITest.AssertionError.prototype;
+YUITest.UnexpectedError.prototype = new YUITest.AssertionError();
 
 //restore constructor
 YUITest.UnexpectedError.prototype.constructor = YUITest.UnexpectedError;

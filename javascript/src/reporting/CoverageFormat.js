@@ -1,4 +1,3 @@
-
 YUITest.CoverageFormat = {
 
     /**
@@ -26,14 +25,13 @@ YUITest.CoverageFormat = {
     XdebugJSON: function(coverage){
     
         var report = {};
-        Y.Object.each(coverage, function(value, name){
-            report[name] = coverage[name].lines;
-        });
+        for (var prop in coverage){
+            if (coverage.hasOwnProperty(prop)){
+                report[prop] = coverage[prop].lines;
+            }
+        }
 
         return JSON.stringify(coverage);
     }
 
 };
-
-
-  

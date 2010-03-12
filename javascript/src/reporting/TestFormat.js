@@ -46,10 +46,9 @@ YUITest.TestFormat = function(){
         XML: function(results) {
 
             function serializeToXML(results){
-                var l   = Y.Lang,
-                    xml = "<" + results.type + " name=\"" + xmlEscape(results.name) + "\"";
+                var xml = "<" + results.type + " name=\"" + xmlEscape(results.name) + "\"";
                 
-                if (l.isNumber(results.duration)){
+                if (typeof(results.duration)=="number"){
                     xml += " duration=\"" + results.duration + "\"";
                 }
                 
@@ -57,11 +56,13 @@ YUITest.TestFormat = function(){
                     xml += " result=\"" + results.result + "\" message=\"" + xmlEscape(results.message) + "\">";
                 } else {
                     xml += " passed=\"" + results.passed + "\" failed=\"" + results.failed + "\" ignored=\"" + results.ignored + "\" total=\"" + results.total + "\">";
-                    Y.Object.each(results, function(value){
-                        if (l.isObject(value) && !l.isArray(value)){
-                            xml += serializeToXML(value);
+                    for (var prop in results){
+                        if (results.hasOwnProperty(prop)){
+                            if (results[prop] && typeof results[prop] == "object" && !(results[prop] instanceof Array)){
+                                xml += serializeToXML(results[prop]);
+                            }
                         }
-                    });       
+                    }       
                 }
 
                 xml += "</" + results.type + ">";
@@ -85,8 +86,7 @@ YUITest.TestFormat = function(){
         JUnitXML: function(results) {
 
             function serializeToJUnitXML(results){
-                var l   = Y.Lang,
-                    xml = "";
+                var xml = "";
                     
                 switch (results.type){
                     //equivalent to testcase in JUnit
@@ -105,22 +105,26 @@ YUITest.TestFormat = function(){
                     
                         xml = "<testsuite name=\"" + xmlEscape(results.name) + "\" tests=\"" + results.total + "\" failures=\"" + results.failed + "\" time=\"" + (results.duration/1000) + "\">";
                         
-                        Y.Object.each(results, function(value){
-                            if (l.isObject(value) && !l.isArray(value)){
-                                xml += serializeToJUnitXML(value);
+                        for (var prop in results){
+                            if (results.hasOwnProperty(prop)){
+                                if (results[prop] && typeof results[prop] == "object" && !(results[prop] instanceof Array)){
+                                    xml += serializeToJUnitXML(results[prop]);
+                                }
                             }
-                        });             
+                        }            
                         
                         xml += "</testsuite>";
                         break;
                     
                     //no JUnit equivalent, don't output anything
                     case "testsuite":
-                        Y.Object.each(results, function(value){
-                            if (l.isObject(value) && !l.isArray(value)){
-                                xml += serializeToJUnitXML(value);
+                        for (var prop in results){
+                            if (results.hasOwnProperty(prop)){
+                                if (results[prop] && typeof results[prop] == "object" && !(results[prop] instanceof Array)){
+                                    xml += serializeToJUnitXML(results[prop]);
+                                }
                             }
-                        });                                                     
+                        }                                                     
                         break;
                         
                     //top-level, equivalent to testsuites in JUnit
@@ -128,11 +132,13 @@ YUITest.TestFormat = function(){
                     
                         xml = "<testsuites>";
                     
-                        Y.Object.each(results, function(value){
-                            if (l.isObject(value) && !l.isArray(value)){
-                                xml += serializeToJUnitXML(value);
+                        for (var prop in results){
+                            if (results.hasOwnProperty(prop)){
+                                if (results[prop] && typeof results[prop] == "object" && !(results[prop] instanceof Array)){
+                                    xml += serializeToJUnitXML(results[prop]);
+                                }
                             }
-                        });             
+                        }            
                         
                         xml += "</testsuites>";            
                     
@@ -160,8 +166,7 @@ YUITest.TestFormat = function(){
             var currentTestNum = 1;
 
             function serializeToTAP(results){
-                var l   = Y.Lang,
-                    text = "";
+                var text = "";
                     
                 switch (results.type){
 
@@ -184,11 +189,13 @@ YUITest.TestFormat = function(){
                     
                         text = "#Begin testcase " + results.name + "(" + results.failed + " failed of " + results.total + ")\n";
                                         
-                        Y.Object.each(results, function(value){
-                            if (l.isObject(value) && !l.isArray(value)){
-                                text += serializeToTAP(value);
+                        for (var prop in results){
+                            if (results.hasOwnProperty(prop)){
+                                if (results[prop] && typeof results[prop] == "object" && !(results[prop] instanceof Array)){
+                                    text += serializeToTAP(results[prop]);
+                                }
                             }
-                        });             
+                        }            
                         
                         text += "#End testcase " + results.name + "\n";
                         
@@ -199,22 +206,26 @@ YUITest.TestFormat = function(){
 
                         text = "#Begin testsuite " + results.name + "(" + results.failed + " failed of " + results.total + ")\n";                
                     
-                        Y.Object.each(results, function(value){
-                            if (l.isObject(value) && !l.isArray(value)){
-                                text += serializeToTAP(value);
+                        for (var prop in results){
+                            if (results.hasOwnProperty(prop)){
+                                if (results[prop] && typeof results[prop] == "object" && !(results[prop] instanceof Array)){
+                                    text += serializeToTAP(results[prop]);
+                                }
                             }
-                        });                                                     
+                        }                                                      
 
                         text += "#End testsuite " + results.name + "\n";
                         break;
 
                     case "report":
                     
-                        Y.Object.each(results, function(value){
-                            if (l.isObject(value) && !l.isArray(value)){
-                                text += serializeToTAP(value);
+                        for (var prop in results){
+                            if (results.hasOwnProperty(prop)){
+                                if (results[prop] && typeof results[prop] == "object" && !(results[prop] instanceof Array)){
+                                    text += serializeToTAP(results[prop]);
+                                }
                             }
-                        });             
+                        }              
                         
                     //no default
                 }

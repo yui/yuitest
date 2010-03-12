@@ -40,7 +40,7 @@ YUITest.ComparisonFailure = function (message, expected, actual){
 };
 
 //inherit from YUITest.AssertionError
-YUITest.ComparisonFailure.prototype = YUITest.AssertionError.prototype;
+YUITest.ComparisonFailure.prototype = new YUITest.AssertionError;
 
 //restore constructor
 YUITest.ComparisonFailure.prototype.constructor = YUITest.ComparisonFailure;

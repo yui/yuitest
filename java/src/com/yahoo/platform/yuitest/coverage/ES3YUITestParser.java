@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g 2010-02-11 18:25:40
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g 2010-02-12 10:07:59
 
 /*
  * YUI Test Coverage

@@ -1397,9 +1397,9 @@ Furthermore backtracking seemed to have 3 major drawbacks:
 */
 forStatement
 	: FOR LPAREN forControl RPAREN statement
-	//  -> template(pre = {input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)},
-	//              stmt = {wrapInBraces($statement.start, $statement.stop, input)}
-	//              ) "<pre><stmt>"
+	-> template(pre = {input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)},
+	            stmt = {wrapInBraces($statement.start, $statement.stop, input)}
+	            ) "<pre><stmt>"
 	;
 
 forControl

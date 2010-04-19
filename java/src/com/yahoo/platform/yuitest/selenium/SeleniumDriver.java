@@ -68,7 +68,7 @@ public class SeleniumDriver {
     static {
         testRunners.put("2", "YAHOO.tool.TestRunner");
         testRunners.put("3", "Y.Test.Runner");
-        testRunners.put("4", "YUITest.Runner");
+        testRunners.put("4", "YUITest.TestRunner");
         
         testFormats.put("2", "YAHOO.tool.TestFormat");
         testFormats.put("3", "Y.Test.Format");

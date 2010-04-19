@@ -8,7 +8,6 @@
 
 package com.yahoo.platform.yuitest.config;
 
-import com.yahoo.platform.yuitest.config.TestPage;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -19,7 +18,7 @@ import java.util.List;
 public class TestPageGroup {
 
     private String base = "";
-    private int version = 2;
+    private int version = 4;
     private List<TestPage> testPages = null;
     private int timeout = 10000;
 

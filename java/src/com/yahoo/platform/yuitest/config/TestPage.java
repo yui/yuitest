@@ -8,8 +8,6 @@
 
 package com.yahoo.platform.yuitest.config;
 
-import com.yahoo.platform.yuitest.selenium.*;
-
 /**
  * Represents a single test page and its settings.
  * @author Nicholas C. Zakas
@@ -19,7 +17,7 @@ public class TestPage {
     private TestPageGroup owner = null;
     private String path = null;
     private int timeout = 10000;
-    private int version = 2;
+    private int version = 4;
 
     //--------------------------------------------------------------------------
     // Constructors

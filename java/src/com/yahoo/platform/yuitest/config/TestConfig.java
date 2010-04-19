@@ -51,7 +51,7 @@ public class TestConfig {
             parser = spf.newSAXParser();
             parser.parse(in, new DefaultHandler(){
 
-                private int version = -1;
+                private int version = 4;
                 private TestPageGroup currentGroup = null;
                 private TestPage currentPage = null;
 

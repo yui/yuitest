@@ -1,3 +1,9 @@
+/**
+ * An object object containing coverage result formatting methods.
+ * @namespace YUITest
+ * @class CoverageFormat
+ * @static
+ */
 YUITest.CoverageFormat = {
 
     /**

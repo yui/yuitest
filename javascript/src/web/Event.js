@@ -3,9 +3,14 @@
  * @module event-simulate
  */
 
+
+/**
+ * An object object containing methods to simulate browser events.
+ * @namespace YUITest
+ * @class Event
+ * @static
+ */
 YUITest.Event = (function() {
-
-
 
     var
      

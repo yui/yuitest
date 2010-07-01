@@ -1,9 +1,9 @@
     
-    /*
+    /**
      * Runs test suites and test cases, providing events to allowing for the
      * interpretation of test results.
-     * @namespace Test
-     * @class Runner
+     * @namespace YUITest
+     * @class TestRunner
      * @static
      */
     YUITest.TestRunner = function(){
@@ -106,6 +106,9 @@
          * @static
          */
         function TestRunner(){
+        
+            //inherit from EventTarget
+            YUITest.EventTarget.call(this);
             
             /**
              * Suite on which to attach all TestSuites and TestCases to be run.
@@ -170,20 +173,10 @@
              * @property _lastResults
              * @static
              */
-            this._lastResults = null;            
-
-            /**
-             * Event handlers for the various events.
-             * @type Object
-             * @private
-             * @property _handlers
-             * @static
-             */
-            this._handlers = {};
-       
+            this._lastResults = null;       
         }
         
-        TestRunner.prototype = {
+        TestRunner.prototype = YUITest.Util.mix(new YUITest.EventTarget(), {
         
             //restore prototype
             constructor: YUITest.TestRunner,
@@ -415,12 +408,14 @@
              */
             _handleTestObjectComplete : function (node) {
                 if (typeof node.testObject == "object" && node !== null){
-                    node.parent.results.passed += node.results.passed;
-                    node.parent.results.failed += node.results.failed;
-                    node.parent.results.total += node.results.total;                
-                    node.parent.results.ignored += node.results.ignored;       
-                    //node.parent.results.duration += node.results.duration;
-                    node.parent.results[node.testObject.name] = node.results;
+                
+                    if (node.parent){
+                        node.parent.results.passed += node.results.passed;
+                        node.parent.results.failed += node.results.failed;
+                        node.parent.results.total += node.results.total;                
+                        node.parent.results.ignored += node.results.ignored;       
+                        node.parent.results[node.testObject.name] = node.results;
+                    }
                 
                     if (node.testObject instanceof YUITest.TestSuite){
                         node.testObject.tearDown();
@@ -458,6 +453,8 @@
                         this._cur = this._cur.parent;
                     }
                     
+                    this._handleTestObjectComplete(this._cur);               
+                        
                     if (this._cur == this._root){
                         this._cur.results.type = "report";
                         this._cur.results.timestamp = (new Date()).toLocaleString();
@@ -467,7 +464,6 @@
                         this.fire({ type: this.COMPLETE_EVENT, results: this._lastResults});
                         this._cur = null;
                     } else {
-                        this._handleTestObjectComplete(this._cur);               
                         this._cur = this._cur.next;                
                     }
                 }
@@ -923,7 +919,7 @@
                 //begin the testing
                 runner._run();
             }    
-        };
+        });
         
         return new TestRunner();
         

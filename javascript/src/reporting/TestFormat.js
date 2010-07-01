@@ -1,3 +1,9 @@
+/**
+ * An object object containing test result formatting methods.
+ * @namespace YUITest
+ * @class TestFormat
+ * @static
+ */
 YUITest.TestFormat = function(){
     
     /* (intentionally not documented)
@@ -27,7 +33,6 @@ YUITest.TestFormat = function(){
          * Returns test results formatted as a JSON string. Requires JSON utility.
          * @param {Object} result The results object created by TestRunner.
          * @return {String} A JSON-formatted string of results.
-         * @namespace Test.Format
          * @method JSON
          * @static
          */
@@ -39,7 +44,6 @@ YUITest.TestFormat = function(){
          * Returns test results formatted as an XML string.
          * @param {Object} result The results object created by TestRunner.
          * @return {String} An XML-formatted string of results.
-         * @namespace Test.Format
          * @method XML
          * @static
          */
@@ -79,7 +83,6 @@ YUITest.TestFormat = function(){
          * Returns test results formatted in JUnit XML format.
          * @param {Object} result The results object created by TestRunner.
          * @return {String} An XML-formatted string of results.
-         * @namespace Test.Format
          * @method JUnitXML
          * @static
          */
@@ -157,7 +160,6 @@ YUITest.TestFormat = function(){
          * For more information, see <a href="http://testanything.org/">Test Anything Protocol</a>.
          * @param {Object} result The results object created by TestRunner.
          * @return {String} A TAP-formatted string of results.
-         * @namespace Test.Format
          * @method TAP
          * @static
          */

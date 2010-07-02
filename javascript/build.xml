@@ -5,7 +5,7 @@
     <property environment="env" />
 
     <property file="build.properties" />
-    <import file="${builddir}/3.x/bootstrap.xml" description="Default Build Properties and Targets" />
+    <import file="${builddir}/2.x/bootstrap.xml" description="Default Build Properties and Targets" />
 </project>
 <!--
 

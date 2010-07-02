@@ -1,8 +1,3 @@
-/**
- * Synthetic DOM events
- * @module event-simulate
- */
-
 
 /**
  * An object object containing methods to simulate browser events.
@@ -67,7 +62,13 @@ YUITest.Event = (function() {
         keyup:      1,
         keypress:   1        
         
-    };
+    },
+    
+    //the object to return
+    object,
+    
+    //used for property name iteration
+    prop;
 
     /*
      * Note: Intentionally not for YUIDoc generation.
@@ -117,7 +118,7 @@ YUITest.Event = (function() {
         }
         
         //check event type
-        if (isString(type)){
+        if (typeof type == "string"){
             type = type.toLowerCase();
             switch(type){
                 case "textevent": //DOM Level 3
@@ -135,31 +136,31 @@ YUITest.Event = (function() {
         }
         
         //setup default values
-        if (!isBoolean(bubbles)){
+        if (typeof bubbles != "boolean"){
             bubbles = true; //all key events bubble
         }
-        if (!isBoolean(cancelable)){
+        if (typeof cancelable != "boolean"){
             cancelable = true; //all key events can be cancelled
         }
-        if (!isObject(view)){
+        if (typeof view != "object" || view == null){
             view = window; //view is typically window
         }
-        if (!isBoolean(ctrlKey)){
+        if (typeof ctrlKey != "boolean"){
             ctrlKey = false;
         }
-        if (!isBoolean(altKey)){
+        if (typeof altKey != "boolean"){
             altKey = false;
         }
-        if (!isBoolean(shiftKey)){
+        if (typeof shiftKey != "boolean"){
             shiftKey = false;
         }
-        if (!isBoolean(metaKey)){
+        if (typeof metaKey != "boolean"){
             metaKey = false;
         }
-        if (!isNumber(keyCode)){
+        if (typeof keyCode != "number"){
             keyCode = 0;
         }
-        if (!isNumber(charCode)){
+        if (typeof charCode != "number"){
             charCode = 0; 
         }
 
@@ -227,7 +228,7 @@ YUITest.Event = (function() {
             //fire the event
             target.dispatchEvent(customEvent);
 
-        } else if (typeof document.createEventObject != "undefined")){ //IE
+        } else if (typeof document.createEventObject != "undefined"){ //IE
         
             //create an IE event object
             customEvent = document.createEventObject();
@@ -323,7 +324,7 @@ YUITest.Event = (function() {
         }
         
         //check event type
-        if (isString(type)){
+        if (typeof type == "string"){
             type = type.toLowerCase();
             
             //make sure it's a supported mouse event
@@ -335,7 +336,7 @@ YUITest.Event = (function() {
         }
         
         //setup default values
-        if (typeof "bubbles" != "boolean")){
+        if (typeof bubbles != "boolean"){
             bubbles = true; //all mouse events bubble
         }
         if (typeof cancelable != "boolean"){
@@ -379,7 +380,7 @@ YUITest.Event = (function() {
         var customEvent /*:MouseEvent*/ = null;
             
         //check for DOM-compliant browsers first
-        if (isFunction(document.createEvent)){
+        if (typeof document.createEvent == "function"){
         
             customEvent = document.createEvent("MouseEvents");
         
@@ -428,7 +429,7 @@ YUITest.Event = (function() {
             //fire the event
             target.dispatchEvent(customEvent);
 
-        } else if (isObject(document.createEventObject)){ //IE
+        } else if (typeof document.createEventObject != "undefined"){ //IE
         
             //create an IE event object
             customEvent = document.createEventObject();
@@ -514,7 +515,7 @@ YUITest.Event = (function() {
         }
         
         //check event type
-        if (isString(type)){
+        if (typeof type == "string"){
             type = type.toLowerCase();
             
             //make sure it's a supported mouse event
@@ -570,7 +571,7 @@ YUITest.Event = (function() {
         } else {
             throw new Error("simulateUIEvent(): No event simulation framework present.");
         }
-}
+    }
 
 
     /**
@@ -579,7 +580,7 @@ YUITest.Event = (function() {
      * @class Event
      * @static
      */
-    return {
+    object = {
     
         /**
          * Simulates the event with the given name on a target.
@@ -589,6 +590,7 @@ YUITest.Event = (function() {
          * @return {void}
          * @method simulate
          * @static
+         * @deprecated
          */
         simulate: function(target, type, options){
 
@@ -614,5 +616,50 @@ YUITest.Event = (function() {
         }
     };
 
+    //create the convenience methods for mouse events
+    for (prop in mouseEvents){
+        if (mouseEvents.hasOwnProperty(prop)){
+            object[prop] = (function(type){
+                return function(target, options){
+                    options = options || {};
+                    simulateMouseEvent(target, type, options.bubbles,
+                        options.cancelable, options.view, options.detail, options.screenX,        
+                        options.screenY, options.clientX, options.clientY, options.ctrlKey,
+                        options.altKey, options.shiftKey, options.metaKey, options.button,         
+                        options.relatedTarget);
+                };
+            })(prop);
+        }
+    }
+
+    //create the convenience methods for key events
+    for (prop in keyEvents){
+        if (keyEvents.hasOwnProperty(prop)){
+            object[prop] = (function(type){
+                return function(target, options){
+                    options = options || {};
+                    simulateKeyEvent(target, type, options.bubbles,
+                        options.cancelable, options.view, options.ctrlKey,
+                        options.altKey, options.shiftKey, options.metaKey, 
+                        options.keyCode, options.charCode);
+                };
+            })(prop);
+        }
+    }
+
+    //create the convenience methods for key events
+    for (prop in uiEvents){
+        if (uiEvents.hasOwnProperty(prop)){
+            object[prop] = (function(type){
+                return function(target, options){
+                    options = options || {};
+                    simulateUIEvent(target, type, options.bubbles,
+                        options.cancelable, options.view, options.detail); 
+                };
+            })(prop);
+        }
+    }
+
+    return object;
 
 })();

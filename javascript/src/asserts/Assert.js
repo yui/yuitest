@@ -397,5 +397,84 @@ YUITest.Assert = {
         if (typeof actualValue != expectedType){
             throw new YUITest.ComparisonFailure(YUITest.Assert._formatMessage(message, "Value should be of type " + expectedType + "."), expected, typeof actualValue);
         }
+    },
+    
+    //--------------------------------------------------------------------------
+    // Error Detection Methods
+    //--------------------------------------------------------------------------    
+   
+    /**
+     * Asserts that executing a particular method should throw an error of
+     * a specific type. This is a replacement for _should.error.
+     * @param {String|Function|Object} expectedError If a string, this
+     *      is the error message that the error must have; if a function, this
+     *      is the constructor that should have been used to create the thrown
+     *      error; if an object, this is an instance of a particular error type
+     *      with a specific error message (both must match).
+     * @param {Function} method The method to execute that should throw the error.
+     * @param {String} message (Optional) The message to display if the assertion
+     *      fails.
+     * @method shouldError
+     * @return {void}
+     * @static
+     */
+    shouldError: function(expectedError, method, message){
+        YUITest.Assert._increment();
+        var error = false;
+    
+        try {
+            method();        
+        } catch (thrown) {
+            
+            //check to see what type of data we have
+            if (typeof expectedError == "string"){
+                
+                //if it's a string, check the error message
+                if (thrown.message != expectedError){
+                    error = true;
+                }
+            } else if (typeof expectedError == "function"){
+            
+                //if it's a function, see if the error is an instance of it
+                if (!(thrown instanceof expectedError)){
+                    error = true;
+                }
+            
+            } else if (typeof expectedError == "object" && expectedError !== null){
+            
+                //if it's an object, check the instance and message
+                if (!(thrown instanceof expectedError.constructor) || 
+                        thrown.message != expectedError.message){
+                    error = true;
+                }
+            
+            } else { //if it gets here, the argument could be wrong
+                error = true;
+            }
+            
+            if (error){
+                throw new YUITest.UnexpectedError(thrown);                    
+            } else {
+                return;
+            }
+        }
+        
+        //if it reaches here, the error wasn't thrown, which is a bad thing
+        throw new YUITest.AssertionError(YUITest.Assert._formatMessage(message, "Error should have been thrown."));
+    },
+    
+    /**
+     * Asserts that executing a particular method causes an assertion error
+     * to be thrown. This would mean, in most cases, that the test should
+     * actually fail. This is a replacement for _should.fail.
+     * @param {Function} method The method to execute that should throw the error.
+     * @param {String} message (Optional) The message to display if the assertion
+     *      fails.
+     * @method shouldFail
+     * @return {void}
+     * @static
+     */
+    shouldFail: function(method, message){
+        YUITest.Assert.shouldError(YUITest.AssertionError, method, "Method should have thrown an assertion error.");
     }
 };

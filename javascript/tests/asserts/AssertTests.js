@@ -1419,6 +1419,36 @@
         }          
     }));            
                 
+    //-------------------------------------------------------------------------
+    // Test Case for isInstanceOf() assertions
+    //-------------------------------------------------------------------------
+    
+    suite.add(new YUITest.TestCase({
+    
+        name: "isInstanceOf() Assert Tests",
+        
+        "isInstanceOf() should pass for direct instance": function(){
+            Assert.isInstanceOf(Object, {});
+        },
+        
+        "isInstanceOf() should pass for inherited instance": function(){
+            Assert.isInstanceOf(Object, []);
+        },
+        
+        "isInstanceOf() should fail for object value as function type": function(){
+            Assert.shouldError(YUITest.ComparisonFailure, function(){
+                Assert.isInstanceOf(String, {});
+            });
+        },  
+        
+        "isInstanceOf() should throw a custom message when failing": function(){
+            Assert.shouldError(new YUITest.ComparisonFailure("Something bad happened."), function(){
+                Assert.isInstanceOf(String, 0, "Something bad happened.");
+            });
+        }  
+        
+    }));
+                
         
     //add it to be run
     YUITest.TestRunner.add(suite);

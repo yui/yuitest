@@ -338,7 +338,7 @@
                 
                 //iterate over the items in the test case
                 for (prop in testCase){
-                    if ((prop.indexOf("test") === 0 || (prop.toLowerCase().indexOf("should") > -1 && prop.indexOf(" ") > -1 ))&& typeof testCase[prop] == "function"){
+                    if ((prop.indexOf("test") === 0 || prop.indexOf(" ") > -1) && typeof testCase[prop] == "function"){
                         node.appendChild(prop);
                     }
                 }

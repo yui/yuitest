@@ -292,7 +292,13 @@ YUITest.Assert = {
      */
     isArray : function (actual, message) {
         YUITest.Assert._increment();
-        if (!(actual instanceof Array)){
+        var shouldFail = false;
+        if (Array.isArray){
+            shouldFail = !Array.isArray(actual);
+        } else {
+            shouldFail = Object.prototype.toString.call(actual) != "[object Array]";
+        }
+        if (shouldFail){
             throw new YUITest.UnexpectedValue(YUITest.Assert._formatMessage(message, "Value should be an array."), actual);
         }    
     },
@@ -461,20 +467,6 @@ YUITest.Assert = {
         
         //if it reaches here, the error wasn't thrown, which is a bad thing
         throw new YUITest.AssertionError(YUITest.Assert._formatMessage(message, "Error should have been thrown."));
-    },
-    
-    /**
-     * Asserts that executing a particular method causes an assertion error
-     * to be thrown. This would mean, in most cases, that the test should
-     * actually fail. This is a replacement for _should.fail.
-     * @param {Function} method The method to execute that should throw the error.
-     * @param {String} message (Optional) The message to display if the assertion
-     *      fails.
-     * @method shouldFail
-     * @return {void}
-     * @static
-     */
-    shouldFail: function(method, message){
-        YUITest.Assert.shouldError(YUITest.AssertionError, method, "Method should have thrown an assertion error.");
     }
+
 };

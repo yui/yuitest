@@ -401,7 +401,7 @@ YUITest.Assert = {
     isTypeOf : function (expectedType, actualValue, message){
         YUITest.Assert._increment();
         if (typeof actualValue != expectedType){
-            throw new YUITest.ComparisonFailure(YUITest.Assert._formatMessage(message, "Value should be of type " + expectedType + "."), expected, typeof actualValue);
+            throw new YUITest.ComparisonFailure(YUITest.Assert._formatMessage(message, "Value should be of type " + expectedType + "."), expectedType, typeof actualValue);
         }
     },
     

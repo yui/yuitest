@@ -510,7 +510,7 @@ span.LegendDiffCov
           <td width="5%"></td>
           <td width="10%" class="headerItem">Current view:</td>
 
-          <td width="35%" class="headerValue"><a href="$report.fileParent;format="relativePath"$/index.html">directory</a> - <a href="index.html">$report.fileParent$</a> - $report.file.name$ (source / <a href="$report.file.name$.func.html">functions</a>)</td>
+          <td width="35%" class="headerValue"><a href="$report.fileParent;format="ltrimRelativePath"$/index.html">directory</a> - <a href="index.html">$report.fileParent$</a> - $report.file.name$ (source / <a href="$report.file.name$.func.html">functions</a>)</td>
           <td width="10%"></td>
           <td width="10%" class="headerCovTableHead">Found</td>
           <td width="10%" class="headerCovTableHead">Hit</td>

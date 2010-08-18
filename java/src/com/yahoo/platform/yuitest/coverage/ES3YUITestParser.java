@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g 2010-04-21 17:38:56
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g 2010-08-17 23:02:17
 
 /*
  * YUI Test Coverage
@@ -23,174 +23,174 @@ public class ES3YUITestParser extends Parser {
     public static final String[] tokenNames = new String[] {
         "<invalid>", "<EOR>", "<DOWN>", "<UP>", "NULL", "TRUE", "FALSE", "BREAK", "CASE", "CATCH", "CONTINUE", "DEFAULT", "DELETE", "DO", "ELSE", "FINALLY", "FOR", "FUNCTION", "IF", "IN", "INSTANCEOF", "NEW", "RETURN", "SWITCH", "THIS", "THROW", "TRY", "TYPEOF", "VAR", "VOID", "WHILE", "WITH", "ABSTRACT", "BOOLEAN", "BYTE", "CHAR", "CLASS", "CONST", "DEBUGGER", "DOUBLE", "ENUM", "EXPORT", "EXTENDS", "FINAL", "FLOAT", "GOTO", "IMPLEMENTS", "IMPORT", "INT", "INTERFACE", "LONG", "NATIVE", "PACKAGE", "PRIVATE", "PROTECTED", "PUBLIC", "SHORT", "STATIC", "SUPER", "SYNCHRONIZED", "THROWS", "TRANSIENT", "VOLATILE", "LBRACE", "RBRACE", "LPAREN", "RPAREN", "LBRACK", "RBRACK", "DOT", "SEMIC", "COMMA", "LT", "GT", "LTE", "GTE", "EQ", "NEQ", "SAME", "NSAME", "ADD", "SUB", "MUL", "MOD", "INC", "DEC", "SHL", "SHR", "SHU", "AND", "OR", "XOR", "NOT", "INV", "LAND", "LOR", "QUE", "COLON", "ASSIGN", "ADDASS", "SUBASS", "MULASS", "MODASS", "SHLASS", "SHRASS", "SHUASS", "ANDASS", "ORASS", "XORASS", "DIV", "DIVASS", "ARGS", "ARRAY", "BLOCK", "BYFIELD", "BYINDEX", "CALL", "CEXPR", "EXPR", "FORITER", "FORSTEP", "ITEM", "LABELLED", "NAMEDVALUE", "NEG", "OBJECT", "PAREXPR", "PDEC", "PINC", "POS", "BSLASH", "DQUOTE", "SQUOTE", "TAB", "VT", "FF", "SP", "NBSP", "USP", "WhiteSpace", "LF", "CR", "LS", "PS", "LineTerminator", "EOL", "MultiLineComment", "SingleLineComment", "Identifier", "StringLiteral", "HexDigit", "IdentifierStartASCII", "DecimalDigit", "IdentifierPart", "IdentifierNameASCIIStart", "RegularExpressionLiteral", "OctalDigit", "ExponentPart", "DecimalIntegerLiteral", "DecimalLiteral", "OctalIntegerLiteral", "HexIntegerLiteral", "CharacterEscapeSequence", "ZeroToThree", "OctalEscapeSequence", "HexEscapeSequence", "UnicodeEscapeSequence", "EscapeSequence", "BackslashSequence", "RegularExpressionFirstChar", "RegularExpressionChar"
     };
-    public static final int VT=134;
-    public static final int LOR=95;
-    public static final int FUNCTION=17;
-    public static final int PACKAGE=52;
-    public static final int SHR=87;
-    public static final int RegularExpressionChar=170;
-    public static final int LT=72;
-    public static final int WHILE=30;
-    public static final int MOD=83;
-    public static final int SHL=86;
-    public static final int CONST=37;
     public static final int BackslashSequence=168;
-    public static final int LS=142;
-    public static final int CASE=8;
+    public static final int CONST=37;
+    public static final int COMMA=71;
+    public static final int RegularExpressionLiteral=155;
+    public static final int ARGS=111;
+    public static final int ARRAY=112;
+    public static final int LF=140;
+    public static final int SYNCHRONIZED=59;
+    public static final int HexDigit=150;
+    public static final int DOUBLE=39;
+    public static final int EXPR=118;
+    public static final int ADDASS=99;
+    public static final int DecimalDigit=152;
+    public static final int FALSE=6;
+    public static final int USP=138;
+    public static final int ABSTRACT=32;
+    public static final int SP=136;
+    public static final int DQUOTE=131;
+    public static final int IMPORT=47;
+    public static final int SEMIC=70;
+    public static final int MODASS=102;
+    public static final int PACKAGE=52;
+    public static final int SQUOTE=132;
+    public static final int SHR=87;
+    public static final int CONTINUE=10;
+    public static final int DOT=69;
+    public static final int PRIVATE=53;
+    public static final int MultiLineComment=146;
+    public static final int HexIntegerLiteral=161;
+    public static final int AND=89;
+    public static final int RegularExpressionFirstChar=169;
+    public static final int DIVASS=110;
+    public static final int FUNCTION=17;
+    public static final int GTE=75;
+    public static final int OctalEscapeSequence=164;
+    public static final int HexEscapeSequence=165;
+    public static final int SingleLineComment=147;
+    public static final int UnicodeEscapeSequence=166;
+    public static final int POS=129;
+    public static final int RPAREN=66;
+    public static final int IdentifierStartASCII=151;
+    public static final int FINALLY=15;
+    public static final int IdentifierNameASCIIStart=154;
+    public static final int EXTENDS=42;
+    public static final int IdentifierPart=153;
+    public static final int SUPER=58;
+    public static final int Identifier=148;
+    public static final int SAME=78;
     public static final int CHAR=35;
     public static final int NEW=21;
-    public static final int DQUOTE=131;
-    public static final int DO=13;
-    public static final int NOT=92;
-    public static final int DecimalDigit=152;
-    public static final int BYFIELD=114;
-    public static final int EOF=-1;
-    public static final int CEXPR=117;
+    public static final int EQ=76;
+    public static final int LT=72;
+    public static final int FINAL=43;
+    public static final int SUBASS=100;
+    public static final int VT=134;
+    public static final int LAND=94;
+    public static final int LBRACK=67;
+    public static final int CATCH=9;
+    public static final int STATIC=57;
+    public static final int CASE=8;
+    public static final int MUL=82;
+    public static final int INTERFACE=49;
+    public static final int ExponentPart=157;
+    public static final int INV=93;
+    public static final int BOOLEAN=33;
+    public static final int ELSE=14;
+    public static final int CharacterEscapeSequence=162;
+    public static final int BSLASH=130;
+    public static final int SHLASS=103;
+    public static final int DecimalLiteral=159;
     public static final int BREAK=7;
-    public static final int Identifier=148;
-    public static final int DIVASS=110;
+    public static final int NULL=4;
+    public static final int XOR=91;
+    public static final int COLON=97;
+    public static final int DIV=109;
+    public static final int ORASS=107;
+    public static final int TRUE=5;
+    public static final int ADD=80;
+    public static final int THROW=25;
+    public static final int SHORT=56;
+    public static final int LABELLED=122;
+    public static final int CR=141;
+    public static final int RegularExpressionChar=170;
+    public static final int PUBLIC=55;
+    public static final int SHL=86;
+    public static final int LONG=50;
+    public static final int LOR=95;
+    public static final int TYPEOF=27;
+    public static final int INC=84;
+    public static final int TRANSIENT=61;
+    public static final int TAB=133;
+    public static final int FLOAT=44;
+    public static final int ZeroToThree=163;
+    public static final int THROWS=60;
+    public static final int FF=135;
+    public static final int FORITER=119;
+    public static final int GOTO=45;
+    public static final int MOD=83;
+    public static final int EXPORT=41;
+    public static final int OR=90;
+    public static final int MULASS=101;
+    public static final int LBRACE=63;
+    public static final int BLOCK=113;
+    public static final int RBRACE=64;
+    public static final int PROTECTED=54;
+    public static final int ANDASS=106;
+    public static final int LineTerminator=144;
+    public static final int SHU=88;
+    public static final int EscapeSequence=167;
+    public static final int PAREXPR=126;
+    public static final int INT=48;
+    public static final int LS=142;
+    public static final int CEXPR=117;
+    public static final int ASSIGN=98;
+    public static final int VOID=29;
+    public static final int INSTANCEOF=20;
+    public static final int LPAREN=65;
+    public static final int WhiteSpace=139;
+    public static final int XORASS=108;
+    public static final int QUE=96;
+    public static final int NEQ=77;
+    public static final int NAMEDVALUE=123;
+    public static final int ENUM=40;
+    public static final int PS=143;
+    public static final int DEBUGGER=38;
+    public static final int DELETE=12;
+    public static final int OBJECT=125;
+    public static final int DO=13;
+    public static final int IMPLEMENTS=46;
+    public static final int OctalIntegerLiteral=160;
+    public static final int WHILE=30;
+    public static final int SWITCH=23;
     public static final int BYINDEX=115;
     public static final int FORSTEP=120;
-    public static final int FINAL=43;
-    public static final int RPAREN=66;
-    public static final int INC=84;
-    public static final int IMPORT=47;
-    public static final int EOL=145;
-    public static final int POS=129;
     public static final int OctalDigit=156;
-    public static final int THIS=24;
-    public static final int RETURN=22;
-    public static final int ExponentPart=157;
-    public static final int ARGS=111;
-    public static final int DOUBLE=39;
-    public static final int WhiteSpace=139;
-    public static final int VAR=28;
-    public static final int EXPORT=41;
-    public static final int VOID=29;
-    public static final int LABELLED=122;
-    public static final int SUPER=58;
-    public static final int GOTO=45;
-    public static final int EQ=76;
-    public static final int XORASS=108;
-    public static final int ADDASS=99;
-    public static final int ARRAY=112;
-    public static final int SHU=88;
-    public static final int RBRACK=68;
-    public static final int RBRACE=64;
-    public static final int PRIVATE=53;
-    public static final int STATIC=57;
-    public static final int INV=93;
-    public static final int SWITCH=23;
-    public static final int NULL=4;
-    public static final int ELSE=14;
-    public static final int NATIVE=51;
-    public static final int THROWS=60;
-    public static final int INT=48;
-    public static final int DELETE=12;
-    public static final int MUL=82;
-    public static final int IdentifierStartASCII=151;
-    public static final int TRY=26;
-    public static final int FF=135;
-    public static final int SHLASS=103;
-    public static final int OctalEscapeSequence=164;
-    public static final int USP=138;
-    public static final int RegularExpressionFirstChar=169;
-    public static final int ANDASS=106;
-    public static final int TYPEOF=27;
-    public static final int IdentifierNameASCIIStart=154;
-    public static final int QUE=96;
-    public static final int OR=90;
-    public static final int DEBUGGER=38;
-    public static final int GT=73;
-    public static final int PDEC=127;
-    public static final int CALL=116;
-    public static final int CharacterEscapeSequence=162;
-    public static final int CATCH=9;
-    public static final int FALSE=6;
-    public static final int EscapeSequence=167;
-    public static final int LAND=94;
-    public static final int MULASS=101;
-    public static final int THROW=25;
     public static final int PINC=128;
-    public static final int OctalIntegerLiteral=160;
-    public static final int PROTECTED=54;
-    public static final int DEC=85;
-    public static final int CLASS=36;
-    public static final int LBRACK=67;
-    public static final int HexEscapeSequence=165;
-    public static final int ORASS=107;
-    public static final int SingleLineComment=147;
-    public static final int NAMEDVALUE=123;
-    public static final int LBRACE=63;
-    public static final int GTE=75;
-    public static final int FOR=16;
-    public static final int RegularExpressionLiteral=155;
-    public static final int SUB=81;
-    public static final int FLOAT=44;
-    public static final int ABSTRACT=32;
-    public static final int AND=89;
-    public static final int DecimalIntegerLiteral=158;
-    public static final int HexDigit=150;
-    public static final int LTE=74;
-    public static final int LPAREN=65;
-    public static final int IF=18;
-    public static final int SUBASS=100;
-    public static final int EXPR=118;
-    public static final int BOOLEAN=33;
-    public static final int SYNCHRONIZED=59;
-    public static final int IN=19;
-    public static final int IMPLEMENTS=46;
-    public static final int OBJECT=125;
-    public static final int CONTINUE=10;
-    public static final int COMMA=71;
-    public static final int FORITER=119;
-    public static final int TRANSIENT=61;
-    public static final int SHRASS=104;
-    public static final int MODASS=102;
-    public static final int PS=143;
-    public static final int DOT=69;
-    public static final int IdentifierPart=153;
-    public static final int MultiLineComment=146;
-    public static final int WITH=31;
-    public static final int ADD=80;
-    public static final int BYTE=34;
-    public static final int XOR=91;
-    public static final int ZeroToThree=163;
-    public static final int ITEM=121;
-    public static final int VOLATILE=62;
-    public static final int UnicodeEscapeSequence=166;
-    public static final int SHUASS=105;
-    public static final int DEFAULT=11;
-    public static final int NSAME=79;
-    public static final int TAB=133;
-    public static final int SHORT=56;
-    public static final int INSTANCEOF=20;
-    public static final int SQUOTE=132;
-    public static final int DecimalLiteral=159;
-    public static final int TRUE=5;
-    public static final int SAME=78;
+    public static final int GT=73;
     public static final int StringLiteral=149;
-    public static final int COLON=97;
-    public static final int PAREXPR=126;
-    public static final int NEQ=77;
-    public static final int ENUM=40;
-    public static final int FINALLY=15;
-    public static final int HexIntegerLiteral=161;
+    public static final int DecimalIntegerLiteral=158;
+    public static final int SHRASS=104;
+    public static final int ITEM=121;
+    public static final int SHUASS=105;
+    public static final int THIS=24;
+    public static final int WITH=31;
+    public static final int IN=19;
+    public static final int VAR=28;
+    public static final int LTE=74;
+    public static final int CLASS=36;
+    public static final int NATIVE=51;
+    public static final int DEC=85;
+    public static final int RETURN=22;
+    public static final int BYTE=34;
+    public static final int VOLATILE=62;
+    public static final int IF=18;
+    public static final int EOF=-1;
+    public static final int EOL=145;
     public static final int NBSP=137;
-    public static final int SP=136;
-    public static final int BLOCK=113;
-    public static final int LineTerminator=144;
+    public static final int CALL=116;
+    public static final int FOR=16;
+    public static final int RBRACK=68;
+    public static final int DEFAULT=11;
     public static final int NEG=124;
-    public static final int ASSIGN=98;
-    public static final int INTERFACE=49;
-    public static final int DIV=109;
-    public static final int SEMIC=70;
-    public static final int CR=141;
-    public static final int LONG=50;
-    public static final int EXTENDS=42;
-    public static final int PUBLIC=55;
-    public static final int BSLASH=130;
-    public static final int LF=140;
+    public static final int SUB=81;
+    public static final int NOT=92;
+    public static final int TRY=26;
+    public static final int PDEC=127;
+    public static final int BYFIELD=114;
+    public static final int NSAME=79;
 
     // delegates
     // delegators
@@ -228,7 +228,7 @@ public class ES3YUITestParser extends Parser {
     }
 
     public String[] getTokenNames() { return ES3YUITestParser.tokenNames; }
-    public String getGrammarFileName() { return "C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g"; }
+    public String getGrammarFileName() { return "/Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g"; }
 
 
 
@@ -394,13 +394,13 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "token"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:562:1: token : ( reservedWord | Identifier | punctuator | numericLiteral | StringLiteral );
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:562:1: token : ( reservedWord | Identifier | punctuator | numericLiteral | StringLiteral );
     public final ES3YUITestParser.token_return token() throws RecognitionException {
         ES3YUITestParser.token_return retval = new ES3YUITestParser.token_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:563:2: ( reservedWord | Identifier | punctuator | numericLiteral | StringLiteral )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:563:2: ( reservedWord | Identifier | punctuator | numericLiteral | StringLiteral )
             int alt1=5;
             switch ( input.LA(1) ) {
             case NULL:
@@ -544,7 +544,7 @@ public class ES3YUITestParser extends Parser {
 
             switch (alt1) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:563:4: reservedWord
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:563:4: reservedWord
                     {
                     pushFollow(FOLLOW_reservedWord_in_token1762);
                     reservedWord();
@@ -555,14 +555,14 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:564:4: Identifier
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:564:4: Identifier
                     {
                     match(input,Identifier,FOLLOW_Identifier_in_token1767); 
 
                     }
                     break;
                 case 3 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:565:4: punctuator
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:565:4: punctuator
                     {
                     pushFollow(FOLLOW_punctuator_in_token1772);
                     punctuator();
@@ -573,7 +573,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:566:4: numericLiteral
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:566:4: numericLiteral
                     {
                     pushFollow(FOLLOW_numericLiteral_in_token1777);
                     numericLiteral();
@@ -584,7 +584,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:567:4: StringLiteral
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:567:4: StringLiteral
                     {
                     match(input,StringLiteral,FOLLOW_StringLiteral_in_token1782); 
 
@@ -612,13 +612,13 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "reservedWord"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:572:1: reservedWord : ( keyword | futureReservedWord | NULL | booleanLiteral );
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:572:1: reservedWord : ( keyword | futureReservedWord | NULL | booleanLiteral );
     public final ES3YUITestParser.reservedWord_return reservedWord() throws RecognitionException {
         ES3YUITestParser.reservedWord_return retval = new ES3YUITestParser.reservedWord_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:573:2: ( keyword | futureReservedWord | NULL | booleanLiteral )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:573:2: ( keyword | futureReservedWord | NULL | booleanLiteral )
             int alt2=4;
             switch ( input.LA(1) ) {
             case BREAK:
@@ -705,7 +705,7 @@ public class ES3YUITestParser extends Parser {
 
             switch (alt2) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:573:4: keyword
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:573:4: keyword
                     {
                     pushFollow(FOLLOW_keyword_in_reservedWord1795);
                     keyword();
@@ -716,7 +716,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:574:4: futureReservedWord
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:574:4: futureReservedWord
                     {
                     pushFollow(FOLLOW_futureReservedWord_in_reservedWord1800);
                     futureReservedWord();
@@ -727,14 +727,14 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:575:4: NULL
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:575:4: NULL
                     {
                     match(input,NULL,FOLLOW_NULL_in_reservedWord1805); 
 
                     }
                     break;
                 case 4 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:576:4: booleanLiteral
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:576:4: booleanLiteral
                     {
                     pushFollow(FOLLOW_booleanLiteral_in_reservedWord1810);
                     booleanLiteral();
@@ -766,14 +766,14 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "keyword"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:583:1: keyword : ( BREAK | CASE | CATCH | CONTINUE | DEFAULT | DELETE | DO | ELSE | FINALLY | FOR | FUNCTION | IF | IN | INSTANCEOF | NEW | RETURN | SWITCH | THIS | THROW | TRY | TYPEOF | VAR | VOID | WHILE | WITH );
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:583:1: keyword : ( BREAK | CASE | CATCH | CONTINUE | DEFAULT | DELETE | DO | ELSE | FINALLY | FOR | FUNCTION | IF | IN | INSTANCEOF | NEW | RETURN | SWITCH | THIS | THROW | TRY | TYPEOF | VAR | VOID | WHILE | WITH );
     public final ES3YUITestParser.keyword_return keyword() throws RecognitionException {
         ES3YUITestParser.keyword_return retval = new ES3YUITestParser.keyword_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:584:2: ( BREAK | CASE | CATCH | CONTINUE | DEFAULT | DELETE | DO | ELSE | FINALLY | FOR | FUNCTION | IF | IN | INSTANCEOF | NEW | RETURN | SWITCH | THIS | THROW | TRY | TYPEOF | VAR | VOID | WHILE | WITH )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:584:2: ( BREAK | CASE | CATCH | CONTINUE | DEFAULT | DELETE | DO | ELSE | FINALLY | FOR | FUNCTION | IF | IN | INSTANCEOF | NEW | RETURN | SWITCH | THIS | THROW | TRY | TYPEOF | VAR | VOID | WHILE | WITH )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:
             {
             if ( (input.LA(1)>=BREAK && input.LA(1)<=WITH) ) {
                 input.consume();
@@ -807,14 +807,14 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "futureReservedWord"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:615:1: futureReservedWord : ( ABSTRACT | BOOLEAN | BYTE | CHAR | CLASS | CONST | DEBUGGER | DOUBLE | ENUM | EXPORT | EXTENDS | FINAL | FLOAT | GOTO | IMPLEMENTS | IMPORT | INT | INTERFACE | LONG | NATIVE | PACKAGE | PRIVATE | PROTECTED | PUBLIC | SHORT | STATIC | SUPER | SYNCHRONIZED | THROWS | TRANSIENT | VOLATILE );
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:615:1: futureReservedWord : ( ABSTRACT | BOOLEAN | BYTE | CHAR | CLASS | CONST | DEBUGGER | DOUBLE | ENUM | EXPORT | EXTENDS | FINAL | FLOAT | GOTO | IMPLEMENTS | IMPORT | INT | INTERFACE | LONG | NATIVE | PACKAGE | PRIVATE | PROTECTED | PUBLIC | SHORT | STATIC | SUPER | SYNCHRONIZED | THROWS | TRANSIENT | VOLATILE );
     public final ES3YUITestParser.futureReservedWord_return futureReservedWord() throws RecognitionException {
         ES3YUITestParser.futureReservedWord_return retval = new ES3YUITestParser.futureReservedWord_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:616:2: ( ABSTRACT | BOOLEAN | BYTE | CHAR | CLASS | CONST | DEBUGGER | DOUBLE | ENUM | EXPORT | EXTENDS | FINAL | FLOAT | GOTO | IMPLEMENTS | IMPORT | INT | INTERFACE | LONG | NATIVE | PACKAGE | PRIVATE | PROTECTED | PUBLIC | SHORT | STATIC | SUPER | SYNCHRONIZED | THROWS | TRANSIENT | VOLATILE )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:616:2: ( ABSTRACT | BOOLEAN | BYTE | CHAR | CLASS | CONST | DEBUGGER | DOUBLE | ENUM | EXPORT | EXTENDS | FINAL | FLOAT | GOTO | IMPLEMENTS | IMPORT | INT | INTERFACE | LONG | NATIVE | PACKAGE | PRIVATE | PROTECTED | PUBLIC | SHORT | STATIC | SUPER | SYNCHRONIZED | THROWS | TRANSIENT | VOLATILE )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:
             {
             if ( (input.LA(1)>=ABSTRACT && input.LA(1)<=VOLATILE) ) {
                 input.consume();
@@ -848,14 +848,14 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "punctuator"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:693:1: punctuator : ( LBRACE | RBRACE | LPAREN | RPAREN | LBRACK | RBRACK | DOT | SEMIC | COMMA | LT | GT | LTE | GTE | EQ | NEQ | SAME | NSAME | ADD | SUB | MUL | MOD | INC | DEC | SHL | SHR | SHU | AND | OR | XOR | NOT | INV | LAND | LOR | QUE | COLON | ASSIGN | ADDASS | SUBASS | MULASS | MODASS | SHLASS | SHRASS | SHUASS | ANDASS | ORASS | XORASS | DIV | DIVASS );
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:693:1: punctuator : ( LBRACE | RBRACE | LPAREN | RPAREN | LBRACK | RBRACK | DOT | SEMIC | COMMA | LT | GT | LTE | GTE | EQ | NEQ | SAME | NSAME | ADD | SUB | MUL | MOD | INC | DEC | SHL | SHR | SHU | AND | OR | XOR | NOT | INV | LAND | LOR | QUE | COLON | ASSIGN | ADDASS | SUBASS | MULASS | MODASS | SHLASS | SHRASS | SHUASS | ANDASS | ORASS | XORASS | DIV | DIVASS );
     public final ES3YUITestParser.punctuator_return punctuator() throws RecognitionException {
         ES3YUITestParser.punctuator_return retval = new ES3YUITestParser.punctuator_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:694:2: ( LBRACE | RBRACE | LPAREN | RPAREN | LBRACK | RBRACK | DOT | SEMIC | COMMA | LT | GT | LTE | GTE | EQ | NEQ | SAME | NSAME | ADD | SUB | MUL | MOD | INC | DEC | SHL | SHR | SHU | AND | OR | XOR | NOT | INV | LAND | LOR | QUE | COLON | ASSIGN | ADDASS | SUBASS | MULASS | MODASS | SHLASS | SHRASS | SHUASS | ANDASS | ORASS | XORASS | DIV | DIVASS )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:694:2: ( LBRACE | RBRACE | LPAREN | RPAREN | LBRACK | RBRACK | DOT | SEMIC | COMMA | LT | GT | LTE | GTE | EQ | NEQ | SAME | NSAME | ADD | SUB | MUL | MOD | INC | DEC | SHL | SHR | SHU | AND | OR | XOR | NOT | INV | LAND | LOR | QUE | COLON | ASSIGN | ADDASS | SUBASS | MULASS | MODASS | SHLASS | SHRASS | SHUASS | ANDASS | ORASS | XORASS | DIV | DIVASS )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:
             {
             if ( (input.LA(1)>=LBRACE && input.LA(1)<=DIVASS) ) {
                 input.consume();
@@ -889,13 +889,13 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "literal"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:748:1: literal : ( NULL | booleanLiteral | numericLiteral | StringLiteral | RegularExpressionLiteral );
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:748:1: literal : ( NULL | booleanLiteral | numericLiteral | StringLiteral | RegularExpressionLiteral );
     public final ES3YUITestParser.literal_return literal() throws RecognitionException {
         ES3YUITestParser.literal_return retval = new ES3YUITestParser.literal_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:749:2: ( NULL | booleanLiteral | numericLiteral | StringLiteral | RegularExpressionLiteral )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:749:2: ( NULL | booleanLiteral | numericLiteral | StringLiteral | RegularExpressionLiteral )
             int alt3=5;
             switch ( input.LA(1) ) {
             case NULL:
@@ -935,14 +935,14 @@ public class ES3YUITestParser extends Parser {
 
             switch (alt3) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:749:4: NULL
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:749:4: NULL
                     {
                     match(input,NULL,FOLLOW_NULL_in_literal2491); 
 
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:750:4: booleanLiteral
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:750:4: booleanLiteral
                     {
                     pushFollow(FOLLOW_booleanLiteral_in_literal2496);
                     booleanLiteral();
@@ -953,7 +953,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:751:4: numericLiteral
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:751:4: numericLiteral
                     {
                     pushFollow(FOLLOW_numericLiteral_in_literal2501);
                     numericLiteral();
@@ -964,14 +964,14 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:752:4: StringLiteral
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:752:4: StringLiteral
                     {
                     match(input,StringLiteral,FOLLOW_StringLiteral_in_literal2506); 
 
                     }
                     break;
                 case 5 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:753:4: RegularExpressionLiteral
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:753:4: RegularExpressionLiteral
                     {
                     match(input,RegularExpressionLiteral,FOLLOW_RegularExpressionLiteral_in_literal2511); 
 
@@ -999,14 +999,14 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "booleanLiteral"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:756:1: booleanLiteral : ( TRUE | FALSE );
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:756:1: booleanLiteral : ( TRUE | FALSE );
     public final ES3YUITestParser.booleanLiteral_return booleanLiteral() throws RecognitionException {
         ES3YUITestParser.booleanLiteral_return retval = new ES3YUITestParser.booleanLiteral_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:757:2: ( TRUE | FALSE )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:757:2: ( TRUE | FALSE )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:
             {
             if ( (input.LA(1)>=TRUE && input.LA(1)<=FALSE) ) {
                 input.consume();
@@ -1040,14 +1040,14 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "numericLiteral"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:803:1: numericLiteral : ( DecimalLiteral | OctalIntegerLiteral | HexIntegerLiteral );
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:803:1: numericLiteral : ( DecimalLiteral | OctalIntegerLiteral | HexIntegerLiteral );
     public final ES3YUITestParser.numericLiteral_return numericLiteral() throws RecognitionException {
         ES3YUITestParser.numericLiteral_return retval = new ES3YUITestParser.numericLiteral_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:804:2: ( DecimalLiteral | OctalIntegerLiteral | HexIntegerLiteral )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:804:2: ( DecimalLiteral | OctalIntegerLiteral | HexIntegerLiteral )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:
             {
             if ( (input.LA(1)>=DecimalLiteral && input.LA(1)<=HexIntegerLiteral) ) {
                 input.consume();
@@ -1081,7 +1081,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "primaryExpression"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:891:1: primaryExpression : ( THIS | Identifier | literal | arrayLiteral | objectLiteral | lpar= LPAREN expression RPAREN );
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:891:1: primaryExpression : ( THIS | Identifier | literal | arrayLiteral | objectLiteral | lpar= LPAREN expression RPAREN );
     public final ES3YUITestParser.primaryExpression_return primaryExpression() throws RecognitionException {
         ES3YUITestParser.primaryExpression_return retval = new ES3YUITestParser.primaryExpression_return();
         retval.start = input.LT(1);
@@ -1089,7 +1089,7 @@ public class ES3YUITestParser extends Parser {
         Token lpar=null;
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:892:2: ( THIS | Identifier | literal | arrayLiteral | objectLiteral | lpar= LPAREN expression RPAREN )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:892:2: ( THIS | Identifier | literal | arrayLiteral | objectLiteral | lpar= LPAREN expression RPAREN )
             int alt4=6;
             switch ( input.LA(1) ) {
             case THIS:
@@ -1138,21 +1138,21 @@ public class ES3YUITestParser extends Parser {
 
             switch (alt4) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:892:4: THIS
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:892:4: THIS
                     {
                     match(input,THIS,FOLLOW_THIS_in_primaryExpression3124); 
 
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:893:4: Identifier
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:893:4: Identifier
                     {
                     match(input,Identifier,FOLLOW_Identifier_in_primaryExpression3129); 
 
                     }
                     break;
                 case 3 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:894:4: literal
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:894:4: literal
                     {
                     pushFollow(FOLLOW_literal_in_primaryExpression3134);
                     literal();
@@ -1163,7 +1163,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:895:4: arrayLiteral
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:895:4: arrayLiteral
                     {
                     pushFollow(FOLLOW_arrayLiteral_in_primaryExpression3139);
                     arrayLiteral();
@@ -1174,7 +1174,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:896:4: objectLiteral
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:896:4: objectLiteral
                     {
                     pushFollow(FOLLOW_objectLiteral_in_primaryExpression3144);
                     objectLiteral();
@@ -1185,7 +1185,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 6 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:897:4: lpar= LPAREN expression RPAREN
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:897:4: lpar= LPAREN expression RPAREN
                     {
                     lpar=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_primaryExpression3151); 
                     pushFollow(FOLLOW_expression_in_primaryExpression3153);
@@ -1219,7 +1219,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "arrayLiteral"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:900:1: arrayLiteral : lb= LBRACK ( arrayItem ( COMMA arrayItem )* )? RBRACK ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:900:1: arrayLiteral : lb= LBRACK ( arrayItem ( COMMA arrayItem )* )? RBRACK ;
     public final ES3YUITestParser.arrayLiteral_return arrayLiteral() throws RecognitionException {
         ES3YUITestParser.arrayLiteral_return retval = new ES3YUITestParser.arrayLiteral_return();
         retval.start = input.LT(1);
@@ -1227,11 +1227,11 @@ public class ES3YUITestParser extends Parser {
         Token lb=null;
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:901:2: (lb= LBRACK ( arrayItem ( COMMA arrayItem )* )? RBRACK )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:901:4: lb= LBRACK ( arrayItem ( COMMA arrayItem )* )? RBRACK
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:901:2: (lb= LBRACK ( arrayItem ( COMMA arrayItem )* )? RBRACK )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:901:4: lb= LBRACK ( arrayItem ( COMMA arrayItem )* )? RBRACK
             {
             lb=(Token)match(input,LBRACK,FOLLOW_LBRACK_in_arrayLiteral3169); 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:901:14: ( arrayItem ( COMMA arrayItem )* )?
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:901:14: ( arrayItem ( COMMA arrayItem )* )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -1247,14 +1247,14 @@ public class ES3YUITestParser extends Parser {
             }
             switch (alt6) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:901:16: arrayItem ( COMMA arrayItem )*
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:901:16: arrayItem ( COMMA arrayItem )*
                     {
                     pushFollow(FOLLOW_arrayItem_in_arrayLiteral3173);
                     arrayItem();
 
                     state._fsp--;
 
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:901:26: ( COMMA arrayItem )*
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:901:26: ( COMMA arrayItem )*
                     loop5:
                     do {
                         int alt5=2;
@@ -1267,7 +1267,7 @@ public class ES3YUITestParser extends Parser {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:901:28: COMMA arrayItem
+                    	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:901:28: COMMA arrayItem
                     	    {
                     	    match(input,COMMA,FOLLOW_COMMA_in_arrayLiteral3177); 
                     	    pushFollow(FOLLOW_arrayItem_in_arrayLiteral3179);
@@ -1314,7 +1314,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "arrayItem"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:905:1: arrayItem : (expr= assignmentExpression | {...}?) ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:905:1: arrayItem : (expr= assignmentExpression | {...}?) ;
     public final ES3YUITestParser.arrayItem_return arrayItem() throws RecognitionException {
         ES3YUITestParser.arrayItem_return retval = new ES3YUITestParser.arrayItem_return();
         retval.start = input.LT(1);
@@ -1323,10 +1323,10 @@ public class ES3YUITestParser extends Parser {
 
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:906:2: ( (expr= assignmentExpression | {...}?) )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:906:4: (expr= assignmentExpression | {...}?)
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:906:2: ( (expr= assignmentExpression | {...}?) )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:906:4: (expr= assignmentExpression | {...}?)
             {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:906:4: (expr= assignmentExpression | {...}?)
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:906:4: (expr= assignmentExpression | {...}?)
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -1344,7 +1344,7 @@ public class ES3YUITestParser extends Parser {
             }
             switch (alt7) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:906:6: expr= assignmentExpression
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:906:6: expr= assignmentExpression
                     {
                     pushFollow(FOLLOW_assignmentExpression_in_arrayItem3204);
                     expr=assignmentExpression();
@@ -1355,7 +1355,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:906:34: {...}?
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:906:34: {...}?
                     {
                     if ( !(( input.LA(1) == COMMA )) ) {
                         throw new FailedPredicateException(input, "arrayItem", " input.LA(1) == COMMA ");
@@ -1389,7 +1389,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "objectLiteral"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:910:1: objectLiteral : lb= LBRACE ( nameValuePair ( COMMA nameValuePair )* )? RBRACE ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:910:1: objectLiteral : lb= LBRACE ( nameValuePair ( COMMA nameValuePair )* )? RBRACE ;
     public final ES3YUITestParser.objectLiteral_return objectLiteral() throws RecognitionException {
         ES3YUITestParser.objectLiteral_return retval = new ES3YUITestParser.objectLiteral_return();
         retval.start = input.LT(1);
@@ -1397,11 +1397,11 @@ public class ES3YUITestParser extends Parser {
         Token lb=null;
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:911:2: (lb= LBRACE ( nameValuePair ( COMMA nameValuePair )* )? RBRACE )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:911:4: lb= LBRACE ( nameValuePair ( COMMA nameValuePair )* )? RBRACE
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:911:2: (lb= LBRACE ( nameValuePair ( COMMA nameValuePair )* )? RBRACE )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:911:4: lb= LBRACE ( nameValuePair ( COMMA nameValuePair )* )? RBRACE
             {
             lb=(Token)match(input,LBRACE,FOLLOW_LBRACE_in_objectLiteral3225); 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:911:14: ( nameValuePair ( COMMA nameValuePair )* )?
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:911:14: ( nameValuePair ( COMMA nameValuePair )* )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -1410,14 +1410,14 @@ public class ES3YUITestParser extends Parser {
             }
             switch (alt9) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:911:16: nameValuePair ( COMMA nameValuePair )*
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:911:16: nameValuePair ( COMMA nameValuePair )*
                     {
                     pushFollow(FOLLOW_nameValuePair_in_objectLiteral3229);
                     nameValuePair();
 
                     state._fsp--;
 
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:911:30: ( COMMA nameValuePair )*
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:911:30: ( COMMA nameValuePair )*
                     loop8:
                     do {
                         int alt8=2;
@@ -1430,7 +1430,7 @@ public class ES3YUITestParser extends Parser {
 
                         switch (alt8) {
                     	case 1 :
-                    	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:911:32: COMMA nameValuePair
+                    	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:911:32: COMMA nameValuePair
                     	    {
                     	    match(input,COMMA,FOLLOW_COMMA_in_objectLiteral3233); 
                     	    pushFollow(FOLLOW_nameValuePair_in_objectLiteral3235);
@@ -1477,14 +1477,14 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "nameValuePair"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:919:1: nameValuePair : propertyName COLON assignmentExpression ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:919:1: nameValuePair : propertyName COLON assignmentExpression ;
     public final ES3YUITestParser.nameValuePair_return nameValuePair() throws RecognitionException {
         ES3YUITestParser.nameValuePair_return retval = new ES3YUITestParser.nameValuePair_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:920:2: ( propertyName COLON assignmentExpression )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:920:4: propertyName COLON assignmentExpression
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:920:2: ( propertyName COLON assignmentExpression )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:920:4: propertyName COLON assignmentExpression
             {
             pushFollow(FOLLOW_propertyName_in_nameValuePair3259);
             propertyName();
@@ -1520,13 +1520,13 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "propertyName"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:924:1: propertyName : ( Identifier | StringLiteral | numericLiteral );
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:924:1: propertyName : ( Identifier | StringLiteral | numericLiteral );
     public final ES3YUITestParser.propertyName_return propertyName() throws RecognitionException {
         ES3YUITestParser.propertyName_return retval = new ES3YUITestParser.propertyName_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:925:2: ( Identifier | StringLiteral | numericLiteral )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:925:2: ( Identifier | StringLiteral | numericLiteral )
             int alt10=3;
             switch ( input.LA(1) ) {
             case Identifier:
@@ -1555,21 +1555,21 @@ public class ES3YUITestParser extends Parser {
 
             switch (alt10) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:925:4: Identifier
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:925:4: Identifier
                     {
                     match(input,Identifier,FOLLOW_Identifier_in_propertyName3276); 
 
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:926:4: StringLiteral
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:926:4: StringLiteral
                     {
                     match(input,StringLiteral,FOLLOW_StringLiteral_in_propertyName3281); 
 
                     }
                     break;
                 case 3 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:927:4: numericLiteral
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:927:4: numericLiteral
                     {
                     pushFollow(FOLLOW_numericLiteral_in_propertyName3286);
                     numericLiteral();
@@ -1601,13 +1601,13 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "memberExpression"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:939:1: memberExpression : ( primaryExpression | functionExpression | newExpression );
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:939:1: memberExpression : ( primaryExpression | functionExpression | newExpression );
     public final ES3YUITestParser.memberExpression_return memberExpression() throws RecognitionException {
         ES3YUITestParser.memberExpression_return retval = new ES3YUITestParser.memberExpression_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:940:2: ( primaryExpression | functionExpression | newExpression )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:940:2: ( primaryExpression | functionExpression | newExpression )
             int alt11=3;
             switch ( input.LA(1) ) {
             case NULL:
@@ -1646,7 +1646,7 @@ public class ES3YUITestParser extends Parser {
 
             switch (alt11) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:940:4: primaryExpression
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:940:4: primaryExpression
                     {
                     pushFollow(FOLLOW_primaryExpression_in_memberExpression3304);
                     primaryExpression();
@@ -1657,7 +1657,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:941:4: functionExpression
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:941:4: functionExpression
                     {
                     pushFollow(FOLLOW_functionExpression_in_memberExpression3309);
                     functionExpression();
@@ -1668,7 +1668,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:942:4: newExpression
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:942:4: newExpression
                     {
                     pushFollow(FOLLOW_newExpression_in_memberExpression3314);
                     newExpression();
@@ -1700,24 +1700,24 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "newExpression"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:945:1: newExpression : ( NEW primaryExpression | NEW functionExpression );
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:945:1: newExpression : ( NEW primaryExpression | NEW functionExpression );
     public final ES3YUITestParser.newExpression_return newExpression() throws RecognitionException {
         ES3YUITestParser.newExpression_return retval = new ES3YUITestParser.newExpression_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:946:2: ( NEW primaryExpression | NEW functionExpression )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:946:2: ( NEW primaryExpression | NEW functionExpression )
             int alt12=2;
             int LA12_0 = input.LA(1);
 
             if ( (LA12_0==NEW) ) {
                 int LA12_1 = input.LA(2);
 
-                if ( (LA12_1==FUNCTION) ) {
-                    alt12=2;
-                }
-                else if ( ((LA12_1>=NULL && LA12_1<=FALSE)||LA12_1==THIS||LA12_1==LBRACE||LA12_1==LPAREN||LA12_1==LBRACK||(LA12_1>=Identifier && LA12_1<=StringLiteral)||LA12_1==RegularExpressionLiteral||(LA12_1>=DecimalLiteral && LA12_1<=HexIntegerLiteral)) ) {
+                if ( ((LA12_1>=NULL && LA12_1<=FALSE)||LA12_1==THIS||LA12_1==LBRACE||LA12_1==LPAREN||LA12_1==LBRACK||(LA12_1>=Identifier && LA12_1<=StringLiteral)||LA12_1==RegularExpressionLiteral||(LA12_1>=DecimalLiteral && LA12_1<=HexIntegerLiteral)) ) {
                     alt12=1;
+                }
+                else if ( (LA12_1==FUNCTION) ) {
+                    alt12=2;
                 }
                 else {
                     NoViableAltException nvae =
@@ -1734,7 +1734,7 @@ public class ES3YUITestParser extends Parser {
             }
             switch (alt12) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:946:4: NEW primaryExpression
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:946:4: NEW primaryExpression
                     {
                     match(input,NEW,FOLLOW_NEW_in_newExpression3325); 
                     pushFollow(FOLLOW_primaryExpression_in_newExpression3327);
@@ -1746,7 +1746,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:947:11: NEW functionExpression
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:947:11: NEW functionExpression
                     {
                     match(input,NEW,FOLLOW_NEW_in_newExpression3339); 
                     pushFollow(FOLLOW_functionExpression_in_newExpression3341);
@@ -1779,17 +1779,17 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "arguments"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:951:1: arguments : LPAREN ( assignmentExpression ( COMMA assignmentExpression )* )? RPAREN ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:951:1: arguments : LPAREN ( assignmentExpression ( COMMA assignmentExpression )* )? RPAREN ;
     public final ES3YUITestParser.arguments_return arguments() throws RecognitionException {
         ES3YUITestParser.arguments_return retval = new ES3YUITestParser.arguments_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:952:2: ( LPAREN ( assignmentExpression ( COMMA assignmentExpression )* )? RPAREN )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:952:4: LPAREN ( assignmentExpression ( COMMA assignmentExpression )* )? RPAREN
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:952:2: ( LPAREN ( assignmentExpression ( COMMA assignmentExpression )* )? RPAREN )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:952:4: LPAREN ( assignmentExpression ( COMMA assignmentExpression )* )? RPAREN
             {
             match(input,LPAREN,FOLLOW_LPAREN_in_arguments3357); 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:952:11: ( assignmentExpression ( COMMA assignmentExpression )* )?
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:952:11: ( assignmentExpression ( COMMA assignmentExpression )* )?
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -1798,14 +1798,14 @@ public class ES3YUITestParser extends Parser {
             }
             switch (alt14) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:952:13: assignmentExpression ( COMMA assignmentExpression )*
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:952:13: assignmentExpression ( COMMA assignmentExpression )*
                     {
                     pushFollow(FOLLOW_assignmentExpression_in_arguments3361);
                     assignmentExpression();
 
                     state._fsp--;
 
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:952:34: ( COMMA assignmentExpression )*
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:952:34: ( COMMA assignmentExpression )*
                     loop13:
                     do {
                         int alt13=2;
@@ -1818,7 +1818,7 @@ public class ES3YUITestParser extends Parser {
 
                         switch (alt13) {
                     	case 1 :
-                    	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:952:36: COMMA assignmentExpression
+                    	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:952:36: COMMA assignmentExpression
                     	    {
                     	    match(input,COMMA,FOLLOW_COMMA_in_arguments3365); 
                     	    pushFollow(FOLLOW_assignmentExpression_in_arguments3367);
@@ -1865,17 +1865,17 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "leftHandSideExpression"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:956:1: leftHandSideExpression : ( memberExpression ) ( arguments | LBRACK expression RBRACK | DOT Identifier )* ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:956:1: leftHandSideExpression : ( memberExpression ) ( arguments | LBRACK expression RBRACK | DOT Identifier )* ;
     public final ES3YUITestParser.leftHandSideExpression_return leftHandSideExpression() throws RecognitionException {
         ES3YUITestParser.leftHandSideExpression_return retval = new ES3YUITestParser.leftHandSideExpression_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:957:2: ( ( memberExpression ) ( arguments | LBRACK expression RBRACK | DOT Identifier )* )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:958:2: ( memberExpression ) ( arguments | LBRACK expression RBRACK | DOT Identifier )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:957:2: ( ( memberExpression ) ( arguments | LBRACK expression RBRACK | DOT Identifier )* )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:958:2: ( memberExpression ) ( arguments | LBRACK expression RBRACK | DOT Identifier )*
             {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:958:2: ( memberExpression )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:959:3: memberExpression
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:958:2: ( memberExpression )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:959:3: memberExpression
             {
             pushFollow(FOLLOW_memberExpression_in_leftHandSideExpression3394);
             memberExpression();
@@ -1885,7 +1885,7 @@ public class ES3YUITestParser extends Parser {
 
             }
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:961:2: ( arguments | LBRACK expression RBRACK | DOT Identifier )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:961:2: ( arguments | LBRACK expression RBRACK | DOT Identifier )*
             loop15:
             do {
                 int alt15=4;
@@ -1910,7 +1910,7 @@ public class ES3YUITestParser extends Parser {
 
                 switch (alt15) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:962:3: arguments
+            	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:962:3: arguments
             	    {
             	    pushFollow(FOLLOW_arguments_in_leftHandSideExpression3407);
             	    arguments();
@@ -1921,7 +1921,7 @@ public class ES3YUITestParser extends Parser {
             	    }
             	    break;
             	case 2 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:963:5: LBRACK expression RBRACK
+            	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:963:5: LBRACK expression RBRACK
             	    {
             	    match(input,LBRACK,FOLLOW_LBRACK_in_leftHandSideExpression3416); 
             	    pushFollow(FOLLOW_expression_in_leftHandSideExpression3418);
@@ -1934,7 +1934,7 @@ public class ES3YUITestParser extends Parser {
             	    }
             	    break;
             	case 3 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:964:5: DOT Identifier
+            	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:964:5: DOT Identifier
             	    {
             	    match(input,DOT,FOLLOW_DOT_in_leftHandSideExpression3427); 
             	    match(input,Identifier,FOLLOW_Identifier_in_leftHandSideExpression3429); 
@@ -1970,14 +1970,14 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "postfixExpression"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:978:1: postfixExpression : leftHandSideExpression ( postfixOperator )? ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:978:1: postfixExpression : leftHandSideExpression ( postfixOperator )? ;
     public final ES3YUITestParser.postfixExpression_return postfixExpression() throws RecognitionException {
         ES3YUITestParser.postfixExpression_return retval = new ES3YUITestParser.postfixExpression_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:979:2: ( leftHandSideExpression ( postfixOperator )? )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:979:4: leftHandSideExpression ( postfixOperator )?
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:979:2: ( leftHandSideExpression ( postfixOperator )? )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:979:4: leftHandSideExpression ( postfixOperator )?
             {
             pushFollow(FOLLOW_leftHandSideExpression_in_postfixExpression3452);
             leftHandSideExpression();
@@ -1985,7 +1985,7 @@ public class ES3YUITestParser extends Parser {
             state._fsp--;
 
              if (input.LA(1) == INC || input.LA(1) == DEC) promoteEOL(null); 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:979:95: ( postfixOperator )?
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:979:95: ( postfixOperator )?
             int alt16=2;
             int LA16_0 = input.LA(1);
 
@@ -1994,7 +1994,7 @@ public class ES3YUITestParser extends Parser {
             }
             switch (alt16) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:979:97: postfixOperator
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:979:97: postfixOperator
                     {
                     pushFollow(FOLLOW_postfixOperator_in_postfixExpression3458);
                     postfixOperator();
@@ -2030,7 +2030,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "postfixOperator"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:982:1: postfixOperator : (op= INC | op= DEC );
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:982:1: postfixOperator : (op= INC | op= DEC );
     public final ES3YUITestParser.postfixOperator_return postfixOperator() throws RecognitionException {
         ES3YUITestParser.postfixOperator_return retval = new ES3YUITestParser.postfixOperator_return();
         retval.start = input.LT(1);
@@ -2038,7 +2038,7 @@ public class ES3YUITestParser extends Parser {
         Token op=null;
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:983:2: (op= INC | op= DEC )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:983:2: (op= INC | op= DEC )
             int alt17=2;
             int LA17_0 = input.LA(1);
 
@@ -2056,7 +2056,7 @@ public class ES3YUITestParser extends Parser {
             }
             switch (alt17) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:983:4: op= INC
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:983:4: op= INC
                     {
                     op=(Token)match(input,INC,FOLLOW_INC_in_postfixOperator3475); 
                      op.setType(PINC); 
@@ -2064,7 +2064,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:984:4: op= DEC
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:984:4: op= DEC
                     {
                     op=(Token)match(input,DEC,FOLLOW_DEC_in_postfixOperator3484); 
                      op.setType(PDEC); 
@@ -2093,13 +2093,13 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "unaryExpression"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:991:1: unaryExpression : ( postfixExpression | unaryOperator unaryExpression );
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:991:1: unaryExpression : ( postfixExpression | unaryOperator unaryExpression );
     public final ES3YUITestParser.unaryExpression_return unaryExpression() throws RecognitionException {
         ES3YUITestParser.unaryExpression_return retval = new ES3YUITestParser.unaryExpression_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:992:2: ( postfixExpression | unaryOperator unaryExpression )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:992:2: ( postfixExpression | unaryOperator unaryExpression )
             int alt18=2;
             int LA18_0 = input.LA(1);
 
@@ -2117,7 +2117,7 @@ public class ES3YUITestParser extends Parser {
             }
             switch (alt18) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:992:4: postfixExpression
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:992:4: postfixExpression
                     {
                     pushFollow(FOLLOW_postfixExpression_in_unaryExpression3501);
                     postfixExpression();
@@ -2128,7 +2128,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:993:4: unaryOperator unaryExpression
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:993:4: unaryOperator unaryExpression
                     {
                     pushFollow(FOLLOW_unaryOperator_in_unaryExpression3506);
                     unaryOperator();
@@ -2165,7 +2165,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "unaryOperator"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:996:1: unaryOperator : ( DELETE | VOID | TYPEOF | INC | DEC | op= ADD | op= SUB | INV | NOT );
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:996:1: unaryOperator : ( DELETE | VOID | TYPEOF | INC | DEC | op= ADD | op= SUB | INV | NOT );
     public final ES3YUITestParser.unaryOperator_return unaryOperator() throws RecognitionException {
         ES3YUITestParser.unaryOperator_return retval = new ES3YUITestParser.unaryOperator_return();
         retval.start = input.LT(1);
@@ -2173,7 +2173,7 @@ public class ES3YUITestParser extends Parser {
         Token op=null;
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:997:2: ( DELETE | VOID | TYPEOF | INC | DEC | op= ADD | op= SUB | INV | NOT )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:997:2: ( DELETE | VOID | TYPEOF | INC | DEC | op= ADD | op= SUB | INV | NOT )
             int alt19=9;
             switch ( input.LA(1) ) {
             case DELETE:
@@ -2230,42 +2230,42 @@ public class ES3YUITestParser extends Parser {
 
             switch (alt19) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:997:4: DELETE
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:997:4: DELETE
                     {
                     match(input,DELETE,FOLLOW_DELETE_in_unaryOperator3520); 
 
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:998:4: VOID
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:998:4: VOID
                     {
                     match(input,VOID,FOLLOW_VOID_in_unaryOperator3525); 
 
                     }
                     break;
                 case 3 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:999:4: TYPEOF
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:999:4: TYPEOF
                     {
                     match(input,TYPEOF,FOLLOW_TYPEOF_in_unaryOperator3530); 
 
                     }
                     break;
                 case 4 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1000:4: INC
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1000:4: INC
                     {
                     match(input,INC,FOLLOW_INC_in_unaryOperator3535); 
 
                     }
                     break;
                 case 5 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1001:4: DEC
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1001:4: DEC
                     {
                     match(input,DEC,FOLLOW_DEC_in_unaryOperator3540); 
 
                     }
                     break;
                 case 6 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1002:4: op= ADD
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1002:4: op= ADD
                     {
                     op=(Token)match(input,ADD,FOLLOW_ADD_in_unaryOperator3547); 
                      op.setType(POS); 
@@ -2273,7 +2273,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 7 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1003:4: op= SUB
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1003:4: op= SUB
                     {
                     op=(Token)match(input,SUB,FOLLOW_SUB_in_unaryOperator3556); 
                      op.setType(NEG); 
@@ -2281,14 +2281,14 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 8 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1004:4: INV
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1004:4: INV
                     {
                     match(input,INV,FOLLOW_INV_in_unaryOperator3563); 
 
                     }
                     break;
                 case 9 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1005:4: NOT
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1005:4: NOT
                     {
                     match(input,NOT,FOLLOW_NOT_in_unaryOperator3568); 
 
@@ -2316,21 +2316,21 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "multiplicativeExpression"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1012:1: multiplicativeExpression : unaryExpression ( ( MUL | DIV | MOD ) unaryExpression )* ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1012:1: multiplicativeExpression : unaryExpression ( ( MUL | DIV | MOD ) unaryExpression )* ;
     public final ES3YUITestParser.multiplicativeExpression_return multiplicativeExpression() throws RecognitionException {
         ES3YUITestParser.multiplicativeExpression_return retval = new ES3YUITestParser.multiplicativeExpression_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1013:2: ( unaryExpression ( ( MUL | DIV | MOD ) unaryExpression )* )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1013:4: unaryExpression ( ( MUL | DIV | MOD ) unaryExpression )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1013:2: ( unaryExpression ( ( MUL | DIV | MOD ) unaryExpression )* )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1013:4: unaryExpression ( ( MUL | DIV | MOD ) unaryExpression )*
             {
             pushFollow(FOLLOW_unaryExpression_in_multiplicativeExpression3583);
             unaryExpression();
 
             state._fsp--;
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1013:20: ( ( MUL | DIV | MOD ) unaryExpression )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1013:20: ( ( MUL | DIV | MOD ) unaryExpression )*
             loop20:
             do {
                 int alt20=2;
@@ -2343,7 +2343,7 @@ public class ES3YUITestParser extends Parser {
 
                 switch (alt20) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1013:22: ( MUL | DIV | MOD ) unaryExpression
+            	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1013:22: ( MUL | DIV | MOD ) unaryExpression
             	    {
             	    if ( (input.LA(1)>=MUL && input.LA(1)<=MOD)||input.LA(1)==DIV ) {
             	        input.consume();
@@ -2391,21 +2391,21 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "additiveExpression"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1020:1: additiveExpression : multiplicativeExpression ( ( ADD | SUB ) multiplicativeExpression )* ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1020:1: additiveExpression : multiplicativeExpression ( ( ADD | SUB ) multiplicativeExpression )* ;
     public final ES3YUITestParser.additiveExpression_return additiveExpression() throws RecognitionException {
         ES3YUITestParser.additiveExpression_return retval = new ES3YUITestParser.additiveExpression_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1021:2: ( multiplicativeExpression ( ( ADD | SUB ) multiplicativeExpression )* )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1021:4: multiplicativeExpression ( ( ADD | SUB ) multiplicativeExpression )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1021:2: ( multiplicativeExpression ( ( ADD | SUB ) multiplicativeExpression )* )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1021:4: multiplicativeExpression ( ( ADD | SUB ) multiplicativeExpression )*
             {
             pushFollow(FOLLOW_multiplicativeExpression_in_additiveExpression3619);
             multiplicativeExpression();
 
             state._fsp--;
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1021:29: ( ( ADD | SUB ) multiplicativeExpression )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1021:29: ( ( ADD | SUB ) multiplicativeExpression )*
             loop21:
             do {
                 int alt21=2;
@@ -2418,7 +2418,7 @@ public class ES3YUITestParser extends Parser {
 
                 switch (alt21) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1021:31: ( ADD | SUB ) multiplicativeExpression
+            	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1021:31: ( ADD | SUB ) multiplicativeExpression
             	    {
             	    if ( (input.LA(1)>=ADD && input.LA(1)<=SUB) ) {
             	        input.consume();
@@ -2466,21 +2466,21 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "shiftExpression"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1028:1: shiftExpression : additiveExpression ( ( SHL | SHR | SHU ) additiveExpression )* ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1028:1: shiftExpression : additiveExpression ( ( SHL | SHR | SHU ) additiveExpression )* ;
     public final ES3YUITestParser.shiftExpression_return shiftExpression() throws RecognitionException {
         ES3YUITestParser.shiftExpression_return retval = new ES3YUITestParser.shiftExpression_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1029:2: ( additiveExpression ( ( SHL | SHR | SHU ) additiveExpression )* )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1029:4: additiveExpression ( ( SHL | SHR | SHU ) additiveExpression )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1029:2: ( additiveExpression ( ( SHL | SHR | SHU ) additiveExpression )* )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1029:4: additiveExpression ( ( SHL | SHR | SHU ) additiveExpression )*
             {
             pushFollow(FOLLOW_additiveExpression_in_shiftExpression3652);
             additiveExpression();
 
             state._fsp--;
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1029:23: ( ( SHL | SHR | SHU ) additiveExpression )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1029:23: ( ( SHL | SHR | SHU ) additiveExpression )*
             loop22:
             do {
                 int alt22=2;
@@ -2493,7 +2493,7 @@ public class ES3YUITestParser extends Parser {
 
                 switch (alt22) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1029:25: ( SHL | SHR | SHU ) additiveExpression
+            	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1029:25: ( SHL | SHR | SHU ) additiveExpression
             	    {
             	    if ( (input.LA(1)>=SHL && input.LA(1)<=SHU) ) {
             	        input.consume();
@@ -2541,21 +2541,21 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "relationalExpression"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1036:1: relationalExpression : shiftExpression ( ( LT | GT | LTE | GTE | INSTANCEOF | IN ) shiftExpression )* ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1036:1: relationalExpression : shiftExpression ( ( LT | GT | LTE | GTE | INSTANCEOF | IN ) shiftExpression )* ;
     public final ES3YUITestParser.relationalExpression_return relationalExpression() throws RecognitionException {
         ES3YUITestParser.relationalExpression_return retval = new ES3YUITestParser.relationalExpression_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1037:2: ( shiftExpression ( ( LT | GT | LTE | GTE | INSTANCEOF | IN ) shiftExpression )* )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1037:4: shiftExpression ( ( LT | GT | LTE | GTE | INSTANCEOF | IN ) shiftExpression )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1037:2: ( shiftExpression ( ( LT | GT | LTE | GTE | INSTANCEOF | IN ) shiftExpression )* )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1037:4: shiftExpression ( ( LT | GT | LTE | GTE | INSTANCEOF | IN ) shiftExpression )*
             {
             pushFollow(FOLLOW_shiftExpression_in_relationalExpression3689);
             shiftExpression();
 
             state._fsp--;
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1037:20: ( ( LT | GT | LTE | GTE | INSTANCEOF | IN ) shiftExpression )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1037:20: ( ( LT | GT | LTE | GTE | INSTANCEOF | IN ) shiftExpression )*
             loop23:
             do {
                 int alt23=2;
@@ -2568,7 +2568,7 @@ public class ES3YUITestParser extends Parser {
 
                 switch (alt23) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1037:22: ( LT | GT | LTE | GTE | INSTANCEOF | IN ) shiftExpression
+            	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1037:22: ( LT | GT | LTE | GTE | INSTANCEOF | IN ) shiftExpression
             	    {
             	    if ( (input.LA(1)>=IN && input.LA(1)<=INSTANCEOF)||(input.LA(1)>=LT && input.LA(1)<=GTE) ) {
             	        input.consume();
@@ -2616,21 +2616,21 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "relationalExpressionNoIn"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1040:1: relationalExpressionNoIn : shiftExpression ( ( LT | GT | LTE | GTE | INSTANCEOF ) shiftExpression )* ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1040:1: relationalExpressionNoIn : shiftExpression ( ( LT | GT | LTE | GTE | INSTANCEOF ) shiftExpression )* ;
     public final ES3YUITestParser.relationalExpressionNoIn_return relationalExpressionNoIn() throws RecognitionException {
         ES3YUITestParser.relationalExpressionNoIn_return retval = new ES3YUITestParser.relationalExpressionNoIn_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1041:2: ( shiftExpression ( ( LT | GT | LTE | GTE | INSTANCEOF ) shiftExpression )* )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1041:4: shiftExpression ( ( LT | GT | LTE | GTE | INSTANCEOF ) shiftExpression )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1041:2: ( shiftExpression ( ( LT | GT | LTE | GTE | INSTANCEOF ) shiftExpression )* )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1041:4: shiftExpression ( ( LT | GT | LTE | GTE | INSTANCEOF ) shiftExpression )*
             {
             pushFollow(FOLLOW_shiftExpression_in_relationalExpressionNoIn3733);
             shiftExpression();
 
             state._fsp--;
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1041:20: ( ( LT | GT | LTE | GTE | INSTANCEOF ) shiftExpression )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1041:20: ( ( LT | GT | LTE | GTE | INSTANCEOF ) shiftExpression )*
             loop24:
             do {
                 int alt24=2;
@@ -2643,7 +2643,7 @@ public class ES3YUITestParser extends Parser {
 
                 switch (alt24) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1041:22: ( LT | GT | LTE | GTE | INSTANCEOF ) shiftExpression
+            	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1041:22: ( LT | GT | LTE | GTE | INSTANCEOF ) shiftExpression
             	    {
             	    if ( input.LA(1)==INSTANCEOF||(input.LA(1)>=LT && input.LA(1)<=GTE) ) {
             	        input.consume();
@@ -2691,21 +2691,21 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "equalityExpression"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1048:1: equalityExpression : relationalExpression ( ( EQ | NEQ | SAME | NSAME ) relationalExpression )* ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1048:1: equalityExpression : relationalExpression ( ( EQ | NEQ | SAME | NSAME ) relationalExpression )* ;
     public final ES3YUITestParser.equalityExpression_return equalityExpression() throws RecognitionException {
         ES3YUITestParser.equalityExpression_return retval = new ES3YUITestParser.equalityExpression_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1049:2: ( relationalExpression ( ( EQ | NEQ | SAME | NSAME ) relationalExpression )* )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1049:4: relationalExpression ( ( EQ | NEQ | SAME | NSAME ) relationalExpression )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1049:2: ( relationalExpression ( ( EQ | NEQ | SAME | NSAME ) relationalExpression )* )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1049:4: relationalExpression ( ( EQ | NEQ | SAME | NSAME ) relationalExpression )*
             {
             pushFollow(FOLLOW_relationalExpression_in_equalityExpression3778);
             relationalExpression();
 
             state._fsp--;
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1049:25: ( ( EQ | NEQ | SAME | NSAME ) relationalExpression )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1049:25: ( ( EQ | NEQ | SAME | NSAME ) relationalExpression )*
             loop25:
             do {
                 int alt25=2;
@@ -2718,7 +2718,7 @@ public class ES3YUITestParser extends Parser {
 
                 switch (alt25) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1049:27: ( EQ | NEQ | SAME | NSAME ) relationalExpression
+            	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1049:27: ( EQ | NEQ | SAME | NSAME ) relationalExpression
             	    {
             	    if ( (input.LA(1)>=EQ && input.LA(1)<=NSAME) ) {
             	        input.consume();
@@ -2766,21 +2766,21 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "equalityExpressionNoIn"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1052:1: equalityExpressionNoIn : relationalExpressionNoIn ( ( EQ | NEQ | SAME | NSAME ) relationalExpressionNoIn )* ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1052:1: equalityExpressionNoIn : relationalExpressionNoIn ( ( EQ | NEQ | SAME | NSAME ) relationalExpressionNoIn )* ;
     public final ES3YUITestParser.equalityExpressionNoIn_return equalityExpressionNoIn() throws RecognitionException {
         ES3YUITestParser.equalityExpressionNoIn_return retval = new ES3YUITestParser.equalityExpressionNoIn_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1053:2: ( relationalExpressionNoIn ( ( EQ | NEQ | SAME | NSAME ) relationalExpressionNoIn )* )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1053:4: relationalExpressionNoIn ( ( EQ | NEQ | SAME | NSAME ) relationalExpressionNoIn )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1053:2: ( relationalExpressionNoIn ( ( EQ | NEQ | SAME | NSAME ) relationalExpressionNoIn )* )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1053:4: relationalExpressionNoIn ( ( EQ | NEQ | SAME | NSAME ) relationalExpressionNoIn )*
             {
             pushFollow(FOLLOW_relationalExpressionNoIn_in_equalityExpressionNoIn3814);
             relationalExpressionNoIn();
 
             state._fsp--;
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1053:29: ( ( EQ | NEQ | SAME | NSAME ) relationalExpressionNoIn )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1053:29: ( ( EQ | NEQ | SAME | NSAME ) relationalExpressionNoIn )*
             loop26:
             do {
                 int alt26=2;
@@ -2793,7 +2793,7 @@ public class ES3YUITestParser extends Parser {
 
                 switch (alt26) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1053:31: ( EQ | NEQ | SAME | NSAME ) relationalExpressionNoIn
+            	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1053:31: ( EQ | NEQ | SAME | NSAME ) relationalExpressionNoIn
             	    {
             	    if ( (input.LA(1)>=EQ && input.LA(1)<=NSAME) ) {
             	        input.consume();
@@ -2841,21 +2841,21 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "bitwiseANDExpression"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1060:1: bitwiseANDExpression : equalityExpression ( AND equalityExpression )* ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1060:1: bitwiseANDExpression : equalityExpression ( AND equalityExpression )* ;
     public final ES3YUITestParser.bitwiseANDExpression_return bitwiseANDExpression() throws RecognitionException {
         ES3YUITestParser.bitwiseANDExpression_return retval = new ES3YUITestParser.bitwiseANDExpression_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1061:2: ( equalityExpression ( AND equalityExpression )* )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1061:4: equalityExpression ( AND equalityExpression )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1061:2: ( equalityExpression ( AND equalityExpression )* )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1061:4: equalityExpression ( AND equalityExpression )*
             {
             pushFollow(FOLLOW_equalityExpression_in_bitwiseANDExpression3856);
             equalityExpression();
 
             state._fsp--;
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1061:23: ( AND equalityExpression )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1061:23: ( AND equalityExpression )*
             loop27:
             do {
                 int alt27=2;
@@ -2868,7 +2868,7 @@ public class ES3YUITestParser extends Parser {
 
                 switch (alt27) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1061:25: AND equalityExpression
+            	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1061:25: AND equalityExpression
             	    {
             	    match(input,AND,FOLLOW_AND_in_bitwiseANDExpression3860); 
             	    pushFollow(FOLLOW_equalityExpression_in_bitwiseANDExpression3862);
@@ -2908,21 +2908,21 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "bitwiseANDExpressionNoIn"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1064:1: bitwiseANDExpressionNoIn : equalityExpressionNoIn ( AND equalityExpressionNoIn )* ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1064:1: bitwiseANDExpressionNoIn : equalityExpressionNoIn ( AND equalityExpressionNoIn )* ;
     public final ES3YUITestParser.bitwiseANDExpressionNoIn_return bitwiseANDExpressionNoIn() throws RecognitionException {
         ES3YUITestParser.bitwiseANDExpressionNoIn_return retval = new ES3YUITestParser.bitwiseANDExpressionNoIn_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1065:2: ( equalityExpressionNoIn ( AND equalityExpressionNoIn )* )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1065:4: equalityExpressionNoIn ( AND equalityExpressionNoIn )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1065:2: ( equalityExpressionNoIn ( AND equalityExpressionNoIn )* )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1065:4: equalityExpressionNoIn ( AND equalityExpressionNoIn )*
             {
             pushFollow(FOLLOW_equalityExpressionNoIn_in_bitwiseANDExpressionNoIn3876);
             equalityExpressionNoIn();
 
             state._fsp--;
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1065:27: ( AND equalityExpressionNoIn )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1065:27: ( AND equalityExpressionNoIn )*
             loop28:
             do {
                 int alt28=2;
@@ -2935,7 +2935,7 @@ public class ES3YUITestParser extends Parser {
 
                 switch (alt28) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1065:29: AND equalityExpressionNoIn
+            	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1065:29: AND equalityExpressionNoIn
             	    {
             	    match(input,AND,FOLLOW_AND_in_bitwiseANDExpressionNoIn3880); 
             	    pushFollow(FOLLOW_equalityExpressionNoIn_in_bitwiseANDExpressionNoIn3882);
@@ -2975,21 +2975,21 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "bitwiseXORExpression"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1068:1: bitwiseXORExpression : bitwiseANDExpression ( XOR bitwiseANDExpression )* ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1068:1: bitwiseXORExpression : bitwiseANDExpression ( XOR bitwiseANDExpression )* ;
     public final ES3YUITestParser.bitwiseXORExpression_return bitwiseXORExpression() throws RecognitionException {
         ES3YUITestParser.bitwiseXORExpression_return retval = new ES3YUITestParser.bitwiseXORExpression_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1069:2: ( bitwiseANDExpression ( XOR bitwiseANDExpression )* )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1069:4: bitwiseANDExpression ( XOR bitwiseANDExpression )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1069:2: ( bitwiseANDExpression ( XOR bitwiseANDExpression )* )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1069:4: bitwiseANDExpression ( XOR bitwiseANDExpression )*
             {
             pushFollow(FOLLOW_bitwiseANDExpression_in_bitwiseXORExpression3898);
             bitwiseANDExpression();
 
             state._fsp--;
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1069:25: ( XOR bitwiseANDExpression )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1069:25: ( XOR bitwiseANDExpression )*
             loop29:
             do {
                 int alt29=2;
@@ -3002,7 +3002,7 @@ public class ES3YUITestParser extends Parser {
 
                 switch (alt29) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1069:27: XOR bitwiseANDExpression
+            	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1069:27: XOR bitwiseANDExpression
             	    {
             	    match(input,XOR,FOLLOW_XOR_in_bitwiseXORExpression3902); 
             	    pushFollow(FOLLOW_bitwiseANDExpression_in_bitwiseXORExpression3904);
@@ -3042,21 +3042,21 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "bitwiseXORExpressionNoIn"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1072:1: bitwiseXORExpressionNoIn : bitwiseANDExpressionNoIn ( XOR bitwiseANDExpressionNoIn )* ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1072:1: bitwiseXORExpressionNoIn : bitwiseANDExpressionNoIn ( XOR bitwiseANDExpressionNoIn )* ;
     public final ES3YUITestParser.bitwiseXORExpressionNoIn_return bitwiseXORExpressionNoIn() throws RecognitionException {
         ES3YUITestParser.bitwiseXORExpressionNoIn_return retval = new ES3YUITestParser.bitwiseXORExpressionNoIn_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1073:2: ( bitwiseANDExpressionNoIn ( XOR bitwiseANDExpressionNoIn )* )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1073:4: bitwiseANDExpressionNoIn ( XOR bitwiseANDExpressionNoIn )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1073:2: ( bitwiseANDExpressionNoIn ( XOR bitwiseANDExpressionNoIn )* )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1073:4: bitwiseANDExpressionNoIn ( XOR bitwiseANDExpressionNoIn )*
             {
             pushFollow(FOLLOW_bitwiseANDExpressionNoIn_in_bitwiseXORExpressionNoIn3920);
             bitwiseANDExpressionNoIn();
 
             state._fsp--;
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1073:29: ( XOR bitwiseANDExpressionNoIn )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1073:29: ( XOR bitwiseANDExpressionNoIn )*
             loop30:
             do {
                 int alt30=2;
@@ -3069,7 +3069,7 @@ public class ES3YUITestParser extends Parser {
 
                 switch (alt30) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1073:31: XOR bitwiseANDExpressionNoIn
+            	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1073:31: XOR bitwiseANDExpressionNoIn
             	    {
             	    match(input,XOR,FOLLOW_XOR_in_bitwiseXORExpressionNoIn3924); 
             	    pushFollow(FOLLOW_bitwiseANDExpressionNoIn_in_bitwiseXORExpressionNoIn3926);
@@ -3109,21 +3109,21 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "bitwiseORExpression"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1076:1: bitwiseORExpression : bitwiseXORExpression ( OR bitwiseXORExpression )* ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1076:1: bitwiseORExpression : bitwiseXORExpression ( OR bitwiseXORExpression )* ;
     public final ES3YUITestParser.bitwiseORExpression_return bitwiseORExpression() throws RecognitionException {
         ES3YUITestParser.bitwiseORExpression_return retval = new ES3YUITestParser.bitwiseORExpression_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1077:2: ( bitwiseXORExpression ( OR bitwiseXORExpression )* )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1077:4: bitwiseXORExpression ( OR bitwiseXORExpression )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1077:2: ( bitwiseXORExpression ( OR bitwiseXORExpression )* )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1077:4: bitwiseXORExpression ( OR bitwiseXORExpression )*
             {
             pushFollow(FOLLOW_bitwiseXORExpression_in_bitwiseORExpression3941);
             bitwiseXORExpression();
 
             state._fsp--;
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1077:25: ( OR bitwiseXORExpression )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1077:25: ( OR bitwiseXORExpression )*
             loop31:
             do {
                 int alt31=2;
@@ -3136,7 +3136,7 @@ public class ES3YUITestParser extends Parser {
 
                 switch (alt31) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1077:27: OR bitwiseXORExpression
+            	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1077:27: OR bitwiseXORExpression
             	    {
             	    match(input,OR,FOLLOW_OR_in_bitwiseORExpression3945); 
             	    pushFollow(FOLLOW_bitwiseXORExpression_in_bitwiseORExpression3947);
@@ -3176,21 +3176,21 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "bitwiseORExpressionNoIn"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1080:1: bitwiseORExpressionNoIn : bitwiseXORExpressionNoIn ( OR bitwiseXORExpressionNoIn )* ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1080:1: bitwiseORExpressionNoIn : bitwiseXORExpressionNoIn ( OR bitwiseXORExpressionNoIn )* ;
     public final ES3YUITestParser.bitwiseORExpressionNoIn_return bitwiseORExpressionNoIn() throws RecognitionException {
         ES3YUITestParser.bitwiseORExpressionNoIn_return retval = new ES3YUITestParser.bitwiseORExpressionNoIn_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1081:2: ( bitwiseXORExpressionNoIn ( OR bitwiseXORExpressionNoIn )* )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1081:4: bitwiseXORExpressionNoIn ( OR bitwiseXORExpressionNoIn )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1081:2: ( bitwiseXORExpressionNoIn ( OR bitwiseXORExpressionNoIn )* )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1081:4: bitwiseXORExpressionNoIn ( OR bitwiseXORExpressionNoIn )*
             {
             pushFollow(FOLLOW_bitwiseXORExpressionNoIn_in_bitwiseORExpressionNoIn3962);
             bitwiseXORExpressionNoIn();
 
             state._fsp--;
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1081:29: ( OR bitwiseXORExpressionNoIn )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1081:29: ( OR bitwiseXORExpressionNoIn )*
             loop32:
             do {
                 int alt32=2;
@@ -3203,7 +3203,7 @@ public class ES3YUITestParser extends Parser {
 
                 switch (alt32) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1081:31: OR bitwiseXORExpressionNoIn
+            	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1081:31: OR bitwiseXORExpressionNoIn
             	    {
             	    match(input,OR,FOLLOW_OR_in_bitwiseORExpressionNoIn3966); 
             	    pushFollow(FOLLOW_bitwiseXORExpressionNoIn_in_bitwiseORExpressionNoIn3968);
@@ -3243,21 +3243,21 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "logicalANDExpression"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1088:1: logicalANDExpression : bitwiseORExpression ( LAND bitwiseORExpression )* ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1088:1: logicalANDExpression : bitwiseORExpression ( LAND bitwiseORExpression )* ;
     public final ES3YUITestParser.logicalANDExpression_return logicalANDExpression() throws RecognitionException {
         ES3YUITestParser.logicalANDExpression_return retval = new ES3YUITestParser.logicalANDExpression_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1089:2: ( bitwiseORExpression ( LAND bitwiseORExpression )* )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1089:4: bitwiseORExpression ( LAND bitwiseORExpression )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1089:2: ( bitwiseORExpression ( LAND bitwiseORExpression )* )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1089:4: bitwiseORExpression ( LAND bitwiseORExpression )*
             {
             pushFollow(FOLLOW_bitwiseORExpression_in_logicalANDExpression3987);
             bitwiseORExpression();
 
             state._fsp--;
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1089:24: ( LAND bitwiseORExpression )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1089:24: ( LAND bitwiseORExpression )*
             loop33:
             do {
                 int alt33=2;
@@ -3270,7 +3270,7 @@ public class ES3YUITestParser extends Parser {
 
                 switch (alt33) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1089:26: LAND bitwiseORExpression
+            	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1089:26: LAND bitwiseORExpression
             	    {
             	    match(input,LAND,FOLLOW_LAND_in_logicalANDExpression3991); 
             	    pushFollow(FOLLOW_bitwiseORExpression_in_logicalANDExpression3993);
@@ -3310,21 +3310,21 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "logicalANDExpressionNoIn"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1092:1: logicalANDExpressionNoIn : bitwiseORExpressionNoIn ( LAND bitwiseORExpressionNoIn )* ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1092:1: logicalANDExpressionNoIn : bitwiseORExpressionNoIn ( LAND bitwiseORExpressionNoIn )* ;
     public final ES3YUITestParser.logicalANDExpressionNoIn_return logicalANDExpressionNoIn() throws RecognitionException {
         ES3YUITestParser.logicalANDExpressionNoIn_return retval = new ES3YUITestParser.logicalANDExpressionNoIn_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1093:2: ( bitwiseORExpressionNoIn ( LAND bitwiseORExpressionNoIn )* )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1093:4: bitwiseORExpressionNoIn ( LAND bitwiseORExpressionNoIn )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1093:2: ( bitwiseORExpressionNoIn ( LAND bitwiseORExpressionNoIn )* )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1093:4: bitwiseORExpressionNoIn ( LAND bitwiseORExpressionNoIn )*
             {
             pushFollow(FOLLOW_bitwiseORExpressionNoIn_in_logicalANDExpressionNoIn4007);
             bitwiseORExpressionNoIn();
 
             state._fsp--;
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1093:28: ( LAND bitwiseORExpressionNoIn )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1093:28: ( LAND bitwiseORExpressionNoIn )*
             loop34:
             do {
                 int alt34=2;
@@ -3337,7 +3337,7 @@ public class ES3YUITestParser extends Parser {
 
                 switch (alt34) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1093:30: LAND bitwiseORExpressionNoIn
+            	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1093:30: LAND bitwiseORExpressionNoIn
             	    {
             	    match(input,LAND,FOLLOW_LAND_in_logicalANDExpressionNoIn4011); 
             	    pushFollow(FOLLOW_bitwiseORExpressionNoIn_in_logicalANDExpressionNoIn4013);
@@ -3377,21 +3377,21 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "logicalORExpression"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1096:1: logicalORExpression : logicalANDExpression ( LOR logicalANDExpression )* ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1096:1: logicalORExpression : logicalANDExpression ( LOR logicalANDExpression )* ;
     public final ES3YUITestParser.logicalORExpression_return logicalORExpression() throws RecognitionException {
         ES3YUITestParser.logicalORExpression_return retval = new ES3YUITestParser.logicalORExpression_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1097:2: ( logicalANDExpression ( LOR logicalANDExpression )* )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1097:4: logicalANDExpression ( LOR logicalANDExpression )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1097:2: ( logicalANDExpression ( LOR logicalANDExpression )* )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1097:4: logicalANDExpression ( LOR logicalANDExpression )*
             {
             pushFollow(FOLLOW_logicalANDExpression_in_logicalORExpression4028);
             logicalANDExpression();
 
             state._fsp--;
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1097:25: ( LOR logicalANDExpression )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1097:25: ( LOR logicalANDExpression )*
             loop35:
             do {
                 int alt35=2;
@@ -3404,7 +3404,7 @@ public class ES3YUITestParser extends Parser {
 
                 switch (alt35) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1097:27: LOR logicalANDExpression
+            	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1097:27: LOR logicalANDExpression
             	    {
             	    match(input,LOR,FOLLOW_LOR_in_logicalORExpression4032); 
             	    pushFollow(FOLLOW_logicalANDExpression_in_logicalORExpression4034);
@@ -3444,21 +3444,21 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "logicalORExpressionNoIn"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1100:1: logicalORExpressionNoIn : logicalANDExpressionNoIn ( LOR logicalANDExpressionNoIn )* ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1100:1: logicalORExpressionNoIn : logicalANDExpressionNoIn ( LOR logicalANDExpressionNoIn )* ;
     public final ES3YUITestParser.logicalORExpressionNoIn_return logicalORExpressionNoIn() throws RecognitionException {
         ES3YUITestParser.logicalORExpressionNoIn_return retval = new ES3YUITestParser.logicalORExpressionNoIn_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1101:2: ( logicalANDExpressionNoIn ( LOR logicalANDExpressionNoIn )* )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1101:4: logicalANDExpressionNoIn ( LOR logicalANDExpressionNoIn )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1101:2: ( logicalANDExpressionNoIn ( LOR logicalANDExpressionNoIn )* )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1101:4: logicalANDExpressionNoIn ( LOR logicalANDExpressionNoIn )*
             {
             pushFollow(FOLLOW_logicalANDExpressionNoIn_in_logicalORExpressionNoIn4049);
             logicalANDExpressionNoIn();
 
             state._fsp--;
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1101:29: ( LOR logicalANDExpressionNoIn )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1101:29: ( LOR logicalANDExpressionNoIn )*
             loop36:
             do {
                 int alt36=2;
@@ -3471,7 +3471,7 @@ public class ES3YUITestParser extends Parser {
 
                 switch (alt36) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1101:31: LOR logicalANDExpressionNoIn
+            	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1101:31: LOR logicalANDExpressionNoIn
             	    {
             	    match(input,LOR,FOLLOW_LOR_in_logicalORExpressionNoIn4053); 
             	    pushFollow(FOLLOW_logicalANDExpressionNoIn_in_logicalORExpressionNoIn4055);
@@ -3511,21 +3511,21 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "conditionalExpression"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1108:1: conditionalExpression : logicalORExpression ( QUE assignmentExpression COLON assignmentExpression )? ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1108:1: conditionalExpression : logicalORExpression ( QUE assignmentExpression COLON assignmentExpression )? ;
     public final ES3YUITestParser.conditionalExpression_return conditionalExpression() throws RecognitionException {
         ES3YUITestParser.conditionalExpression_return retval = new ES3YUITestParser.conditionalExpression_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1109:2: ( logicalORExpression ( QUE assignmentExpression COLON assignmentExpression )? )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1109:4: logicalORExpression ( QUE assignmentExpression COLON assignmentExpression )?
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1109:2: ( logicalORExpression ( QUE assignmentExpression COLON assignmentExpression )? )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1109:4: logicalORExpression ( QUE assignmentExpression COLON assignmentExpression )?
             {
             pushFollow(FOLLOW_logicalORExpression_in_conditionalExpression4074);
             logicalORExpression();
 
             state._fsp--;
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1109:24: ( QUE assignmentExpression COLON assignmentExpression )?
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1109:24: ( QUE assignmentExpression COLON assignmentExpression )?
             int alt37=2;
             int LA37_0 = input.LA(1);
 
@@ -3534,7 +3534,7 @@ public class ES3YUITestParser extends Parser {
             }
             switch (alt37) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1109:26: QUE assignmentExpression COLON assignmentExpression
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1109:26: QUE assignmentExpression COLON assignmentExpression
                     {
                     match(input,QUE,FOLLOW_QUE_in_conditionalExpression4078); 
                     pushFollow(FOLLOW_assignmentExpression_in_conditionalExpression4080);
@@ -3577,21 +3577,21 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "conditionalExpressionNoIn"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1112:1: conditionalExpressionNoIn : logicalORExpressionNoIn ( QUE assignmentExpressionNoIn COLON assignmentExpressionNoIn )? ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1112:1: conditionalExpressionNoIn : logicalORExpressionNoIn ( QUE assignmentExpressionNoIn COLON assignmentExpressionNoIn )? ;
     public final ES3YUITestParser.conditionalExpressionNoIn_return conditionalExpressionNoIn() throws RecognitionException {
         ES3YUITestParser.conditionalExpressionNoIn_return retval = new ES3YUITestParser.conditionalExpressionNoIn_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1113:2: ( logicalORExpressionNoIn ( QUE assignmentExpressionNoIn COLON assignmentExpressionNoIn )? )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1113:4: logicalORExpressionNoIn ( QUE assignmentExpressionNoIn COLON assignmentExpressionNoIn )?
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1113:2: ( logicalORExpressionNoIn ( QUE assignmentExpressionNoIn COLON assignmentExpressionNoIn )? )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1113:4: logicalORExpressionNoIn ( QUE assignmentExpressionNoIn COLON assignmentExpressionNoIn )?
             {
             pushFollow(FOLLOW_logicalORExpressionNoIn_in_conditionalExpressionNoIn4098);
             logicalORExpressionNoIn();
 
             state._fsp--;
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1113:28: ( QUE assignmentExpressionNoIn COLON assignmentExpressionNoIn )?
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1113:28: ( QUE assignmentExpressionNoIn COLON assignmentExpressionNoIn )?
             int alt38=2;
             int LA38_0 = input.LA(1);
 
@@ -3600,7 +3600,7 @@ public class ES3YUITestParser extends Parser {
             }
             switch (alt38) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1113:30: QUE assignmentExpressionNoIn COLON assignmentExpressionNoIn
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1113:30: QUE assignmentExpressionNoIn COLON assignmentExpressionNoIn
                     {
                     match(input,QUE,FOLLOW_QUE_in_conditionalExpressionNoIn4102); 
                     pushFollow(FOLLOW_assignmentExpressionNoIn_in_conditionalExpressionNoIn4104);
@@ -3643,7 +3643,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "assignmentExpression"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1142:1: assignmentExpression : lhs= conditionalExpression ({...}? assignmentOperator assignmentExpression )? ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1142:1: assignmentExpression : lhs= conditionalExpression ({...}? assignmentOperator assignmentExpression )? ;
     public final ES3YUITestParser.assignmentExpression_return assignmentExpression() throws RecognitionException {
         ES3YUITestParser.assignmentExpression_return retval = new ES3YUITestParser.assignmentExpression_return();
         retval.start = input.LT(1);
@@ -3655,15 +3655,15 @@ public class ES3YUITestParser extends Parser {
         	Object[] isLhs = new Object[1];
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1147:2: (lhs= conditionalExpression ({...}? assignmentOperator assignmentExpression )? )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1147:4: lhs= conditionalExpression ({...}? assignmentOperator assignmentExpression )?
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1147:2: (lhs= conditionalExpression ({...}? assignmentOperator assignmentExpression )? )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1147:4: lhs= conditionalExpression ({...}? assignmentOperator assignmentExpression )?
             {
             pushFollow(FOLLOW_conditionalExpression_in_assignmentExpression4136);
             lhs=conditionalExpression();
 
             state._fsp--;
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1148:2: ({...}? assignmentOperator assignmentExpression )?
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1148:2: ({...}? assignmentOperator assignmentExpression )?
             int alt39=2;
             int LA39_0 = input.LA(1);
 
@@ -3676,7 +3676,7 @@ public class ES3YUITestParser extends Parser {
             }
             switch (alt39) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1148:4: {...}? assignmentOperator assignmentExpression
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1148:4: {...}? assignmentOperator assignmentExpression
                     {
                     if ( !(( isLeftHandSideAssign(lhs, isLhs) )) ) {
                         throw new FailedPredicateException(input, "assignmentExpression", " isLeftHandSideAssign(lhs, isLhs) ");
@@ -3720,14 +3720,14 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "assignmentOperator"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1151:1: assignmentOperator : ( ASSIGN | MULASS | DIVASS | MODASS | ADDASS | SUBASS | SHLASS | SHRASS | SHUASS | ANDASS | XORASS | ORASS );
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1151:1: assignmentOperator : ( ASSIGN | MULASS | DIVASS | MODASS | ADDASS | SUBASS | SHLASS | SHRASS | SHUASS | ANDASS | XORASS | ORASS );
     public final ES3YUITestParser.assignmentOperator_return assignmentOperator() throws RecognitionException {
         ES3YUITestParser.assignmentOperator_return retval = new ES3YUITestParser.assignmentOperator_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1152:2: ( ASSIGN | MULASS | DIVASS | MODASS | ADDASS | SUBASS | SHLASS | SHRASS | SHUASS | ANDASS | XORASS | ORASS )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1152:2: ( ASSIGN | MULASS | DIVASS | MODASS | ADDASS | SUBASS | SHLASS | SHRASS | SHUASS | ANDASS | XORASS | ORASS )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:
             {
             if ( (input.LA(1)>=ASSIGN && input.LA(1)<=XORASS)||input.LA(1)==DIVASS ) {
                 input.consume();
@@ -3761,7 +3761,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "assignmentExpressionNoIn"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1155:1: assignmentExpressionNoIn : lhs= conditionalExpressionNoIn ({...}? assignmentOperator assignmentExpressionNoIn )? ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1155:1: assignmentExpressionNoIn : lhs= conditionalExpressionNoIn ({...}? assignmentOperator assignmentExpressionNoIn )? ;
     public final ES3YUITestParser.assignmentExpressionNoIn_return assignmentExpressionNoIn() throws RecognitionException {
         ES3YUITestParser.assignmentExpressionNoIn_return retval = new ES3YUITestParser.assignmentExpressionNoIn_return();
         retval.start = input.LT(1);
@@ -3773,15 +3773,15 @@ public class ES3YUITestParser extends Parser {
         	Object[] isLhs = new Object[1];
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1160:2: (lhs= conditionalExpressionNoIn ({...}? assignmentOperator assignmentExpressionNoIn )? )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1160:4: lhs= conditionalExpressionNoIn ({...}? assignmentOperator assignmentExpressionNoIn )?
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1160:2: (lhs= conditionalExpressionNoIn ({...}? assignmentOperator assignmentExpressionNoIn )? )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1160:4: lhs= conditionalExpressionNoIn ({...}? assignmentOperator assignmentExpressionNoIn )?
             {
             pushFollow(FOLLOW_conditionalExpressionNoIn_in_assignmentExpressionNoIn4222);
             lhs=conditionalExpressionNoIn();
 
             state._fsp--;
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1161:2: ({...}? assignmentOperator assignmentExpressionNoIn )?
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1161:2: ({...}? assignmentOperator assignmentExpressionNoIn )?
             int alt40=2;
             int LA40_0 = input.LA(1);
 
@@ -3794,7 +3794,7 @@ public class ES3YUITestParser extends Parser {
             }
             switch (alt40) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1161:4: {...}? assignmentOperator assignmentExpressionNoIn
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1161:4: {...}? assignmentOperator assignmentExpressionNoIn
                     {
                     if ( !(( isLeftHandSideAssign(lhs, isLhs) )) ) {
                         throw new FailedPredicateException(input, "assignmentExpressionNoIn", " isLeftHandSideAssign(lhs, isLhs) ");
@@ -3838,7 +3838,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "expression"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1168:1: expression : exprs+= assignmentExpression ( COMMA exprs+= assignmentExpression )* ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1168:1: expression : exprs+= assignmentExpression ( COMMA exprs+= assignmentExpression )* ;
     public final ES3YUITestParser.expression_return expression() throws RecognitionException {
         ES3YUITestParser.expression_return retval = new ES3YUITestParser.expression_return();
         retval.start = input.LT(1);
@@ -3846,8 +3846,8 @@ public class ES3YUITestParser extends Parser {
         List list_exprs=null;
         RuleReturnScope exprs = null;
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1169:2: (exprs+= assignmentExpression ( COMMA exprs+= assignmentExpression )* )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1169:4: exprs+= assignmentExpression ( COMMA exprs+= assignmentExpression )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1169:2: (exprs+= assignmentExpression ( COMMA exprs+= assignmentExpression )* )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1169:4: exprs+= assignmentExpression ( COMMA exprs+= assignmentExpression )*
             {
             pushFollow(FOLLOW_assignmentExpression_in_expression4253);
             exprs=assignmentExpression();
@@ -3857,7 +3857,7 @@ public class ES3YUITestParser extends Parser {
             if (list_exprs==null) list_exprs=new ArrayList();
             list_exprs.add(exprs.getTemplate());
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1169:32: ( COMMA exprs+= assignmentExpression )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1169:32: ( COMMA exprs+= assignmentExpression )*
             loop41:
             do {
                 int alt41=2;
@@ -3870,7 +3870,7 @@ public class ES3YUITestParser extends Parser {
 
                 switch (alt41) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1169:34: COMMA exprs+= assignmentExpression
+            	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1169:34: COMMA exprs+= assignmentExpression
             	    {
             	    match(input,COMMA,FOLLOW_COMMA_in_expression4257); 
             	    pushFollow(FOLLOW_assignmentExpression_in_expression4261);
@@ -3913,7 +3913,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "expressionNoIn"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1174:1: expressionNoIn : exprs+= assignmentExpressionNoIn ( COMMA exprs+= assignmentExpressionNoIn )* ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1174:1: expressionNoIn : exprs+= assignmentExpressionNoIn ( COMMA exprs+= assignmentExpressionNoIn )* ;
     public final ES3YUITestParser.expressionNoIn_return expressionNoIn() throws RecognitionException {
         ES3YUITestParser.expressionNoIn_return retval = new ES3YUITestParser.expressionNoIn_return();
         retval.start = input.LT(1);
@@ -3921,8 +3921,8 @@ public class ES3YUITestParser extends Parser {
         List list_exprs=null;
         RuleReturnScope exprs = null;
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1175:2: (exprs+= assignmentExpressionNoIn ( COMMA exprs+= assignmentExpressionNoIn )* )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1175:4: exprs+= assignmentExpressionNoIn ( COMMA exprs+= assignmentExpressionNoIn )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1175:2: (exprs+= assignmentExpressionNoIn ( COMMA exprs+= assignmentExpressionNoIn )* )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1175:4: exprs+= assignmentExpressionNoIn ( COMMA exprs+= assignmentExpressionNoIn )*
             {
             pushFollow(FOLLOW_assignmentExpressionNoIn_in_expressionNoIn4281);
             exprs=assignmentExpressionNoIn();
@@ -3932,7 +3932,7 @@ public class ES3YUITestParser extends Parser {
             if (list_exprs==null) list_exprs=new ArrayList();
             list_exprs.add(exprs.getTemplate());
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1175:36: ( COMMA exprs+= assignmentExpressionNoIn )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1175:36: ( COMMA exprs+= assignmentExpressionNoIn )*
             loop42:
             do {
                 int alt42=2;
@@ -3945,7 +3945,7 @@ public class ES3YUITestParser extends Parser {
 
                 switch (alt42) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1175:38: COMMA exprs+= assignmentExpressionNoIn
+            	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1175:38: COMMA exprs+= assignmentExpressionNoIn
             	    {
             	    match(input,COMMA,FOLLOW_COMMA_in_expressionNoIn4285); 
             	    pushFollow(FOLLOW_assignmentExpressionNoIn_in_expressionNoIn4289);
@@ -3988,7 +3988,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "semic"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1202:1: semic : ( SEMIC | EOF | RBRACE | EOL | MultiLineComment );
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1202:1: semic : ( SEMIC | EOF | RBRACE | EOL | MultiLineComment );
     public final ES3YUITestParser.semic_return semic() throws RecognitionException {
         ES3YUITestParser.semic_return retval = new ES3YUITestParser.semic_return();
         retval.start = input.LT(1);
@@ -4000,7 +4000,7 @@ public class ES3YUITestParser extends Parser {
         	promoteEOL(retval);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1210:2: ( SEMIC | EOF | RBRACE | EOL | MultiLineComment )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1210:2: ( SEMIC | EOF | RBRACE | EOL | MultiLineComment )
             int alt43=5;
             switch ( input.LA(1) ) {
             case SEMIC:
@@ -4037,21 +4037,21 @@ public class ES3YUITestParser extends Parser {
 
             switch (alt43) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1210:4: SEMIC
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1210:4: SEMIC
                     {
                     match(input,SEMIC,FOLLOW_SEMIC_in_semic4323); 
 
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1211:4: EOF
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1211:4: EOF
                     {
                     match(input,EOF,FOLLOW_EOF_in_semic4328); 
 
                     }
                     break;
                 case 3 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1212:4: RBRACE
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1212:4: RBRACE
                     {
                     match(input,RBRACE,FOLLOW_RBRACE_in_semic4333); 
                      input.rewind(marker); 
@@ -4059,14 +4059,14 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1213:4: EOL
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1213:4: EOL
                     {
                     match(input,EOL,FOLLOW_EOL_in_semic4340); 
 
                     }
                     break;
                 case 5 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1213:10: MultiLineComment
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1213:10: MultiLineComment
                     {
                     match(input,MultiLineComment,FOLLOW_MultiLineComment_in_semic4344); 
 
@@ -4099,7 +4099,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "statement"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1221:1: statement options {k=1; } : ({...}? block | statementTail ) -> {instrument && !$statement::isBlock}? cover_line(src=$program::namecode=$textline=$start.getLine()) -> ignore(code=$text);
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1221:1: statement options {k=1; } : ({...}? block | statementTail ) -> {instrument && !$statement::isBlock}? cover_line(src=$program::namecode=$textline=$start.getLine()) -> ignore(code=$text);
     public final ES3YUITestParser.statement_return statement() throws RecognitionException {
         statement_stack.push(new statement_scope());
         ES3YUITestParser.statement_return retval = new ES3YUITestParser.statement_return();
@@ -4114,15 +4114,15 @@ public class ES3YUITestParser extends Parser {
         	}	
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1245:2: ( ({...}? block | statementTail ) -> {instrument && !$statement::isBlock}? cover_line(src=$program::namecode=$textline=$start.getLine()) -> ignore(code=$text))
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1245:4: ({...}? block | statementTail )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1245:2: ( ({...}? block | statementTail ) -> {instrument && !$statement::isBlock}? cover_line(src=$program::namecode=$textline=$start.getLine()) -> ignore(code=$text))
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1245:4: ({...}? block | statementTail )
             {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1245:4: ({...}? block | statementTail )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1245:4: ({...}? block | statementTail )
             int alt44=2;
             alt44 = dfa44.predict(input);
             switch (alt44) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1245:5: {...}? block
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1245:5: {...}? block
                     {
                     if ( !(( ((statement_scope)statement_stack.peek()).isBlock = input.LA(1) == LBRACE )) ) {
                         throw new FailedPredicateException(input, "statement", " $statement::isBlock = input.LA(1) == LBRACE ");
@@ -4136,7 +4136,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1245:62: statementTail
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1245:62: statementTail
                     {
                     pushFollow(FOLLOW_statementTail_in_statement4391);
                     statementTail();
@@ -4198,18 +4198,18 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "statementTail"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1250:1: statementTail : ( variableStatement | emptyStatement | expressionStatement | ifStatement | iterationStatement | continueStatement | breakStatement | returnStatement | withStatement | labelledStatement | switchStatement | throwStatement | tryStatement );
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1250:1: statementTail : ( variableStatement | emptyStatement | expressionStatement | ifStatement | iterationStatement | continueStatement | breakStatement | returnStatement | withStatement | labelledStatement | switchStatement | throwStatement | tryStatement );
     public final ES3YUITestParser.statementTail_return statementTail() throws RecognitionException {
         ES3YUITestParser.statementTail_return retval = new ES3YUITestParser.statementTail_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1251:2: ( variableStatement | emptyStatement | expressionStatement | ifStatement | iterationStatement | continueStatement | breakStatement | returnStatement | withStatement | labelledStatement | switchStatement | throwStatement | tryStatement )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1251:2: ( variableStatement | emptyStatement | expressionStatement | ifStatement | iterationStatement | continueStatement | breakStatement | returnStatement | withStatement | labelledStatement | switchStatement | throwStatement | tryStatement )
             int alt45=13;
             alt45 = dfa45.predict(input);
             switch (alt45) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1251:4: variableStatement
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1251:4: variableStatement
                     {
                     pushFollow(FOLLOW_variableStatement_in_statementTail4439);
                     variableStatement();
@@ -4220,7 +4220,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1252:4: emptyStatement
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1252:4: emptyStatement
                     {
                     pushFollow(FOLLOW_emptyStatement_in_statementTail4444);
                     emptyStatement();
@@ -4231,7 +4231,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1253:4: expressionStatement
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1253:4: expressionStatement
                     {
                     pushFollow(FOLLOW_expressionStatement_in_statementTail4449);
                     expressionStatement();
@@ -4242,7 +4242,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1254:4: ifStatement
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1254:4: ifStatement
                     {
                     pushFollow(FOLLOW_ifStatement_in_statementTail4454);
                     ifStatement();
@@ -4253,7 +4253,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1255:4: iterationStatement
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1255:4: iterationStatement
                     {
                     pushFollow(FOLLOW_iterationStatement_in_statementTail4459);
                     iterationStatement();
@@ -4264,7 +4264,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 6 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1256:4: continueStatement
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1256:4: continueStatement
                     {
                     pushFollow(FOLLOW_continueStatement_in_statementTail4464);
                     continueStatement();
@@ -4275,7 +4275,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 7 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1257:4: breakStatement
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1257:4: breakStatement
                     {
                     pushFollow(FOLLOW_breakStatement_in_statementTail4469);
                     breakStatement();
@@ -4286,7 +4286,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 8 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1258:4: returnStatement
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1258:4: returnStatement
                     {
                     pushFollow(FOLLOW_returnStatement_in_statementTail4474);
                     returnStatement();
@@ -4297,7 +4297,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 9 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1259:4: withStatement
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1259:4: withStatement
                     {
                     pushFollow(FOLLOW_withStatement_in_statementTail4479);
                     withStatement();
@@ -4308,7 +4308,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 10 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1260:4: labelledStatement
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1260:4: labelledStatement
                     {
                     pushFollow(FOLLOW_labelledStatement_in_statementTail4484);
                     labelledStatement();
@@ -4319,7 +4319,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 11 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1261:4: switchStatement
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1261:4: switchStatement
                     {
                     pushFollow(FOLLOW_switchStatement_in_statementTail4489);
                     switchStatement();
@@ -4330,7 +4330,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 12 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1262:4: throwStatement
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1262:4: throwStatement
                     {
                     pushFollow(FOLLOW_throwStatement_in_statementTail4494);
                     throwStatement();
@@ -4341,7 +4341,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 13 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1263:4: tryStatement
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1263:4: tryStatement
                     {
                     pushFollow(FOLLOW_tryStatement_in_statementTail4499);
                     tryStatement();
@@ -4373,7 +4373,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "block"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1268:1: block : lb= LBRACE ( statement )* RBRACE ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1268:1: block : lb= LBRACE ( statement )* RBRACE ;
     public final ES3YUITestParser.block_return block() throws RecognitionException {
         ES3YUITestParser.block_return retval = new ES3YUITestParser.block_return();
         retval.start = input.LT(1);
@@ -4381,11 +4381,11 @@ public class ES3YUITestParser extends Parser {
         Token lb=null;
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1269:2: (lb= LBRACE ( statement )* RBRACE )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1269:4: lb= LBRACE ( statement )* RBRACE
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1269:2: (lb= LBRACE ( statement )* RBRACE )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1269:4: lb= LBRACE ( statement )* RBRACE
             {
             lb=(Token)match(input,LBRACE,FOLLOW_LBRACE_in_block4514); 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1269:14: ( statement )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1269:14: ( statement )*
             loop46:
             do {
                 int alt46=2;
@@ -4398,7 +4398,7 @@ public class ES3YUITestParser extends Parser {
 
                 switch (alt46) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1269:14: statement
+            	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1269:14: statement
             	    {
             	    pushFollow(FOLLOW_statement_in_block4516);
             	    statement();
@@ -4438,14 +4438,14 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "variableStatement"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1277:1: variableStatement : VAR variableDeclaration ( COMMA variableDeclaration )* semic ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1277:1: variableStatement : VAR variableDeclaration ( COMMA variableDeclaration )* semic ;
     public final ES3YUITestParser.variableStatement_return variableStatement() throws RecognitionException {
         ES3YUITestParser.variableStatement_return retval = new ES3YUITestParser.variableStatement_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1278:2: ( VAR variableDeclaration ( COMMA variableDeclaration )* semic )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1278:4: VAR variableDeclaration ( COMMA variableDeclaration )* semic
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1278:2: ( VAR variableDeclaration ( COMMA variableDeclaration )* semic )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1278:4: VAR variableDeclaration ( COMMA variableDeclaration )* semic
             {
             match(input,VAR,FOLLOW_VAR_in_variableStatement4537); 
             pushFollow(FOLLOW_variableDeclaration_in_variableStatement4539);
@@ -4453,7 +4453,7 @@ public class ES3YUITestParser extends Parser {
 
             state._fsp--;
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1278:28: ( COMMA variableDeclaration )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1278:28: ( COMMA variableDeclaration )*
             loop47:
             do {
                 int alt47=2;
@@ -4466,7 +4466,7 @@ public class ES3YUITestParser extends Parser {
 
                 switch (alt47) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1278:30: COMMA variableDeclaration
+            	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1278:30: COMMA variableDeclaration
             	    {
             	    match(input,COMMA,FOLLOW_COMMA_in_variableStatement4543); 
             	    pushFollow(FOLLOW_variableDeclaration_in_variableStatement4545);
@@ -4511,17 +4511,17 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "variableDeclaration"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1282:1: variableDeclaration : Identifier ( ASSIGN assignmentExpression )? ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1282:1: variableDeclaration : Identifier ( ASSIGN assignmentExpression )? ;
     public final ES3YUITestParser.variableDeclaration_return variableDeclaration() throws RecognitionException {
         ES3YUITestParser.variableDeclaration_return retval = new ES3YUITestParser.variableDeclaration_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1283:2: ( Identifier ( ASSIGN assignmentExpression )? )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1283:4: Identifier ( ASSIGN assignmentExpression )?
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1283:2: ( Identifier ( ASSIGN assignmentExpression )? )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1283:4: Identifier ( ASSIGN assignmentExpression )?
             {
             match(input,Identifier,FOLLOW_Identifier_in_variableDeclaration4563); 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1283:15: ( ASSIGN assignmentExpression )?
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1283:15: ( ASSIGN assignmentExpression )?
             int alt48=2;
             int LA48_0 = input.LA(1);
 
@@ -4530,7 +4530,7 @@ public class ES3YUITestParser extends Parser {
             }
             switch (alt48) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1283:17: ASSIGN assignmentExpression
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1283:17: ASSIGN assignmentExpression
                     {
                     match(input,ASSIGN,FOLLOW_ASSIGN_in_variableDeclaration4567); 
                     pushFollow(FOLLOW_assignmentExpression_in_variableDeclaration4569);
@@ -4567,17 +4567,17 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "variableDeclarationNoIn"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1286:1: variableDeclarationNoIn : Identifier ( ASSIGN assignmentExpressionNoIn )? ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1286:1: variableDeclarationNoIn : Identifier ( ASSIGN assignmentExpressionNoIn )? ;
     public final ES3YUITestParser.variableDeclarationNoIn_return variableDeclarationNoIn() throws RecognitionException {
         ES3YUITestParser.variableDeclarationNoIn_return retval = new ES3YUITestParser.variableDeclarationNoIn_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1287:2: ( Identifier ( ASSIGN assignmentExpressionNoIn )? )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1287:4: Identifier ( ASSIGN assignmentExpressionNoIn )?
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1287:2: ( Identifier ( ASSIGN assignmentExpressionNoIn )? )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1287:4: Identifier ( ASSIGN assignmentExpressionNoIn )?
             {
             match(input,Identifier,FOLLOW_Identifier_in_variableDeclarationNoIn4584); 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1287:15: ( ASSIGN assignmentExpressionNoIn )?
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1287:15: ( ASSIGN assignmentExpressionNoIn )?
             int alt49=2;
             int LA49_0 = input.LA(1);
 
@@ -4586,7 +4586,7 @@ public class ES3YUITestParser extends Parser {
             }
             switch (alt49) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1287:17: ASSIGN assignmentExpressionNoIn
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1287:17: ASSIGN assignmentExpressionNoIn
                     {
                     match(input,ASSIGN,FOLLOW_ASSIGN_in_variableDeclarationNoIn4588); 
                     pushFollow(FOLLOW_assignmentExpressionNoIn_in_variableDeclarationNoIn4590);
@@ -4623,14 +4623,14 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "emptyStatement"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1294:1: emptyStatement : SEMIC ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1294:1: emptyStatement : SEMIC ;
     public final ES3YUITestParser.emptyStatement_return emptyStatement() throws RecognitionException {
         ES3YUITestParser.emptyStatement_return retval = new ES3YUITestParser.emptyStatement_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1295:2: ( SEMIC )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1295:4: SEMIC
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1295:2: ( SEMIC )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1295:4: SEMIC
             {
             match(input,SEMIC,FOLLOW_SEMIC_in_emptyStatement4609); 
 
@@ -4656,14 +4656,14 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "expressionStatement"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1308:1: expressionStatement : expression semic ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1308:1: expressionStatement : expression semic ;
     public final ES3YUITestParser.expressionStatement_return expressionStatement() throws RecognitionException {
         ES3YUITestParser.expressionStatement_return retval = new ES3YUITestParser.expressionStatement_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1309:2: ( expression semic )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1309:4: expression semic
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1309:2: ( expression semic )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1309:4: expression semic
             {
             pushFollow(FOLLOW_expression_in_expressionStatement4627);
             expression();
@@ -4698,7 +4698,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "ifStatement"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1317:1: ifStatement : IF LPAREN expression RPAREN statement ({...}? elseStatement )? -> template(p=input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)body=wrapInBraces($statement.start, $statement.stop, input)elseClause=\n\t $elseStatement.stop != null ? input.toString($statement.stop.getTokenIndex()+1, $elseStatement.stop.getTokenIndex() ) : null) \"<p><body><elseClause>\";
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1317:1: ifStatement : IF LPAREN expression RPAREN statement ({...}? elseStatement )? -> template(p=input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)body=wrapInBraces($statement.start, $statement.stop, input)elseClause=\n\t $elseStatement.stop != null ? input.toString($statement.stop.getTokenIndex()+1, $elseStatement.stop.getTokenIndex() ) : null) \"<p><body><elseClause>\";
     public final ES3YUITestParser.ifStatement_return ifStatement() throws RecognitionException {
         ES3YUITestParser.ifStatement_return retval = new ES3YUITestParser.ifStatement_return();
         retval.start = input.LT(1);
@@ -4709,8 +4709,8 @@ public class ES3YUITestParser extends Parser {
 
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1319:2: ( IF LPAREN expression RPAREN statement ({...}? elseStatement )? -> template(p=input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)body=wrapInBraces($statement.start, $statement.stop, input)elseClause=\n\t $elseStatement.stop != null ? input.toString($statement.stop.getTokenIndex()+1, $elseStatement.stop.getTokenIndex() ) : null) \"<p><body><elseClause>\")
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1319:4: IF LPAREN expression RPAREN statement ({...}? elseStatement )?
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1319:2: ( IF LPAREN expression RPAREN statement ({...}? elseStatement )? -> template(p=input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)body=wrapInBraces($statement.start, $statement.stop, input)elseClause=\n\t $elseStatement.stop != null ? input.toString($statement.stop.getTokenIndex()+1, $elseStatement.stop.getTokenIndex() ) : null) \"<p><body><elseClause>\")
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1319:4: IF LPAREN expression RPAREN statement ({...}? elseStatement )?
             {
             match(input,IF,FOLLOW_IF_in_ifStatement4647); 
             match(input,LPAREN,FOLLOW_LPAREN_in_ifStatement4649); 
@@ -4725,7 +4725,7 @@ public class ES3YUITestParser extends Parser {
 
             state._fsp--;
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1319:42: ({...}? elseStatement )?
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1319:42: ({...}? elseStatement )?
             int alt50=2;
             int LA50_0 = input.LA(1);
 
@@ -4738,7 +4738,7 @@ public class ES3YUITestParser extends Parser {
             }
             switch (alt50) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1319:44: {...}? elseStatement
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1319:44: {...}? elseStatement
                     {
                     if ( !(( input.LA(1) == ELSE )) ) {
                         throw new FailedPredicateException(input, "ifStatement", " input.LA(1) == ELSE ");
@@ -4790,7 +4790,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "elseStatement"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1327:1: elseStatement : ELSE statement -> template(prefix=input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)stmt=wrapInBraces($statement.start, $statement.stop, input)) \"<prefix><stmt>\";
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1327:1: elseStatement : ELSE statement -> template(prefix=input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)stmt=wrapInBraces($statement.start, $statement.stop, input)) \"<prefix><stmt>\";
     public final ES3YUITestParser.elseStatement_return elseStatement() throws RecognitionException {
         ES3YUITestParser.elseStatement_return retval = new ES3YUITestParser.elseStatement_return();
         retval.start = input.LT(1);
@@ -4799,8 +4799,8 @@ public class ES3YUITestParser extends Parser {
 
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1328:2: ( ELSE statement -> template(prefix=input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)stmt=wrapInBraces($statement.start, $statement.stop, input)) \"<prefix><stmt>\")
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1328:4: ELSE statement
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1328:2: ( ELSE statement -> template(prefix=input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)stmt=wrapInBraces($statement.start, $statement.stop, input)) \"<prefix><stmt>\")
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1328:4: ELSE statement
             {
             match(input,ELSE,FOLLOW_ELSE_in_elseStatement4733); 
             pushFollow(FOLLOW_statement_in_elseStatement4735);
@@ -4843,13 +4843,13 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "iterationStatement"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1336:1: iterationStatement : ( doStatement | whileStatement | forStatement );
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1336:1: iterationStatement : ( doStatement | whileStatement | forStatement );
     public final ES3YUITestParser.iterationStatement_return iterationStatement() throws RecognitionException {
         ES3YUITestParser.iterationStatement_return retval = new ES3YUITestParser.iterationStatement_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1337:2: ( doStatement | whileStatement | forStatement )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1337:2: ( doStatement | whileStatement | forStatement )
             int alt51=3;
             switch ( input.LA(1) ) {
             case DO:
@@ -4876,7 +4876,7 @@ public class ES3YUITestParser extends Parser {
 
             switch (alt51) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1337:4: doStatement
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1337:4: doStatement
                     {
                     pushFollow(FOLLOW_doStatement_in_iterationStatement4772);
                     doStatement();
@@ -4887,7 +4887,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1338:4: whileStatement
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1338:4: whileStatement
                     {
                     pushFollow(FOLLOW_whileStatement_in_iterationStatement4777);
                     whileStatement();
@@ -4898,7 +4898,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1339:4: forStatement
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1339:4: forStatement
                     {
                     pushFollow(FOLLOW_forStatement_in_iterationStatement4782);
                     forStatement();
@@ -4930,7 +4930,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "doStatement"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1342:1: doStatement : DO statement WHILE LPAREN expression RPAREN semic -> template(pre=input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)stmt=wrapInBraces($statement.start, $statement.stop, input)post=input.toString($WHILE, $RPAREN)end=$semic.text) \"<pre><stmt><post><end>\";
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1342:1: doStatement : DO statement WHILE LPAREN expression RPAREN semic -> template(pre=input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)stmt=wrapInBraces($statement.start, $statement.stop, input)post=input.toString($WHILE, $RPAREN)end=$semic.text) \"<pre><stmt><post><end>\";
     public final ES3YUITestParser.doStatement_return doStatement() throws RecognitionException {
         ES3YUITestParser.doStatement_return retval = new ES3YUITestParser.doStatement_return();
         retval.start = input.LT(1);
@@ -4943,8 +4943,8 @@ public class ES3YUITestParser extends Parser {
 
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1343:2: ( DO statement WHILE LPAREN expression RPAREN semic -> template(pre=input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)stmt=wrapInBraces($statement.start, $statement.stop, input)post=input.toString($WHILE, $RPAREN)end=$semic.text) \"<pre><stmt><post><end>\")
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1343:4: DO statement WHILE LPAREN expression RPAREN semic
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1343:2: ( DO statement WHILE LPAREN expression RPAREN semic -> template(pre=input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)stmt=wrapInBraces($statement.start, $statement.stop, input)post=input.toString($WHILE, $RPAREN)end=$semic.text) \"<pre><stmt><post><end>\")
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1343:4: DO statement WHILE LPAREN expression RPAREN semic
             {
             match(input,DO,FOLLOW_DO_in_doStatement4794); 
             pushFollow(FOLLOW_statement_in_doStatement4796);
@@ -5000,7 +5000,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "whileStatement"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1350:1: whileStatement : WHILE LPAREN expression RPAREN statement -> template(pre=input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)stmt=wrapInBraces($statement.start, $statement.stop, input)) \"<pre><stmt>\";
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1350:1: whileStatement : WHILE LPAREN expression RPAREN statement -> template(pre=input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)stmt=wrapInBraces($statement.start, $statement.stop, input)) \"<pre><stmt>\";
     public final ES3YUITestParser.whileStatement_return whileStatement() throws RecognitionException {
         ES3YUITestParser.whileStatement_return retval = new ES3YUITestParser.whileStatement_return();
         retval.start = input.LT(1);
@@ -5009,8 +5009,8 @@ public class ES3YUITestParser extends Parser {
 
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1351:2: ( WHILE LPAREN expression RPAREN statement -> template(pre=input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)stmt=wrapInBraces($statement.start, $statement.stop, input)) \"<pre><stmt>\")
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1351:4: WHILE LPAREN expression RPAREN statement
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1351:2: ( WHILE LPAREN expression RPAREN statement -> template(pre=input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)stmt=wrapInBraces($statement.start, $statement.stop, input)) \"<pre><stmt>\")
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1351:4: WHILE LPAREN expression RPAREN statement
             {
             match(input,WHILE,FOLLOW_WHILE_in_whileStatement4892); 
             match(input,LPAREN,FOLLOW_LPAREN_in_whileStatement4894); 
@@ -5060,7 +5060,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "forStatement"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1398:1: forStatement : FOR LPAREN forControl RPAREN statement -> template(pre=input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)stmt=wrapInBraces($statement.start, $statement.stop, input)) \"<pre><stmt>\";
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1398:1: forStatement : FOR LPAREN forControl RPAREN statement -> template(pre=input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)stmt=wrapInBraces($statement.start, $statement.stop, input)) \"<pre><stmt>\";
     public final ES3YUITestParser.forStatement_return forStatement() throws RecognitionException {
         ES3YUITestParser.forStatement_return retval = new ES3YUITestParser.forStatement_return();
         retval.start = input.LT(1);
@@ -5069,8 +5069,8 @@ public class ES3YUITestParser extends Parser {
 
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1399:2: ( FOR LPAREN forControl RPAREN statement -> template(pre=input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)stmt=wrapInBraces($statement.start, $statement.stop, input)) \"<pre><stmt>\")
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1399:4: FOR LPAREN forControl RPAREN statement
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1399:2: ( FOR LPAREN forControl RPAREN statement -> template(pre=input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)stmt=wrapInBraces($statement.start, $statement.stop, input)) \"<pre><stmt>\")
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1399:4: FOR LPAREN forControl RPAREN statement
             {
             match(input,FOR,FOLLOW_FOR_in_forStatement4961); 
             match(input,LPAREN,FOLLOW_LPAREN_in_forStatement4963); 
@@ -5120,13 +5120,13 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "forControl"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1405:1: forControl : ( forControlVar | forControlExpression | forControlSemic );
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1405:1: forControl : ( forControlVar | forControlExpression | forControlSemic );
     public final ES3YUITestParser.forControl_return forControl() throws RecognitionException {
         ES3YUITestParser.forControl_return retval = new ES3YUITestParser.forControl_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1406:2: ( forControlVar | forControlExpression | forControlSemic )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1406:2: ( forControlVar | forControlExpression | forControlSemic )
             int alt52=3;
             switch ( input.LA(1) ) {
             case VAR:
@@ -5176,7 +5176,7 @@ public class ES3YUITestParser extends Parser {
 
             switch (alt52) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1406:4: forControlVar
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1406:4: forControlVar
                     {
                     pushFollow(FOLLOW_forControlVar_in_forControl5028);
                     forControlVar();
@@ -5187,7 +5187,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1407:4: forControlExpression
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1407:4: forControlExpression
                     {
                     pushFollow(FOLLOW_forControlExpression_in_forControl5033);
                     forControlExpression();
@@ -5198,7 +5198,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1408:4: forControlSemic
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1408:4: forControlSemic
                     {
                     pushFollow(FOLLOW_forControlSemic_in_forControl5038);
                     forControlSemic();
@@ -5230,7 +5230,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "forControlVar"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1411:1: forControlVar : VAR variableDeclarationNoIn ( ( IN expression ) | ( ( COMMA variableDeclarationNoIn )* SEMIC (ex1= expression )? SEMIC (ex2= expression )? ) ) ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1411:1: forControlVar : VAR variableDeclarationNoIn ( ( IN expression ) | ( ( COMMA variableDeclarationNoIn )* SEMIC (ex1= expression )? SEMIC (ex2= expression )? ) ) ;
     public final ES3YUITestParser.forControlVar_return forControlVar() throws RecognitionException {
         ES3YUITestParser.forControlVar_return retval = new ES3YUITestParser.forControlVar_return();
         retval.start = input.LT(1);
@@ -5241,8 +5241,8 @@ public class ES3YUITestParser extends Parser {
 
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1412:2: ( VAR variableDeclarationNoIn ( ( IN expression ) | ( ( COMMA variableDeclarationNoIn )* SEMIC (ex1= expression )? SEMIC (ex2= expression )? ) ) )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1412:4: VAR variableDeclarationNoIn ( ( IN expression ) | ( ( COMMA variableDeclarationNoIn )* SEMIC (ex1= expression )? SEMIC (ex2= expression )? ) )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1412:2: ( VAR variableDeclarationNoIn ( ( IN expression ) | ( ( COMMA variableDeclarationNoIn )* SEMIC (ex1= expression )? SEMIC (ex2= expression )? ) ) )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1412:4: VAR variableDeclarationNoIn ( ( IN expression ) | ( ( COMMA variableDeclarationNoIn )* SEMIC (ex1= expression )? SEMIC (ex2= expression )? ) )
             {
             match(input,VAR,FOLLOW_VAR_in_forControlVar5049); 
             pushFollow(FOLLOW_variableDeclarationNoIn_in_forControlVar5051);
@@ -5250,7 +5250,7 @@ public class ES3YUITestParser extends Parser {
 
             state._fsp--;
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1413:2: ( ( IN expression ) | ( ( COMMA variableDeclarationNoIn )* SEMIC (ex1= expression )? SEMIC (ex2= expression )? ) )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1413:2: ( ( IN expression ) | ( ( COMMA variableDeclarationNoIn )* SEMIC (ex1= expression )? SEMIC (ex2= expression )? ) )
             int alt56=2;
             int LA56_0 = input.LA(1);
 
@@ -5268,10 +5268,10 @@ public class ES3YUITestParser extends Parser {
             }
             switch (alt56) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1414:3: ( IN expression )
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1414:3: ( IN expression )
                     {
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1414:3: ( IN expression )
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1415:4: IN expression
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1414:3: ( IN expression )
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1415:4: IN expression
                     {
                     match(input,IN,FOLLOW_IN_in_forControlVar5063); 
                     pushFollow(FOLLOW_expression_in_forControlVar5065);
@@ -5286,12 +5286,12 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1419:3: ( ( COMMA variableDeclarationNoIn )* SEMIC (ex1= expression )? SEMIC (ex2= expression )? )
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1419:3: ( ( COMMA variableDeclarationNoIn )* SEMIC (ex1= expression )? SEMIC (ex2= expression )? )
                     {
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1419:3: ( ( COMMA variableDeclarationNoIn )* SEMIC (ex1= expression )? SEMIC (ex2= expression )? )
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1420:4: ( COMMA variableDeclarationNoIn )* SEMIC (ex1= expression )? SEMIC (ex2= expression )?
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1419:3: ( ( COMMA variableDeclarationNoIn )* SEMIC (ex1= expression )? SEMIC (ex2= expression )? )
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1420:4: ( COMMA variableDeclarationNoIn )* SEMIC (ex1= expression )? SEMIC (ex2= expression )?
                     {
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1420:4: ( COMMA variableDeclarationNoIn )*
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1420:4: ( COMMA variableDeclarationNoIn )*
                     loop53:
                     do {
                         int alt53=2;
@@ -5304,7 +5304,7 @@ public class ES3YUITestParser extends Parser {
 
                         switch (alt53) {
                     	case 1 :
-                    	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1420:6: COMMA variableDeclarationNoIn
+                    	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1420:6: COMMA variableDeclarationNoIn
                     	    {
                     	    match(input,COMMA,FOLLOW_COMMA_in_forControlVar5088); 
                     	    pushFollow(FOLLOW_variableDeclarationNoIn_in_forControlVar5090);
@@ -5322,7 +5322,7 @@ public class ES3YUITestParser extends Parser {
                     } while (true);
 
                     match(input,SEMIC,FOLLOW_SEMIC_in_forControlVar5095); 
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1420:48: (ex1= expression )?
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1420:48: (ex1= expression )?
                     int alt54=2;
                     int LA54_0 = input.LA(1);
 
@@ -5331,7 +5331,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     switch (alt54) {
                         case 1 :
-                            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1420:48: ex1= expression
+                            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1420:48: ex1= expression
                             {
                             pushFollow(FOLLOW_expression_in_forControlVar5099);
                             ex1=expression();
@@ -5345,7 +5345,7 @@ public class ES3YUITestParser extends Parser {
                     }
 
                     match(input,SEMIC,FOLLOW_SEMIC_in_forControlVar5102); 
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1420:70: (ex2= expression )?
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1420:70: (ex2= expression )?
                     int alt55=2;
                     int LA55_0 = input.LA(1);
 
@@ -5354,7 +5354,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     switch (alt55) {
                         case 1 :
-                            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1420:70: ex2= expression
+                            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1420:70: ex2= expression
                             {
                             pushFollow(FOLLOW_expression_in_forControlVar5106);
                             ex2=expression();
@@ -5399,7 +5399,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "forControlExpression"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1426:1: forControlExpression : ex1= expressionNoIn ({...}? ( IN ex2= expression ) | ( SEMIC (ex2= expression )? SEMIC (ex3= expression )? ) ) ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1426:1: forControlExpression : ex1= expressionNoIn ({...}? ( IN ex2= expression ) | ( SEMIC (ex2= expression )? SEMIC (ex3= expression )? ) ) ;
     public final ES3YUITestParser.forControlExpression_return forControlExpression() throws RecognitionException {
         ES3YUITestParser.forControlExpression_return retval = new ES3YUITestParser.forControlExpression_return();
         retval.start = input.LT(1);
@@ -5415,15 +5415,15 @@ public class ES3YUITestParser extends Parser {
         	Object[] isLhs = new Object[1];
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1431:2: (ex1= expressionNoIn ({...}? ( IN ex2= expression ) | ( SEMIC (ex2= expression )? SEMIC (ex3= expression )? ) ) )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1431:4: ex1= expressionNoIn ({...}? ( IN ex2= expression ) | ( SEMIC (ex2= expression )? SEMIC (ex3= expression )? ) )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1431:2: (ex1= expressionNoIn ({...}? ( IN ex2= expression ) | ( SEMIC (ex2= expression )? SEMIC (ex3= expression )? ) ) )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1431:4: ex1= expressionNoIn ({...}? ( IN ex2= expression ) | ( SEMIC (ex2= expression )? SEMIC (ex3= expression )? ) )
             {
             pushFollow(FOLLOW_expressionNoIn_in_forControlExpression5136);
             ex1=expressionNoIn();
 
             state._fsp--;
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1432:2: ({...}? ( IN ex2= expression ) | ( SEMIC (ex2= expression )? SEMIC (ex3= expression )? ) )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1432:2: ({...}? ( IN ex2= expression ) | ( SEMIC (ex2= expression )? SEMIC (ex3= expression )? ) )
             int alt59=2;
             int LA59_0 = input.LA(1);
 
@@ -5441,13 +5441,13 @@ public class ES3YUITestParser extends Parser {
             }
             switch (alt59) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1433:3: {...}? ( IN ex2= expression )
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1433:3: {...}? ( IN ex2= expression )
                     {
                     if ( !(( isLeftHandSideIn(ex1, isLhs) )) ) {
                         throw new FailedPredicateException(input, "forControlExpression", " isLeftHandSideIn(ex1, isLhs) ");
                     }
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1433:37: ( IN ex2= expression )
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1434:4: IN ex2= expression
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1433:37: ( IN ex2= expression )
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1434:4: IN ex2= expression
                     {
                     match(input,IN,FOLLOW_IN_in_forControlExpression5151); 
                     pushFollow(FOLLOW_expression_in_forControlExpression5155);
@@ -5462,13 +5462,13 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1438:3: ( SEMIC (ex2= expression )? SEMIC (ex3= expression )? )
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1438:3: ( SEMIC (ex2= expression )? SEMIC (ex3= expression )? )
                     {
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1438:3: ( SEMIC (ex2= expression )? SEMIC (ex3= expression )? )
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1439:4: SEMIC (ex2= expression )? SEMIC (ex3= expression )?
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1438:3: ( SEMIC (ex2= expression )? SEMIC (ex3= expression )? )
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1439:4: SEMIC (ex2= expression )? SEMIC (ex3= expression )?
                     {
                     match(input,SEMIC,FOLLOW_SEMIC_in_forControlExpression5176); 
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1439:13: (ex2= expression )?
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1439:13: (ex2= expression )?
                     int alt57=2;
                     int LA57_0 = input.LA(1);
 
@@ -5477,7 +5477,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     switch (alt57) {
                         case 1 :
-                            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1439:13: ex2= expression
+                            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1439:13: ex2= expression
                             {
                             pushFollow(FOLLOW_expression_in_forControlExpression5180);
                             ex2=expression();
@@ -5491,7 +5491,7 @@ public class ES3YUITestParser extends Parser {
                     }
 
                     match(input,SEMIC,FOLLOW_SEMIC_in_forControlExpression5183); 
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1439:35: (ex3= expression )?
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1439:35: (ex3= expression )?
                     int alt58=2;
                     int LA58_0 = input.LA(1);
 
@@ -5500,7 +5500,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     switch (alt58) {
                         case 1 :
-                            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1439:35: ex3= expression
+                            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1439:35: ex3= expression
                             {
                             pushFollow(FOLLOW_expression_in_forControlExpression5187);
                             ex3=expression();
@@ -5545,7 +5545,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "forControlSemic"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1445:1: forControlSemic : SEMIC (ex1= expression )? SEMIC (ex2= expression )? ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1445:1: forControlSemic : SEMIC (ex1= expression )? SEMIC (ex2= expression )? ;
     public final ES3YUITestParser.forControlSemic_return forControlSemic() throws RecognitionException {
         ES3YUITestParser.forControlSemic_return retval = new ES3YUITestParser.forControlSemic_return();
         retval.start = input.LT(1);
@@ -5556,11 +5556,11 @@ public class ES3YUITestParser extends Parser {
 
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1446:2: ( SEMIC (ex1= expression )? SEMIC (ex2= expression )? )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1446:4: SEMIC (ex1= expression )? SEMIC (ex2= expression )?
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1446:2: ( SEMIC (ex1= expression )? SEMIC (ex2= expression )? )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1446:4: SEMIC (ex1= expression )? SEMIC (ex2= expression )?
             {
             match(input,SEMIC,FOLLOW_SEMIC_in_forControlSemic5210); 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1446:13: (ex1= expression )?
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1446:13: (ex1= expression )?
             int alt60=2;
             int LA60_0 = input.LA(1);
 
@@ -5569,7 +5569,7 @@ public class ES3YUITestParser extends Parser {
             }
             switch (alt60) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1446:13: ex1= expression
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1446:13: ex1= expression
                     {
                     pushFollow(FOLLOW_expression_in_forControlSemic5214);
                     ex1=expression();
@@ -5583,7 +5583,7 @@ public class ES3YUITestParser extends Parser {
             }
 
             match(input,SEMIC,FOLLOW_SEMIC_in_forControlSemic5217); 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1446:35: (ex2= expression )?
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1446:35: (ex2= expression )?
             int alt61=2;
             int LA61_0 = input.LA(1);
 
@@ -5592,7 +5592,7 @@ public class ES3YUITestParser extends Parser {
             }
             switch (alt61) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1446:35: ex2= expression
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1446:35: ex2= expression
                     {
                     pushFollow(FOLLOW_expression_in_forControlSemic5221);
                     ex2=expression();
@@ -5628,18 +5628,18 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "continueStatement"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1459:1: continueStatement : CONTINUE ( Identifier )? semic ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1459:1: continueStatement : CONTINUE ( Identifier )? semic ;
     public final ES3YUITestParser.continueStatement_return continueStatement() throws RecognitionException {
         ES3YUITestParser.continueStatement_return retval = new ES3YUITestParser.continueStatement_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1460:2: ( CONTINUE ( Identifier )? semic )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1460:4: CONTINUE ( Identifier )? semic
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1460:2: ( CONTINUE ( Identifier )? semic )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1460:4: CONTINUE ( Identifier )? semic
             {
             match(input,CONTINUE,FOLLOW_CONTINUE_in_continueStatement5242); 
              if (input.LA(1) == Identifier) promoteEOL(null); 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1460:66: ( Identifier )?
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1460:66: ( Identifier )?
             int alt62=2;
             int LA62_0 = input.LA(1);
 
@@ -5648,7 +5648,7 @@ public class ES3YUITestParser extends Parser {
             }
             switch (alt62) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1460:66: Identifier
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1460:66: Identifier
                     {
                     match(input,Identifier,FOLLOW_Identifier_in_continueStatement5246); 
 
@@ -5685,18 +5685,18 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "breakStatement"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1472:1: breakStatement : BREAK ( Identifier )? semic ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1472:1: breakStatement : BREAK ( Identifier )? semic ;
     public final ES3YUITestParser.breakStatement_return breakStatement() throws RecognitionException {
         ES3YUITestParser.breakStatement_return retval = new ES3YUITestParser.breakStatement_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1473:2: ( BREAK ( Identifier )? semic )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1473:4: BREAK ( Identifier )? semic
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1473:2: ( BREAK ( Identifier )? semic )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1473:4: BREAK ( Identifier )? semic
             {
             match(input,BREAK,FOLLOW_BREAK_in_breakStatement5267); 
              if (input.LA(1) == Identifier) promoteEOL(null); 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1473:63: ( Identifier )?
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1473:63: ( Identifier )?
             int alt63=2;
             int LA63_0 = input.LA(1);
 
@@ -5705,7 +5705,7 @@ public class ES3YUITestParser extends Parser {
             }
             switch (alt63) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1473:63: Identifier
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1473:63: Identifier
                     {
                     match(input,Identifier,FOLLOW_Identifier_in_breakStatement5271); 
 
@@ -5742,18 +5742,18 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "returnStatement"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1493:1: returnStatement : RETURN ( expression )? semic ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1493:1: returnStatement : RETURN ( expression )? semic ;
     public final ES3YUITestParser.returnStatement_return returnStatement() throws RecognitionException {
         ES3YUITestParser.returnStatement_return retval = new ES3YUITestParser.returnStatement_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1494:2: ( RETURN ( expression )? semic )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1494:4: RETURN ( expression )? semic
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1494:2: ( RETURN ( expression )? semic )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1494:4: RETURN ( expression )? semic
             {
             match(input,RETURN,FOLLOW_RETURN_in_returnStatement5292); 
              promoteEOL(null); 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1494:33: ( expression )?
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1494:33: ( expression )?
             int alt64=2;
             int LA64_0 = input.LA(1);
 
@@ -5762,7 +5762,7 @@ public class ES3YUITestParser extends Parser {
             }
             switch (alt64) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1494:33: expression
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1494:33: expression
                     {
                     pushFollow(FOLLOW_expression_in_returnStatement5296);
                     expression();
@@ -5803,7 +5803,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "withStatement"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1501:1: withStatement : WITH LPAREN expression RPAREN statement -> template(pre=input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)stmt=wrapInBraces($statement.start, $statement.stop, input)) \"<pre><stmt>\";
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1501:1: withStatement : WITH LPAREN expression RPAREN statement -> template(pre=input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)stmt=wrapInBraces($statement.start, $statement.stop, input)) \"<pre><stmt>\";
     public final ES3YUITestParser.withStatement_return withStatement() throws RecognitionException {
         ES3YUITestParser.withStatement_return retval = new ES3YUITestParser.withStatement_return();
         retval.start = input.LT(1);
@@ -5812,8 +5812,8 @@ public class ES3YUITestParser extends Parser {
 
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1502:2: ( WITH LPAREN expression RPAREN statement -> template(pre=input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)stmt=wrapInBraces($statement.start, $statement.stop, input)) \"<pre><stmt>\")
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1502:4: WITH LPAREN expression RPAREN statement
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1502:2: ( WITH LPAREN expression RPAREN statement -> template(pre=input.toString($start.getTokenIndex(), $statement.start.getTokenIndex() - 1)stmt=wrapInBraces($statement.start, $statement.stop, input)) \"<pre><stmt>\")
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1502:4: WITH LPAREN expression RPAREN statement
             {
             match(input,WITH,FOLLOW_WITH_in_withStatement5315); 
             match(input,LPAREN,FOLLOW_LPAREN_in_withStatement5317); 
@@ -5863,7 +5863,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "switchStatement"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1512:1: switchStatement : SWITCH LPAREN expression RPAREN LBRACE ({...}? => defaultClause | caseClause )* RBRACE ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1512:1: switchStatement : SWITCH LPAREN expression RPAREN LBRACE ({...}? => defaultClause | caseClause )* RBRACE ;
     public final ES3YUITestParser.switchStatement_return switchStatement() throws RecognitionException {
         ES3YUITestParser.switchStatement_return retval = new ES3YUITestParser.switchStatement_return();
         retval.start = input.LT(1);
@@ -5872,8 +5872,8 @@ public class ES3YUITestParser extends Parser {
         	int defaultClauseCount = 0;
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1517:2: ( SWITCH LPAREN expression RPAREN LBRACE ({...}? => defaultClause | caseClause )* RBRACE )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1517:4: SWITCH LPAREN expression RPAREN LBRACE ({...}? => defaultClause | caseClause )* RBRACE
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1517:2: ( SWITCH LPAREN expression RPAREN LBRACE ({...}? => defaultClause | caseClause )* RBRACE )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1517:4: SWITCH LPAREN expression RPAREN LBRACE ({...}? => defaultClause | caseClause )* RBRACE
             {
             match(input,SWITCH,FOLLOW_SWITCH_in_switchStatement5392); 
             match(input,LPAREN,FOLLOW_LPAREN_in_switchStatement5394); 
@@ -5884,7 +5884,7 @@ public class ES3YUITestParser extends Parser {
 
             match(input,RPAREN,FOLLOW_RPAREN_in_switchStatement5398); 
             match(input,LBRACE,FOLLOW_LBRACE_in_switchStatement5400); 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1517:43: ({...}? => defaultClause | caseClause )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1517:43: ({...}? => defaultClause | caseClause )*
             loop65:
             do {
                 int alt65=3;
@@ -5900,7 +5900,7 @@ public class ES3YUITestParser extends Parser {
 
                 switch (alt65) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1517:45: {...}? => defaultClause
+            	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1517:45: {...}? => defaultClause
             	    {
             	    if ( !(( defaultClauseCount == 0 )) ) {
             	        throw new FailedPredicateException(input, "switchStatement", " defaultClauseCount == 0 ");
@@ -5915,7 +5915,7 @@ public class ES3YUITestParser extends Parser {
             	    }
             	    break;
             	case 2 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1517:118: caseClause
+            	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1517:118: caseClause
             	    {
             	    pushFollow(FOLLOW_caseClause_in_switchStatement5413);
             	    caseClause();
@@ -5955,14 +5955,14 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "caseClause"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1521:1: caseClause : CASE expression COLON ( statement )* ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1521:1: caseClause : CASE expression COLON ( statement )* ;
     public final ES3YUITestParser.caseClause_return caseClause() throws RecognitionException {
         ES3YUITestParser.caseClause_return retval = new ES3YUITestParser.caseClause_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1522:2: ( CASE expression COLON ( statement )* )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1522:4: CASE expression COLON ( statement )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1522:2: ( CASE expression COLON ( statement )* )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1522:4: CASE expression COLON ( statement )*
             {
             match(input,CASE,FOLLOW_CASE_in_caseClause5431); 
             pushFollow(FOLLOW_expression_in_caseClause5433);
@@ -5971,7 +5971,7 @@ public class ES3YUITestParser extends Parser {
             state._fsp--;
 
             match(input,COLON,FOLLOW_COLON_in_caseClause5435); 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1522:26: ( statement )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1522:26: ( statement )*
             loop66:
             do {
                 int alt66=2;
@@ -5984,7 +5984,7 @@ public class ES3YUITestParser extends Parser {
 
                 switch (alt66) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1522:26: statement
+            	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1522:26: statement
             	    {
             	    pushFollow(FOLLOW_statement_in_caseClause5437);
             	    statement();
@@ -6023,18 +6023,18 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "defaultClause"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1525:1: defaultClause : DEFAULT COLON ( statement )* ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1525:1: defaultClause : DEFAULT COLON ( statement )* ;
     public final ES3YUITestParser.defaultClause_return defaultClause() throws RecognitionException {
         ES3YUITestParser.defaultClause_return retval = new ES3YUITestParser.defaultClause_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1526:2: ( DEFAULT COLON ( statement )* )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1526:4: DEFAULT COLON ( statement )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1526:2: ( DEFAULT COLON ( statement )* )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1526:4: DEFAULT COLON ( statement )*
             {
             match(input,DEFAULT,FOLLOW_DEFAULT_in_defaultClause5450); 
             match(input,COLON,FOLLOW_COLON_in_defaultClause5452); 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1526:18: ( statement )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1526:18: ( statement )*
             loop67:
             do {
                 int alt67=2;
@@ -6047,7 +6047,7 @@ public class ES3YUITestParser extends Parser {
 
                 switch (alt67) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1526:18: statement
+            	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1526:18: statement
             	    {
             	    pushFollow(FOLLOW_statement_in_defaultClause5454);
             	    statement();
@@ -6086,14 +6086,14 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "labelledStatement"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1533:1: labelledStatement : Identifier COLON statement ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1533:1: labelledStatement : Identifier COLON statement ;
     public final ES3YUITestParser.labelledStatement_return labelledStatement() throws RecognitionException {
         ES3YUITestParser.labelledStatement_return retval = new ES3YUITestParser.labelledStatement_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1534:2: ( Identifier COLON statement )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1534:4: Identifier COLON statement
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1534:2: ( Identifier COLON statement )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1534:4: Identifier COLON statement
             {
             match(input,Identifier,FOLLOW_Identifier_in_labelledStatement5471); 
             match(input,COLON,FOLLOW_COLON_in_labelledStatement5473); 
@@ -6125,14 +6125,14 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "throwStatement"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1557:1: throwStatement : THROW expression semic ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1557:1: throwStatement : THROW expression semic ;
     public final ES3YUITestParser.throwStatement_return throwStatement() throws RecognitionException {
         ES3YUITestParser.throwStatement_return retval = new ES3YUITestParser.throwStatement_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1558:2: ( THROW expression semic )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1558:4: THROW expression semic
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1558:2: ( THROW expression semic )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1558:4: THROW expression semic
             {
             match(input,THROW,FOLLOW_THROW_in_throwStatement5495); 
              promoteEOL(null); 
@@ -6169,14 +6169,14 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "tryStatement"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1565:1: tryStatement : TRY block ( catchClause ( finallyClause )? | finallyClause ) ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1565:1: tryStatement : TRY block ( catchClause ( finallyClause )? | finallyClause ) ;
     public final ES3YUITestParser.tryStatement_return tryStatement() throws RecognitionException {
         ES3YUITestParser.tryStatement_return retval = new ES3YUITestParser.tryStatement_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1566:2: ( TRY block ( catchClause ( finallyClause )? | finallyClause ) )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1566:4: TRY block ( catchClause ( finallyClause )? | finallyClause )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1566:2: ( TRY block ( catchClause ( finallyClause )? | finallyClause ) )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1566:4: TRY block ( catchClause ( finallyClause )? | finallyClause )
             {
             match(input,TRY,FOLLOW_TRY_in_tryStatement5517); 
             pushFollow(FOLLOW_block_in_tryStatement5519);
@@ -6184,7 +6184,7 @@ public class ES3YUITestParser extends Parser {
 
             state._fsp--;
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1566:14: ( catchClause ( finallyClause )? | finallyClause )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1566:14: ( catchClause ( finallyClause )? | finallyClause )
             int alt69=2;
             int LA69_0 = input.LA(1);
 
@@ -6202,14 +6202,14 @@ public class ES3YUITestParser extends Parser {
             }
             switch (alt69) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1566:16: catchClause ( finallyClause )?
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1566:16: catchClause ( finallyClause )?
                     {
                     pushFollow(FOLLOW_catchClause_in_tryStatement5523);
                     catchClause();
 
                     state._fsp--;
 
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1566:28: ( finallyClause )?
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1566:28: ( finallyClause )?
                     int alt68=2;
                     int LA68_0 = input.LA(1);
 
@@ -6218,7 +6218,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     switch (alt68) {
                         case 1 :
-                            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1566:28: finallyClause
+                            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1566:28: finallyClause
                             {
                             pushFollow(FOLLOW_finallyClause_in_tryStatement5525);
                             finallyClause();
@@ -6235,7 +6235,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1566:45: finallyClause
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1566:45: finallyClause
                     {
                     pushFollow(FOLLOW_finallyClause_in_tryStatement5530);
                     finallyClause();
@@ -6271,14 +6271,14 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "catchClause"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1569:1: catchClause : CATCH LPAREN Identifier RPAREN block ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1569:1: catchClause : CATCH LPAREN Identifier RPAREN block ;
     public final ES3YUITestParser.catchClause_return catchClause() throws RecognitionException {
         ES3YUITestParser.catchClause_return retval = new ES3YUITestParser.catchClause_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1570:2: ( CATCH LPAREN Identifier RPAREN block )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1570:4: CATCH LPAREN Identifier RPAREN block
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1570:2: ( CATCH LPAREN Identifier RPAREN block )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1570:4: CATCH LPAREN Identifier RPAREN block
             {
             match(input,CATCH,FOLLOW_CATCH_in_catchClause5544); 
             match(input,LPAREN,FOLLOW_LPAREN_in_catchClause5546); 
@@ -6312,14 +6312,14 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "finallyClause"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1573:1: finallyClause : FINALLY block ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1573:1: finallyClause : FINALLY block ;
     public final ES3YUITestParser.finallyClause_return finallyClause() throws RecognitionException {
         ES3YUITestParser.finallyClause_return retval = new ES3YUITestParser.finallyClause_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1574:2: ( FINALLY block )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1574:4: FINALLY block
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1574:2: ( FINALLY block )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1574:4: FINALLY block
             {
             match(input,FINALLY,FOLLOW_FINALLY_in_finallyClause5564); 
             pushFollow(FOLLOW_block_in_finallyClause5566);
@@ -6356,7 +6356,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "functionDeclaration"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1588:1: functionDeclaration : FUNCTION name= Identifier formalParameterList functionDeclarationBody -> {instrument}? cover_line(src=$program::namecode=$textline=$start.getLine()) -> ignore(code=$text);
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1588:1: functionDeclaration : FUNCTION name= Identifier formalParameterList functionDeclarationBody -> {instrument}? cover_line(src=$program::namecode=$textline=$start.getLine()) -> ignore(code=$text);
     public final ES3YUITestParser.functionDeclaration_return functionDeclaration() throws RecognitionException {
         functionDeclaration_stack.push(new functionDeclaration_scope());
         ES3YUITestParser.functionDeclaration_return retval = new ES3YUITestParser.functionDeclaration_return();
@@ -6375,8 +6375,8 @@ public class ES3YUITestParser extends Parser {
         	((functionDeclaration_scope)functionDeclaration_stack.peek()).funcLine = ((Token)retval.start).getLine();		
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1610:2: ( FUNCTION name= Identifier formalParameterList functionDeclarationBody -> {instrument}? cover_line(src=$program::namecode=$textline=$start.getLine()) -> ignore(code=$text))
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1610:4: FUNCTION name= Identifier formalParameterList functionDeclarationBody
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1610:2: ( FUNCTION name= Identifier formalParameterList functionDeclarationBody -> {instrument}? cover_line(src=$program::namecode=$textline=$start.getLine()) -> ignore(code=$text))
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1610:4: FUNCTION name= Identifier formalParameterList functionDeclarationBody
             {
             match(input,FUNCTION,FOLLOW_FUNCTION_in_functionDeclaration5602); 
             name=(Token)match(input,Identifier,FOLLOW_Identifier_in_functionDeclaration5606); 
@@ -6444,7 +6444,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "functionExpression"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1615:1: functionExpression : FUNCTION ( Identifier )? formalParameterList functionExpressionBody ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1615:1: functionExpression : FUNCTION ( Identifier )? formalParameterList functionExpressionBody ;
     public final ES3YUITestParser.functionExpression_return functionExpression() throws RecognitionException {
         functionExpression_stack.push(new functionExpression_scope());
         ES3YUITestParser.functionExpression_return retval = new ES3YUITestParser.functionExpression_return();
@@ -6485,11 +6485,11 @@ public class ES3YUITestParser extends Parser {
 
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1654:2: ( FUNCTION ( Identifier )? formalParameterList functionExpressionBody )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1654:4: FUNCTION ( Identifier )? formalParameterList functionExpressionBody
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1654:2: ( FUNCTION ( Identifier )? formalParameterList functionExpressionBody )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1654:4: FUNCTION ( Identifier )? formalParameterList functionExpressionBody
             {
             match(input,FUNCTION,FOLLOW_FUNCTION_in_functionExpression5667); 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1654:13: ( Identifier )?
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1654:13: ( Identifier )?
             int alt70=2;
             int LA70_0 = input.LA(1);
 
@@ -6498,7 +6498,7 @@ public class ES3YUITestParser extends Parser {
             }
             switch (alt70) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1654:13: Identifier
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1654:13: Identifier
                     {
                     match(input,Identifier,FOLLOW_Identifier_in_functionExpression5669); 
 
@@ -6541,17 +6541,17 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "formalParameterList"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1657:1: formalParameterList : LPAREN ( Identifier ( COMMA Identifier )* )? RPAREN ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1657:1: formalParameterList : LPAREN ( Identifier ( COMMA Identifier )* )? RPAREN ;
     public final ES3YUITestParser.formalParameterList_return formalParameterList() throws RecognitionException {
         ES3YUITestParser.formalParameterList_return retval = new ES3YUITestParser.formalParameterList_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1658:2: ( LPAREN ( Identifier ( COMMA Identifier )* )? RPAREN )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1658:4: LPAREN ( Identifier ( COMMA Identifier )* )? RPAREN
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1658:2: ( LPAREN ( Identifier ( COMMA Identifier )* )? RPAREN )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1658:4: LPAREN ( Identifier ( COMMA Identifier )* )? RPAREN
             {
             match(input,LPAREN,FOLLOW_LPAREN_in_formalParameterList5685); 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1658:11: ( Identifier ( COMMA Identifier )* )?
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1658:11: ( Identifier ( COMMA Identifier )* )?
             int alt72=2;
             int LA72_0 = input.LA(1);
 
@@ -6560,10 +6560,10 @@ public class ES3YUITestParser extends Parser {
             }
             switch (alt72) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1658:13: Identifier ( COMMA Identifier )*
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1658:13: Identifier ( COMMA Identifier )*
                     {
                     match(input,Identifier,FOLLOW_Identifier_in_formalParameterList5689); 
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1658:24: ( COMMA Identifier )*
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1658:24: ( COMMA Identifier )*
                     loop71:
                     do {
                         int alt71=2;
@@ -6576,7 +6576,7 @@ public class ES3YUITestParser extends Parser {
 
                         switch (alt71) {
                     	case 1 :
-                    	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1658:26: COMMA Identifier
+                    	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1658:26: COMMA Identifier
                     	    {
                     	    match(input,COMMA,FOLLOW_COMMA_in_formalParameterList5693); 
                     	    match(input,Identifier,FOLLOW_Identifier_in_formalParameterList5695); 
@@ -6619,7 +6619,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "functionDeclarationBody"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1661:1: functionDeclarationBody : lb= LBRACE ( functionDeclarationBodyWithoutBraces )? RBRACE ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1661:1: functionDeclarationBody : lb= LBRACE ( functionDeclarationBodyWithoutBraces )? RBRACE ;
     public final ES3YUITestParser.functionDeclarationBody_return functionDeclarationBody() throws RecognitionException {
         ES3YUITestParser.functionDeclarationBody_return retval = new ES3YUITestParser.functionDeclarationBody_return();
         retval.start = input.LT(1);
@@ -6627,11 +6627,11 @@ public class ES3YUITestParser extends Parser {
         Token lb=null;
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1662:2: (lb= LBRACE ( functionDeclarationBodyWithoutBraces )? RBRACE )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1662:4: lb= LBRACE ( functionDeclarationBodyWithoutBraces )? RBRACE
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1662:2: (lb= LBRACE ( functionDeclarationBodyWithoutBraces )? RBRACE )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1662:4: lb= LBRACE ( functionDeclarationBodyWithoutBraces )? RBRACE
             {
             lb=(Token)match(input,LBRACE,FOLLOW_LBRACE_in_functionDeclarationBody5716); 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1662:14: ( functionDeclarationBodyWithoutBraces )?
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1662:14: ( functionDeclarationBodyWithoutBraces )?
             int alt73=2;
             int LA73_0 = input.LA(1);
 
@@ -6640,7 +6640,7 @@ public class ES3YUITestParser extends Parser {
             }
             switch (alt73) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1662:14: functionDeclarationBodyWithoutBraces
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1662:14: functionDeclarationBodyWithoutBraces
                     {
                     pushFollow(FOLLOW_functionDeclarationBodyWithoutBraces_in_functionDeclarationBody5718);
                     functionDeclarationBodyWithoutBraces();
@@ -6677,7 +6677,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "functionExpressionBody"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1665:1: functionExpressionBody : lb= LBRACE ( functionExpressionBodyWithoutBraces )? RBRACE ;
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1665:1: functionExpressionBody : lb= LBRACE ( functionExpressionBodyWithoutBraces )? RBRACE ;
     public final ES3YUITestParser.functionExpressionBody_return functionExpressionBody() throws RecognitionException {
         ES3YUITestParser.functionExpressionBody_return retval = new ES3YUITestParser.functionExpressionBody_return();
         retval.start = input.LT(1);
@@ -6685,11 +6685,11 @@ public class ES3YUITestParser extends Parser {
         Token lb=null;
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1666:2: (lb= LBRACE ( functionExpressionBodyWithoutBraces )? RBRACE )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1666:4: lb= LBRACE ( functionExpressionBodyWithoutBraces )? RBRACE
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1666:2: (lb= LBRACE ( functionExpressionBodyWithoutBraces )? RBRACE )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1666:4: lb= LBRACE ( functionExpressionBodyWithoutBraces )? RBRACE
             {
             lb=(Token)match(input,LBRACE,FOLLOW_LBRACE_in_functionExpressionBody5734); 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1666:14: ( functionExpressionBodyWithoutBraces )?
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1666:14: ( functionExpressionBodyWithoutBraces )?
             int alt74=2;
             int LA74_0 = input.LA(1);
 
@@ -6698,7 +6698,7 @@ public class ES3YUITestParser extends Parser {
             }
             switch (alt74) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1666:14: functionExpressionBodyWithoutBraces
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1666:14: functionExpressionBodyWithoutBraces
                     {
                     pushFollow(FOLLOW_functionExpressionBodyWithoutBraces_in_functionExpressionBody5736);
                     functionExpressionBodyWithoutBraces();
@@ -6735,21 +6735,21 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "functionExpressionBodyWithoutBraces"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1670:1: functionExpressionBodyWithoutBraces : sourceElement ( sourceElement )* -> {$functionExpression::funcName!=null}? cover_func(src=$program::namecode=$textname=escapeQuotes($functionExpression::funcName)line=$functionExpression::funcLine) -> cover_func(src=$program::namecode=$textname=$functionDeclaration::funcNameline=$functionDeclaration::funcLine);
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1670:1: functionExpressionBodyWithoutBraces : sourceElement ( sourceElement )* -> {$functionExpression::funcName!=null}? cover_func(src=$program::namecode=$textname=escapeQuotes($functionExpression::funcName)line=$functionExpression::funcLine) -> cover_func(src=$program::namecode=$textname=$functionDeclaration::funcNameline=$functionDeclaration::funcLine);
     public final ES3YUITestParser.functionExpressionBodyWithoutBraces_return functionExpressionBodyWithoutBraces() throws RecognitionException {
         ES3YUITestParser.functionExpressionBodyWithoutBraces_return retval = new ES3YUITestParser.functionExpressionBodyWithoutBraces_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1681:2: ( sourceElement ( sourceElement )* -> {$functionExpression::funcName!=null}? cover_func(src=$program::namecode=$textname=escapeQuotes($functionExpression::funcName)line=$functionExpression::funcLine) -> cover_func(src=$program::namecode=$textname=$functionDeclaration::funcNameline=$functionDeclaration::funcLine))
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1681:4: sourceElement ( sourceElement )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1681:2: ( sourceElement ( sourceElement )* -> {$functionExpression::funcName!=null}? cover_func(src=$program::namecode=$textname=escapeQuotes($functionExpression::funcName)line=$functionExpression::funcLine) -> cover_func(src=$program::namecode=$textname=$functionDeclaration::funcNameline=$functionDeclaration::funcLine))
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1681:4: sourceElement ( sourceElement )*
             {
             pushFollow(FOLLOW_sourceElement_in_functionExpressionBodyWithoutBraces5756);
             sourceElement();
 
             state._fsp--;
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1681:18: ( sourceElement )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1681:18: ( sourceElement )*
             loop75:
             do {
                 int alt75=2;
@@ -6762,7 +6762,7 @@ public class ES3YUITestParser extends Parser {
 
                 switch (alt75) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1681:18: sourceElement
+            	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1681:18: sourceElement
             	    {
             	    pushFollow(FOLLOW_sourceElement_in_functionExpressionBodyWithoutBraces5758);
             	    sourceElement();
@@ -6831,21 +6831,21 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "functionDeclarationBodyWithoutBraces"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1689:1: functionDeclarationBodyWithoutBraces : sourceElement ( sourceElement )* -> cover_func(src=$program::namecode=$textname=$functionDeclaration::funcNameline=$functionDeclaration::funcLine);
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1689:1: functionDeclarationBodyWithoutBraces : sourceElement ( sourceElement )* -> cover_func(src=$program::namecode=$textname=$functionDeclaration::funcNameline=$functionDeclaration::funcLine);
     public final ES3YUITestParser.functionDeclarationBodyWithoutBraces_return functionDeclarationBodyWithoutBraces() throws RecognitionException {
         ES3YUITestParser.functionDeclarationBodyWithoutBraces_return retval = new ES3YUITestParser.functionDeclarationBodyWithoutBraces_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1690:2: ( sourceElement ( sourceElement )* -> cover_func(src=$program::namecode=$textname=$functionDeclaration::funcNameline=$functionDeclaration::funcLine))
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1690:4: sourceElement ( sourceElement )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1690:2: ( sourceElement ( sourceElement )* -> cover_func(src=$program::namecode=$textname=$functionDeclaration::funcNameline=$functionDeclaration::funcLine))
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1690:4: sourceElement ( sourceElement )*
             {
             pushFollow(FOLLOW_sourceElement_in_functionDeclarationBodyWithoutBraces5825);
             sourceElement();
 
             state._fsp--;
 
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1690:18: ( sourceElement )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1690:18: ( sourceElement )*
             loop76:
             do {
                 int alt76=2;
@@ -6858,7 +6858,7 @@ public class ES3YUITestParser extends Parser {
 
                 switch (alt76) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1690:18: sourceElement
+            	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1690:18: sourceElement
             	    {
             	    pushFollow(FOLLOW_sourceElement_in_functionDeclarationBodyWithoutBraces5827);
             	    sourceElement();
@@ -6918,7 +6918,7 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "program"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1698:1: program : ( ( sourceElement )* ) -> cover_file(src=$program::namecode=$textlines=$program::executableLinesfuncs=$program::functions);
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1698:1: program : ( ( sourceElement )* ) -> cover_file(src=$program::namecode=$textlines=$program::executableLinesfuncs=$program::functions);
     public final ES3YUITestParser.program_return program() throws RecognitionException {
         program_stack.push(new program_scope());
         ES3YUITestParser.program_return retval = new ES3YUITestParser.program_return();
@@ -6932,13 +6932,13 @@ public class ES3YUITestParser extends Parser {
           ((program_scope)program_stack.peek()).anonymousFunctionCount = 0;
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1713:2: ( ( ( sourceElement )* ) -> cover_file(src=$program::namecode=$textlines=$program::executableLinesfuncs=$program::functions))
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1713:4: ( ( sourceElement )* )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1713:2: ( ( ( sourceElement )* ) -> cover_file(src=$program::namecode=$textlines=$program::executableLinesfuncs=$program::functions))
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1713:4: ( ( sourceElement )* )
             {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1713:4: ( ( sourceElement )* )
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1713:5: ( sourceElement )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1713:4: ( ( sourceElement )* )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1713:5: ( sourceElement )*
             {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1713:5: ( sourceElement )*
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1713:5: ( sourceElement )*
             loop77:
             do {
                 int alt77=2;
@@ -6951,7 +6951,7 @@ public class ES3YUITestParser extends Parser {
 
                 switch (alt77) {
             	case 1 :
-            	    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1713:5: sourceElement
+            	    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1713:5: sourceElement
             	    {
             	    pushFollow(FOLLOW_sourceElement_in_program5879);
             	    sourceElement();
@@ -7007,18 +7007,18 @@ public class ES3YUITestParser extends Parser {
     };
 
     // $ANTLR start "sourceElement"
-    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1722:1: sourceElement options {k=1; } : ({...}? functionDeclaration | statement );
+    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1722:1: sourceElement options {k=1; } : ({...}? functionDeclaration | statement );
     public final ES3YUITestParser.sourceElement_return sourceElement() throws RecognitionException {
         ES3YUITestParser.sourceElement_return retval = new ES3YUITestParser.sourceElement_return();
         retval.start = input.LT(1);
 
         try {
-            // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1727:2: ({...}? functionDeclaration | statement )
+            // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1727:2: ({...}? functionDeclaration | statement )
             int alt78=2;
             alt78 = dfa78.predict(input);
             switch (alt78) {
                 case 1 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1727:4: {...}? functionDeclaration
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1727:4: {...}? functionDeclaration
                     {
                     if ( !(( input.LA(1) == FUNCTION )) ) {
                         throw new FailedPredicateException(input, "sourceElement", " input.LA(1) == FUNCTION ");
@@ -7032,7 +7032,7 @@ public class ES3YUITestParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\nzakas\\My Documents\\Projects\\yui\\yuitest\\java\\src\\com\\yahoo\\platform\\yuitest\\coverage\\grammar\\ES3YUITest.g:1728:4: statement
+                    // /Users/rob/work/yui/yuitest/java/src/com/yahoo/platform/yuitest/coverage/grammar/ES3YUITest.g:1728:4: statement
                     {
                     pushFollow(FOLLOW_statement_in_sourceElement5945);
                     statement();

@@ -98,6 +98,11 @@ public class SeleniumDriver {
      */
     private String[] browsers;
 
+    /**
+     * Collection of error messages.
+     */
+    private LinkedList<String> errors = new LinkedList<String>();
+
     //--------------------------------------------------------------------------
     // Constructors
     //--------------------------------------------------------------------------
@@ -123,6 +128,13 @@ public class SeleniumDriver {
         this.properties = properties;
         this.verbose = verbose;
         getBrowserList();
+    }
+
+    /**
+     * Returns a list of error messages.
+     */
+    public String[] getErrors(){
+        return errors.toArray(new String[errors.size()]);
     }
 
     //--------------------------------------------------------------------------
@@ -213,15 +225,17 @@ public class SeleniumDriver {
         List<SessionResult> results = new LinkedList<SessionResult>();
         Selenium selenium = startBrowser(browser, group.getBase());
 
-        try {
-            for (int i=0; i < testpages.length; i++){
+
+        for (int i=0; i < testpages.length; i++){
+            try {
                 results.add(runTestPage(selenium, browser, testpages[i]));
+            } catch (Exception ex){
+                errors.add(ex.getMessage());
             }
-        } catch (Exception ex){
-            throw ex;
-        } finally {
-            selenium.stop();
         }
+
+
+        selenium.stop();
 
         return results;
     }
@@ -364,7 +378,7 @@ public class SeleniumDriver {
 
             //some basic error checking, make sure we have some results!
             if (rawResults == null){
-                throw new Exception("Couldn't retrieve test results. Please double-check that the test is running correctly.");
+                throw new Exception("Couldn't retrieve test results. Please double-check that the test (" + url + ") is running correctly.");
             }
 
             TestReport testReport = TestReport.load(new StringReader(rawResults), browser.replace("*", ""));            

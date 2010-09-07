@@ -75,30 +75,6 @@ public class SessionResult {
         return testReport.getTotal();
     }
 
-//    protected void setReport(String type, String reportText){
-//        if (type.equals("coverage")){
-//            coverageReportText = reportText;
-//        } else {
-//            resultsReportText = reportText;
-//        }
-//    }
-//
-//    public String getReport(String type){
-//        if (type.equals("coverage")){
-//            return coverageReportText;
-//        } else {
-//            return resultsReportText;
-//        }
-//    }
-//
-//    public boolean hasReport(String type){
-//        if (type.equals("coverage")){
-//            return coverageReportText != null;
-//        } else {
-//            return resultsReportText != null;
-//        }
-//    }
-
     public void setTestReport(TestReport report){
         testReport = report;
     }

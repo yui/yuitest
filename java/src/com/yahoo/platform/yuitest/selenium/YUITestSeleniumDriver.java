@@ -204,6 +204,11 @@ public class YUITestSeleniumDriver {
                 SessionResultFileGenerator generator = new SessionResultFileGenerator(properties, verbose);
                 generator.generateAll(results, new Date());
             }
+
+            //verify that there were no errors
+            if (driver.getErrors().length > 0){
+                throw new Exception(driver.getErrors()[0]);
+            }
             
         } catch (CmdLineParser.OptionException e) {
 

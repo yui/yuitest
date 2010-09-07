@@ -16,6 +16,7 @@ YUITest.ObjectAssert = {
      * @param {String} message (Optional) The message to display if the assertion fails.
      * @method areEqual
      * @static
+     * @deprecated
      */
     areEqual: function(expected, actual, message) {
         YUITest.Assert._increment();         
@@ -36,12 +37,10 @@ YUITest.ObjectAssert = {
      * @param {String} message (Optional) The message to display if the assertion fails.
      * @method hasKey
      * @static
+     * @deprecated Use ownsOrInheritsKey() instead
      */    
     hasKey: function (propertyName, object, message) {
-        YUITest.Assert._increment();               
-        if (!(propertyName in object)){
-            YUITest.Assert.fail(YUITest.Assert._formatMessage(message, "Property '" + propertyName + "' not found on object."));
-        }    
+        YUITest.Assert.ownsOrInheritsKey(propertyName, object, message);   
     },
     
     /**
@@ -51,12 +50,40 @@ YUITest.ObjectAssert = {
      * @param {String} message (Optional) The message to display if the assertion fails.
      * @method hasKeys
      * @static
+     * @deprecated Use ownsOrInheritsKeys() instead
      */    
     hasKeys: function (properties, object, message) {
-        YUITest.Assert._increment();  
+        YUITest.Assert.ownsOrInheritsKeys(properties, objects, message);
+    },
+    
+    /**
+     * Asserts that a property with the given name exists on an object's prototype.
+     * @param {String} propertyName The name of the property to test.
+     * @param {Object} object The object to search.
+     * @param {String} message (Optional) The message to display if the assertion fails.
+     * @method inheritsKey
+     * @static
+     */    
+    inheritsKey: function (propertyName, object, message) {
+        YUITest.Assert._increment();               
+        if (!(propertyName in object && !object.hasOwnProperty(propertyName))){
+            YUITest.Assert.fail(YUITest.Assert._formatMessage(message, "Property '" + propertyName + "' not found on object instance."));
+        }     
+    },
+    
+    /**
+     * Asserts that all properties exist on an object prototype.
+     * @param {Array} properties An array of property names that should be on the object.
+     * @param {Object} object The object to search.
+     * @param {String} message (Optional) The message to display if the assertion fails.
+     * @method inheritsKeys
+     * @static
+     */    
+    inheritsKeys: function (properties, object, message) {
+        YUITest.Assert._increment();        
         for (var i=0; i < properties.length; i++){
-            if (!(properties[i] in object)){
-                YUITest.Assert.fail(YUITest.Assert._formatMessage(message, "Property '" + properties[i] + "' not found on object."));
+            if (!(propertyName in object && !object.hasOwnProperty(properties[i]))){
+                YUITest.Assert.fail(YUITest.Assert._formatMessage(message, "Property '" + properties[i] + "' not found on object instance."));
             }      
         }
     },
@@ -114,5 +141,37 @@ YUITest.ObjectAssert = {
             YUITest.Assert.fail(YUITest.Assert._formatMessage(message, "Object owns " + count + " properties but should own none."));        
         }
 
+    },
+
+    /**
+     * Asserts that an object has a property with the given name.
+     * @param {String} propertyName The name of the property to test.
+     * @param {Object} object The object to search.
+     * @param {String} message (Optional) The message to display if the assertion fails.
+     * @method ownsOrInheritsKey
+     * @static
+     */    
+    ownsOrInheritsKey: function (propertyName, object, message) {
+        YUITest.Assert._increment();               
+        if (!(propertyName in object)){
+            YUITest.Assert.fail(YUITest.Assert._formatMessage(message, "Property '" + propertyName + "' not found on object."));
+        }    
+    },
+    
+    /**
+     * Asserts that an object has all properties of a reference object.
+     * @param {Array} properties An array of property names that should be on the object.
+     * @param {Object} object The object to search.
+     * @param {String} message (Optional) The message to display if the assertion fails.
+     * @method ownsOrInheritsKeys
+     * @static
+     */    
+    ownsOrInheritsKeys: function (properties, object, message) {
+        YUITest.Assert._increment();  
+        for (var i=0; i < properties.length; i++){
+            if (!(properties[i] in object)){
+                YUITest.Assert.fail(YUITest.Assert._formatMessage(message, "Property '" + properties[i] + "' not found on object."));
+            }      
+        }
     }     
 };

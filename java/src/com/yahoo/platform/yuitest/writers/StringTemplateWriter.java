@@ -69,6 +69,10 @@ public class StringTemplateWriter<T> implements ReportWriter<T> {
                     return o.toString().replace("&", "&amp;").replace("\"", "&quot;").replace("<", "&lt;").replace(">", "&gt;").replace(" ", "&nbsp;");
                 } else if (format.equals("relativePath")){
                     return o.toString().replaceAll("[^\\\\\\/]+", "..");
+                } else if (format.equals("fullPath")){
+                    return o.toString().replaceFirst("^[\\\\\\/]+", "");  //for files like /home/username/foo, remove first /
+                } else if (format.equals("fullRelativePath")){
+                    return toString(toString(o, "fullPath"), "relativePath");
                 } else {
                     return o.toString();
                 }

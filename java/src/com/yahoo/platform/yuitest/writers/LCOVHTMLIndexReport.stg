@@ -600,7 +600,7 @@ span.LegendDiffCov
     </tr>
     $report.directoryReports:{
         <tr>
-            <td class="coverFile"><a href="$it.directory$/index.html">$it.directory$</a></td>
+            <td class="coverFile"><a href="$it.directory;format="fullPath"$/index.html">$it.directory$</a></td>
             <td class="coverBar" align="center">
             <table border=0 cellspacing=0 cellpadding=1><tr><td class="coverBarOutline"><div style="width: 100px; height: 10px"><div class="progress-$it.calledLinePercentageName$" style="width: $it.calledLinePercentage$%; height: 100%"></div></div></td></tr></table>
             </td>

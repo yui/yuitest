@@ -16,100 +16,100 @@
     var suite = new YUITest.TestSuite("Object Assert Tests");
     
     //-------------------------------------------------------------------------
-    // Test Case for hasKey()
+    // Test Case for ownsOrInheritsKey()
     //-------------------------------------------------------------------------
     
     suite.add(new YUITest.TestCase({
     
-        name : "hasKey() Tests",
+        name : "ownsOrInheritsKey() Tests",
         
         _should: {
             fail: {
-                "hasKey() should fail for missing key": "Property 'yui' not found on object."
+                "ownsOrInheritsKey() should fail for missing key": "Property 'yui' not found on object."
             }
         },
         
         /*
-         * Tests that hasKey() passes when a property with the given
+         * Tests that ownsOrInheritsKey() passes when a property with the given
          * name exists on the object instance.
          */
-        "hasKey() should pass for existing key on instance": function(){            
+        "ownsOrInheritsKey() should pass for existing key on instance": function(){            
             var object = { msg: "hi" };
-            ObjectAssert.hasKey("msg", object);
+            ObjectAssert.ownsOrInheritsKey("msg", object);
         },
         
         /*
-         * Tests that hasKey() passes when a property with the given
+         * Tests that ownsOrInheritsKey() passes when a property with the given
          * name exists on the object prototype.
          */
-        "hasKey() should pass for existing key on prototype": function(){            
+        "ownsOrInheritsKey() should pass for existing key on prototype": function(){            
             var proto = { msg: "hi" };
             var object = objectCreate(proto);
-            ObjectAssert.hasKey("msg", object);
+            ObjectAssert.ownsOrInheritsKey("msg", object);
         },
         
         /*
-         * Tests that hasKey() fails when a property with the given
+         * Tests that ownsOrInheritsKey() fails when a property with the given
          * name doesn't exist on the object or its prototype.
          */
-        "hasKey() should fail for missing key": function(){            
-            ObjectAssert.hasKey("yui", {});
+        "ownsOrInheritsKey() should fail for missing key": function(){            
+            ObjectAssert.ownsOrInheritsKey("yui", {});
         }
         
 
     }));
     
     //-------------------------------------------------------------------------
-    // Test Case for hasKeys()
+    // Test Case for ownsOrInheritsKeys()
     //-------------------------------------------------------------------------
     
     suite.add(new YUITest.TestCase({
     
-        name : "hasKeys() Tests",
+        name : "ownsOrInheritsKeys() Tests",
         
         _should: {
             fail: {
-                "hasKeys() should fail for missing key on object": "Property 'yui' not found on object.",
-                "hasKeys() should fail for missing key on prototype": "Property 'yui' not found on object."
+                "ownsOrInheritsKeys() should fail for missing key on object": "Property 'yui' not found on object.",
+                "ownsOrInheritsKeys() should fail for missing key on prototype": "Property 'yui' not found on object."
             }
         },
         
         /*
-         * Tests that hasKeys() passes when properties with the given
+         * Tests that ownsOrInheritsKeys() passes when properties with the given
          * names exist on the object instance.
          */
-        "hasKeys() should pass for existing key on instance": function(){            
+        "ownsOrInheritsKeys() should pass for existing key on instance": function(){            
             var object = { msg: "hi", yui: true };
-            ObjectAssert.hasKeys(["msg", "yui"], object);
+            ObjectAssert.ownsOrInheritsKeys(["msg", "yui"], object);
         },
         
         /*
-         * Tests that hasKeys() passes when properties with the given
+         * Tests that ownsOrInheritsKeys() passes when properties with the given
          * names exists on the object prototype.
          */
-        "hasKeys() should pass for existing key on prototype": function(){            
+        "ownsOrInheritsKeys() should pass for existing key on prototype": function(){            
             var proto = { msg: "hi", yui: true };
             var object = objectCreate(proto);
-            ObjectAssert.hasKeys(["msg", "yui"], object);
+            ObjectAssert.ownsOrInheritsKeys(["msg", "yui"], object);
         },
         
         /*
-         * Tests that hasKeys() fails when a property with the given
+         * Tests that ownsOrInheritsKeys() fails when a property with the given
          * name doesn't exist on the object instance.
          */
-        "hasKeys() should fail for missing key on object": function(){            
+        "ownsOrInheritsKeys() should fail for missing key on object": function(){            
             var object = { msg: "hi" };
-            ObjectAssert.hasKeys(["msg", "yui"], object);
+            ObjectAssert.ownsOrInheritsKeys(["msg", "yui"], object);
         },
         
         /*
-         * Tests that hasKeys() fails when a property with the given
+         * Tests that ownsOrInheritsKeys() fails when a property with the given
          * name doesn't exist on the object prototype.
          */
-        "hasKeys() should fail for missing key on prototype": function(){            
+        "ownsOrInheritsKeys() should fail for missing key on prototype": function(){            
             var proto = { msg: "hi" };
             var object = objectCreate(proto);
-            ObjectAssert.hasKeys(["msg", "yui"], object);
+            ObjectAssert.ownsOrInheritsKeys(["msg", "yui"], object);
         }
         
 
@@ -155,7 +155,7 @@
          * name doesn't exist on the object.
          */
         "ownsKey() should fail for missing key": function(){            
-            ObjectAssert.hasKey("yui", {});
+            ObjectAssert.ownsOrInheritsKey("yui", {});
         }    
     }));
     

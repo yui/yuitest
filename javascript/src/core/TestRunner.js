@@ -886,7 +886,11 @@
              * @static
              */
             resume : function (segment) {
-                this._resumeTest(segment || function(){});
+                if (this._waiting){
+                    this._resumeTest(segment || function(){});
+                } else {
+                    throw new Error("resume() called without wait().");
+                }
             },
         
             /**

@@ -40,7 +40,7 @@ YUITest.ObjectAssert = {
      * @deprecated Use ownsOrInheritsKey() instead
      */    
     hasKey: function (propertyName, object, message) {
-        YUITest.Assert.ownsOrInheritsKey(propertyName, object, message);   
+        YUITest.ObjectAssert.ownsOrInheritsKey(propertyName, object, message);   
     },
     
     /**
@@ -53,7 +53,7 @@ YUITest.ObjectAssert = {
      * @deprecated Use ownsOrInheritsKeys() instead
      */    
     hasKeys: function (properties, object, message) {
-        YUITest.Assert.ownsOrInheritsKeys(properties, objects, message);
+        YUITest.ObjectAssert.ownsOrInheritsKeys(properties, objects, message);
     },
     
     /**

@@ -15,6 +15,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.text.DecimalFormat;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -117,7 +118,16 @@ public class SummaryCoverageReport {
     }
 
     public DirectoryCoverageReport[] getDirectoryReports(){
-        return directories.values().toArray(new DirectoryCoverageReport[directories.size()]);
+        //return directories.values().toArray(new DirectoryCoverageReport[directories.size()]);
+        DirectoryCoverageReport[] reports = directories.values().toArray(
+            new DirectoryCoverageReport[directories.size()]);
+        Arrays.sort(reports, new Comparator<DirectoryCoverageReport>() {
+            public int compare(DirectoryCoverageReport o1,
+                    DirectoryCoverageReport o2) {
+                return o1.getDirectory().compareTo(o2.getDirectory());
+            }
+        });
+        return reports;
     }
     
     /**

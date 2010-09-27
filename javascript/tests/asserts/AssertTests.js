@@ -1,6 +1,6 @@
 (function(){
 
-    var Assert          = YUITest.Assert
+    var Assert          = YUITest.Assert;
     
     //-------------------------------------------------------------------------
     // Base Test Suite

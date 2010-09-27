@@ -15,7 +15,7 @@ YUITest.CoverageFormat = {
      * @namespace YUITest.CoverageFormat
      */
     JSON: function(coverage){
-        return JSON.stringify(coverage);
+        return YUITest.Util.JSON.stringify(coverage);
     },
     
     /**
@@ -37,7 +37,7 @@ YUITest.CoverageFormat = {
             }
         }
 
-        return JSON.stringify(coverage);
+        return YUITest.Util.JSON.stringify(coverage);
     }
 
 };

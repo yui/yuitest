@@ -1,3 +1,4 @@
+<!doctype html>
 <html>
 <head>
 <title>YUI Test</title>
@@ -51,7 +52,12 @@
     
     <div id="c"></div>
 <script type="text/javascript">
-YUI().use(function(Y){
+YUI().use("json", function(Y){
+
+	//assign a JSON object
+	if (typeof JSON == "undefined"){
+		YUITest.Util.JSON = Y.JSON;
+	}
 
     //some helpful variables
     var runButton   = document.getElementById("run"),
@@ -67,7 +73,7 @@ YUI().use(function(Y){
                         YUITest.TestRunner.TEST_IGNORE_EVENT,
                         YUITest.TestRunner.COMPLETE_EVENT,
                         YUITest.TestRunner.BEGIN_EVENT
-                    ];
+                    ];					
                                         
     for (var i=0; i < events.length; i++){
         YUITest.TestRunner.subscribe(events[i], function(event){
@@ -132,7 +138,28 @@ YUI().use(function(Y){
         });
     }             
            
-           
+	function runAll(){
+        var selectbox   = document.getElementById("testFiles"),
+			urls = [],
+			i = 0,
+			len = selectbox.options.length;
+			
+		while(i < len){
+			urls.push(selectbox.options[i].value);
+			i++;
+		}
+		    
+        //reset the interface
+        resultsList.innerHTML = "";
+        resultNode = resultsList;
+    
+        YUITest.TestRunner.clear();
+        
+        Y.Get.script(urls, {onSuccess: function(){
+            YUITest.TestRunner.run();
+        }});	
+	}
+	
     runButton.onclick = function(){
     
         var selectbox   = document.getElementById("testFiles"),
@@ -151,6 +178,10 @@ YUI().use(function(Y){
     
     };
 
+	if (location.search == "?autorun=true"){
+		runAll();
+	}		   
+           
 
     
 })

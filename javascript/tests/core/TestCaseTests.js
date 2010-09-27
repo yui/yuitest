@@ -9,7 +9,7 @@
     var suite = new YUITest.TestSuite("TestCase Tests");
     
     //-------------------------------------------------------------------------
-    // Test Case for contains()
+    // Test Case for wait/resume()
     //-------------------------------------------------------------------------
     
     suite.add(new YUITest.TestCase({
@@ -40,6 +40,7 @@
         },
         
         "wait() without resume() should fail": function () {
+            Assert.isTrue(true);
             this.wait(500);
         },
         
@@ -51,6 +52,24 @@
         }
     }));        
     
+    //-------------------------------------------------------------------------
+    // Test Case for asserts
+    //-------------------------------------------------------------------------
+    
+    suite.add(new YUITest.TestCase({
+    
+        name: "Assertion Tests",
+        
+        _should: {
+            fail: {
+                "Test should fail when there are no asserts": true
+            }
+        },        
+        
+        "Test should fail when there are no asserts": function(){
+            //noop
+        }
+    }));        
 
     //add it to be run
     YUITest.TestRunner.add(suite);

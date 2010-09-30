@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+<head>
+	<title>YUI Test</title>
+</head>
+<body>
+<div id="yui-main">
+	<div class="yui-b">
+		<div class="yui-ge">
+			<div class="yui-u first" id="main">
+			<!-- main column -->
+
+				<h2>YUI Test Selenium Driver</h2>
+				
+				<p>The YUI Test Selenium Driver is a utility to enable automated execution of JavaScript tests written in YUI Test through the use of <a href="http://seleniumhq.org/">Selenium</a>. In order to use the Selenium Driver, you must have access to a Selenium Remote Control Server or a Selenium Grid Server (you can download the server software from <a href="http://seleniumhq.org/download/">SeleniumHQ</a>).</p>
+				<p>The YUI Test Selenium Driver works by contacting a Selenium Remote Control Server and specifying which test page URLs to load in which browsers. When the test page URL is loaded, the JavaScript tests are executed, and once complete, the results are retrieved and then output into files. The files can then be picked up by a build system, such as Hudson, in order to allow reporting.</p>
+				
+				<h3>Installation</h3>
+				
+				<p>The YUI Test Selenium Driver requires Java 5 (1.5) or higher and a library provided by Selenium. To begin, download the latest Selenium Remote Control distribution. Unzip the distribution into a local folder and copy the <code>selenium-java-client-driver.jar</code> file to your JRE's <code>/lib/ext/</code> directory (the location of the JRE is system dependent). </p>
+				<p><strong>IMPORTANT:</strong> In order to use this tool, you'll need to use the following YUI Test versions:</p>
+
+				<ul>
+					<li>YUI Test Standalone 1.0.0+</li>
+					<li>YUI Test for YUI 2.8.1+</li>
+					<li>YUI Test for YUI 3.1.1+</li>
+				</ul>
+				
+				<p>Other versions of YUI Test are not supported.</p>
+
+				<h3>General Usage</h3>
+				<p>There are several steps to using the YUI Test Selenium Driver:</p>
+				<ol>
+					<li>Write JavaScript tests using one of the compatible versions of YUI Test.</li>
+					<li>Create a page to run your JavaScript tests. The tests should be run automatically on page load.</li>
+					<li>Setup a Selenium server.</li>
+					<li>Use YUI Test Selenium Driver to run your tests against various browsers via Selenium.</li>
+				</ol>
+				
+				<h4>Test Pages</h4>
+				<p>A test page is an HTML page containing the code to be tested as well as YUI Test Test to execute the tests. In order to ensure that the test page runs correctly, follow these steps:</p>
+
+				<ol>
+				<li>Include the YUI Test JavaScript library file.</li>
+				<li>Add test suites/test cases to the <code>TestRunner</code> object (<code>YUITest.TestRunner</code> for standalone, <code>YAHOO.tool.TestRunner</code> in YUI 2.x, and <code>Y.Test.Runner</code> in YUI 3.x.</li>
+				<li>Run the tests automatically as Selenium Driver will not start them for you. Ensure that <code>TestRunner.run()</code> is executed either during <code>window.onload</code> or while the page is loading.</li>
+				</ol>			
+				<h3>Command Line</h3>
+				<pre><code>Usage: java -jar yuitest-selenium-driver-x.y.z.jar [options] [test files]</code>
+
+				<code>Global Options
+-h, --help                Displays this information.
+--browsers &lt;browsers&gt;     Run tests in these browsers (comma-delimited).
+--conf &lt;file&gt;             Load options from &lt;file&gt;.
+--coveragedir &lt;dir&gt;       Output coverage files to &lt;dir&gt;.
+--erroronfail             Indicates that a test failure should cause
+						an error to be reported to the console.
+--host &lt;host&gt;             Use the Selenium host &lt;host&gt;.
+--port &lt;port&gt;             Use &lt;port&gt; port on the Selenium host.
+--resultsdir &lt;dir&gt;        Output test result files to &lt;dir&gt;.
+--silent                  Don't output test results to the console.
+--tests &lt;file&gt;            Loads test info from &lt;file&gt;.
+-v, --verbose             Display informational messages and warnings.</code></pre>
+
+				<p>The options are:</p>
+				<ul>
+				<li>The <code>--browsers</code> option specifies a comma-delimited list of Selenium browsers to test. By default, this is set to <code>*firefox</code>. You can use any number of browsers, such as <code>*firefox,*iexplore,*opera</code>. This can be set in a configuration file using the key <code>selenium.browsers</code>.</li>
+					<li>The <code>--conf</code> option specifies a properties file that can specify most of the command line options.</li>
+
+					<li>The <code>--coveragedir</code> option specifies the output directory for code coverage results.</li>
+					<li>The <code>--erroronfail</code> option specifies that if a test fails, it should cause an error such that the Selenium Driver exits immediately with a code of 1 instead of continuing on to other tests and exiting with a code of 0. This can be set in a configuration file by setting the key <code>console.erroronfail</code> to <code>1</code>.</li>
+
+					<li>The <code>--host</code> option specifies the Selenium or Selenium Grid host on which to run the tests. The default value is <code>localhost</code>. This can be set in a configuration file using the key <code>selenium.host</code>.</li>
+					<li>The <code>--port</code> option specifies the port on the Selenium or Selenium Grid host on which to run the tests. The default value is <code>4444</code>. This can be set in a configuration file using the key <code>selenium.port</code>.</li>
+
+					<li>The <code>--resultsdir</code> option specifies the output directory for test results.</li>
+					<li>The <code>--silent</code> option specifies that you don’t want test results output to the console. By default, test results are output onto the console. This can be set in a configuration file setting the key <code>console.mode</code> to <code>silent</code>.</li>
+
+					<li>The <code>--tests</code> option specifies a <span class="caps">XML</span> file with test information (see below for format). When a tests file is specified, you need not pass in any test URLs on the command line. The tests file can be either a local file or a web address. Omitting this option means that test URLs must be passed on the command line.</li>
+
+				</ul><p>In all cases, command line options override properties read in via <code>--conf</code>.</p>
+	
+				<h3>Examples</h3>
+				<p>The following runs the driver for a single URL assuming YUI Test 2:</p>
+				<pre><code>java -jar yuitest-selenium-driver.jar http://www.example.com/tests/test_ui</code></pre>
+				<p>The following is the same as above, but makes sure the driver looks for YUI Test 3:</p>
+
+				<pre><code>java -jar yuitest-selenium-driver.jar --yuitest 3 http://www.example.com/tests/test_ui</code></pre>
+				<p>The following runs the driver for two URLs on two browsers assuming YUI Test 2:</p>
+				<pre><code>java -jar yuitest-selenium-driver.jar --browsers *firefox,*iexplore http://www.example.com/tests/test_ui http://www.example.com/tests/test_util</code></pre>
+				<p>The following runs the driver against tests specified in an <span class="caps">XML</span> file:</p>
+				<pre><code>java -jar yuitest-selenium-driver.jar --tests tests.xml</code></pre>
+				
+				<h3>Tests File</h3>
+				<p>The <code>--tests</code> option can be used to specify an <span class="caps">XML</span> file containing test information. This contains information about the tests to run and has the following general format:</p>
+				<pre><code>&lt;?xml version="1.0"?&gt;
+&lt;yuitest version="3"&gt;
+	&lt;tests base="http://www.example.com/tests/" timeout="10000"&gt;
+		&lt;url&gt;test_core&lt;/url&gt;
+
+		&lt;url timeout="30000"&gt;test_util&lt;/url&gt;
+		&lt;url&gt;test_ui&lt;/url&gt;
+	&lt;/tests&gt;
+&lt;/yuitest&gt;</code></pre>
+				<p>There are only three possible elements to use in the file:</p>
+
+				<ol>
+				<li>
+				<code>&lt;yuitest&gt;</code> – document element. The <code>version</code> attribute specifies the version of YUI Test used for the tests in this file.</li>
+					<li>
+				<code>&lt;tests&gt;</code> – second level element, indicates a group of tests with common settings. The <code>base</code> attribute is used to indicate the base location for these tests and can be safely omitted if the tests don’t share the same base. The <code>timeout</code> attribute indicates the maximum time (in milliseconds) that the Selenium Driver should wait for the tests to complete. If the test doesn’t complete in that amount of time, an error is thrown. You can also specify a <code>version</code> attribute on this element to override the one provided on <code>&lt;yuitest&gt;</code>. There can be any number of <code>&lt;tests&gt;</code> elements under <code>&lt;yuitest&gt;</code>.</li>
+
+					<li>
+				<code>&lt;url&gt;</code> – third level element, indicates the URL to hit to run tests. If there is a <code>base</code> attribute on the parent <code>&lt;tests&gt;</code> element, then that value is prepended. Each <code>&lt;url&gt;</code> element inherits values for <code>version</code> and <code>timeout</code> from its ancestors but also can override them individually if necessary. There can be any number of <code>&lt;url&gt;</code> elements in each <code>&lt;tests&gt;</code> element.</li>
+
+				</ol>	
+				
+				<h3>Config File</h3>
+				<p>You can use a config file to store commonly used configuration options in order to avoid putting them on the command line. A config file is a simple Java <a href="http://en.wikipedia.org/wiki/.properties">properties file</a> comprised of key-value pairs. The following keys are supported:</p>
+				<ul>
+				<li>
+				<code>selenium.host</code> – the hostname of the Selenium or Selenium Grid server.</li>
+					<li>
+				<code>selenium.port</code> – the port of the Selenium or Selenium Grid server.</li>
+
+					<li>
+				<code>selenium.browsers</code> – a comma-delimited list of browsers on which to run the tests. The browser names are those used by Selenium and so any valid browser name to Selenium is also valid here.</li>
+					<li>
+				<code>yuitest.version</code> – the version of YUI Test to use by default (<code>2</code> or <code>3</code>).</li>
+
+					<li>
+				<code>results.format</code> – the format in which to save the test results. These correspond to the test formats provided by YUI Test. There are three possible values:  <code>YUITestXML</code>, <code>TAP</code>, and <code>JUnitXML</code> (default).</li>
+					<li>
+
+				<code>coverage.format</code> – the format in which to save the coverage information. These correspond to the coverage formats provided by YUI Test. Possible values are <code>LCOV</code> (default), <code>GCOV</code> and <code>HTML</code>.</li>
+					<li>
+
+				<code>results.outputdir</code> – the directory in which to save the test results.</li>
+					<li>
+				<code>coverage.outputdir</code> – the directory in which to save the coverage information.</li>
+					<li>
+				<code>results.filename</code> – the filename format for test results. There are three variables you can specify in the filename format: <code>{browser}</code> inserts the Selenium browser name, <code>{name}</code> inserts the test page name, and <code>{date:&lt;format&gt;}</code> inserts the date in the specified format, where  is a <a href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/SimpleDateFormat.html">SimpleDateFormat</a>
+
+				</li>
+					<li>
+				<code>console.mode</code> – the console output mode. Possible values are <code>normal</code> and <code>silent</code>. This setting determines whether or not test results are output to the console.</li>
+					<li>
+				<code>console.erroronfail</code> – indicates if the Selenium Driver should exit with a status code of 1 when a test fails.</li>
+
+				</ul>
+				
+				<h3>Troubleshooting</h3>
+				<h4>Class not found error </h3>
+				<p>
+				You see this:
+				</p>
+
+				<pre><code>Exception in thread "main" java.lang.NoClassDefFoundError: com/thoughtworks/selenium/Selenium
+    at com.yahoo.platform.yuitest.selenium.YUITestSeleniumDriver.main(YUITestSeleniumDriver.java:146)
+				</code></pre>
+				<p>
+				This means that you've not copied the Selenium Java client driver into the appropriate JRE location. Please see Installation for more details.
+				</p>
+				<h4>Failed to start new browser session </h4>
+				<pre><code>[ERROR] Could not start Selenium session: Failed to start new browser session: java.lang.RuntimeException: Firefox 3 could not be found in the path!
+Please add the directory containing ''firefox-bin' or 'firefox'' to your PATH environment
+variable, or explicitly specify a path to Firefox 3 like this:
+*firefox3/blah/blah/firefox-bin
+				</code></pre>
+				<p>
+				This sometimes occurs in RHEL environments. The problem is that Selenium (not the Selenium Driver) cannot find Firefox on the system and therefore can't start it up. The error message actually describes the exact steps you should follow: either add the full path of the Firefox executable to your <code>PATH</code> environment variable or specify the full path of the browser using the <code>selenium.browsers</code> configuration parameter in the configuration file:
+				</p><pre><code>selenium.browsers = *firefox /usr/bin/firefox
+				</code></pre>
+				<p>
+				<h4>Timeout issue </h4>
+				<p>
+				By default, Selenium will only wait for 30 seconds for an action to complete. In the case of the Selenium Driver, this means a page must complete all tests within 30 seconds. If you need longer, you'll need to set this up when launching the Selenium server:
+				</p>
+				<pre><code>java -jar selenium-server.jar -timeout 120</code></pre>
+
+				<p>
+				More information: <a href="http://release.seleniumhq.org/selenium-core/1.0/reference.html#setTimeout" target="_top">http://release.seleniumhq.org/selenium-core/1.0/reference.html#setTimeout</a></p>				
+			</div>	
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

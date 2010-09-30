@@ -319,4 +319,4 @@ YUITest.PageManager = YUITest.Util.mix(new YUITest.EventTarget(), {
         clearTimeout(this._timeoutId);
     }
 
-};
+});

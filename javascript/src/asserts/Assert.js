@@ -371,7 +371,7 @@ YUITest.Assert = {
      */
     isObject : function (actual, message) {
         YUITest.Assert._increment();
-        if (!(actual instanceof Object)){
+        if (!actual || (typeof actual != "object" && typeof actual != "function")){
             throw new YUITest.UnexpectedValue(YUITest.Assert._formatMessage(message, "Value should be an object."), actual);
         }
     },

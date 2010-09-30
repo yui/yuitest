@@ -1031,6 +1031,10 @@
             Assert.isObject({});
         },
 
+        "isObject() should pass for global object": function(){
+            Assert.isObject(self);
+        },
+
         "isObject() should fail for zero numbers": function(){
             Assert.shouldError(YUITest.UnexpectedValue, function(){
                 Assert.isObject(0);

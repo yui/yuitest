@@ -3,7 +3,7 @@
      * An object capable of sending test results to a server.
      * @param {String} url The URL to submit the results to.
      * @param {Function} format (Optiona) A function that outputs the results in a specific format.
-     *      Default is Y.Test.Format.XML.
+     *      Default is YUITest.TestFormat.XML.
      * @constructor
      * @namespace YUITest
      * @class Reporter

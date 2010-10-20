@@ -90,12 +90,7 @@ YUITest.Mock.expect = function(mock /*:Object*/, expectation /*:Object*/){
                     expectation.actualCallCount++;
                     YUITest.Assert.areEqual(args.length, arguments.length, "Method " + name + "() passed incorrect number of arguments.");
                     for (var i=0, len=args.length; i < len; i++){
-                        //if (args[i]){
-                            args[i].verify(arguments[i]);
-                        //} else {
-                        //    Y.Assert.fail("Argument " + i + " (" + arguments[i] + ") was not expected to be used.");
-                        //}
-                        
+                        args[i].verify(arguments[i]);
                     }                
 
                     run.apply(this, arguments);

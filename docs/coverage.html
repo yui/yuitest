@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+<head>
+	<title>YUI Test Coverage</title>
+</head>
+<body>
+<div id="yui-main">
+	<div class="yui-b">
+		<div class="yui-ge">
+			<div class="yui-u first" id="main">
+			<!-- main column -->
+
+				<h2>YUI Test Coverage</h2>
+				<p>YUI Test Coverage is a code coverage tool for JavaScript. It is designed for use with the YUI Test JavaScript library to track the parts of your code that are being tested.</p>
+				<h3>What is Code Coverage?</h3>
+				<p>Code coverage analysis is a process where code that is  being tested is also tracked. Once all tests are complete, a code coverage report tells you which lines of code were executed during the test (some coverage tools also tell you which functions were called). In effect, you're seeing which parts of your code have been "covered" by the tests. You should always aim for a high code coverage rate (around 90%) to ensure that your code is being fully exercised.</p>
+				<h3>Installation</h3>
+				<p>The YUI Test Coverage utility requires Java 5 (1.5) or higher. There are two JAR files:</p>
+				<ul>
+					<li><code>yuitest-coverage-x.y.z.jar</code> - used to instrument JavaScript code.</li>
+					<li><code>yuitest-coverage-report-x.y.z.jar</code> - used to generate reports from the JSON code coverage output.</li>
+					
+				</ul>
+
+				<p><strong>IMPORTANT:</strong> In order to use this tool, you'll need to use the following YUI Test versions:</p>
+
+				<ul>
+					<li>YUI Test Standalone 1.0.0+</li>
+					<li>YUI Test for YUI 2.8.1+</li>
+					<li>YUI Test for YUI 3.1.1+</li>
+				</ul>
+				
+				<p>Other versions of YUI Test are not supported.</p>
+				
+				<h3>General Usage</h3>
+				<p>There are four steps to using YUI Test Coverage. These must be executed in order for coverage statistics to be generated.</p>
+				
+				<h4>Step 1 - Instrument Your Code</h4>
+
+				<p>The first step is to instrument your JavaScript files using yuitest-coverage-x.y.z.jar. The coverage instrumenter uses a JavaScript parser to evaluate JavaScript code and insert code used to track coverage information. The use of a parser ensures that the instrumented code will still execute and not fundamentally change the structure of the original code.</p>
+
+				<p>There are two ways to instrument code: one file at a time or a directory at a time. To instrument a single file, use the following command:</p>
+
+				<pre><code>java -jar yuitest-coverage.jar -o &lt;output_filename&gt; &lt;input_filename&gt;</code></pre>
+
+				<p>This command takes the <code>&lt;input_filename&gt;</code>, instruments it, and places the result in <code>&lt;output_filename&gt;</code>.</p>
+
+				<p>To instrument an entire directory, including subdirectories, use the following command:</p>
+
+				<pre><code>java -jar yuitest-coverage.jar -d -o &lt;output_directory&gt; &lt;input_directory&gt;</code></pre>
+
+				<p>This command looks in <code>&lt;input_directory&gt;</code> and all of its subdirectories for files ending in <code>.js</code>. Those files are then instrumented and a mirror of the directory structure is created in <code>&lt;output_directory&gt;</code> with all of the instrumented JavaScript files.</p>
+
+				<h4>Step 2 - Include Instrumented Code in Tests</h4>
+
+				<p>In order to gather code coverage data, the instrumented code must be run through a series of tests. You can create YUI Test tests as normal, just be sure to include the instrumented JavaScript files instead of the originals. As the tests are executed, code coverage data is collected and stored by YUI Test.</p>
+
+				<h4>Step 3 - Extract Code Coverage Data</h4>
+
+				<p>When all tests have been concluded, you can retrieve the code coverage results in JSON format using:</p>
+				<ul>
+					<li><strong>YUI Test Standalone:</strong><br><code>YUITest.TestRunner.getCoverage(YUITest.CoverageFormat.JSON);</code></li>
+					<li><strong>YUI Test for YUI 2.x:</strong><br><code>YAHOO.tool.TestRunner.getCoverage(YAHOO.tool.CoverageFormat.JSON);</code></li>
+					<li><strong>YUI Test for YUI 3.x:</strong><br><code>Y.Test.Runner.getCoverage(Y.Coverage.Format.JSON);</code></li>
+				</ul>
+				
+				<p>This JSON structure represents all of the coverage data for the tests. You can either manually take this data and save it to a file, or submit this data to a server.</p>
+
+				<h4>Step 4 - Generate Coverage Report</h4>
+
+				<p>With the JSON coverage data saved in a file, you can use the coverage report tool to generate a report, using the following command:</p>
+
+				<pre><code>java -jar yuitest-coverage-report.jar -o &lt;output_directory&gt; &lt;input_filename&gt;</code></pre>
+
+				<p>This takes all of the coverage information from <code>&lt;input_filename&gt;</code> (oftentimes, the file contains data for more than one JavaScript file) and creates an HTML report in <code>&lt;output_directory&gt;</code>. You can then open <code>index.html</code> to view all of the results.</p>
+
+				<p>If you'd prefer to have LCOV formatted-files for import into other coverage tools, you can specify this using the <code>--format</code> option:</p>
+
+				<pre><code>java -jar yuitest-coverage-report.jar --format LCOV -o &lt;output_directory&gt; &lt;input_filename&gt;</code></pre>
+
+				<p>This will output LCOV files into <code>&lt;output_directory&gt;</code>.</p>
+
+				<h4>Note on Automation</h4>
+
+				<p>If you're using the Selenium Driver, steps 3 and 4 are done automatically. The Selenium Driver looks for coverage data and, if available, extracts it and exports into the specified format.</p>
+
+				<h3>Command Line Interfaces</h3>
+
+				<h4>File Instrumenter</h4>
+
+				<p>Used to instrument JavaScript files.</p>
+
+				<pre><code>Usage: java -jar yuitest-coverage-x.y.z.jar [options] [file|dir]
+
+Global Options
+  -h, --help              Displays this information.
+  --charset &lt;charset&gt;     Read the input file using &lt;charset&gt;.
+  -d, --dir               Input and output (-o) are both directories.
+  -v, --verbose           Display informational messages and warnings.
+  -o &lt;file|dir&gt;           Place the output into &lt;file|dir&gt;. Defaults to stdout.</code></pre>
+
+				<p>The options are:</p>
+
+				<ul>
+					<li> The <code>--charset</code> option specifies the character set of the input files.</li> 
+					<li> The <code>-d</code> or <code>--dir</code> option specifies that the input and output are directories rather than files.</li> 
+					<li> The <code>-o</code> option specifies the output file or output directory for the instrumented code.</li> 
+					<li> The <code>-v</code> or <code>--verbose</code> option specifies that additional debugging messages should be output to the console.</li>
+				</ul>
+
+				<h4>Coverage Report</h4>
+
+				<p>Used to create reports from JSON coverage data.</p>
+
+				<pre><code>Usage: java -jar yuitest-coverage-report-x.y.z.jar [options] [file]
+
+Global Options
+  -h, --help              Displays this information.
+  --format &lt;format&gt;       Output reports in &lt;format&gt;. Defaults to HTML.
+  -v, --verbose           Display informational messages and warnings.
+  -o &lt;file|dir&gt;           Place the output into &lt;file|dir&gt;.</code></pre>
+
+				<p>The options are:</p>
+				<ul>
+					<li> The <code>--format</code> option specifies the coverage format to produce. Values are <code>LCOV</code>, <code>GCOV</code>, and <code>HTML</code> (default).</li> 
+					<li> The <code>-o</code> option specifies the output directory for the report files.</li> 
+					<li> The <code>-v</code> or <code>--verbose</code> option specifies that additional debugging messages should be output to the console.</li>
+				</ul>
+
+				<h3>Troubleshooting</h3>
+				
+				<h4>Unsupported Class Version Error</h4>
+				<p>You may end up seeing an error such as:</p>
+				
+
+				<pre><code>Exception in thread "main" java.lang.UnsupportedClassVersionError:
+com/yahoo/platform/yuitest/coverage/YUITestCoverage (Unsupported major.minor
+version 49.0)
+	at java.lang.ClassLoader.defineClass0(Native Method)
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:537)
+	at 
+java.security.SecureClassLoader.defineClass(SecureClassLoader.java:123)
+	at java.net.URLClassLoader.defineClass(URLClassLoader.java:251)
+	at java.net.URLClassLoader.access$100(URLClassLoader.java:55)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:194)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:187)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:289)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:274)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:235)
+	at java.lang.ClassLoader.loadClassInternal(ClassLoader.java:302)
+</code></pre>
+				<p>If you get this message, it means that you're using a version of Java older than 1.5. Upgrade your JDK/JRE to 1.5 and try again.</p>
+				
+			</div>	
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 (function(){
 
-    var Assert          = YUITest.Assert
+    var Assert          = YUITest.Assert;
     
     //-------------------------------------------------------------------------
     // Base Test Suite
@@ -1029,6 +1029,10 @@
                 
         "isObject() should pass for object value": function(){
             Assert.isObject({});
+        },
+
+        "isObject() should pass for global object": function(){
+            Assert.isObject(self);
         },
 
         "isObject() should fail for zero numbers": function(){

@@ -42,7 +42,7 @@ YUITest.DateAssert = {
                 throw new YUITest.ComparisonFailure(YUITest.Assert._formatMessage(message, msg), expected, actual);
             }
         } else {
-            throw new TypeError("YUITest.Assert.datesAreEqual(): Expected and actual values must be Date objects.");
+            throw new TypeError("YUITest.DateAssert.datesAreEqual(): Expected and actual values must be Date objects.");
         }
     },
 
@@ -78,7 +78,7 @@ YUITest.DateAssert = {
                 throw new YUITest.ComparisonFailure(YUITest.Assert._formatMessage(message, msg), expected, actual);
             }
         } else {
-            throw new TypeError("DateYUITest.AsserttimesAreEqual(): Expected and actual values must be Date objects.");
+            throw new TypeError("YUITest.DateAssert.timesAreEqual(): Expected and actual values must be Date objects.");
         }
     }
     

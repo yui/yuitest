@@ -37,7 +37,7 @@ YUITest.TestFormat = function(){
          * @static
          */
         JSON: function(results) {
-            return JSON.stringify(results);
+            return YUITest.Util.JSON.stringify(results);
         },
         
         /**

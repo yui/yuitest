@@ -32,14 +32,26 @@ YUITest.EventTarget.prototype = {
      * @param {String} type The type of event to add a listener for.
      * @param {Function} listener The function to call when the event occurs.
      * @return {void}
-     * @method subscribe
+     * @method attach
      */
-    subscribe: function(type, listener){
+    attach: function(type, listener){
         if (typeof this._handlers[type] == "undefined"){
             this._handlers[type] = [];
         }
 
         this._handlers[type].push(listener);
+    },
+    
+    /**
+     * Adds a listener for a given event type.
+     * @param {String} type The type of event to add a listener for.
+     * @param {Function} listener The function to call when the event occurs.
+     * @return {void}
+     * @method subscribe
+     * @deprecated
+     */
+    subscribe: function(type, listener){
+        this.attach.apply(this, arguments);
     },
     
     /**
@@ -74,9 +86,9 @@ YUITest.EventTarget.prototype = {
      * @param {String} type The type of event to remove a listener from.
      * @param {Function} listener The function to remove from the event.
      * @return {void}
-     * @method unsubscribe
+     * @method detach
      */
-    unsubscribe: function(type, listener){
+    detach: function(type, listener){
         if (this._handlers[type] instanceof Array){
             var handlers = this._handlers[type];
             for (var i=0, len=handlers.length; i < len; i++){
@@ -86,6 +98,18 @@ YUITest.EventTarget.prototype = {
                 }
             }
         }            
-    }
+    },
+    
+    /**
+     * Removes a listener for a given event type.
+     * @param {String} type The type of event to remove a listener from.
+     * @param {Function} listener The function to remove from the event.
+     * @return {void}
+     * @method unsubscribe
+     * @deprecated
+     */
+    unsubscribe: function(type, listener){
+        this.detach.apply(this, arguments);          
+    }    
 
 };

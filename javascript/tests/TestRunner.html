@@ -69,7 +69,7 @@ YUI().use(function(Y){
                     ];
                                         
     for (var i=0; i < events.length; i++){
-        YUITest.TestRunner.subscribe(events[i], function(event){
+        YUITest.TestRunner.attach(events[i], function(event){
                 var node;
                 
                 switch(event.type){

@@ -75,8 +75,16 @@ public class JavaScriptInstrumenter {
             code.append("\n");
         }
         
-        //there will be a dangling comma, so replace it
-        codeLines.setCharAt(codeLines.length()-1, ']');
+        
+        switch (codeLines.charAt(codeLines.length()-1)){
+            case ',':  //if there's a dangling comma, replace it
+                codeLines.setCharAt(codeLines.length()-1, ']');
+                break;
+            case '[':  //empty file
+                codeLines.append("]");
+                break;
+            //no default
+        }
         codeLines.append(";");
 
         //output full path
@@ -91,9 +99,13 @@ public class JavaScriptInstrumenter {
         //parser.setVerbose(verbose);
 
         String result = "";
-        parser.program();
-        result = tokens.toString();
 
+        //an empty string will cause the parser to explode
+        if (code.toString().trim().length() > 0){
+            parser.program();
+            result = tokens.toString();
+        }
+    
         //close input stream in case writing to the same place
         in.close(); in = null;
 

@@ -83,12 +83,20 @@ public class FileInstrumenter {
         Writer out = null;
 
         try {
+
+            File inputFile = new File(inputFilename);
+            
             in = new InputStreamReader(new FileInputStream(inputFilename), charset);
             out = new OutputStreamWriter(new FileOutputStream(outputFilename), charset);
 
-            //strip out relative paths - that just messes up coverage report writing
-            JavaScriptInstrumenter instrumenter = new JavaScriptInstrumenter(in, inputFilename.replaceAll("\\.\\./", ""), (new File(inputFilename)).getCanonicalPath());
-            instrumenter.instrument(out, verbose);
+            //if the file is empty, don't bother instrumenting
+            //if (inputFile.length() > 0){
+                //strip out relative paths - that just messes up coverage report writing
+                JavaScriptInstrumenter instrumenter = new JavaScriptInstrumenter(in, inputFilename.replaceAll("\\.\\./", ""), (new File(inputFilename)).getCanonicalPath());
+                instrumenter.instrument(out, verbose);
+            //} else {
+            //    out.write("");
+            //}
         } catch (IOException ex){
             in.close();
             if (out != null){

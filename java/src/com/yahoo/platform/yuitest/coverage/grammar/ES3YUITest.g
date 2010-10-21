@@ -304,10 +304,6 @@ public void setVerbose(boolean newVerbose){
     verbose = newVerbose;
 }
 
-private final String escapeQuotes(String text){
-    return text.replace("\"", "\\\"");
-}
-
 private final boolean isLeftHandSideAssign(RuleReturnScope lhs, Object[] cached)
 {
 	if (cached[0] != null)
@@ -1682,7 +1678,7 @@ functionExpressionBodyWithoutBraces
 	{
 	
 	}
-	-> {$functionExpression::funcName!=null}? cover_func(src={$program::name}, code={$text}, name={escapeQuotes($functionExpression::funcName)}, line={$functionExpression::funcLine})
+	-> {$functionExpression::funcName!=null}? cover_func(src={$program::name}, code={$text}, name={$functionExpression::funcName}, line={$functionExpression::funcLine})
 	-> cover_func(src={$program::name}, code={$text}, name={$functionDeclaration::funcName}, line={$functionDeclaration::funcLine})
 	;
 

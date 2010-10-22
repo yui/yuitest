@@ -915,8 +915,11 @@ primaryExpression
 	| lpar=LPAREN expression RPAREN //-> ^( PAREXPR[$lpar, "PAREXPR"] expression )
 	;
 
+/*
+ * Added ? for arrayItem. Original grammer didn't handle the case of [ foo, ]
+ */
 arrayLiteral
-	: lb=LBRACK ( arrayItem ( COMMA arrayItem )* )? RBRACK
+	: lb=LBRACK ( arrayItem ( COMMA arrayItem? )* )? RBRACK
 	//-> ^( ARRAY[$lb, "ARRAY"] arrayItem* )
 	;
 

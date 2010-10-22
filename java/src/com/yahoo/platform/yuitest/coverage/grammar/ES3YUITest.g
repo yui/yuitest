@@ -360,6 +360,28 @@ private final String wrapInBraces(Token start, Token stop, TokenStream tokens) {
   return "{" + tokens.toString(start, stop) + "}";
 }
 
+private final static String toObjectLiteral(List list, boolean numbers){
+    StringBuilder builder = new StringBuilder();
+    builder.append("{");
+    for (int i=0; i < list.size(); i++){
+
+        if (i > 0){
+            builder.append(",");
+        }
+
+        if (numbers){
+            builder.append('"');
+            builder.append(list.get(i));
+            builder.append("\":0");
+        } else {
+            builder.append(list.get(i));
+            builder.append(":0");
+        }
+    }
+    builder.append("}");
+    return builder.toString();
+}
+
 private final static boolean isLeftHandSideExpression(RuleReturnScope lhs)
 {
 	if (lhs.getTree() == null) // e.g. during backtracking
@@ -1597,7 +1619,7 @@ scope {
 	$functionDeclaration::funcLine = $start.getLine();		
 }
 @after { 
-	$program::functions.add("\"" + $functionDeclaration::funcName + ":" + $start.getLine() + "\""); 
+	$program::functions.add("\"" + $functionDeclaration::funcName + "\":" + $start.getLine());
   	if (verbose){
     		System.err.println("\n[INFO] Instrumenting function " + $functionDeclaration::funcName + " on line " +  $start.getLine());
   	}
@@ -1707,7 +1729,7 @@ scope {
   $program::anonymousFunctionCount = 0;
 }
 	: (sourceElement*) {java.util.Collections.sort($program::executableLines);}
-	-> cover_file(src={$program::name}, code = {$text}, lines = {$program::executableLines}, funcs={$program::functions})
+	-> cover_file(src={$program::name}, code = {$text}, lines = {toObjectLiteral($program::executableLines, true)}, funcs={toObjectLiteral($program::functions, false)}, lineCount={$program::executableLines.size()}, funcCount={$program::functions.size()})
 	;
 
 /*

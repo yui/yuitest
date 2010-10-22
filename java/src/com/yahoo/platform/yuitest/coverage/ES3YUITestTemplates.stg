@@ -44,10 +44,10 @@ _yuitest_coverage["<src>"] = {
 };
 >>
 
-cover_file(src,code,lines,funcs) ::= <<
-_yuitest_coverage["<src>"].lines = {"<lines; separator="\":0,\"">":0};
-_yuitest_coverage["<src>"].functions = {<funcs; separator=":0,">:0};
-_yuitest_coverage["<src>"].coveredLines = <length(lines)>;
-_yuitest_coverage["<src>"].coveredFunctions = <length(funcs)>;
+cover_file(src,code,lines,funcs,lineCount,funcCount) ::= <<
+_yuitest_coverage["<src>"].lines = <lines>;
+_yuitest_coverage["<src>"].functions = <funcs>;
+_yuitest_coverage["<src>"].coveredLines = <lineCount>;
+_yuitest_coverage["<src>"].coveredFunctions = <funcCount>;
 <code>
 >>

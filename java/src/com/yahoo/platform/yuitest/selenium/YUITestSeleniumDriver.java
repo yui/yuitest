@@ -36,7 +36,6 @@ public class YUITestSeleniumDriver {
         CmdLineParser.Option hostOpt = parser.addStringOption("host");
         CmdLineParser.Option portOpt = parser.addStringOption("port");
         CmdLineParser.Option browsersOpt = parser.addStringOption("browsers");
-        CmdLineParser.Option yuitestOpt = parser.addStringOption("yuitest");
         CmdLineParser.Option testsOpt = parser.addStringOption("tests");
         CmdLineParser.Option resultsDirOpt = parser.addStringOption("resultsdir");
         CmdLineParser.Option coverageDirOpt = parser.addStringOption("coveragedir");
@@ -107,16 +106,7 @@ public class YUITestSeleniumDriver {
                 }
             }
 
-            //YUI Test version option
-            String yuitest = (String) parser.getOptionValue(yuitestOpt);
-            if (yuitest != null){
-                properties.setProperty(SeleniumDriver.YUITEST_VERSION, yuitest);
-                if (verbose){
-                    System.err.println("[INFO] Using command line value for " + SeleniumDriver.YUITEST_VERSION + ": " + yuitest);
-                }
-            }
-
-            //YUI Test version option
+            //results directory option
             String resultsDir = (String) parser.getOptionValue(resultsDirOpt);
             if (resultsDir != null){
                 properties.setProperty(SeleniumDriver.RESULTS_OUTPUTDIR, resultsDir);
@@ -125,7 +115,7 @@ public class YUITestSeleniumDriver {
                 }
             }
 
-            //YUI Test version option
+            //coverage directory option
             String coverageDir = (String) parser.getOptionValue(coverageDirOpt);
             if (coverageDir != null){
                 properties.setProperty(SeleniumDriver.COVERAGE_OUTPUTDIR, coverageDir);
@@ -267,7 +257,6 @@ public class YUITestSeleniumDriver {
                         + "  --resultsdir <dir>        Output test result files to <dir>.\n"
                         + "  --silent                  Don't output test results to the console.\n"
                         + "  --tests <file>            Loads test info from <file>.\n"
-                        + "  --yuitest <version>       The version of YUI Test to use (2 or 3).\n"
                         + "  -v, --verbose             Display informational messages and warnings.\n\n");
     }
 

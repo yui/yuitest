@@ -420,11 +420,11 @@ YUITest.Assert = {
      * @param {Function} method The method to execute that should throw the error.
      * @param {String} message (Optional) The message to display if the assertion
      *      fails.
-     * @method shouldError
+     * @method throwsError
      * @return {void}
      * @static
      */
-    shouldError: function(expectedError, method, message){
+    throwsError: function(expectedError, method, message){
         YUITest.Assert._increment();
         var error = false;
     

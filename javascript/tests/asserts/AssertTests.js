@@ -9,76 +9,76 @@
     var suite = new YUITest.TestSuite("Assert Tests");
     
     //-------------------------------------------------------------------------
-    // Test Case for shouldError()
+    // Test Case for throwsError()
     //-------------------------------------------------------------------------
     
     suite.add(new YUITest.TestCase({
     
-        name: "shouldError Assert Tests",
+        name: "throwsError Assert Tests",
 
-        "shouldError() should pass when an error with the given message is thrown": function(){
-            Assert.shouldError("Something bad happened.", function(){
+        "throwsError() should pass when an error with the given message is thrown": function(){
+            Assert.throwsError("Something bad happened.", function(){
                 throw new Error("Something bad happened.");
             });        
         },
         
-        "shouldError() should fail when an error is not thrown": function(){
-            Assert.shouldError(YUITest.AssertionError, function(){
-                Assert.shouldError("Something bad happened.", function(){
+        "throwsError() should fail when an error is not thrown": function(){
+            Assert.throwsError(YUITest.AssertionError, function(){
+                Assert.throwsError("Something bad happened.", function(){
                     //noop
                 });        
             });
         },
         
-        "shouldError() should fail when an error with a different message is thrown": function(){
-            Assert.shouldError(YUITest.AssertionError, function(){
-                Assert.shouldError("Something bad happened.", function(){
+        "throwsError() should fail when an error with a different message is thrown": function(){
+            Assert.throwsError(YUITest.AssertionError, function(){
+                Assert.throwsError("Something bad happened.", function(){
                     throw new Error("Something else happened.");
                 });        
             });
         },
         
-        "shouldError() should throw a custom message when failing": function(){
-            Assert.shouldError(YUITest.AssertionError, function(){
-                Assert.shouldError("The type of error is incorrect.", function(){
-                    Assert.shouldError("Something bad happened.", function(){
+        "throwsError() should throw a custom message when failing": function(){
+            Assert.throwsError(YUITest.AssertionError, function(){
+                Assert.throwsError("The type of error is incorrect.", function(){
+                    Assert.throwsError("Something bad happened.", function(){
                         throw new Error("Something else happened.");
                     }, "The type of error is incorrect.");        
                 });
             });
         },
         
-        "shouldError() should pass when an error with the given constructor is thrown": function(){            
-            Assert.shouldError(SyntaxError, function(){
+        "throwsError() should pass when an error with the given constructor is thrown": function(){            
+            Assert.throwsError(SyntaxError, function(){
                 throw new SyntaxError("Something bad happened.");
             });        
         },
         
-        "shouldError() should fail when an error with a different constructor is thrown": function(){
-            Assert.shouldError(YUITest.AssertionError, function(){
-                Assert.shouldError(SyntaxError, function(){
+        "throwsError() should fail when an error with a different constructor is thrown": function(){
+            Assert.throwsError(YUITest.AssertionError, function(){
+                Assert.throwsError(SyntaxError, function(){
                     throw new Error("Something else happened.");
                 });        
             });
         },
         
-        "shouldError() should pass when an error with the given constructor and message is thrown": function(){            
-            Assert.shouldError(new SyntaxError("Something bad happened."), function(){
+        "throwsError() should pass when an error with the given constructor and message is thrown": function(){            
+            Assert.throwsError(new SyntaxError("Something bad happened."), function(){
                 throw new SyntaxError("Something bad happened.");
             });        
         },
         
-        "shouldError() should fail when an error with a different constructor but same message is thrown": function(){
-            Assert.shouldError(YUITest.AssertionError, function(){
-                Assert.shouldError(new SyntaxError("Something bad happened."), function(){
+        "throwsError() should fail when an error with a different constructor but same message is thrown": function(){
+            Assert.throwsError(YUITest.AssertionError, function(){
+                Assert.throwsError(new SyntaxError("Something bad happened."), function(){
                     throw new Error("Something bad happened.");
                 });        
             });
         },
         
-        "shouldError() should fail when an error with the given constructor but a different message is thrown": function(){
-            Assert.shouldError(YUITest.AssertionError, function(){
-                Assert.shouldError(new Error("Something else happened."), function(){
+        "throwsError() should fail when an error with the given constructor but a different message is thrown": function(){
+            Assert.throwsError(YUITest.AssertionError, function(){
+                Assert.throwsError(new Error("Something else happened."), function(){
                     throw new Error("Something bad happened.");
                 });        
             });
@@ -94,7 +94,7 @@
         name: "fail Assert Tests",
 
         "fail() should throw an assertion error with the given message": function(){
-            Assert.shouldError(new YUITest.AssertionError("Something bad happened."), function(){
+            Assert.throwsError(new YUITest.AssertionError("Something bad happened."), function(){
                 Assert.fail("Something bad happened.");
             });        
         }
@@ -117,13 +117,13 @@
         },
         
         "areEqual() should fail when values are not similar": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.areEqual(5, 6);        
             });
         },
         
         "areEqual() should throw a custom message when failing": function(){
-            Assert.shouldError(new YUITest.ComparisonFailure("Something bad happened."), function(){
+            Assert.throwsError(new YUITest.ComparisonFailure("Something bad happened."), function(){
                 Assert.areEqual(5, 6, "Something bad happened.");
             });
         }      
@@ -138,13 +138,13 @@
         name: "areNotEqual() Assert Tests",
 
         "areNotEqual() should fail when values are identical": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.areNotEqual(5, 5);        
             });
         },
         
         "areNotEqual() should fail when values are similar": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.areNotEqual(5, "5");        
             });
         },
@@ -154,7 +154,7 @@
         },
         
         "areNotEqual() should throw a custom message when failing": function(){
-            Assert.shouldError(new YUITest.UnexpectedValue("Something bad happened."), function(){
+            Assert.throwsError(new YUITest.UnexpectedValue("Something bad happened."), function(){
                 Assert.areNotEqual(5, 5, "Something bad happened.");
             });
         }  
@@ -173,19 +173,19 @@
         },
         
         "areSame() should fail when values are similar": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.areSame(5, "5");        
             });
         },
         
         "areSame() should fail when values are not similar": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.areSame(5, 6);        
             });
         },
         
         "areSame() should throw a custom message when failing": function(){
-            Assert.shouldError(new YUITest.ComparisonFailure("Something bad happened."), function(){
+            Assert.throwsError(new YUITest.ComparisonFailure("Something bad happened."), function(){
                 Assert.areSame(5, 6, "Something bad happened.");
             });
         }  
@@ -200,7 +200,7 @@
         name: "areNotSame() Assert Tests",
 
         "areNotSame() should fail when values are identical": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.areNotSame(5, 5);        
             });
         },
@@ -214,7 +214,7 @@
         },
         
         "areNotSame() should throw a custom message when failing": function(){
-            Assert.shouldError(new YUITest.UnexpectedValue("Something bad happened."), function(){
+            Assert.throwsError(new YUITest.UnexpectedValue("Something bad happened."), function(){
                 Assert.areNotSame(5, 5, "Something bad happened.");
             });
         }  
@@ -233,37 +233,37 @@
         },
         
         "isTrue() should fail for truthy non-true values": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTrue(1);
             });
         },
         
         "isTrue() should fail for false value": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTrue(false);
             });
         },
         
         "isTrue() should fail for falsy non-false values": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTrue(0);
             });
         },
         
         "isTrue() should fail for non-empty string values": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTrue("hello");
             });
         },
         
         "isTrue() should fail for empty string values": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTrue("");
             });
         },                
         
         "isTrue() should throw a custom message when failing": function(){
-            Assert.shouldError(new YUITest.ComparisonFailure("Something bad happened."), function(){
+            Assert.throwsError(new YUITest.ComparisonFailure("Something bad happened."), function(){
                 Assert.isTrue(0, "Something bad happened.");
             });
         }  
@@ -282,37 +282,37 @@
         },
         
         "isFalse() should fail for falsy non-false values": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isFalse(0);
             });
         },
         
         "isFalse() should fail for true value": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isFalse(true);
             });
         },
         
         "isFalse() should fail for truthy non-true values": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isFalse(1);
             });
         },
         
         "isFalse() should fail for non-empty string values": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isFalse("hello");
             });
         },
         
         "isFalse() should fail for empty string values": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isFalse("");
             });
         },
         
         "isFalse() should throw a custom message when failing": function(){
-            Assert.shouldError(new YUITest.ComparisonFailure("Something bad happened."), function(){
+            Assert.throwsError(new YUITest.ComparisonFailure("Something bad happened."), function(){
                 Assert.isFalse(true, "Something bad happened.");
             });
         }          
@@ -339,43 +339,43 @@
         },
         
         "isNaN() should fail for non-NaN numbers": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isNaN(0);
             });
         },
         
         "isNaN() should fail for true value": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isNaN(true);
             });
         },
         
         "isNaN() should fail for false value": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isNaN(false);
             });
         },
         
         "isNaN() should fail for null value": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isNaN(null);
             });
         },
         
         "isNaN() should fail for numeric string value": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isNaN("5");
             });
         },
         
         "isNaN() should fail for empty string value": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isNaN("");
             });
         },
         
         "isNaN() should throw a custom message when failing": function(){
-            Assert.shouldError(new YUITest.ComparisonFailure("Something bad happened."), function(){
+            Assert.throwsError(new YUITest.ComparisonFailure("Something bad happened."), function(){
                 Assert.isNaN(0, "Something bad happened.");
             });
         }          
@@ -410,13 +410,13 @@
         },
         
         "isNotNaN() should fail for NaN value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isNotNaN(NaN);
             });
         },
         
         "isNotNaN() should fail for non-numeric string value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isNotNaN("5x");
             });
         },
@@ -426,13 +426,13 @@
         },
         
         "isNotNaN() should fail for undefined value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isNotNaN(undefined);
             });
         },        
         
         "isNotNaN() should fail a custom message when failing": function(){
-            Assert.shouldError(new YUITest.UnexpectedValue("Something bad happened."), function(){
+            Assert.throwsError(new YUITest.UnexpectedValue("Something bad happened."), function(){
                 Assert.isNotNaN(NaN, "Something bad happened.");
             });
         }          
@@ -451,49 +451,49 @@
         },
                 
         "isNull() should fail for zero numbers": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isNull(0);
             });
         },
         
         "isNull() should fail for non-zero numbers": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isNull(10);
             });
         },
         
         "isNull() should fail for true value": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isNull(true);
             });
         },
         
         "isNull() should fail for false value": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isNull(false);
             });
         },
         
         "isNull() should fail for undefined value": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isNull(undefined);
             });
         },
         
         "isNull() should fail for non-empty string value": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isNull("hello");
             });
         },
         
         "isNull() should fail for empty string values": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isNull("");
             });
         },
         
         "isNull() should throw a custom message when failing": function(){
-            Assert.shouldError(new YUITest.ComparisonFailure("Something bad happened."), function(){
+            Assert.throwsError(new YUITest.ComparisonFailure("Something bad happened."), function(){
                 Assert.isNull(0, "Something bad happened.");
             });
         }          
@@ -536,13 +536,13 @@
         },
         
         "isNotNull() should fail for null value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isNotNull(null);
             });
         },
                 
         "isNotNull() should throw a custom message when failing": function(){
-            Assert.shouldError(new YUITest.UnexpectedValue("Something bad happened."), function(){
+            Assert.throwsError(new YUITest.UnexpectedValue("Something bad happened."), function(){
                 Assert.isNotNull(null, "Something bad happened.");
             });
         }          
@@ -561,49 +561,49 @@
         },
                 
         "isUndefined() should fail for zero numbers": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isUndefined(0);
             });
         },
         
         "isUndefined() should fail for non-zero numbers": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isUndefined(10);
             });
         },
         
         "isUndefined() should fail for true value": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isUndefined(true);
             });
         },
         
         "isUndefined() should fail for false value": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isUndefined(false);
             });
         },
         
         "isUndefined() should fail for null value": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isUndefined(null);
             });
         },
         
         "isUndefined() should fail for non-empty string value": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isUndefined("hello");
             });
         },
         
         "isUndefined() should fail for empty string value": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isUndefined("");
             });
         },
         
         "isUndefined() should throw a custom message when failing": function(){
-            Assert.shouldError(new YUITest.ComparisonFailure("Something bad happened."), function(){
+            Assert.throwsError(new YUITest.ComparisonFailure("Something bad happened."), function(){
                 Assert.isUndefined(0, "Something bad happened.");
             });
         }          
@@ -646,13 +646,13 @@
         },
         
         "isNotUndefined() should fail for undefined value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isNotUndefined(undefined);
             });
         },
                 
         "isNotUndefined() should throw a custom message when failing": function(){
-            Assert.shouldError(new YUITest.UnexpectedValue("Something bad happened."), function(){
+            Assert.throwsError(new YUITest.UnexpectedValue("Something bad happened."), function(){
                 Assert.isNotUndefined(undefined, "Something bad happened.");
             });
         }          
@@ -671,61 +671,61 @@
         },
                 
         "isArray() should fail for array-like objects": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isArray(arguments);
             });
         },
         
         "isArray() should fail for zero numbers": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isArray(0);
             });
         },
         
         "isArray() should fail for non-zero numbers": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isArray(10);
             });
         },
         
         "isArray() should fail for true value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isArray(true);
             });
         },
         
         "isArray() should fail for false value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isArray(false);
             });
         },
         
         "isArray() should fail for null value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isArray(null);
             });
         },
         
         "isArray() should fail for undefined value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isArray(undefined);
             });
         },
         
         "isArray() should fail for non-empty string value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isArray("hello");
             });
         },
         
         "isArray() should fail for empty string value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isArray("");
             });
         },
         
         "isArray() should throw a custom message when failing": function(){
-            Assert.shouldError(new YUITest.UnexpectedValue("Something bad happened."), function(){
+            Assert.throwsError(new YUITest.UnexpectedValue("Something bad happened."), function(){
                 Assert.isArray(0, "Something bad happened.");
             });
         }          
@@ -748,55 +748,55 @@
         },
                                
         "isBoolean() should fail for objects": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isBoolean({});
             });
         },
         
         "isBoolean() should fail for zero numbers": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isBoolean(0);
             });
         },
         
         "isBoolean() should fail for non-zero numbers": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isBoolean(10);
             });
         },
         
         "isBoolean() should fail for Boolean object value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isBoolean(new Boolean(true));
             });
         },
         
         "isBoolean() should fail for null value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isBoolean(null);
             });
         },
         
         "isBoolean() should fail for undefined value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isBoolean(undefined);
             });
         },
         
         "isBoolean() should fail for non-empty string value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isBoolean("hello");
             });
         },
         
         "isBoolean() should fail for empty string value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isBoolean("");
             });
         },
         
         "isBoolean() should throw a custom message when failing": function(){
-            Assert.shouldError(new YUITest.UnexpectedValue("Something bad happened."), function(){
+            Assert.throwsError(new YUITest.UnexpectedValue("Something bad happened."), function(){
                 Assert.isBoolean(0, "Something bad happened.");
             });
         }          
@@ -816,61 +816,61 @@
         },
                 
         "isFunction() should fail for objects": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isFunction({});
             });
         },
         
         "isFunction() should fail for zero numbers": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isFunction(0);
             });
         },
         
         "isFunction() should fail for non-zero numbers": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isFunction(10);
             });
         },
         
         "isFunction() should fail for true value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isFunction(true);
             });
         },
         
         "isFunction() should fail for false value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isFunction(false);
             });
         },
         
         "isFunction() should fail for null value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isFunction(null);
             });
         },
         
         "isFunction() should fail for undefined value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isFunction(undefined);
             });
         },
         
         "isFunction() should fail for non-empty string value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isFunction("hello");
             });
         },
         
         "isFunction() should fail for empty string value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isFunction("");
             });
         },
         
         "isFunction() should throw a custom message when failing": function(){
-            Assert.shouldError(new YUITest.UnexpectedValue("Something bad happened."), function(){
+            Assert.throwsError(new YUITest.UnexpectedValue("Something bad happened."), function(){
                 Assert.isFunction(0, "Something bad happened.");
             });
         }          
@@ -899,49 +899,49 @@
 
                 
         "isNumber() should fail for objects": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isNumber({});
             });
         },
         
         "isNumber() should fail for true value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isNumber(true);
             });
         },
         
         "isNumber() should fail for false value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isNumber(false);
             });
         },
         
         "isNumber() should fail for null value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isNumber(null);
             });
         },
         
         "isNumber() should fail for undefined value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isNumber(undefined);
             });
         },
         
         "isNumber() should fail for non-empty string value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isNumber("hello");
             });
         },
         
         "isNumber() should fail for empty string value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isNumber("");
             });
         },
         
         "isNumber() should throw a custom message when failing": function(){
-            Assert.shouldError(new YUITest.UnexpectedValue("Something bad happened."), function(){
+            Assert.throwsError(new YUITest.UnexpectedValue("Something bad happened."), function(){
                 Assert.isNumber(null, "Something bad happened.");
             });
         }          
@@ -966,49 +966,49 @@
         },
                 
         "isString() should fail for objects": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isString({});
             });
         },
         
         "isString() should fail for zero numbers": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isString(0);
             });
         },
         
         "isString() should fail for non-zero numbers": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isString(10);
             });
         },
         
         "isString() should fail for true value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isString(true);
             });
         },
         
         "isString() should fail for false value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isString(false);
             });
         },
         
         "isString() should fail for null value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isString(null);
             });
         },
         
         "isString() should fail for undefined value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isString(undefined);
             });
         },
         
         "isString() should throw a custom message when failing": function(){
-            Assert.shouldError(new YUITest.UnexpectedValue("Something bad happened."), function(){
+            Assert.throwsError(new YUITest.UnexpectedValue("Something bad happened."), function(){
                 Assert.isString(0, "Something bad happened.");
             });
         }          
@@ -1036,55 +1036,55 @@
         },
 
         "isObject() should fail for zero numbers": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isObject(0);
             });
         },
         
         "isObject() should fail for non-zero numbers": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isObject(10);
             });
         },
         
         "isObject() should fail for true value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isObject(true);
             });
         },
         
         "isObject() should fail for false value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isObject(false);
             });
         },
         
         "isObject() should fail for null value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isObject(null);
             });
         },
         
         "isObject() should fail for undefined value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isObject(undefined);
             });
         },
         
         "isObject() should fail for non-empty string value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isObject("hello");
             });
         },
         
         "isObject() should fail for empty string value": function(){
-            Assert.shouldError(YUITest.UnexpectedValue, function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
                 Assert.isObject("");
             });
         },
         
         "isObject() should throw a custom message when failing": function(){
-            Assert.shouldError(new YUITest.UnexpectedValue("Something bad happened."), function(){
+            Assert.throwsError(new YUITest.UnexpectedValue("Something bad happened."), function(){
                 Assert.isObject(0, "Something bad happened.");
             });
         }          
@@ -1132,187 +1132,187 @@
         },
                 
         "isTypeOf() should fail for function value as object type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("object", new Function());
             });
         },
                 
         "isTypeOf() should fail for false value as number type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("number", false);
             });
         },
 
         "isTypeOf() should fail for false value as string type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("string", false);
             });
         },
 
         "isTypeOf() should fail for true value as string type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("string", true);
             });
         },
 
         "isTypeOf() should fail for zero value as string type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("string", 0);
             });
         },
 
         "isTypeOf() should fail for non-zero numeric value as string type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("string", 10);
             });
         },
 
         "isTypeOf() should fail for object value as string type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("string", {});
             });
         },
 
         "isTypeOf() should fail for null value as string type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("string", null);
             });
         },
 
         "isTypeOf() should fail for undefined value as string type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("string", undefined);
             });
         },
 
         "isTypeOf() should fail for false value as number type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("number", false);
             });
         },
 
         "isTypeOf() should fail for true value as number type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("number", true);
             });
         },
 
         "isTypeOf() should fail for non-empty string value as number type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("number", "foo");
             });
         },
 
         "isTypeOf() should fail for empty string value as number type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("number", "");
             });
         },
 
         "isTypeOf() should fail for object value as number type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("number", {});
             });
         },
 
         "isTypeOf() should fail for null value as number type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("number", null);
             });
         },
 
         "isTypeOf() should fail for undefined value as number type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("number", undefined);
             });
         },        
         
         "isTypeOf() should fail for zero value as boolean type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("boolean", 0);
             });
         },
 
         "isTypeOf() should fail for non-zero numeric value as boolean type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("boolean", 10);
             });
         },
 
         "isTypeOf() should fail for non-empty string value as boolean type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("boolean", "foo");
             });
         },
 
         "isTypeOf() should fail for empty string value as boolean type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("boolean", "");
             });
         },
 
         "isTypeOf() should fail for object value as boolean type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("boolean", {});
             });
         },
 
         "isTypeOf() should fail for null value as boolean type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("boolean", null);
             });
         },
 
         "isTypeOf() should fail for undefined value as boolean type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("boolean", undefined);
             });
         },    
 
         "isTypeOf() should fail for true value as undefined type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("undefined", true);
             });
         },
 
         "isTypeOf() should fail for false value as undefined type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("undefined", false);
             });
         },
 
         "isTypeOf() should fail for zero value as undefined type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("undefined", 0);
             });
         },
 
         "isTypeOf() should fail for non-zero numeric value as undefined type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("undefined", 10);
             });
         },
 
         "isTypeOf() should fail for non-empty string value as undefined type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("undefined", "foo");
             });
         },
 
         "isTypeOf() should fail for empty string value as undefined type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("undefined", "");
             });
         },
 
         "isTypeOf() should fail for object value as undefined type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("undefined", {});
             });
         },
 
         "isTypeOf() should fail for null value as undefined type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("undefined", null);
             });
         },
@@ -1320,104 +1320,104 @@
 //--
 
         "isTypeOf() should fail for true value as object type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("object", true);
             });
         },
 
         "isTypeOf() should fail for false value as object type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("object", false);
             });
         },
 
         "isTypeOf() should fail for zero value as object type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("object", 0);
             });
         },
 
         "isTypeOf() should fail for non-zero numeric value as object type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("object", 10);
             });
         },
 
         "isTypeOf() should fail for non-empty string value as object type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("object", "foo");
             });
         },
 
         "isTypeOf() should fail for empty string value as object type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("object", "");
             });
         },
 
         "isTypeOf() should fail for undefined value as object type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("object", undefined);
             });
         },
 
 
         "isTypeOf() should fail for true value as function type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("function", true);
             });
         },
 
         "isTypeOf() should fail for false value as function type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("function", false);
             });
         },
 
         "isTypeOf() should fail for zero value as function type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("function", 0);
             });
         },
 
         "isTypeOf() should fail for non-zero numeric value as function type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("function", 10);
             });
         },
 
         "isTypeOf() should fail for non-empty string value as function type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("function", "foo");
             });
         },
 
         "isTypeOf() should fail for empty string value as function type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("function", "");
             });
         },
 
         "isTypeOf() should fail for null value as function type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("function", null);
             });
         },  
         
         "isTypeOf() should fail for undefined value as function type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("function", undefined);
             });
         },  
         
         "isTypeOf() should fail for object value as function type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isTypeOf("function", {});
             });
         },  
         
         "isTypeOf() should throw a custom message when failing": function(){
-            Assert.shouldError(new YUITest.ComparisonFailure("Something bad happened."), function(){
+            Assert.throwsError(new YUITest.ComparisonFailure("Something bad happened."), function(){
                 Assert.isTypeOf("string", 0, "Something bad happened.");
             });
         }          
@@ -1440,13 +1440,13 @@
         },
         
         "isInstanceOf() should fail for object value as function type": function(){
-            Assert.shouldError(YUITest.ComparisonFailure, function(){
+            Assert.throwsError(YUITest.ComparisonFailure, function(){
                 Assert.isInstanceOf(String, {});
             });
         },  
         
         "isInstanceOf() should throw a custom message when failing": function(){
-            Assert.shouldError(new YUITest.ComparisonFailure("Something bad happened."), function(){
+            Assert.throwsError(new YUITest.ComparisonFailure("Something bad happened."), function(){
                 Assert.isInstanceOf(String, 0, "Something bad happened.");
             });
         }  

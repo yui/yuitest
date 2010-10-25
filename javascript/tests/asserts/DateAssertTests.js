@@ -22,31 +22,31 @@
         },
         
         "datesAreEqual() should fail when years are different": function(){
-			Assert.shouldError(YUITest.ComparisonFailure, function(){
+			Assert.throwsError(YUITest.ComparisonFailure, function(){
 				DateAssert.datesAreEqual(new Date(2005, 5, 5), new Date(2006, 5, 5));        
 			});
         },
         
         "datesAreEqual() should fail when days are different": function(){
-			Assert.shouldError(YUITest.ComparisonFailure, function(){
+			Assert.throwsError(YUITest.ComparisonFailure, function(){
 				DateAssert.datesAreEqual(new Date(2006, 5, 6), new Date(2006, 5, 5));        
 			});
         },
         
         "datesAreEqual() should fail when months are different": function(){
-			Assert.shouldError(YUITest.ComparisonFailure, function(){
+			Assert.throwsError(YUITest.ComparisonFailure, function(){
 				DateAssert.datesAreEqual(new Date(2006, 6, 5), new Date(2006, 5, 5));        
 			});
         },
 		
         "datesAreEqual() should throw an error if first value isn't a Date": function(){
-			Assert.shouldError(TypeError, function(){
+			Assert.throwsError(TypeError, function(){
 				DateAssert.datesAreEqual({}, new Date(2006, 5, 5));        
 			});
         },
 		
         "datesAreEqual() should throw an error if second value isn't a Date": function(){
-			Assert.shouldError(TypeError, function(){
+			Assert.throwsError(TypeError, function(){
 				DateAssert.datesAreEqual(new Date(2006, 5, 5), {});        
 			});
         }
@@ -66,31 +66,31 @@
         },
         
         "timesAreEqual() should fail when hours are different": function(){
-			Assert.shouldError(YUITest.ComparisonFailure, function(){
+			Assert.throwsError(YUITest.ComparisonFailure, function(){
 				DateAssert.timesAreEqual(new Date(2005, 5, 5, 12), new Date(2005, 5, 5, 11));        
 			});
         },
         
         "timesAreEqual() should fail when minutes are different": function(){
-			Assert.shouldError(YUITest.ComparisonFailure, function(){
+			Assert.throwsError(YUITest.ComparisonFailure, function(){
 				DateAssert.timesAreEqual(new Date(2005, 5, 5, 12, 10), new Date(2005, 5, 5, 12, 12));        
 			});
         },
         
         "timesAreEqual() should fail when seconds are different": function(){
-			Assert.shouldError(YUITest.ComparisonFailure, function(){
+			Assert.throwsError(YUITest.ComparisonFailure, function(){
 				DateAssert.timesAreEqual(new Date(2006, 5, 5, 12, 10, 5), new Date(2005, 5, 5, 12, 10, 6));        
 			});
         },
 		
         "timesAreEqual() should throw an error if first value isn't a Date": function(){
-			Assert.shouldError(TypeError, function(){
+			Assert.throwsError(TypeError, function(){
 				DateAssert.timesAreEqual({}, new Date(2006, 5, 5));        
 			});
         },
 		
         "timesAreEqual() should throw an error if second value isn't a Date": function(){
-			Assert.shouldError(TypeError, function(){
+			Assert.throwsError(TypeError, function(){
 				DateAssert.timesAreEqual(new Date(2006, 5, 5), {});        
 			});
         }

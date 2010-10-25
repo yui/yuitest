@@ -46,7 +46,7 @@
         
         "resume() without wait() should throw an error": function () {
             var that = this;
-            Assert.shouldError("resume() called without wait().", function(){
+            Assert.throwsError("resume() called without wait().", function(){
                 that.resume(function(){});
             });
         }

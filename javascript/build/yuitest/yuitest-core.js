@@ -895,11 +895,11 @@ YUITest.Assert = {
      * @param {Function} method The method to execute that should throw the error.
      * @param {String} message (Optional) The message to display if the assertion
      *      fails.
-     * @method shouldError
+     * @method throwsError
      * @return {void}
      * @static
      */
-    shouldError: function(expectedError, method, message){
+    throwsError: function(expectedError, method, message){
         YUITest.Assert._increment();
         var error = false;
     
@@ -2542,72 +2542,7 @@ YUITest.CoverageFormat = {
              * @event begin
              * @static
              */        
-            BEGIN_EVENT : "begin",    
-            
-            //-------------------------------------------------------------------------
-            // Event Handling
-            //-------------------------------------------------------------------------
-            
-            /**
-             * Adds a listener for a given event type.
-             * @param {String} type The type of event to add a listener for.
-             * @param {Function} listener The function to call when the event occurs.
-             * @return {void}
-             * @method subscribe
-             */
-            subscribe: function(type, listener){
-                if (typeof this._handlers[type] == "undefined"){
-                    this._handlers[type] = [];
-                }
-
-                this._handlers[type].push(listener);
-            },
-            
-            /**
-             * Fires an event based on the passed-in object.
-             * @param {Object|String} event An object with at least a 'type' attribute
-             *      or a string indicating the event name.
-             * @return {void}
-             * @method fire
-             */    
-            fire: function(event){
-                if (typeof event == "string"){
-                    event = { type: event };
-                }
-                if (!event.target){
-                    event.target = this;
-                }
-                
-                if (!event.type){
-                    throw new Error("Event object missing 'type' property.");
-                }
-                
-                if (this._handlers[event.type] instanceof Array){
-                    var handlers = this._handlers[event.type];
-                    for (var i=0, len=handlers.length; i < len; i++){
-                        handlers[i].call(this, event);
-                    }
-                }            
-            },
-
-            /**
-             * Removes a listener for a given event type.
-             * @param {String} type The type of event to remove a listener from.
-             * @param {Function} listener The function to remove from the event.
-             * @return {void}
-             * @method unsubscribe
-             */
-            unsubscribe: function(type, listener){
-                if (this._handlers[type] instanceof Array){
-                    var handlers = this._handlers[type];
-                    for (var i=0, len=handlers.length; i < len; i++){
-                        if (handlers[i] === listener){
-                            handlers.splice(i, 1);
-                            break;
-                        }
-                    }
-                }            
-            },
+            BEGIN_EVENT : "begin",                           
 
             //-------------------------------------------------------------------------
             // Test Tree-Related Methods

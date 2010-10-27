@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>YUI Test</title>
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.2.0/build/cssfonts/fonts-min.css">
 </head>
 <body>
 <div id="yui-main">
@@ -81,20 +82,19 @@
 				</ul><p>In all cases, command line options override properties read in via <code>--conf</code>.</p>
 	
 				<h3>Examples</h3>
-				<p>The following runs the driver for a single URL assuming YUI Test 2:</p>
+				<p>The following runs the driver for a single URL:</p>
 				<pre><code>java -jar yuitest-selenium-driver.jar http://www.example.com/tests/test_ui</code></pre>
-				<p>The following is the same as above, but makes sure the driver looks for YUI Test 3:</p>
 
-				<pre><code>java -jar yuitest-selenium-driver.jar --yuitest 3 http://www.example.com/tests/test_ui</code></pre>
-				<p>The following runs the driver for two URLs on two browsers assuming YUI Test 2:</p>
+				<p>The following runs the driver for two URLs on two browsers (Firefox and Internet Explorer):</p>
 				<pre><code>java -jar yuitest-selenium-driver.jar --browsers *firefox,*iexplore http://www.example.com/tests/test_ui http://www.example.com/tests/test_util</code></pre>
+
 				<p>The following runs the driver against tests specified in an <span class="caps">XML</span> file:</p>
 				<pre><code>java -jar yuitest-selenium-driver.jar --tests tests.xml</code></pre>
 				
 				<h3>Tests File</h3>
 				<p>The <code>--tests</code> option can be used to specify an <span class="caps">XML</span> file containing test information. This contains information about the tests to run and has the following general format:</p>
 				<pre><code>&lt;?xml version="1.0"?&gt;
-&lt;yuitest version="3"&gt;
+&lt;yuitest&gt;
 	&lt;tests base="http://www.example.com/tests/" timeout="10000"&gt;
 		&lt;url&gt;test_core&lt;/url&gt;
 
@@ -106,7 +106,7 @@
 
 				<ol>
 				<li>
-				<code>&lt;yuitest&gt;</code> – document element. The <code>version</code> attribute specifies the version of YUI Test used for the tests in this file.</li>
+				<code>&lt;yuitest&gt;</code> – document element.</li>
 					<li>
 				<code>&lt;tests&gt;</code> – second level element, indicates a group of tests with common settings. The <code>base</code> attribute is used to indicate the base location for these tests and can be safely omitted if the tests don’t share the same base. The <code>timeout</code> attribute indicates the maximum time (in milliseconds) that the Selenium Driver should wait for the tests to complete. If the test doesn’t complete in that amount of time, an error is thrown. You can also specify a <code>version</code> attribute on this element to override the one provided on <code>&lt;yuitest&gt;</code>. There can be any number of <code>&lt;tests&gt;</code> elements under <code>&lt;yuitest&gt;</code>.</li>
 
@@ -125,8 +125,6 @@
 
 					<li>
 				<code>selenium.browsers</code> – a comma-delimited list of browsers on which to run the tests. The browser names are those used by Selenium and so any valid browser name to Selenium is also valid here.</li>
-					<li>
-				<code>yuitest.version</code> – the version of YUI Test to use by default (<code>2</code> or <code>3</code>).</li>
 
 					<li>
 				<code>results.format</code> – the format in which to save the test results. These correspond to the test formats provided by YUI Test. There are three possible values:  <code>YUITestXML</code>, <code>TAP</code>, and <code>JUnitXML</code> (default).</li>

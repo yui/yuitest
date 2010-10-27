@@ -1,20 +1,17 @@
-<?php 
-require_once("../inc/config.inc");
-$section="test";
-$title = getModuleTitle($section);
-$component="YUI Test Utility";
-$componentShort = "YUI Test";
-$highlightSyntax = true;
-
-include("../inc/header.inc");
-?>
+<!doctype html>
+<html>
+<head>
+	<title>YUI Test Standalone Library</title>
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.2.0/build/cssfonts/fonts-min.css">
+</head>
+<body>
 <div id="yui-main">
 	<div class="yui-b">
 		<div class="yui-ge">
 			<div class="yui-u first" id="main">
 			<!-- main column -->
 
-				<h2><?php echo $title;?></h2>
+				<h2>YUI Test Standalone Library</h2>
 
 				<div id="promo" class="component">
                     <p>YUI Test is a testing framework for browser-based JavaScript solutions. Using YUI Test, you can easily add unit testing to your JavaScript solutions. While not a direct port from any specific xUnit framework, YUI Test does derive some characteristics from <a href="http://www.nunit.org/">nUnit</a> and <a href="http://www.junit.org/">JUnit</a>.</p> 
@@ -55,20 +52,12 @@ include("../inc/header.inc");
 					<div class="clear"></div>
 				</div><!-- /promo -->
 
-<?php
-    $componentShort = 'Test';
-    $requiredModules = array("test");
-    include("../inc/gettingStarted.inc");
-?>
-
                 
                 <h3 id="testcases">Using Test Cases</h3>
-                <p>The basis of <?php echo $componentShort; ?> is the <code>YUITest.TestCase</code> object. A <code>TestCase</code> object is created by using the 
+                <p>The basis of YUI Test is the <code>YUITest.TestCase</code> object. A <code>TestCase</code> object is created by using the 
                   <code>YUITest.TestCase</code> constructor and passing in an object containing methods and other information with which 
                   to initialize the test case. Typically, the argument is an object literal, for example:</p>
-<?php
-$js = <<<END
-var testCase = new YUITest.TestCase({
+<pre><code>var testCase = new YUITest.TestCase({
 
     name: "TestCase Name",
     
@@ -81,14 +70,9 @@ var testCase = new YUITest.TestCase({
         //...
     }
 });
-
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
                 <p>In this example, a simple test case is created named &quot;TestCase Name&quot;. The <code>name</code> property is automatically  applied to the test case so that it can be distinguished from other test cases that may be run during the same cycle. The two methods in this example are tests methods ( <code>testSomething()</code> and <code>testSomethingElse())</code>, which means  that they are methods designed to test a specific piece of functional code. Test methods are indicatd by their name, either using the traditional manner of prepending the word <code>test</code> to the method name, or using a "friendly name," which is a sentence containing the word "should" that describes the test's purpose. For example:</p>
-<?php
-$js = <<<END
-var testCase = new YUITest.TestCase({
+<pre><code>var testCase = new YUITest.TestCase({
 
     name: "TestCase Name",
     
@@ -101,10 +85,7 @@ var testCase = new YUITest.TestCase({
         //...
     }
 });
-
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
                 <p>Regardless of the naming convention used for test names, each should contain one or more <a href="#assertions">assertions</a> that test data for validity.</p>
                   
                 <h4 id="setup-and-teardown">setUp() and tearDown()</h4>  
@@ -112,9 +93,7 @@ echo(syntaxHighlight($js));
                   after the test is run. The <code>setUp()</code> method is run before each and every test in the test case and likewise the <code>tearDown()</code> method is run 
                   after each test is run. These methods should be used in conjunction to create objects before a test is run and free up memory after the 
                   test is run. For example:</p>
-<?php
-$js = <<<END
-var testCase = new YUITest.TestCase({
+<pre><code>var testCase = new YUITest.TestCase({
 
     name: "TestCase Name",
     
@@ -143,9 +122,7 @@ var testCase = new YUITest.TestCase({
     }    
 });
 
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
                 <p>In this example, a <code>setUp()</code> method creates a data object with some basic information. Each property of the data object is checked with 
                   a different test, <code>testName()</code> tests the value of <code>data.name</code> while <code>testAge()</code> tests the value of <code>data.age</code>. Afterwards, the data object is deleted 
                   to free up the memory. Real-world implementations will have more complex tests, of course, but they should follow the basic pattern you see in the above code.</p>
@@ -154,9 +131,7 @@ echo(syntaxHighlight($js));
                 <h4 id="ignoring">Ignoring Tests</h4>
                 <p>There may be times when you want to ignore a test (perhaps the test is invalid for your purposes or the functionality is being re-engineered and so it shouldn't be tested at this time). To specify tests to ignore, 
                   use the <code>_should.ignore</code> property and name each test to skip as a property whose value is set to <code>true</code>:</p>
-<?php
-$js = <<<END
-var testCase = new YUITest.TestCase({
+<pre><code>var testCase = new YUITest.TestCase({
 
     name: "TestCase Name",
     
@@ -196,9 +171,7 @@ var testCase = new YUITest.TestCase({
 
 });
 
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
 
                 <p>Here the <code>testName()</code> method will be ignored when the test case is run. This is accomplished by first defining the special <code>_should</code> 
                   property and within it, an <code>ignore</code> property. The ignore property is an object containing name-value pairs representing the names of the tests 
@@ -209,9 +182,7 @@ echo(syntaxHighlight($js));
                 <p>There may be a time that a test throws an error that was expected. For instance, perhaps you're testing a function that should throw an error if invalid data 
                   is passed in. A thrown error in this case can signify that the test has passed. To indicate that 
                   a test should throw an error, use the <code>_should.error</code> property.  For example:</p>
-<?php
-$js = <<<END
-function sortArray(array) {
+<pre><code>function sortArray(array) {
     if (array instanceof Array){
         array.sort();
     } else {
@@ -242,10 +213,7 @@ var testCase = new YUITest.TestCase({
     }
 
 });
-
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
                 <p>In this example, a test case is created to test the standalone <code>sortArray()</code> function, which simply accepts an array and calls its <code>sort()</code> method. 
                   But if the argument is not an array, an error is thrown. When <code>testSortArray()</code> is called, it throws an error because a number is passed into <code>sortArray()</code>. 
                   Since the <code>_should.error</code> object has a property called &quot;testSortArray&quot; set to <code>true</code>, this indicates that <code>testSortArray()</code> should 
@@ -254,9 +222,7 @@ echo(syntaxHighlight($js));
                   specify that only a specific error message can be construed as a passed test.  Here's an example:</p>
                 
                 
-<?php
-$js = <<<END
-function sortArray(array) {
+<pre><code>function sortArray(array) {
     if (array instanceof Array){
         array.sort();
     } else {
@@ -287,17 +253,12 @@ var testCase = new YUITest.TestCase({
     }
 
 });
-
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
                 <p>In this example, the <code>testSortArray()</code> test will only pass if the error that is thrown has a message of &quot;Expected an array&quot;.
                   If a different error occurs within the course of executing <code>testSortArray()</code>, then the test will fail due to an unexpected error.</p>
                 <p>If you're unsure of the message but know the type of error that will be thrown, you can specify the error constructor for the error
                 you're expecting to occur:</p>
-<?php
-$js = <<<END
-function sortArray(array) {
+<pre><code>function sortArray(array) {
     if (array instanceof Array){
         array.sort();
     } else {
@@ -329,18 +290,13 @@ var testCase = new YUITest.TestCase({
 
 });
 
-END;
-echo(syntaxHighlight($js));
-?>
-                
+</code></pre>                
                 <p>In this example, the test will pass if a <code>TypeError</code> gets thrown; if any other type of error is thrown,
                 the test will fail. A word of caution: <code>TypeError</code> is the most frequently thrown error by browsers,
                 so specifying a <code>TypeError</code> as expected may give false passes.</p>
                 <p>To narrow the margin of error between checking for an error message and checking the error type, you can create a specific error
                   object and set that in the <code>_should.error</code> property, such as:</p>
-<?php
-$js = <<<END
-function sortArray(array) {
+<pre><code>function sortArray(array) {
     if (array instanceof Array){
         array.sort();
     } else {
@@ -372,18 +328,14 @@ var testCase = new YUITest.TestCase({
 
 });
 
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
                 <p>Using this code, the <code>testSortArray()</code> method will only pass if a <code>TypeError</code> object is thrown with a message of
                   &quot;Expected an array&quot;; if any other type of error occurs, then the test fails due to an unexpected error.</p>
                 <p><strong>Note: </strong>If a test is marked as expecting an error, the test will fail unless that specific error is thrown. If the test completes without an error being thrown, then it fails.</p>  
                   
                 <h3 id="assertions">Assertions</h3>
                 <p>Test methods use assertions to check the validity of a particular action or function. An assertion method tests (asserts) that a condition is valid; if not, it throws an error that causes the test to fail. If all assertions pass within a test method, it is said that the test has passed. The simplest assertion is <code>YUITest.Assert()</code>, which takes two arguments: a condition to test and a message. If the condition is <em>not</em> true, then an assertion error is thrown with the specified message. For example:</p>
-<?php
-$js = <<<END
-var testCase = new YUITest.TestCase({
+<pre><code>var testCase = new YUITest.TestCase({
 
     name: "TestCase Name",
     
@@ -393,9 +345,7 @@ var testCase = new YUITest.TestCase({
     }
 });
 
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
                 <p>In this example, <code>testUsingAsserts()</code> will fail if <code>value</code> is not equal to 5 of <code>flag</code> is not set to <code>true</code>. The <code>YUITest.Assert()</code> method may be all that you need, but there are advanced options available. The <code>YUITest.Assert</code> object contains several assertion methods that can be used to validate data.</p>
                 <p>Topics covered in this section include:</p>
                 <ul>
@@ -408,9 +358,7 @@ echo(syntaxHighlight($js));
                 <h4 id="equality">Equality Assertions</h4>
                 <p>The simplest assertions are <code>areEqual()</code> and <code>areNotEqual()</code>. Both methods accept three arguments: the expected value,
                   the actual value, and an optional failure message (a default one is generated if this argument is omitted). For example:</p>
-<?php
-$js = <<<END
-var testCase = new YUITest.TestCase({
+<pre><code>var testCase = new YUITest.TestCase({
 
     name: "TestCase Name",
     
@@ -423,9 +371,7 @@ var testCase = new YUITest.TestCase({
     }
 });
 
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
                 <p>These methods use the double equals (<code>==</code>) operator to determine if two values are equal, so type coercion may occur. This means
                   that the string <code>"5"</code> and the number <code>5</code> are considered equal because the double equals sign converts the number to
                   a string before doing the comparison. If you don't want values to be converted for comparison purposes, use the sameness assertions instead.</p>
@@ -434,9 +380,7 @@ echo(syntaxHighlight($js));
                 <p>The sameness assertions are <code>areSame()</code> and <code>areNotSame()</code>, and these accept the same three arguments as the equality
                   assertions: the expected value, the actual value, and an optional failure message. Unlike the equality assertions, these methods use
                   the triple equals operator (<code>===</code>) for comparisions, assuring that no type coercion will occur. For example:</p>
-<?php
-$js = <<<END
-var testCase = new YUITest.TestCase({
+<pre><code>var testCase = new YUITest.TestCase({
 
     name: "TestCase Name",
     
@@ -448,10 +392,7 @@ var testCase = new YUITest.TestCase({
         YUITest.Assert.areSame(5, 6, "Five was expected."); //fails
     }
 });
-
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
 
                 <p><strong>Note: </strong>Even though this example shows multiple assertions failing, a test will stop as soon as one
                   assertion fails, causing all others to be skipped.</p>
@@ -469,9 +410,7 @@ echo(syntaxHighlight($js));
                     <li><code>isString()</code> - passes only if the value is a string.</li>
                 </ul>
                 <p>These are used as in the following example: </p>
-<?php
-$js = <<<END
-var testCase = new YUITest.TestCase({
+<pre><code>var testCase = new YUITest.TestCase({
 
     name: "TestCase Name",
     
@@ -488,18 +427,13 @@ var testCase = new YUITest.TestCase({
         YUITest.Assert.isString(1, "Value should be a string.");    //fails
     }
 });
-
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
                 <p>In addition to these specific data type assertions, there are two generic data type assertions.</p>
                 <p>The <code>isTypeOf()</code> method tests the string returned when the <code>typeof</code> operator is applied to a value. This
                   method accepts three arguments: the type that the value should be (&quot;string&quot;, &quot;number&quot;, 
                   &quot;boolean&quot;, &quot;undefined&quot;, &quot;object&quot;, or &quot;function&quot;), the value to test,  and an optional failure message. 
                   For example:</p>
-<?php
-$js = <<<END
-var testCase = new YUITest.TestCase({
+<pre><code>var testCase = new YUITest.TestCase({
 
     name: "TestCase Name",
     
@@ -518,16 +452,11 @@ var testCase = new YUITest.TestCase({
     }
 });
 
-END;
-echo(syntaxHighlight($js));
-?>
-
+</code></pre>
                 <p>If you need to test object types instead of simple data types, you can also use the <code>isInstanceOf()</code> assertion, which accepts three 
                   arguments: the constructor function to test for, the value to test, and an optional failure message. This assertion uses the <code>instanceof</code>
                   operator to determine if it should pass or fail. Example:</p>
-<?php
-$js = <<<END
-var testCase = new YUITest.TestCase({
+<pre><code>var testCase = new YUITest.TestCase({
 
     name: "TestCase Name",
     
@@ -543,10 +472,7 @@ var testCase = new YUITest.TestCase({
     }
 });
 
-END;
-echo(syntaxHighlight($js));
-?>
-
+</code></pre>
                 <h4 id="specialvalues">Special Value Assertions</h4>
                 <p>There are numerous special values in JavaScript that may occur in code. These include <code>true</code>, <code>false</code>, <code>NaN</code>,
                   <code>null</code>, and <code>undefined</code>. There are a number of assertions designed to test for these values specifically:</p>
@@ -562,9 +488,7 @@ echo(syntaxHighlight($js));
                 </ul>
                 <p>Each of these methods accepts two arguments: the value to test and an optional failure message. All of the assertions expect the
                   exact value (no type cohersion occurs), so for example calling <code>isFalse(0)</code> will fail.</p>  
-<?php
-$js = <<<END
-var testCase = new YUITest.TestCase({
+<pre><code>var testCase = new YUITest.TestCase({
 
     name: "TestCase Name",
     
@@ -584,17 +508,13 @@ var testCase = new YUITest.TestCase({
     }
 });
 
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
 
                 <h4 id="forcedfailures">Forced Failures</h4>
                 <p>While most tests fail as a result of an assertion, there may be times when 
                   you want to force a test to fail or create your own assertion method. To do this, use the 
                   <code>fail()</code> method to force a test method to fail immediately:</p>
-<?php
-$js = <<<END
-var testCase = new YUITest.TestCase({
+<pre><code>var testCase = new YUITest.TestCase({
 
     name: "TestCase Name",
     
@@ -603,15 +523,11 @@ var testCase = new YUITest.TestCase({
     }
 });
 
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
                 <p>In this case, the <code>testForceFail()</code> method does nothing but force 
                   the method to fail. Optionally, you can pass in a message to <code>fail()</code> 
                   which will be displayed as the failure message:</p>
-<?php
-$js = <<<END
-var testCase = new YUITest.TestCase({
+<pre><code>var testCase = new YUITest.TestCase({
 
     name: "TestCase Name",
     
@@ -620,9 +536,7 @@ var testCase = new YUITest.TestCase({
     }
 });
 
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
                 <p>When the failure of this method is reported, the message &quot;I decided this should fail.&quot; will be reported.</p>
                 <h3 id="mockobjects">Mock Objects</h3>
                 <p>Mock objects are used to eliminate test dependencies on other objects. In complex software systems, there's often multiple
@@ -635,9 +549,7 @@ echo(syntaxHighlight($js));
                 to define expectations for that object. Expectations define which methods you're expecting to call, what the arguments should be,
                 and what the expected result is. When you believe all of the appropriate methods have been called, you call <code>YUITest.Mock.verify()</code>
                 on the mock object to check that everything happened as it should. For example:</p>
-<?php
-$js = <<<END
-//code being tested
+<pre><code>//code being tested
 function logToServer(message, xhr){
     xhr.open("get", "/log.php?msg=" + encodeURIComponent(message), true);
     xhr.send(null);
@@ -671,9 +583,7 @@ var testCase = new YUITest.TestCase({
     }
 });
 
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
                 <p>In this code, a mock <code>XMLHttpRequest</code> object is created to aid in testing. The mock object defines two
                 expectations: that the <code>open()</code> method will be called with a given set of arguments and that the <code>send()</code>
                 method will be called with a given set of arguments. This is done by using <code>YUITest.Mock.expect()</code> and passing in the
@@ -703,16 +613,12 @@ echo(syntaxHighlight($js));
                     <li><code>YUITest.Mock.Value.Function</code> - any function value is valid.</li>
                 </ul>
                 <p>Each of these special values can be used in the <code>args</code> property of an expectation, such as:</p>
-<?php
-$js = <<<END
-YUITest.Mock.expect(mockXhr, {
+<pre><code>YUITest.Mock.expect(mockXhr, {
     method: "open",
     args: [YUITest.Mock.Value.String, "/log.php?msg=hi", YUITest.Mock.Value.Boolean]                            
 });                
 
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
                 <p>The expecation here will allow any string value as the first argument and any Boolean value as the last argument. 
                 These special values should be used with care as they can let invalid values through if they are too general. The
                 <code>YUITest.Mock.Value.Any</code> special value should be used only if you're absolutely sure that the argument doesn't
@@ -722,17 +628,13 @@ echo(syntaxHighlight($js));
                 expectation isn't feasible. YUI Test mock objects allow you to specify a property name and it's expected value when
                 <code>YUITest.Mock.verify()</code> is called. This isn't a true property expectation but rather an expectation that the property
                 will have a certain value at the end of the test. You can specify a property expectation like this:</p>                
-<?php
-$js = <<<END
-//expect that the status property will be set to 404
+<pre><code>//expect that the status property will be set to 404
 YUITest.Mock.expect(mockXhr, {
     property: "status",
     value: 404                            
 });                
 
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
                 <p>This example indicates that the <code>status</code> property of the mock object should be set to 404 before
                 the test is completed. When <code>YUITest.Mock.verify()</code> is called on <code>mockXhr</code>, it will check
                 the property and throw an assertion failure if it has not been set appropriately.</p>
@@ -745,9 +647,7 @@ echo(syntaxHighlight($js));
                   and the number of milliseconds to wait before executing the function (similar to using <code>setTimeout()</code>). The function
                   passed in as the first argument will be executed as part of the current test (in the same scope) after the specified amount of time.
                   For example:</p>
-<?php
-$js = <<<END
-var testCase = new YUITest.TestCase({
+<pre><code>var testCase = new YUITest.TestCase({
 
     name: "TestCase Name",
     
@@ -778,9 +678,7 @@ var testCase = new YUITest.TestCase({
     }  
 });
 
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
 
                 <p>In this code, the <code>testAsync()</code> function does one assertion, then waits 1000 milliseconds before performing
                   another assertion. The function passed into <code>wait()</code> is still in the scope of the original test, so it has
@@ -791,9 +689,7 @@ echo(syntaxHighlight($js));
                   <code>resume()</code> method accepts a single argument, which is a function to run when the test resumes. This function
                   should specify additional assertions. If <code>resume()</code> isn't called before the timeout expires, then the test fails. The following tests to see if the <code>Anim</code> object has performed its
                   animation completely:</p>
-<?php
-$js = <<<END
-var testCase = new YUITest.TestCase({
+<pre><code>var testCase = new YUITest.TestCase({
 
     name: "TestCase Name",
     
@@ -835,9 +731,7 @@ var testCase = new YUITest.TestCase({
     }  
 });
 
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
 
                 <p>In this example, an <code>Anim</code> object is used to animate the width of an element to 400 pixels. When the animation
                   is complete, the <code>end</code> event is fired, so that is where the <code>resume()</code> method is called. The
@@ -848,9 +742,7 @@ echo(syntaxHighlight($js));
                 <p>For large web applications, you'll probably have many test cases that should be run during a testing phase. A test suite helps to handle multiple test cases 
                   by grouping them together into functional units that can be run together. To create new test suite, use the <code>YUITest.TestSuite</code> 
                   constructor and pass in the name of the test suite. The name you pass in is for logging purposes and allows you to discern which <code>TestSuite</code> instance currently running. For example: </p>
-<?php
-$js = <<<END
-//create the test suite
+<pre><code>//create the test suite
 var suite = new YUITest.TestSuite("TestSuite Name");
 
 //add test cases
@@ -864,15 +756,11 @@ suite.add(new YUITest.TestCase({
     //...
 }));
 
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
                 <p>Here, a test suite is created and three test cases are added to it using the <code>add()</code> method. The test suite now contains all of the 
                   information to run a series of tests.</p>
                 <p>It's also possible to add other multiple <code>TestSuite</code> instances together under a parent <code>TestSuite</code> using the same <code>add()</code> method:</p>
-<?php
-$js = <<<END
-//create a test suite
+<pre><code>//create a test suite
 var suite = new YUITest.TestSuite("TestSuite Name");
 
 //add a test case
@@ -891,17 +779,13 @@ anotherSuite.add(new YUITest.TestCase({
 //add the second suite to the first
 suite.add(anotherSuite);
 
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
                 <p>By grouping test suites together under a parent test suite you can more effectively manage testing of particular aspects of an application.</p>
                 <p>Test suites may also have <code>setUp()</code> and <code>tearDown()</code> methods. A test suite's <code>setUp()</code> method is called before
                   the first test in the first test case is executed (prior to the test case's <code>setUp()</code> method); a test suite's <code>tearDown()</code>
                   method executes after all tests in all test cases/suites have been executed (after the last test case's <code>tearDown()</code> method). To specify
                   these methods, pass an object literal into the <code>YUITest.TestSuite</code> constructor:</p>
-<?php
-$js = <<<END
-//create a test suite
+<pre><code>//create a test suite
 var suite = new YUITest.TestSuite({
     name : "TestSuite Name",
     
@@ -914,9 +798,7 @@ var suite = new YUITest.TestSuite({
     }
 });
 
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
                 <p>Test suite <code>setUp()</code> and <code>tearDown()</code> may be helpful in setting up global objects that are necessary for a multitude of tests
                   and test cases.</p>  
                 <h3 id="running-tests">Running Tests</h3>
@@ -924,27 +806,19 @@ echo(syntaxHighlight($js));
                   simply runs all of the tests in test cases and suites, reporting back on passes and failures. To determine which test cases/suites
                   will be run, add them to the <code>YUITest.TestRunner</code> using the <code>add()</code> method. Then, to run the tests, call the <code>run()</code>
                   method:</p>
-<?php
-$js = <<<END
-//add the test cases and suites
+<pre><code>//add the test cases and suites
 YUITest.TestRunner.add(testCase);
 YUITest.TestRunner.add(oTestSuite);
 
 //run all tests
 YUITest.TestRunner.run();
 
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
                 
                 <p>If at some point you decide not to run the tests that have already been added to the <code>TestRunner</code>, they can be removed by calling <code>clear()</code>:</p>
-<?php
-$js = <<<END
-YUITest.TestRunner.clear();
+<pre><code>YUITest.TestRunner.clear();
 
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
                 
                 <p>Making this call removes all test cases and test suites that were added using the <code>add()</code> method.</p>
 
@@ -988,9 +862,7 @@ echo(syntaxHighlight($js));
                   <code>failed</code> property indicates the number of tests that failed in the test case, the <code>passed</code> property indicates the 
                   number of tests that passed, and the <code>total</code> property indicates the total number of tests executed. A typical <code>results</code>
                   object looks like this:</p>
-<?php
-$js = <<<END
-{
+<pre><code>{
     failed: 1,
     passed: 1,
     ignored: 0,
@@ -1013,9 +885,7 @@ $js = <<<END
     }
 }
 
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
                 
                 <p>The <code>TEST_CASE_COMPLETE_EVENT</code> provides this information for transparency into the testing process.</p>
 
@@ -1033,9 +903,7 @@ echo(syntaxHighlight($js));
                 <p>The <code>TEST_SUITE_COMPLETE_EVENT</code> also has a <code>results</code> property, which contains aggregated results for all of the
                   test cases (and other test suites) it contains. Each test case and test suite contained within the main suite has an entry in the
                   <code>results</code> object, forming a hierarchical structure of data. A typical <code>results</code> object may look like this:</p>
-<?php
-$js = <<<END
-{    
+<pre><code>{    
     failed: 2,
     passed: 2,
     ignored: 0,
@@ -1087,16 +955,12 @@ $js = <<<END
     }
 }   
 
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
                 
                 
                 <p>This example shows the results for a test suite with two test cases, but there may be test suites contained within test suites. In that case,
                   the hierarchy is built out accordingly, for example:</p>
-<?php
-$js = <<<END
-{
+<pre><code>{
     failed: 3,
     passed: 3,
     ignored: 0,
@@ -1181,9 +1045,7 @@ $js = <<<END
     }
 } 
 
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
                 
                 <p>In this code, the test suite contained another test suite named &quot;testSuite0&quot;, which is included in the results along
                   with its test cases. At each level, the results are aggregated so that you can tell how many tests passed or failed within each
@@ -1203,9 +1065,7 @@ echo(syntaxHighlight($js));
                 <p>You can subscribe to particular events by calling the <code>subscribe()</code> method. Your event handler code
                   should expect a single object to be passed in as an argument. This object provides information about the event that just occured. Minimally,
                   the object has a <code>type</code> property that tells you which type of event occurred. Example:</p>
-<?php
-$js = <<<END
-function handleTestFail(data){
+<pre><code>function handleTestFail(data){
     alert("Test named '" + data.testName + "' failed with message: '" + data.error.message + "'.");
 }
 
@@ -1213,17 +1073,13 @@ var TestRunner = YUITest.TestRunner;
 TestRunner.subscribe(TestRunner.TEST_FAIL_EVENT, handleTestFail);
 TestRunner.run();
 
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
                 
                 
                 <p>In this code, the <code>handleTestFail()</code> function is assigned as an event handler for <code>TEST_FAIL_EVENT</code>. You can also
                   use a single event handler to subscribe to any number of events, using the event data object's <code>type</code> property to determine
                   what to do:</p>
-<?php
-$js = <<<END
-function handleTestResult(data){
+<pre><code>function handleTestResult(data){
     var TestRunner = YUITest.TestRunner;
     
     switch(data.type) {
@@ -1245,18 +1101,14 @@ TestRunner.subscribe(TestRunner.TEST_IGNORE_EVENT, handleTestResult);
 TestRunner.subscribe(TestRunner.TEST_PASS_EVENT, handleTestResult);
 TestRunner.run();
 
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
                 
 
                 <h3 id="viewing-results">Viewing Results</h3>
                 <p>There are two ways to view test results. The first is to output test results to the Console
                 component. To do so, you need only create a new Console instance; the result results will be posted
                 to the logger automatically:</p>
-<?php
-$js = <<<END
-YUI({ logInclude: { TestRunner: true } }).use("console", function(Y){
+<pre><code>YUI({ logInclude: { TestRunner: true } }).use("console", function(Y){
 
     //tests go here
     
@@ -1270,20 +1122,14 @@ YUI({ logInclude: { TestRunner: true } }).use("console", function(Y){
     YUITest.TestRunner.run();
 });
 
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
 
                 <p>If you are using a browser that supports the <code>console</code>
                 object (Firefox with Firebug installed, Safari 3+, Internet Explorer 8+, Chrome), then you can
                 direct the test results onto the console. To do so, make sure that you've specified your <code>YUI</code>
                 instance to use the console when logging:</p>
-<?php
-$js = <<<END
-    YUITest.TestRunner.run();
-END;
-echo(syntaxHighlight($js));
-?>
+<pre><code>    YUITest.TestRunner.run();
+</code></pre>
                 <p>You can also extract the test result data using the <code>YUITest.TestRunner.getResults()</code> method. By default, this method
                 returns an object representing the results of the tests that were just run (the method returns <code>null</code> if called
                 while tests are still running). You can optionally specify a format in which the results should be returned. There are four
@@ -1296,9 +1142,7 @@ echo(syntaxHighlight($js));
                 </ul>                                                
                 <p>You can pass any of these into <code>YUITest.TestRunner.getResults()</code> to get a string with the test result information properly
                 formatted. For example:</p>
-<?php
-$js = <<<END
-YUI({ useBrowserConsole: true }).use("test", function(Y){
+<pre><code>YUI({ useBrowserConsole: true }).use("test", function(Y){
 
     //tests go here
 
@@ -1310,9 +1154,7 @@ YUI({ useBrowserConsole: true }).use("test", function(Y){
 
 });                
 
-END;
-echo(syntaxHighlight($js));
-?>                                                                
+</code></pre>                                                                
                 <p>The XML format outputs results in the following
                 format:</p>
 <?php
@@ -1334,9 +1176,7 @@ END;
 echo(syntaxHighlight($xml, 'xml'));
 ?>
                 <p>The JSON format requires that a JSON serializer be available. The native <code>JSON</code> utility is used when available. Otherwise, you'll need to point <code>YUITest.Util.JSON</code> at an implementation containing the <code>stringify() method</code>. If you're using YUI 2.x, you can point to <code>YAHOO.lang.JSON</code>; if you're using YUI 3.x, you can point to <code>Y.JSON</code>; otherwise, you can use the <a href="http://json.org/json2.js">json2.js</a> library. Results are output in a format that follows the object/array hierarchy of the results object, such as:</p>
-<?php
-$js = <<<END
-{
+<pre><code>{
     "passed": 5,
     "failed": 0,
     "ignored": 0,
@@ -1394,9 +1234,7 @@ $js = <<<END
     }
 }
 
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
 
 <p>The JUnit XML format outputs results in the following format:</p>
 
@@ -1459,14 +1297,10 @@ ok 5 - testGetServiceMultipleTimesFromUntrustedModule
                 </ul>
                 <p>You can create a new <code>YUITest.TestReporter</code> object by passing in the URL to report to. The results object can
                 then be passed into the <code>report()</code> method to submit the results:</p>
-<?php
-$js = <<<END
-var reporter = new YUITest.TestReporter("http://www.yourserver.com/path/to/target");
+<pre><code>var reporter = new YUITest.TestReporter("http://www.yourserver.com/path/to/target");
 reporter.report(results);
 
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
                 <p>The form submission happens behind-the-scenes and will not cause your page to navigate away. This operation is
                 one direction; the reporter does not get any content back from the server.</p>
                 <p>There are four predefined serialization formats for results objects: </p>
@@ -1479,65 +1313,25 @@ echo(syntaxHighlight($js));
                 
                 <p>The format in which to submit the results can be specified in the <code>YUITest.TestReporter</code> constructor by passing in the appropriate
                 <code>YUITest.TestFormat</code> value (when no argument is specified, <code>YUITest.TestFormat.XML</code> is used:</p>
-<?php
-$js = <<<END
-var reporter = new YUITest.TestReporter("http://www.yourserver.com/path/to/target", YUITest.TestFormat.JSON);
+<pre><code>var reporter = new YUITest.TestReporter("http://www.yourserver.com/path/to/target", YUITest.TestFormat.JSON);
 
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
 
                 <h4>Custom Fields</h4>
                 <p>You can optionally specify additional fields to be sent with the results report by using the <code>addField()</code> method.
                 This method accepts two arguments: a name and a value. Any field added using <code>addField()</code> is POSTed along with
                 the default fields back to the server:</p>
-<?php
-$js = <<<END
-reporter.addField("color", "blue");
+<pre><code>reporter.addField("color", "blue");
 reporter.addField("message", "Hello world!");
 
-END;
-echo(syntaxHighlight($js));
-?>
+</code></pre>
                 <p>Note that if you specify a field name that is the same as a default field, the custom field is ignored in favor of 
                 the default field.</p>
                 
-                <?php # include "../inc/mobileSection.inc"; ?>
-                
-                <!--<p>YUI Test works with only minor issues on mobile devices. Things to be aware of:</p>
-                <ul>
-                    <li>Asynchronous tests may not work. Certain mobile browsers, such as Opera Mini 4, do not support the 
-                        <code>setTimeout()</code> function, which is necessary for asynchronous tests. YUI Test will automatically
-                        revert to synchronous mode for running tests in this situation and any tests that the <code>wait()</code>
-                        method will throw an error.</li>
-                    <li>Not all mouse and keyboard events are support on mobile devices, so attempting to simulate these events
-                        will cause tests to fail. Most mobile browsers do not support <code>mouseover</code> or <code>mouseout</code> and
-                        many do not support key events at all.</li>
-                </ul>-->
-<?php 
-include "../inc/support.inc";
-?>
-
+			</div>	
 		</div>
-<div class="yui-u sidebar">
-
-	<?php 
-	//include "../inc/cheatsheet.inc";
-	?>
-			
-			<div id="examples">
-                <?php include("../inc/examplesNav/".$section.".inc"); ?>
-		   </div>
-		   
-            <!-- delicious module -->
-            <?php require('../inc/mod-delicious.inc'); ?>
-            <!-- /delicious module -->
-
-		 </div>
-      </div>
-
-</div>
+	</div>
 </div>
 
-<?php include "../inc/side.inc" ?>
-<?php include "../inc/footer.inc" ?>
+</body>
+</html>

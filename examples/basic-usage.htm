@@ -1,0 +1,311 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>Basic Usage Example</title>
+
+
+<link type="text/css" rel="stylesheet" href="http://yui.yahooapis.com/3.2.0/build/cssfonts/fonts-min.css" />
+
+<body class="yui3-skin-sam  yui-skin-sam">
+
+<h1>Basic Usage Example</h1>
+
+<p>This example shows basic usage of the YUI Test standalone for testing browser-based JavaScript code. Two different <code>TestCase</code> objects are created and added to a <code>TestSuite</code> object. The <code>TestRunner</code> is then used to run the tests once the page has loaded. The YUI 3 <code>Console</code> is used to output the results of the tests.</p>
+<p><a href="basic-usage-example.htm">See the example in action</a></p>
+
+<h2>Creating the first TestCase</h2>
+
+<p>The first step is to create a new <code>YUITest.TestCase</code> object called <code>dataTestCase</code>.
+  To do so, using the <code>YUITest.TestCase</code> constructor and pass in an object literal containing information about the tests to be run:</p>
+<pre><code>var dataTestCase = new YUITest.TestCase({
+
+    //name of the test case - if not provided, one is auto-generated
+    name : "Data Tests",
+
+    //---------------------------------------------------------------------
+    // setUp and tearDown methods - optional
+    //---------------------------------------------------------------------
+
+    /*
+     * Sets up data that is needed by each test.
+     */
+    setUp : function () {
+        this.data = {
+            name: "test",
+            year: 2007,
+            beta: true
+        };
+    },
+
+    /*
+     * Cleans up everything that was created by setUp().
+     */
+    tearDown : function () {
+        delete this.data;
+    },
+
+    //---------------------------------------------------------------------
+    // Test methods - names must begin with "test"
+    //---------------------------------------------------------------------
+
+    testName : function () {
+        var Assert = YUITest.Assert;
+
+        Assert.isObject(this.data);
+        Assert.isString(this.data.name);
+        Assert.areEqual("test", this.data.name);
+    },
+
+    testYear : function () {
+        var Assert = YUITest.Assert;
+
+        Assert.isObject(this.data);
+        Assert.isNumber(this.data.year);
+        Assert.areEqual(2007, this.data.year);
+    },
+
+    testBeta : function () {
+        var Assert = YUITest.Assert;
+
+        Assert.isObject(this.data);
+        Assert.isBoolean(this.data.beta);
+        Assert.isTrue(this.data.beta);
+    },
+
+    //---------------------------------------------------------------------
+    // Test methods - also, may just have a space in the name
+    //---------------------------------------------------------------------
+    
+    "This test should fail": function(){
+        var Assert = YUITest.Assert;
+        
+        Assert.fail("This test was supposed to fail.");
+    }    
+
+});
+</code></pre>
+<p>The object literal passed into the constructor contains a number of different sections. The first section contains the <code>name</code> property,
+  which is used to determine which <code>YUITest.TestCase</code> is being executed. A name is necessary, so one is generated if it isn't specified.</p>
+<p>Next, the <code>setUp()</code> and <code>tearDown()</code> methods are included. The <code>setUp()</code> method is used in a <code>YUITest.TestCase</code>
+  to set up data that may be needed for tests to be completed. This method is called immediately before each test is executed. For this example,
+  <code>setUp()</code> creates a data object. The <code>tearDown()</code> is responsible for undoing what was done in <code>setUp()</code>. It is
+  run immediately after each test is run and, in this case, deletes the data object that was created by <code>setUp</code>. These methods are optional.</p>
+<p>The last section contains the actual tests to be run. Test method names must always begin with the word &quot;test&quot; (all lowercase) in order
+  to differentiate them from other methods that may be added to the object.</p>
+<p>The first test in this object is <code>testName()</code>, which runs
+  various assertions on <code>data.name</code>. Inside of this method, a shortcut to <code>YUITest.Assert</code> is set up and used to run three
+  assertions: <code>isObject()</code> on <code>data</code>, <code>isString()</code> on <code>data.name</code> and <code>areEqual()</code> to compare
+  <code>data.name</code> to the expected value, &quot;test&quot;. These assertions are arranged in order from least-specific to most-specific,
+  which is the recommended way to arrange your assertions. Basically, the third assertion is useless to run unless the second has passes and the second
+  can't possibly pass unless the first passed. Both <code>isObject()</code> and <code>isString()</code> accept a single argument, which is the value
+  to test (you could optionally include a failure message as a second argument, though this is not required). The <code>areEqual()</code> method
+  expects two arguments, the first being the expected value (&quot;test&quot;) and the second being the actual value (<code>data.name</code>).</p>
+<p>The second and third tests follow the same pattern as the first with the exception that they work with different data types. The <code>testYear()</code>
+  method works with <code>data.year</code>, which is a number and so runs tests specifically for numbers (<code>areEqual()</code> can be used with
+  all data types). The <code>testBeta()</code> method works with <code>data.beta</code>, which is a Boolean, and so it uses the <code>isTrue()</code>
+  assertion instead of <code>areEqual()</code> (though it could also use <code>areEqual(true, this.data.beta)</code>). The last test uses a friendly name, which is just a method name with a space in it, and is set to fail. This is done to show the treatment and data available when a test fails.</p>
+
+ <h2>Creating the second TestCase</h2>
+
+ <p>Although it's possible that you'll have only one <code>YUITest.TestCase</code> object, typically there is more than one, and so this example includes
+   a second <code>YUITest.TestCase</code>. This one tests some of the built-in functions of the <code>Array</code> object:</p>
+ <pre><code>var arrayTestCase = new YUITest.TestCase({
+
+    //name of the test case - if not provided, one is auto-generated
+    name : "Array Tests",
+
+    //---------------------------------------------------------------------
+    // setUp and tearDown methods - optional
+    //---------------------------------------------------------------------
+
+    /*
+     * Sets up data that is needed by each test.
+     */
+    setUp : function () {
+        this.data = [0,1,2,3,4]
+    },
+
+    /*
+     * Cleans up everything that was created by setUp().
+     */
+    tearDown : function () {
+        delete this.data;
+    },
+
+    //---------------------------------------------------------------------
+    // Test methods - names must begin with "test"
+    //---------------------------------------------------------------------
+
+    testPop : function () {
+        var Assert = YUITest.Assert;
+
+        var value = this.data.pop();
+
+        Assert.areEqual(4, this.data.length);
+        Assert.areEqual(4, value);
+    },
+
+    testPush : function () {
+        var Assert = YUITest.Assert;
+
+        this.data.push(5);
+
+        Assert.areEqual(6, this.data.length);
+        Assert.areEqual(5, this.data[5]);
+    },
+
+    testSplice : function () {
+        var Assert = YUITest.Assert;
+
+        this.data.splice(2, 1, 6, 7);
+
+        Assert.areEqual(6, this.data.length);
+        Assert.areEqual(6, this.data[2]);
+        Assert.areEqual(7, this.data[3]);
+    }
+
+});
+</code></pre>
+ <p>As with the first <code>YUITest.TestCase</code>, this one is split up into three sections: the name, the <code>setUp()</code> and <code>tearDown()</code>
+  methods, and the test methods. The <code>setUp()</code> method in this <code>YUITest.TestCase</code> creates an array of data to be used by the various
+  tests while the <code>tearDown()</code> method destroys the array. The test methods are very simple, testing the <code>pop()</code>, <code>push()</code>,
+  and <code>splice()</code> methods. Each test method uses <code>areEqual()</code> exclusively, to show the different ways that it can be used.
+  The <code>testPop()</code> method calls <code>pop()</code> on the array of values, then verifies that the length of the array has changed and
+  that the value popped off is 4; the <code>testPush()</code> pushes a new value (5) onto the array and then verifies that the length of the array has
+  changed and that the value is included in the correct location; the <code>testSplice()</code> method tests  <code>splice()</code> by removing one
+  value that's already in the array and inserting two in its place.</p>
+
+<h2>Creating the TestSuite</h2>
+<p>To better organize the two <code>YUITest.TestCase</code> objects, a <code>YUITest.TestSuite</code> is created and those two <code>YUITest.TestCase</code> objects are
+  added to it:</p>
+<pre><code>var suite = new YUITest.TestSuite("Example Suite");
+suite.add(dataTestCase);
+suite.add(arrayTestCase);
+</code></pre>
+<p>The first line creates a new <code>YUITest.TestSuite</code> object using its constructor, which accepts a single argument - the name of the suite. As with
+  the name of a <code>YUITest.TestCase</code>, the <code>YUITest.TestSuite</code> name is used to determine where execution is when tests are being executed. Although
+  not required (one is generated if it's not provided), it is recommended that you select a meaningful name to aid in debugging.</p>
+<p>Any number of <code>YUITest.TestCase</code> and <code>YUITest.TestSuite</code> objects can be added to a <code>YUITest.TestSuite</code> by using the <code>add()</code>
+  method. In this example, the two <code>YUITest.TestCase</code> objects created earlier are added to the <code>YUITest.TestSuite</code>.</p>
+
+<h2>Setting up logging</h2>
+
+<p>Since the standalone YUI Test library isn't a graphical library, you'll need to use something to visualize the results. This example uses a YUI 3 <code>Console</code> object. To output the appropriate information into the console, a function is created to handle <code>TestRunner</code> events:</p>
+
+<pre><code>//function to handle events generated by the testrunner
+var TestRunner = YUITest.TestRunner;
+
+function logEvent(event){
+    
+    //data variables
+    var message = "",
+        messageType = "";
+    
+    switch(event.type){
+        case TestRunner.BEGIN_EVENT:
+            message = "Testing began at " + (new Date()).toString() + ".";
+            messageType = "info";
+            break;
+            
+        case TestRunner.COMPLETE_EVENT:
+            message = Y.substitute("Testing completed at " +
+                (new Date()).toString() + ".\n" +
+                "Passed:{passed} Failed:{failed} " +
+                "Total:{total} ({ignored} ignored)",
+                event.results);
+            messageType = "info";
+            break;
+            
+        case TestRunner.TEST_FAIL_EVENT:
+            message = event.testName + ": failed.\n" + event.error.getMessage();
+            messageType = "fail";
+            break;
+            
+        case TestRunner.TEST_IGNORE_EVENT:
+            message = event.testName + ": ignored.";
+            messageType = "ignore";
+            break;
+            
+        case TestRunner.TEST_PASS_EVENT:
+            message = event.testName + ": passed.";
+            messageType = "pass";
+            break;
+            
+        case TestRunner.TEST_SUITE_BEGIN_EVENT:
+            message = "Test suite \"" + event.testSuite.name + "\" started.";
+            messageType = "info";
+            break;
+            
+        case TestRunner.TEST_SUITE_COMPLETE_EVENT:
+            message = Y.substitute("Test suite \"" +
+                event.testSuite.name + "\" completed" + ".\n" +
+                "Passed:{passed} Failed:{failed} " +
+                "Total:{total} ({ignored} ignored)",
+                event.results);
+            messageType = "info";
+            break;
+            
+        case TestRunner.TEST_CASE_BEGIN_EVENT:
+            message = "Test case \"" + event.testCase.name + "\" started.";
+            messageType = "info";
+            break;
+            
+        case TestRunner.TEST_CASE_COMPLETE_EVENT:
+            message = Y.substitute("Test case \"" +
+                event.testCase.name + "\" completed.\n" +
+                "Passed:{passed} Failed:{failed} " +
+                "Total:{total} ({ignored} ignored)",
+                event.results);
+            messageType = "info";
+            break;
+        default:
+            message = "Unexpected event " + event.type;
+            message = "info";
+    }
+
+    //only log if required
+    Y.log(message, messageType, "TestRunner");
+}
+
+//listen for events to publish to the logger
+TestRunner.attach(TestRunner.BEGIN_EVENT, logEvent);
+TestRunner.attach(TestRunner.COMPLETE_EVENT, logEvent);
+TestRunner.attach(TestRunner.TEST_CASE_BEGIN_EVENT, logEvent);
+TestRunner.attach(TestRunner.TEST_CASE_COMPLETE_EVENT, logEvent);
+TestRunner.attach(TestRunner.TEST_SUITE_BEGIN_EVENT, logEvent);
+TestRunner.attach(TestRunner.TEST_SUITE_COMPLETE_EVENT, logEvent);
+TestRunner.attach(TestRunner.TEST_PASS_EVENT, logEvent);
+TestRunner.attach(TestRunner.TEST_FAIL_EVENT, logEvent);
+TestRunner.attach(TestRunner.TEST_IGNORE_EVENT, logEvent);
+</code></pre>
+
+<p>The <code>logEvent()</code> function is used to handle all events. Based on the event, the message and the message type are determined and then a message is logged. This event handler is assigned to the <code>TestRunner</code> events by using the <code>attach()</code> method.</p>
+
+<h2>Running the tests</h2>
+
+<p>With all of the tests defined, the last step is to run them. This initialization is assigned to take place when all of the YUI
+  components have been loaded:</p>
+
+<pre><code>//create the console
+var r = new Y.Console({
+    verbose : true,
+    newestOnTop : false
+});
+
+r.render('#testLogger');
+
+TestRunner.add(suite);
+
+//run the tests
+TestRunner.run();
+</code></pre>
+
+<p>Before running the tests, it's necessary to create a <code>Y.Console</code> object to display the results (otherwise the tests would run
+  but you wouldn't see the results). After that, the <code>YUITest.TestRunner</code> is loaded with the <code>YUITest.TestSuite</code> object by calling
+  <code>add()</code> (any number of <code>YUITest.TestCase</code> and <code>YUITest.TestSuite</code> objects can be added to a <code>YUITest.TestRunner</code>,
+  this example only adds one for simplicity). The very last step is to call <code>run()</code>, which begins executing the tests in its
+  queue and displays the results in the <code>Y.Console</code>.</p>
+
+</body>
+</html>

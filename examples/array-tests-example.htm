@@ -1,0 +1,299 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>Array Tests Example</title>
+
+
+<link type="text/css" rel="stylesheet" href="http://yui.yahooapis.com/3.2.0/build/cssfonts/fonts-min.css" />
+<script type="text/javascript" src="http://yui.yahooapis.com/3.2.0/build/yui/yui-min.js"></script>
+<script type="text/javascript" src="../javascript/build/yuitest/yuitest-min.js"></script>
+<style type="text/css">
+.yui3-skin-sam .yui3-console-entry-pass .yui3-console-entry-cat {
+    background-color: green;
+    color: #fff;
+}
+
+.yui3-skin-sam .yui3-console-entry-fail .yui3-console-entry-cat {
+    background-color: red;
+    color: #fff;
+}
+
+.yui3-skin-sam .yui3-console-entry-ignore .yui3-console-entry-cat {
+    background-color: #666;
+}
+
+</style>
+<body class="yui3-skin-sam  yui-skin-sam">
+
+<h1>Array Tests Example</h1>
+
+<p>This example shows how to use the <code>ArrayAssert</code> object, which contains assertions designed to be used specifically with JavaScript Arrays and array-like objects.</p>
+<div id="testLogger"></div>
+<script type="text/javascript">
+YUI().use("console", function (Y) {
+
+    var arrayTestCase = new YUITest.TestCase({
+
+        //the name of the test case - if not provided, one is automatically generated
+        name: "Array Tests",
+        
+        //-------------------------------------------------------------------------
+        // Setup and teardown
+        //-------------------------------------------------------------------------
+    
+        /*
+         * The setUp() method is used to setup data that necessary for a test to
+         * run. This method is called immediately before each test method is run,
+         * so it is run as many times as there are test methods.
+         */
+        setUp : function () {        
+            this.data = new Array (0,1,2,3,4,5);        
+        },
+        
+        /*
+         * The tearDown() method is used to clean up the initialization that was done
+         * in the setUp() method. Ideally, it should free up all memory allocated in
+         * setUp(), anticipating any possible changes to the data. This method is called
+         * immediately after each test method is run.
+         */
+        tearDown : function () {
+            delete this.data;
+        },
+        
+        //-------------------------------------------------------------------------
+        // Basic tests - all method names must begin with "test"
+        //-------------------------------------------------------------------------
+        
+        /*
+         * Test the push() method.
+         */
+        testPush : function() {
+        
+            //shortcut variables
+            var ArrayAssert = YUITest.ArrayAssert;
+        
+            //do whatever data manipulation is necessary
+            this.data.push(6);
+        
+            //array-specific assertions
+            ArrayAssert.isNotEmpty(this.data, "Array should not be empty.");
+            ArrayAssert.contains(6, this.data, "Array should contain 6.");
+            ArrayAssert.indexOf(6, this.data, 6, "The value in position 6 should be 6.");
+            
+            //check that all the values are there
+            ArrayAssert.itemsAreEqual([0,1,2,3,4,5,6], this.data, "Arrays should be equal.");        
+            
+        },
+        
+        /*
+         * Test the pop() method.
+         */
+        testPop : function() {
+        
+            //shortcut variables
+            var Assert = YUITest.Assert;
+            var ArrayAssert = YUITest.ArrayAssert;
+        
+            //do whatever data manipulation is necessary
+            var value = this.data.pop();
+            
+            //array shouldn't be empty
+            ArrayAssert.isNotEmpty(this.data, "Array should not be empty.");                
+        
+            //basic equality assertion - expected value, actual value, optional error message
+            Assert.areEqual(5, this.data.length, "Array should have 5 items.");
+            Assert.areEqual(5, value, "Value should be 5.");   
+            
+            ArrayAssert.itemsAreSame([0,1,2,3,4], this.data, "Arrays should be equal.");                                
+        },
+        
+        /*
+         * Test the reverse() method.
+         */
+        testReverse : function() {
+        
+            //shortcut variables
+            var ArrayAssert = YUITest.ArrayAssert;
+        
+            //do whatever data manipulation is necessary
+            this.data = this.data.reverse();
+            
+            ArrayAssert.itemsAreEqual([5,4,3,2,1,0], this.data, "Arrays should be equal.");                              
+        },
+        
+        /*
+         * Test the shift() method.
+         */
+        testShift : function() {
+        
+            //shortcut variables
+            var Assert = YUITest.Assert;
+            var ArrayAssert = YUITest.ArrayAssert;
+        
+            //do whatever data manipulation is necessary
+            var value = this.data.shift();
+        
+            //array shouldn't be empty
+            ArrayAssert.isNotEmpty(this.data, "Array should not be empty.");                
+        
+            //basic equality assertion - expected value, actual value, optional error message
+            Assert.areEqual(5, this.data.length, "Array should have 6 items."); 
+            Assert.areEqual(0, value, "Value should be 0."); 
+            
+            ArrayAssert.itemsAreEqual([1,2,3,4,5], this.data, "Arrays should be equal.");                              
+        },            
+        
+        /*
+         * Test the splice() method.
+         */
+        testSplice : function() {
+        
+            //shortcut variables
+            var Assert = YUITest.Assert;
+            var ArrayAssert = YUITest.ArrayAssert;
+        
+            //do whatever data manipulation is necessary
+            var removed = this.data.splice(1, 2, 99, 100);
+        
+            //basic equality assertion - expected value, actual value, optional error message
+            Assert.areEqual(6, this.data.length, "Array should have 6 items.");              
+        
+            //the new items should be there
+            ArrayAssert.indexOf(99, this.data, 1, "Value at index 1 should be 99.");   
+            ArrayAssert.indexOf(100, this.data, 2, "Value at index 2 should be 100.");   
+            
+            ArrayAssert.itemsAreEqual([0,99,100,3,4,5], this.data, "Arrays should be equal.");  
+            ArrayAssert.itemsAreEqual([1,2], removed, "Removed values should be an array containing 1 and 2.");
+
+        },
+
+        /*
+         * Test the unshift() method.
+         */
+        testUnshift : function() {
+        
+            //shortcut variables
+            var Assert = YUITest.Assert;
+            var ArrayAssert = YUITest.ArrayAssert;
+        
+            //do whatever data manipulation is necessary
+            this.data.unshift(-1);
+        
+            //basic equality assertion - expected value, actual value, optional error message
+            Assert.areEqual(7, this.data.length, "Array should have 7 items."); 
+
+            //the new item should be there
+            ArrayAssert.indexOf(-1, this.data, 0, "First item should be -1."); 
+        
+            ArrayAssert.itemsAreEqual([-1,0,1,2,3,4,5], this.data, "Arrays should be equal.");                              
+        } 
+        
+    });
+     
+    //create the console
+    var r = new Y.Console({
+        newestOnTop : false,
+        style: 'block' // to anchor in the example content
+    });
+    
+    r.render('#testLogger');
+    
+    var TestRunner = YUITest.TestRunner;
+    
+    TestRunner.add(arrayTestCase);
+    
+    
+    //function to handle events generated by the testrunner
+    function logEvent(event){
+        
+        //data variables
+        var message = "",
+            messageType = "";
+        
+        switch(event.type){
+            case TestRunner.BEGIN_EVENT:
+                message = "Testing began at " + (new Date()).toString() + ".";
+                messageType = "info";
+                break;
+                
+            case TestRunner.COMPLETE_EVENT:
+                message = Y.substitute("Testing completed at " +
+                    (new Date()).toString() + ".\n" +
+                    "Passed:{passed} Failed:{failed} " +
+                    "Total:{total} ({ignored} ignored)",
+                    event.results);
+                messageType = "info";
+                break;
+                
+            case TestRunner.TEST_FAIL_EVENT:
+                message = event.testName + ": failed.\n" + event.error.getMessage();
+                messageType = "fail";
+                break;
+                
+            case TestRunner.TEST_IGNORE_EVENT:
+                message = event.testName + ": ignored.";
+                messageType = "ignore";
+                break;
+                
+            case TestRunner.TEST_PASS_EVENT:
+                message = event.testName + ": passed.";
+                messageType = "pass";
+                break;
+                
+            case TestRunner.TEST_SUITE_BEGIN_EVENT:
+                message = "Test suite \"" + event.testSuite.name + "\" started.";
+                messageType = "info";
+                break;
+                
+            case TestRunner.TEST_SUITE_COMPLETE_EVENT:
+                message = Y.substitute("Test suite \"" +
+                    event.testSuite.name + "\" completed" + ".\n" +
+                    "Passed:{passed} Failed:{failed} " +
+                    "Total:{total} ({ignored} ignored)",
+                    event.results);
+                messageType = "info";
+                break;
+                
+            case TestRunner.TEST_CASE_BEGIN_EVENT:
+                message = "Test case \"" + event.testCase.name + "\" started.";
+                messageType = "info";
+                break;
+                
+            case TestRunner.TEST_CASE_COMPLETE_EVENT:
+                message = Y.substitute("Test case \"" +
+                    event.testCase.name + "\" completed.\n" +
+                    "Passed:{passed} Failed:{failed} " +
+                    "Total:{total} ({ignored} ignored)",
+                    event.results);
+                messageType = "info";
+                break;
+            default:
+                message = "Unexpected event " + event.type;
+                message = "info";
+        }
+    
+        //only log if required
+        Y.log(message, messageType, "TestRunner");
+    }
+    
+    //listen for events to publish to the logger
+    TestRunner.attach(TestRunner.BEGIN_EVENT, logEvent);
+    TestRunner.attach(TestRunner.COMPLETE_EVENT, logEvent);
+    TestRunner.attach(TestRunner.TEST_CASE_BEGIN_EVENT, logEvent);
+    TestRunner.attach(TestRunner.TEST_CASE_COMPLETE_EVENT, logEvent);
+    TestRunner.attach(TestRunner.TEST_SUITE_BEGIN_EVENT, logEvent);
+    TestRunner.attach(TestRunner.TEST_SUITE_COMPLETE_EVENT, logEvent);
+    TestRunner.attach(TestRunner.TEST_PASS_EVENT, logEvent);
+    TestRunner.attach(TestRunner.TEST_FAIL_EVENT, logEvent);
+    TestRunner.attach(TestRunner.TEST_IGNORE_EVENT, logEvent);
+    
+
+    //run the tests
+    TestRunner.run();
+
+});
+</script>
+
+</body>
+</html>

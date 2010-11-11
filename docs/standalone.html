@@ -43,11 +43,6 @@
                                 </ul>                    
 							</div>
 						</div>
-						<div class="yui-u">
-							<?php
-							include('../inc/quicklinks.inc');
-							?>
-						</div>
 					</div>
 					<div class="clear"></div>
 				</div><!-- /promo -->
@@ -1157,24 +1152,20 @@ TestRunner.run();
 </code></pre>                                                                
                 <p>The XML format outputs results in the following
                 format:</p>
-<?php
-$xml = <<<END
+<pre><code>
 <?xml version="1.0" encoding="UTF-8" ?>
-<report name="YUI Test Results" passed="5" failed="3" ignored="1" total="5">
-  <testsuite name="yuisuite" passed="5" failed="0" ignored="0" total="5">
-    <testcase name="Y.Anim" passed="5" failed="0" ignored="0" total="5">
-      <test name="test_getEl" result="pass" message="Test passed" /> 
-      <test name="test_isAnimated" result="pass" message="Test passed" /> 
-      <test name="test_stop" result="pass" message="Test passed" /> 
-      <test name="test_onStart" result="pass" message="Test passed" /> 
-      <test name="test_endValue" result="pass" message="Test passed" /> 
-    </testcase>
-  </testsuite>
-</report>
-
-END;
-echo(syntaxHighlight($xml, 'xml'));
-?>
+&lt;report name="YUI Test Results" passed="5" failed="3" ignored="1" total="5"&gt;
+  &lt;testsuite name="yuisuite" passed="5" failed="0" ignored="0" total="5"&gt;
+    &lt;testcase name="Y.Anim" passed="5" failed="0" ignored="0" total="5"&gt;
+      &lt;test name="test_getEl" result="pass" message="Test passed" /&gt; 
+      &lt;test name="test_isAnimated" result="pass" message="Test passed" /&gt; 
+      &lt;test name="test_stop" result="pass" message="Test passed" /&gt; 
+      &lt;test name="test_onStart" result="pass" message="Test passed" /&gt; 
+      &lt;test name="test_endValue" result="pass" message="Test passed" /&gt; 
+    &lt;/testcase&gt;
+  &lt;/testsuite&gt;
+&lt;/report&gt;
+</code></pre>
                 <p>The JSON format requires that a JSON serializer be available. The native <code>JSON</code> utility is used when available. Otherwise, you'll need to point <code>YUITest.Util.JSON</code> at an implementation containing the <code>stringify() method</code>. If you're using YUI 2.x, you can point to <code>YAHOO.lang.JSON</code>; if you're using YUI 3.x, you can point to <code>Y.JSON</code>; otherwise, you can use the <a href="http://json.org/json2.js">json2.js</a> library. Results are output in a format that follows the object/array hierarchy of the results object, such as:</p>
 <pre><code>{
     "passed": 5,
@@ -1238,22 +1229,18 @@ echo(syntaxHighlight($xml, 'xml'));
 
 <p>The JUnit XML format outputs results in the following format:</p>
 
-<?php
-$xml = <<<END
-<?xml version="1.0" encoding="UTF-8" ?>
-<testsuites>
-    <testsuite name="Y.Anim" failures="0" total="5" time="0.0060">
-        <testcase name="test_getEl" time="0.0"></testcase>
-        <testcase name="test_isAnimated" time="0.0010"></testcase>
-        <testcase name="test_stop" time="0.0010"></testcase>
-        <testcase name="test_onStart" time="0.0010"></testcase>
-        <testcase name="test_endValue" time="0.0010"></testcase>
-    </testsuite>  
-</testsuites>
-END;
-echo(syntaxHighlight($xml, 'xml'));
-?>
-
+<pre><code>
+&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;testsuites&gt;
+    &lt;testsuite name="Y.Anim" failures="0" total="5" time="0.0060"&gt;
+        &lt;testcase name="test_getEl" time="0.0"&gt;&lt;/testcase&gt;
+        &lt;testcase name="test_isAnimated" time="0.0010"&gt;&lt;/testcase&gt;
+        &lt;testcase name="test_stop" time="0.0010"&gt;&lt;/testcase&gt;
+        &lt;testcase name="test_onStart" time="0.0010"&gt;&lt;/testcase&gt;
+        &lt;testcase name="test_endValue" time="0.0010"&gt;&lt;/testcase&gt;
+    &lt;/testsuite&gt;  
+&lt;/testsuites&gt;
+</code></pre>
 <p>Note that there isn't a direct mapping between YUI Test test suites and JUnit test suites, so some
 of the hierarchical information is lost.</p>
 

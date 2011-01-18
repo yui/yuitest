@@ -1275,16 +1275,16 @@ ok 5 - testGetServiceMultipleTimesFromUntrustedModule
 				
                 <h3 id="test-reporting">Test Reporting</h3>
                 <p>When all tests have been completed and the results object has been returned, you can post those results to a server
-                using a <code>YUITest.TestReporter</code> object. A <code>YUITest.TestReporter</code> object creates a form that is POSTed
+                using a <code>YUITest.Reporter</code> object. A <code>YUITest.Reporter</code> object creates a form that is POSTed
                 to a specific URL with the following fields:</p>
                 <ul>
                     <li><code>results</code> - the serialized results object.</li>
                     <li><code>useragent</code> - the user-agent string of the browser.</li>
                     <li><code>timestamp</code> - the date and time that the report was sent.</li>
                 </ul>
-                <p>You can create a new <code>YUITest.TestReporter</code> object by passing in the URL to report to. The results object can
+                <p>You can create a new <code>YUITest.Reporter</code> object by passing in the URL to report to. The results object can
                 then be passed into the <code>report()</code> method to submit the results:</p>
-<pre><code>var reporter = new YUITest.TestReporter("http://www.yourserver.com/path/to/target");
+<pre><code>var reporter = new YUITest.Reporter("http://www.yourserver.com/path/to/target");
 reporter.report(results);
 
 </code></pre>
@@ -1298,9 +1298,9 @@ reporter.report(results);
                     <li><code>YUITest.TestFormat.TAP</code></li>
                 </ul>
                 
-                <p>The format in which to submit the results can be specified in the <code>YUITest.TestReporter</code> constructor by passing in the appropriate
+                <p>The format in which to submit the results can be specified in the <code>YUITest.Reporter</code> constructor by passing in the appropriate
                 <code>YUITest.TestFormat</code> value (when no argument is specified, <code>YUITest.TestFormat.XML</code> is used:</p>
-<pre><code>var reporter = new YUITest.TestReporter("http://www.yourserver.com/path/to/target", YUITest.TestFormat.JSON);
+<pre><code>var reporter = new YUITest.Reporter("http://www.yourserver.com/path/to/target", YUITest.TestFormat.JSON);
 
 </code></pre>
 

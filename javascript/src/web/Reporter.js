@@ -22,7 +22,7 @@
          * @type Function
          * @property format
          */
-        this.format = format || Y.Test.Format.XML;
+        this.format = format || YUITest.TestFormat.XML;
     
         /**
          * Extra fields to submit with the request.
@@ -142,7 +142,7 @@
             //add fields to the form
             for (var prop in this._fields){
                 var value = this._fields[prop];
-                if (this._fields.hasOwnProperty(prop) && typeof value == "function"){
+                if (this._fields.hasOwnProperty(prop) && (typeof value != "function")){
                     var input = document.createElement("input");
                     input.type = "hidden";
                     input.name = prop;

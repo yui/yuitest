@@ -6,6 +6,7 @@
 	
     <target name="build" depends="YuiModuleTargets.build">
        <ant antfile="${buildfile.dir}/build-core.xml" target="yuitest_build_subtask" inheritAll="false" />
+       <ant antfile="${buildfile.dir}/build-node.xml" target="yuitest_build_subtask" inheritAll="false" />
     </target>
 	
 	<property file="build.properties" />	

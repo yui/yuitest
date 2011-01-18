@@ -72,7 +72,7 @@ public class SeleniumDriver {
         
         testFormats.put("2", "YAHOO.tool.TestFormat");
         testFormats.put("3", "Y.Test.Format");
-        testFormats.put("4", "YUITest.ResultsFormat");
+        testFormats.put("4", "YUITest.TestFormat");
         
         coverageFormats.put("2", "YAHOO.tool.CoverageFormat");
         coverageFormats.put("3", "Y.Coverage.Format");

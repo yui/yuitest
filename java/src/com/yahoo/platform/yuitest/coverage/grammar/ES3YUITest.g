@@ -1622,7 +1622,7 @@ scope {
 	$functionDeclaration::funcLine = $start.getLine();		
 }
 @after { 
-	$program::functions.add("\"" + $functionDeclaration::funcName + "\":" + $start.getLine());
+	$program::functions.add("\"" + $functionDeclaration::funcName + ":" + $start.getLine() + "\"");
   	if (verbose){
     		System.err.println("\n[INFO] Instrumenting function " + $functionDeclaration::funcName + " on line " +  $start.getLine());
   	}

@@ -71,6 +71,68 @@
         }
     }));        
 
+    //-------------------------------------------------------------------------
+    // Test Case for init()
+    //-------------------------------------------------------------------------
+    
+    var initValue = 0;
+    suite.add(new YUITest.TestCase({
+    
+        name: "Init Tests",
+        
+        init: function(){
+            initValue++;
+        },     
+        
+        "Verify that initValue is 1": function(){
+            Assert.areEqual(1, initValue);
+        },
+        
+        "Verify that initValue is still 1": function(){
+            Assert.areEqual(1, initValue);
+        }        
+        
+    }));        
+
+    //-------------------------------------------------------------------------
+    // Test Case for init()
+    //-------------------------------------------------------------------------
+    
+    var destroyValue = 0;
+    suite.add(new YUITest.TestCase({
+    
+        name: "Destroy Tests",
+        
+        
+        tearDown: function(){
+            destroyValue++;
+        },
+        
+        destroy: function(){
+            destroyValue--;
+        },  
+         
+        "Verify that destroyValue is 0": function(){
+            Assert.areEqual(0, destroyValue);
+        },
+        
+        "Verify that initValue is 1": function(){
+            Assert.areEqual(1, destroyValue);
+        }        
+        
+    }));        
+
+    //this case verifies the result of the last case
+    suite.add(new YUITest.TestCase({
+    
+        name: "Destroy Verification Tests",
+         
+        "Verify that destroyValue is 1": function(){
+            Assert.areEqual(1, destroyValue);
+        }    
+        
+    }));        
+
     //add it to be run
     YUITest.TestRunner.add(suite);
 

@@ -96,11 +96,29 @@ YUITest.TestCase.prototype = {
     //-------------------------------------------------------------------------
 
     /**
+     * Function to run once before tests start to run.
+     * This executes before the first call to setUp().
+     */
+    init: function(){
+        //noop
+    },
+    
+    /**
+     * Function to run once after tests finish running.
+     * This executes after the last call to tearDown().
+     */
+    destroy: function(){
+        //noop
+    },
+
+
+    /**
      * Function to run before each test is executed.
      * @return {Void}
      * @method setUp
      */
     setUp : function () {
+        //noop
     },
     
     /**
@@ -109,5 +127,6 @@ YUITest.TestCase.prototype = {
      * @method tearDown
      */
     tearDown: function () {    
+        //noop
     }
 };

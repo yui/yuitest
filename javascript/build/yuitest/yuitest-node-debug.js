@@ -1902,11 +1902,29 @@ YUITest.TestCase.prototype = {
     //-------------------------------------------------------------------------
 
     /**
+     * Function to run once before tests start to run.
+     * This executes before the first call to setUp().
+     */
+    init: function(){
+        //noop
+    },
+    
+    /**
+     * Function to run once after tests finish running.
+     * This executes after the last call to tearDown().
+     */
+    destroy: function(){
+        //noop
+    },
+
+
+    /**
      * Function to run before each test is executed.
      * @return {Void}
      * @method setUp
      */
     setUp : function () {
+        //noop
     },
     
     /**
@@ -1915,6 +1933,7 @@ YUITest.TestCase.prototype = {
      * @method tearDown
      */
     tearDown: function () {    
+        //noop
     }
 };
 
@@ -2650,6 +2669,7 @@ YUITest.CoverageFormat = {
                         node.results.duration = (new Date()) - node._start;
                         this.fire({ type: this.TEST_SUITE_COMPLETE_EVENT, testSuite: node.testObject, results: node.results});
                     } else if (node.testObject instanceof YUITest.TestCase){
+                        node.testObject.destroy();
                         node.results.duration = (new Date()) - node._start;
                         this.fire({ type: this.TEST_CASE_COMPLETE_EVENT, testCase: node.testObject, results: node.results});
                     }      
@@ -2734,6 +2754,7 @@ YUITest.CoverageFormat = {
                         } else if (testObject instanceof YUITest.TestCase){
                             this.fire({ type: this.TEST_CASE_BEGIN_EVENT, testCase: testObject });
                             node._start = new Date();
+                            testObject.init();
                         }
                         
                         //some environments don't support setTimeout

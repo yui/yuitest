@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
 	<title>YUI Test Standalone Library</title>
@@ -122,6 +122,44 @@
                   a different test, <code>testName()</code> tests the value of <code>data.name</code> while <code>testAge()</code> tests the value of <code>data.age</code>. Afterwards, the data object is deleted 
                   to free up the memory. Real-world implementations will have more complex tests, of course, but they should follow the basic pattern you see in the above code.</p>
                 <p><strong>Note: </strong>Both <code>setUp()</code> and <code>tearDown()</code> are optional methods and are only used when defined.</p>
+
+                <h4 id="init-and-destroy">init() and destroy()</h4>  
+                <p>Sometimes you may need to initialize some data before all test are run in a single test case. The <code>init()</code> method is run once before the tests start to run (also before the first call to <code>setUp()</code>. Likewise, the <code>destroy()</code> method is run just once after every test has been executed (and after the last <code>tearDown()</code> call). For example:</p>
+<pre><code>var testCase = new YUITest.TestCase({
+
+    name: "TestCase Name",
+    
+    //---------------------------------------------
+    // init and destroy
+    //---------------------------------------------
+    
+    init : function () {
+        this.data = { name : "Nicholas", age : 28 };
+    },
+
+    destroy : function () {
+        delete this.data;
+    },
+
+    //---------------------------------------------
+    // Tests
+    //---------------------------------------------
+
+    testName: function () {
+        YUITest.Assert.areEqual("Nicholas", this.data.name, "Name should be 'Nicholas'");
+    },
+
+    testAge: function () {
+        YUITest.Assert.areEqual(28, this.data.age, "Age should be 28");
+    }    
+});
+
+</code></pre>
+                <p>In this example, a <code>init()</code> method creates a data object with some basic information. Each property of the data object is checked with 
+                  a different test, <code>testName()</code> tests the value of <code>data.name</code> while <code>testAge()</code> tests the value of <code>data.age</code>. Afterwards, the data object is deleted 
+                  to free up the memory using <code>destroy()</code>. Unlike the previous example using <code>setUp()</code> and <code>tearDown()</code>, both tests are running on the same object.
+                <p><strong>Note: </strong>Both <code>init()</code> and <code>destroy()</code> are optional methods and are only used when defined. You can use <code>init()</code> and <code>destroy()</code> together with <code>setUp()</code> and <code>tearDown()</code> for maximum amount of control over test data.</p>
+
 
                 <h4 id="ignoring">Ignoring Tests</h4>
                 <p>There may be times when you want to ignore a test (perhaps the test is invalid for your purposes or the functionality is being re-engineered and so it shouldn't be tested at this time). To specify tests to ignore, 

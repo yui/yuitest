@@ -4,9 +4,20 @@
 
     <property environment="env" />
 	
-    <target name="build" depends="YuiModuleTargets.build">
+    <target name="yuitest_build" depends="YuiModuleTargets.build">
        <ant antfile="${buildfile.dir}/build-core.xml" target="yuitest_build_subtask" inheritAll="false" />
        <ant antfile="${buildfile.dir}/build-node.xml" target="yuitest_build_subtask" inheritAll="false" />
+    </target>
+    
+    <!-- override to make npm package -->
+    <target name="build" depends="yuitest_build">
+        <echo>Creating NPM package directory</echo>
+        <mkdir dir="${global.build.npm}"/>
+        <copy file="${component.npm.base}/package.json" tofile="${global.build.npm}/package.json"/>
+        <mkdir dir="${global.build.npm}/lib"/>
+        <copy file="${global.build.base}/yuitest/yuitest-node.js" tofile="${global.build.npm}/lib/yuitest-node.js"/>
+
+
     </target>
 	
 	<property file="build.properties" />	

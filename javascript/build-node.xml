@@ -7,6 +7,7 @@
     <property file="build-node.properties" />
     <import file="${builddir}/2.x/bootstrap.xml" description="Default Build Properties and Targets" />
 	<target name="yuitest_build_subtask" depends="build, minify" />
+ 
 </project>
 
     

@@ -3640,6 +3640,15 @@ YUITest.PageManager = YUITest.Util.mix(new YUITest.EventTarget(), {
              * @static
              */
             this._lastResults = null;       
+            
+            /**
+             * Data object that is passed around from method to method.
+             * @type Object
+             * @private
+             * @property _data
+             * @static
+             */
+            this._context = null;
         }
         
         TestRunner.prototype = YUITest.Util.mix(new YUITest.EventTarget(), {
@@ -3819,11 +3828,11 @@ YUITest.PageManager = YUITest.Util.mix(new YUITest.EventTarget(), {
                     }
                 
                     if (node.testObject instanceof YUITest.TestSuite){
-                        node.testObject.tearDown();
+                        node.testObject.tearDown(this._context);
                         node.results.duration = (new Date()) - node._start;
                         this.fire({ type: this.TEST_SUITE_COMPLETE_EVENT, testSuite: node.testObject, results: node.results});
                     } else if (node.testObject instanceof YUITest.TestCase){
-                        node.testObject.destroy();
+                        node.testObject.destroy(this._context);
                         node.results.duration = (new Date()) - node._start;
                         this.fire({ type: this.TEST_CASE_COMPLETE_EVENT, testCase: node.testObject, results: node.results});
                     }      
@@ -3904,11 +3913,11 @@ YUITest.PageManager = YUITest.Util.mix(new YUITest.EventTarget(), {
                         if (testObject instanceof YUITest.TestSuite){
                             this.fire({ type: this.TEST_SUITE_BEGIN_EVENT, testSuite: testObject });
                             node._start = new Date();
-                            testObject.setUp();
+                            testObject.setUp(this._context);
                         } else if (testObject instanceof YUITest.TestCase){
                             this.fire({ type: this.TEST_CASE_BEGIN_EVENT, testCase: testObject });
                             node._start = new Date();
-                            testObject.init();
+                            testObject.init(this._context);
                         }
                         
                         //some environments don't support setTimeout
@@ -3963,7 +3972,7 @@ YUITest.PageManager = YUITest.Util.mix(new YUITest.EventTarget(), {
                 try {
                 
                     //run the test
-                    segment.apply(testCase);                    
+                    segment.call(testCase, this._context);                    
                 
                     //if the test hasn't already failed and doesn't have any asserts...
                     if(YUITest.Assert._getCount() == 0){
@@ -4057,7 +4066,7 @@ YUITest.PageManager = YUITest.Util.mix(new YUITest.EventTarget(), {
                 }
                 
                 //run the tear down
-                testCase.tearDown();
+                testCase.tearDown(this._context);
                 
                 //reset the assert count
                 YUITest.Assert._reset();
@@ -4166,7 +4175,7 @@ YUITest.PageManager = YUITest.Util.mix(new YUITest.EventTarget(), {
                     node._start = new Date();
                 
                     //run the setup
-                    testCase.setUp();
+                    testCase.setUp(this._context);
                     
                     //now call the body of the test
                     this._resumeTest(test);                
@@ -4323,6 +4332,9 @@ YUITest.PageManager = YUITest.Util.mix(new YUITest.EventTarget(), {
     
                 //build the test tree
                 runner._buildTestTree();
+                
+                //create data object
+                runner._context = {};
                             
                 //set when the test started
                 runner._root._start = new Date();

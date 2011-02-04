@@ -95,7 +95,7 @@
     }));        
 
     //-------------------------------------------------------------------------
-    // Test Case for init()
+    // Test Case for destroy()
     //-------------------------------------------------------------------------
     
     var destroyValue = 0;
@@ -132,6 +132,66 @@
         }    
         
     }));        
+    
+    //-------------------------------------------------------------------------
+    // Test Case for visitor data object
+    //-------------------------------------------------------------------------
+    
+    
+    var visitorSuite = new YUITest.TestSuite({
+        name: "Visitor data tests",
+        
+        setUp: function(data){
+            data.foo = "bar";
+        }
+        
+    });
+    
+    visitorSuite.add(new YUITest.TestCase({
+    
+        name: "First Test Case",
+        
+        init: function(data){
+            data.first = 1;
+        },
+        
+        setUp: function(data){
+            data.test = true;
+        },
+        
+        tearDown: function(data){
+            delete data.test;
+        },
+         
+        "The property 'foo' should be passed from the suite and be 'bar'": function(data){
+            Assert.areEqual("bar", data.foo);
+        },
+        
+        "The property 'test' should be passed from setUp and be true": function(data){
+            Assert.isTrue(data.test);
+        },        
+        
+        "The property 'first' should be passed from init and be 1": function(data){
+            Assert.areEqual(1, data.first);
+        }        
+        
+    }));    
+
+    visitorSuite.add(new YUITest.TestCase({
+    
+        name: "Second Test Case",
+    
+       "The property 'foo' should be passed from the suite and be 'bar'": function(data){
+            Assert.areEqual("bar", data.foo);
+        },
+        
+        "The property 'first' should be passed from init and be 1": function(data){
+            Assert.areEqual(1, data.first);
+        }     
+    }));
+    
+    suite.add(visitorSuite);
+    
 
     //add it to be run
     YUITest.TestRunner.add(suite);

@@ -35,6 +35,7 @@
                                     <li><a href="#mockobjects">Mock Objects</a></li>
                                     <li><a href="#asynctests">Asynchronous Tests</a></li>
                                     <li><a href="#testsuites">Test Suites</a></li>
+                                    <li><a href="#context-data">Context Data</a></li>
                                     <li><a href="#running-tests">Running Tests</a></li>
                                     <li><a href="#viewing-results">Viewing Results</a></li>
                                     <li><a href="#test-reporting">Test Reporting</a></li>
@@ -771,6 +772,7 @@ YUITest.Mock.expect(mockXhr, {
                   function passed into <code>resume()</code> simply tests that the final width of the element is indeed 400 pixels. Once the event handler is set up, the animation begins.
                   In order to allow enough time for the animation to complete, the <code>wait()</code> method is called
                   with a timeout of 3.1 seconds (just longer than the 3 seconds needed to complete the animation). At that point, testing stops until the animation completes and <code>resume()</code> is called or until 3100 milliseconds have passed.</p>
+                
                 <h3 id="testsuites">Test Suites</h3>
                 <p>For large web applications, you'll probably have many test cases that should be run during a testing phase. A test suite helps to handle multiple test cases 
                   by grouping them together into functional units that can be run together. To create new test suite, use the <code>YUITest.TestSuite</code> 
@@ -834,6 +836,67 @@ var suite = new YUITest.TestSuite({
 </code></pre>
                 <p>Test suite <code>setUp()</code> and <code>tearDown()</code> may be helpful in setting up global objects that are necessary for a multitude of tests
                   and test cases.</p>  
+                <h3 id="context-data">Context Data</h3>
+                <p>Managing data amongst test suites and test cases can be difficult, which is why YUI Test has a concept called context data. When the test runner starts to execute, it creates an empty object. The object is passed in as an argument to every <code>init()</code>, <code>destroy()</code>, <code>setUp()</code>, <code>tearDown()</code>, and every test function. Because the same object is passed into each method (it "visits" each method), you have the opportunity to add, remove, or change data on the object that other tests might need. This is an advanced piece of functionality that may not be necessary for every group of tests, but allows powerful data sharing where necessary. Example:</p>
+                
+<pre><code>var testCase = new YUITest.TestCase({
+
+    name: "TestCase Name",
+    
+    init: function(data){
+        data.foo = "bar";
+    },
+    
+    testValueOfFoo : function (data) {
+        YUITest.Assert.areEqual("bar", data.foo);
+    }
+});
+
+</code></pre>
+
+Context data persists even once a test case is completed, so it can be passed from test suites to test cases and persist to other test cases. For example:
+
+<pre><code>var testSuite = new YUITest.TestSuite({
+    name: "Test Suite Name",
+    
+    setUp: function(data){
+        data.topLevel = 1;
+    }
+});
+
+testSuite.add(new YUITest.TestCase({
+
+    name: "First Test Case",
+    
+    init: function(data){
+        data.foo = "bar";
+    },
+    
+    testValueOfFoo : function (data) {
+        YUITest.Assert.areEqual("bar", data.foo);   //from init
+    },
+    
+    testValueOfTopLevel: function(data){
+        YUITest.Assert.areEqual(1, data.topLevel);  //from test suite
+    }
+});
+
+testSuite.add(new YUITest.TestCase({
+
+    name: "Second Test Case",
+    
+    testValueOfFoo : function (data) {
+        YUITest.Assert.areEqual("bar", data.foo);   //from init in First Test Case
+    },
+    
+    testValueOfTopLevel: function(data){
+        YUITest.Assert.areEqual(1, data.topLevel);  //from test suite
+    }
+});
+
+</code></pre>
+
+                  
                 <h3 id="running-tests">Running Tests</h3>
                 <p>In order to run test cases and test suites, use the <code>YUITest.TestRunner</code> object. This object is a singleton that
                   simply runs all of the tests in test cases and suites, reporting back on passes and failures. To determine which test cases/suites
@@ -841,7 +904,7 @@ var suite = new YUITest.TestSuite({
                   method:</p>
 <pre><code>//add the test cases and suites
 YUITest.TestRunner.add(testCase);
-YUITest.TestRunner.add(oTestSuite);
+YUITest.TestRunner.add(testSuite);
 
 //run all tests
 YUITest.TestRunner.run();

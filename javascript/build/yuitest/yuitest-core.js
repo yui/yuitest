@@ -1804,6 +1804,21 @@ YUITest.Mock.Value.Object     = YUITest.Mock.Value(YUITest.Assert.isObject);
  */
 YUITest.Mock.Value.Function   = YUITest.Mock.Value(YUITest.Assert.isFunction);
 
+YUITest.Results = function(){
+    this.passed = 0;
+    this.failed = 0;
+    this.ignored = 0;
+    this.total = 0;
+    this.duration = 0;
+}
+
+YUITest.Results.prototype.include = function(results){
+    this.passed += results.passed;
+    this.failed += results.failed;
+    this.ignored += results.ignored;
+    this.total += results.total;
+};
+
 /**
  * Test case containing various tests to run.
  * @param template An object containing any number of test methods, other methods,
@@ -2370,13 +2385,7 @@ YUITest.CoverageFormat = {
              * @type object
              * @property results
              */                
-            this.results = {
-                passed : 0,
-                failed : 0,
-                total : 0,
-                ignored : 0,
-                duration: 0
-            };
+            this.results = new YUITest.Results();
             
             //initialize results
             if (testObject instanceof YUITest.TestSuite){
@@ -2663,14 +2672,14 @@ YUITest.CoverageFormat = {
              * @private
              */
             _handleTestObjectComplete : function (node) {
-                if (typeof node.testObject == "object" && node !== null){
+                var parentNode;
                 
-                    if (node.parent){
-                        node.parent.results.passed += node.results.passed;
-                        node.parent.results.failed += node.results.failed;
-                        node.parent.results.total += node.results.total;                
-                        node.parent.results.ignored += node.results.ignored;       
-                        node.parent.results[node.testObject.name] = node.results;
+                if (typeof node.testObject == "object" && node !== null){
+                    parentNode = node.parent;
+                
+                    if (parentNode){
+                        parentNode.results.include(node.results); 
+                        parentNode.results[node.testObject.name] = node.results;
                     }
                 
                     if (node.testObject instanceof YUITest.TestSuite){

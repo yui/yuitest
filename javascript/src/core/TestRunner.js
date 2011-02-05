@@ -58,13 +58,7 @@
              * @type object
              * @property results
              */                
-            this.results = {
-                passed : 0,
-                failed : 0,
-                total : 0,
-                ignored : 0,
-                duration: 0
-            };
+            this.results = new YUITest.Results();
             
             //initialize results
             if (testObject instanceof YUITest.TestSuite){
@@ -351,14 +345,14 @@
              * @private
              */
             _handleTestObjectComplete : function (node) {
-                if (typeof node.testObject == "object" && node !== null){
+                var parentNode;
                 
-                    if (node.parent){
-                        node.parent.results.passed += node.results.passed;
-                        node.parent.results.failed += node.results.failed;
-                        node.parent.results.total += node.results.total;                
-                        node.parent.results.ignored += node.results.ignored;       
-                        node.parent.results[node.testObject.name] = node.results;
+                if (typeof node.testObject == "object" && node !== null){
+                    parentNode = node.parent;
+                
+                    if (parentNode){
+                        parentNode.results.include(node.results); 
+                        parentNode.results[node.testObject.name] = node.results;
                     }
                 
                     if (node.testObject instanceof YUITest.TestSuite){

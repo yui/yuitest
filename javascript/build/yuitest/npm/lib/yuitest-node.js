@@ -1804,14 +1804,66 @@ YUITest.Mock.Value.Object     = YUITest.Mock.Value(YUITest.Assert.isObject);
  */
 YUITest.Mock.Value.Function   = YUITest.Mock.Value(YUITest.Assert.isFunction);
 
-YUITest.Results = function(){
+/**
+ * Convenience type for storing and aggregating
+ * test result information.
+ * @private
+ * @namespace YUITest
+ * @class Results
+ * @constructor
+ * @param {String} name The name of the test.
+ */
+YUITest.Results = function(name){
+
+    /**
+     * Name of the test, test case, or test suite.
+     * @type String
+     * @property name
+     */
+    this.name = name;
+    
+    /**
+     * Number of passed tests.
+     * @type int
+     * @property passed
+     */
     this.passed = 0;
+    
+    /**
+     * Number of failed tests.
+     * @type int
+     * @property failed
+     */
     this.failed = 0;
+    
+    /**
+     * Number of ignored tests.
+     * @type int
+     * @property ignored
+     */
     this.ignored = 0;
+    
+    /**
+     * Number of total tests.
+     * @type int
+     * @property total
+     */
     this.total = 0;
+    
+    /**
+     * Amount of time (ms) it took to complete testing.
+     * @type int
+     * @property duration
+     */
     this.duration = 0;
 }
 
+/**
+ * Includes results from another results object into this one.
+ * @param {YUITest.Results} result The results object to include.
+ * @method include
+ * @return {void}
+ */
 YUITest.Results.prototype.include = function(results){
     this.passed += results.passed;
     this.failed += results.failed;
@@ -1852,6 +1904,17 @@ YUITest.TestCase.prototype = {
 
     //restore constructor
     constructor: YUITest.TestCase,
+    
+    /**
+     * Method to call from an async init method to
+     * restart the test case. When called, returns a function
+     * that should be called when tests are ready to continue.
+     * @method callback
+     * @return {Function} The function to call as a callback.
+     */
+    callback: function(){
+        return YUITest.TestRunner.callback.apply(YUITest.TestRunner,arguments);
+    },
 
     /**
      * Resumes a paused test and runs the given function.
@@ -1931,7 +1994,6 @@ YUITest.TestCase.prototype = {
     destroy: function(){
         //noop
     },
-
 
     /**
      * Function to run before each test is executed.
@@ -2772,7 +2834,14 @@ YUITest.CoverageFormat = {
                         } else if (testObject instanceof YUITest.TestCase){
                             this.fire({ type: this.TEST_CASE_BEGIN_EVENT, testCase: testObject });
                             node._start = new Date();
-                            testObject.init(this._context);
+                            
+                            //regular or async init
+                            if (testObject["async:init"]){
+                                testObject["async:init"](this._context);
+                                return;
+                            } else {
+                                testObject.init(this._context);
+                            }
                         }
                         
                         //some environments don't support setTimeout
@@ -3149,6 +3218,20 @@ YUITest.CoverageFormat = {
                 } else {
                     return null;
                 }            
+            },
+            
+            //TODO
+            callback: function(){
+                var names   = arguments,
+                    data    = this._context,
+                    that    = this;
+                    
+                return function(){
+                    for (var i=0; i < arguments.length; i++){
+                        data[names[i]] = arguments[i];
+                    }
+                    that._run();
+                };
             },
             
             /**

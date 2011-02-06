@@ -445,7 +445,14 @@
                         } else if (testObject instanceof YUITest.TestCase){
                             this.fire({ type: this.TEST_CASE_BEGIN_EVENT, testCase: testObject });
                             node._start = new Date();
-                            testObject.init(this._context);
+                            
+                            //regular or async init
+                            if (testObject["async:init"]){
+                                testObject["async:init"](this._context);
+                                return;
+                            } else {
+                                testObject.init(this._context);
+                            }
                         }
                         
                         //some environments don't support setTimeout
@@ -822,6 +829,29 @@
                 } else {
                     return null;
                 }            
+            },
+            
+            /**
+             * Used to continue processing when a method marked with
+             * "async:" is executed. This should not be used in test
+             * methods, only in init(). Each argument is a string, and
+             * when the returned function is executed, the arguments
+             * are assigned to the context data object using the string
+             * as the key name (value is the argument itself).
+             * @private
+             * @return {Function} A callback function.
+             */
+            callback: function(){
+                var names   = arguments,
+                    data    = this._context,
+                    that    = this;
+                    
+                return function(){
+                    for (var i=0; i < arguments.length; i++){
+                        data[names[i]] = arguments[i];
+                    }
+                    that._run();
+                };
             },
             
             /**

@@ -31,6 +31,17 @@ YUITest.TestCase.prototype = {
 
     //restore constructor
     constructor: YUITest.TestCase,
+    
+    /**
+     * Method to call from an async init method to
+     * restart the test case. When called, returns a function
+     * that should be called when tests are ready to continue.
+     * @method callback
+     * @return {Function} The function to call as a callback.
+     */
+    callback: function(){
+        return YUITest.TestRunner.callback.apply(YUITest.TestRunner,arguments);
+    },
 
     /**
      * Resumes a paused test and runs the given function.
@@ -110,7 +121,6 @@ YUITest.TestCase.prototype = {
     destroy: function(){
         //noop
     },
-
 
     /**
      * Function to run before each test is executed.

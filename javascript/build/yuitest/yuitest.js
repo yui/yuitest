@@ -1904,6 +1904,17 @@ YUITest.TestCase.prototype = {
 
     //restore constructor
     constructor: YUITest.TestCase,
+    
+    /**
+     * Method to call from an async init method to
+     * restart the test case. When called, returns a function
+     * that should be called when tests are ready to continue.
+     * @method callback
+     * @return {Function} The function to call as a callback.
+     */
+    callback: function(){
+        return YUITest.TestRunner.callback.apply(YUITest.TestRunner,arguments);
+    },
 
     /**
      * Resumes a paused test and runs the given function.
@@ -1983,7 +1994,6 @@ YUITest.TestCase.prototype = {
     destroy: function(){
         //noop
     },
-
 
     /**
      * Function to run before each test is executed.
@@ -3978,7 +3988,14 @@ YUITest.PageManager = YUITest.Util.mix(new YUITest.EventTarget(), {
                         } else if (testObject instanceof YUITest.TestCase){
                             this.fire({ type: this.TEST_CASE_BEGIN_EVENT, testCase: testObject });
                             node._start = new Date();
-                            testObject.init(this._context);
+                            
+                            //regular or async init
+                            if (testObject["async:init"]){
+                                testObject["async:init"](this._context);
+                                return;
+                            } else {
+                                testObject.init(this._context);
+                            }
                         }
                         
                         //some environments don't support setTimeout
@@ -4355,6 +4372,29 @@ YUITest.PageManager = YUITest.Util.mix(new YUITest.EventTarget(), {
                 } else {
                     return null;
                 }            
+            },
+            
+            /**
+             * Used to continue processing when a method marked with
+             * "async:" is executed. This should not be used in test
+             * methods, only in init(). Each argument is a string, and
+             * when the returned function is executed, the arguments
+             * are assigned to the context data object using the string
+             * as the key name (value is the argument itself).
+             * @private
+             * @return {Function} A callback function.
+             */
+            callback: function(){
+                var names   = arguments,
+                    data    = this._context,
+                    that    = this;
+                    
+                return function(){
+                    for (var i=0; i < arguments.length; i++){
+                        data[names[i]] = arguments[i];
+                    }
+                    that._run();
+                };
             },
             
             /**

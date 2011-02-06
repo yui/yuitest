@@ -31,6 +31,13 @@ YUITest.Results = function(name){
     this.failed = 0;
     
     /**
+     * Number of errors that occur in non-test methods.
+     * @type int
+     * @property errors
+     */
+    this.errors = 0;
+    
+    /**
      * Number of ignored tests.
      * @type int
      * @property ignored
@@ -63,4 +70,5 @@ YUITest.Results.prototype.include = function(results){
     this.failed += results.failed;
     this.ignored += results.ignored;
     this.total += results.total;
+    this.errors += results.errors;
 };

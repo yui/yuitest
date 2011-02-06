@@ -1837,6 +1837,13 @@ YUITest.Results = function(name){
     this.failed = 0;
     
     /**
+     * Number of errors that occur in non-test methods.
+     * @type int
+     * @property errors
+     */
+    this.errors = 0;
+    
+    /**
      * Number of ignored tests.
      * @type int
      * @property ignored
@@ -1869,6 +1876,7 @@ YUITest.Results.prototype.include = function(results){
     this.failed += results.failed;
     this.ignored += results.ignored;
     this.total += results.total;
+    this.errors += results.errors;
 };
 
 /**
@@ -2623,6 +2631,13 @@ YUITest.CoverageFormat = {
             TEST_FAIL_EVENT : "fail",
             
             /**
+             * Fires when a non-test method has an error.
+             * @event error
+             * @static
+             */        
+            ERROR_EVENT : "error",
+            
+            /**
              * Fires when a test has been ignored.
              * @event ignore
              * @static
@@ -2745,11 +2760,11 @@ YUITest.CoverageFormat = {
                     }
                 
                     if (node.testObject instanceof YUITest.TestSuite){
-                        node.testObject.tearDown(this._context);
+                        this._execNonTestMethod(node, "tearDown", false);
                         node.results.duration = (new Date()) - node._start;
                         this.fire({ type: this.TEST_SUITE_COMPLETE_EVENT, testSuite: node.testObject, results: node.results});
                     } else if (node.testObject instanceof YUITest.TestCase){
-                        node.testObject.destroy(this._context);
+                        this._execNonTestMethod(node, "destroy", false);
                         node.results.duration = (new Date()) - node._start;
                         this.fire({ type: this.TEST_CASE_COMPLETE_EVENT, testCase: node.testObject, results: node.results});
                     }      
@@ -2800,6 +2815,43 @@ YUITest.CoverageFormat = {
             },
             
             /**
+             * Executes a non-test method (init, setUp, tearDown, destroy)
+             * and traps an errors. If an error occurs, an error event is
+             * fired.
+             * @param {Object} node The test node in the testing tree.
+             * @param {String} methodName The name of the method to execute.
+             * @param {Boolean} allowAsync Determines if the method can be called asynchronously.
+             * @return {Boolean} True if an async method was called, false if not.
+             * @method _execNonTestMethod
+             * @private
+             */
+            _execNonTestMethod: function(node, methodName, allowAsync){
+                var testObject = node.testObject,
+                    event = { type: this.ERROR_EVENT };
+                try {
+                    if (allowAsync && testObject["async:" + methodName]){
+                        testObject["async:" + methodName](this._context);
+                        return true;
+                    } else {
+                        testObject[methodName](this._context);
+                    }
+                } catch (ex){
+                    node.results.errors++;
+                    event.error = ex;
+                    event.methodName = methodName;
+                    if (testObject instanceof YUITest.TestCase){
+                        event.testCase = testObject;
+                    } else {
+                        event.testSuite = testSuite;
+                    }
+                    
+                    this.fire(event);
+                }  
+
+                return false;
+            },
+            
+            /**
              * Runs a test case or test suite, returning the results.
              * @param {YUITest.TestCase|YUITest.TestSuite} testObject The test case or test suite to run.
              * @return {Object} Results of the execution with properties passed, failed, and total.
@@ -2830,17 +2882,25 @@ YUITest.CoverageFormat = {
                         if (testObject instanceof YUITest.TestSuite){
                             this.fire({ type: this.TEST_SUITE_BEGIN_EVENT, testSuite: testObject });
                             node._start = new Date();
-                            testObject.setUp(this._context);
+                            this._execNonTestMethod(node, "setUp" ,false);
                         } else if (testObject instanceof YUITest.TestCase){
                             this.fire({ type: this.TEST_CASE_BEGIN_EVENT, testCase: testObject });
                             node._start = new Date();
                             
                             //regular or async init
-                            if (testObject["async:init"]){
-                                testObject["async:init"](this._context);
+                            /*try {
+                                if (testObject["async:init"]){
+                                    testObject["async:init"](this._context);
+                                    return;
+                                } else {
+                                    testObject.init(this._context);
+                                }
+                            } catch (ex){
+                                node.results.errors++;
+                                this.fire({ type: this.ERROR_EVENT, error: ex, testCase: testObject, methodName: "init" });
+                            }*/
+                            if(this._execNonTestMethod(node, "init", true)){
                                 return;
-                            } else {
-                                testObject.init(this._context);
                             }
                         }
                         
@@ -2990,7 +3050,7 @@ YUITest.CoverageFormat = {
                 }
                 
                 //run the tear down
-                testCase.tearDown(this._context);
+                this._execNonTestMethod(node, "tearDown", false);
                 
                 //reset the assert count
                 YUITest.Assert._reset();
@@ -3099,7 +3159,7 @@ YUITest.CoverageFormat = {
                     node._start = new Date();
                 
                     //run the setup
-                    testCase.setUp(this._context);
+                    this._execNonTestMethod(node, "setUp", false);
                     
                     //now call the body of the test
                     this._resumeTest(test);                
@@ -3220,7 +3280,16 @@ YUITest.CoverageFormat = {
                 }            
             },
             
-            //TODO
+            /**
+             * Used to continue processing when a method marked with
+             * "async:" is executed. This should not be used in test
+             * methods, only in init(). Each argument is a string, and
+             * when the returned function is executed, the arguments
+             * are assigned to the context data object using the string
+             * as the key name (value is the argument itself).
+             * @private
+             * @return {Function} A callback function.
+             */
             callback: function(){
                 var names   = arguments,
                     data    = this._context,

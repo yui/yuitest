@@ -16,8 +16,6 @@
         <copy file="${component.npm.base}/package.json" tofile="${global.build.npm}/package.json"/>
         <mkdir dir="${global.build.npm}/lib"/>
         <copy file="${global.build.base}/yuitest/yuitest-node.js" tofile="${global.build.npm}/lib/yuitest-node.js"/>
-
-
     </target>
 	
 	<property file="build.properties" />	

@@ -63,7 +63,6 @@
         name: "Async Init Tests",
         
         "async:init": function(){
-        throw new Error("foo");
             var that = this;
             asyncInitValue = 1;
             setTimeout(function(){

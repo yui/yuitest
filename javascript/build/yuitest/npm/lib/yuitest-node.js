@@ -3050,7 +3050,7 @@ YUITest.CoverageFormat = {
                 }
                 
                 //run the tear down
-                this._execNonTestMethod(node, "tearDown", false);
+                this._execNonTestMethod(node.parent, "tearDown", false);
                 
                 //reset the assert count
                 YUITest.Assert._reset();
@@ -3159,7 +3159,7 @@ YUITest.CoverageFormat = {
                     node._start = new Date();
                 
                     //run the setup
-                    this._execNonTestMethod(node, "setUp", false);
+                    this._execNonTestMethod(node.parent, "setUp", false);
                     
                     //now call the body of the test
                     this._resumeTest(test);                

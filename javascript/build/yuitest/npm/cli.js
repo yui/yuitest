@@ -4,10 +4,11 @@
  
 var fs      = require("fs"),
     path    = require("path"),
-    //YUITest = require(path.join(process.cwd(), "lib/yuitest-node.js")).YUITest,
+    vm      = require("vm"),
     YUITest = require("./lib/yuitest-node.js").YUITest,
     TestRunner = YUITest.TestRunner,
-    stdout  = process.stdout;
+    stdout  = process.stdout,
+    stderr  = process.stderr;
     
   
 //options collected from command line  
@@ -16,90 +17,7 @@ var options = {
 };
 
 //-----------------------------------------------------------------------------
-// Setup TestRunner
-//-----------------------------------------------------------------------------
-
-stdout.write("YUI Test for Node.js\n");
-
-//handles test runner events
-function handleEvent(event){
-var message = "";
-    switch(event.type){
-        case TestRunner.BEGIN_EVENT:
-            message = "Testing began at " + (new Date()).toString() + ".";
-            messageType = "info";
-            break;
-            
-        case TestRunner.COMPLETE_EVENT:
-            message = "Testing completed at " +
-                (new Date()).toString() + ".\n" +
-                "Passed:" + event.results.passed + " Failed:" + event.results.failed +
-                " Total:" + event.results.total + "(" + event.results.ignored + " ignored)"; 
-            messageType = "info";
-            break;
-            
-        case TestRunner.TEST_FAIL_EVENT:
-            message = event.testName + ": failed.\n" + event.error.getMessage();
-            messageType = "fail";
-            break;
-            
-        case TestRunner.TEST_IGNORE_EVENT:
-            message = event.testName + ": ignored.";
-            messageType = "ignore";
-            break;
-            
-        case TestRunner.TEST_PASS_EVENT:
-            message = event.testName + ": passed.";
-            messageType = "pass";
-            break;
-            
-        case TestRunner.TEST_SUITE_BEGIN_EVENT:
-            message = "Test suite \"" + event.testSuite.name + "\" started.";
-            messageType = "info";
-            break;
-            
-        case TestRunner.TEST_SUITE_COMPLETE_EVENT:
-            message = "Testing completed at " +
-                (new Date()).toString() + ".\n" +
-                "Passed:" + event.results.passed + " Failed:" + event.results.failed +
-                " Total:" + event.results.total + "(" + event.results.ignored + " ignored)";
-            messageType = "info";
-            break;
-            
-        case TestRunner.TEST_CASE_BEGIN_EVENT:
-            message = "Test case \"" + event.testCase.name + "\" started.";
-            messageType = "info";
-            break;
-            
-        case TestRunner.TEST_CASE_COMPLETE_EVENT:
-            message = "Testing completed at " +
-                (new Date()).toString() + ".\n" +
-                "Passed:" + event.results.passed + " Failed:" + event.results.failed +
-                " Total:" + event.results.total + "(" + event.results.ignored + " ignored)";
-            messageType = "info";
-            break;
-        default:
-            message = "Unexpected event " + event.type;
-            messageType = "info";
-    }    
-    
-    stdout.write(message + "\n");
-}
-
-
-TestRunner.subscribe(TestRunner.BEGIN_EVENT, handleEvent)
-TestRunner.subscribe(TestRunner.TEST_FAIL_EVENT, handleEvent);
-TestRunner.subscribe(TestRunner.TEST_PASS_EVENT, handleEvent);
-TestRunner.subscribe(TestRunner.TEST_IGNORE_EVENT, handleEvent);
-TestRunner.subscribe(TestRunner.TEST_CASE_BEGIN_EVENT, handleEvent);
-TestRunner.subscribe(TestRunner.TEST_CASE_COMPLETE_EVENT, handleEvent);
-TestRunner.subscribe(TestRunner.TEST_SUITE_BEGIN_EVENT, handleEvent);
-TestRunner.subscribe(TestRunner.TEST_SUITE_COMPLETE_EVENT, handleEvent);
-TestRunner.subscribe(TestRunner.COMPLETE_EVENT, handleEvent); 
-
-
-//-----------------------------------------------------------------------------
-// Function get all files in a directory
+// Function to get all files in a directory
 //-----------------------------------------------------------------------------
 
 function getFiles(dir){
@@ -162,20 +80,32 @@ files = files.map(function(filename){
 });
 
 //-----------------------------------------------------------------------------
+// Setup TestRunner
+//-----------------------------------------------------------------------------
+
+//TODO: Other types of output
+YUITest.Node.CLI.XUnit();
+
+//-----------------------------------------------------------------------------
 // Include test files
 //-----------------------------------------------------------------------------
 
-var code = [];
+var code = [], i, len;
 
-files.forEach(function(filename){
+if (files.length){
+    for (i=0, len=files.length; i < len; i++){
 
-    if (options.verbose){
-        stdout.write("Loading " + filename + "\n");
+        if (options.verbose){
+            stderr.write("Loading " + files[i] + "\n");
+        }
+        
+        var output = fs.readFileSync(files[i]);
+        vm.runInThisContext("(function(YUITest){\n" + output + "\n})", files[i])(YUITest);
+        //code.push(output);
     }
-    
-    var output = fs.readFileSync(filename);
-    code.push(output);
-});
+} else {
+    process.stdout.write("No tests to run.\n");
+}
 
-eval(code.join("\n\n"));
+//eval(code.join("\n\n"));
 TestRunner.run();

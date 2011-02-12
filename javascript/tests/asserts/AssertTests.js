@@ -1032,7 +1032,7 @@
         },
 
         "isObject() should pass for global object": function(){
-            Assert.isObject(self);
+            Assert.isObject((function(){ return this; })());
         },
 
         "isObject() should fail for zero numbers": function(){

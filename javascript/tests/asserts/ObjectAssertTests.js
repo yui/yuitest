@@ -1,5 +1,5 @@
 (function(){
-    process.stdout.write("HERE");
+    
     var Assert          = YUITest.Assert,
         ObjectAssert    = YUITest.ObjectAssert;
         
@@ -273,5 +273,3 @@
     YUITest.TestRunner.add(suite);
 
 })();
-
-process.stdout.write("THERE");

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>YUI Test</title>
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.2.0/build/cssfonts/fonts-min.css">
+</head>
+<body>
+    <h2>Test File Approach</h2>
+    <p>YUI Test was created with the goal of allowing you to write tests in any way you want, allowing you to mimic other testing environments or tools. Even so, there is a general format for test files that works best in YUI Test.</p>
+    <p>The best way to organize your tests are in standalone JavaScript files. It's generally a good idea to have one test JavaScript file associated with each source JavaScript file. For example, the source file foo.js might have an associated foo_test.js (you might also have the tests in a separate directory).</p>
+    <p>Each test file should be setup with the following:</p>
+    <ol>
+        <li>Creation of test suites and/or test cases for the source.</li>
+        <li>Add the test suites and/or test cases to <code>YUITest.TestRunner</code>.</li>
+    </ol>
+    <p>It's also usually a good idea to wrap the contents of this file in an instantly invoked function to prevent leaking into the global scope. Here's a good general format for a test file:</p>
+    <pre><code>(function(){
+    var testCase = new YUITest.TestCase({
+    
+        //test case details
+
+    });
+    
+    YUITest.TestRunner.add(testCase);
+})();
+</code></pre>
+    
+</body>
+</html>

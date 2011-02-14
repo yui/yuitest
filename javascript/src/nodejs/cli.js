@@ -56,9 +56,10 @@ function getFiles(dir){
 // Process command line
 //-----------------------------------------------------------------------------
 
+
 var args    = process.argv.slice(2),  
     arg     = args.shift(),     
-    files   = [];
+    files   = [];  
     
 while(arg){
     if (arg.indexOf("--") == 0){
@@ -81,7 +82,7 @@ files = files.map(function(filename){
 });
 
 //-----------------------------------------------------------------------------
-// Setup TestRunner
+// Determine output format
 //-----------------------------------------------------------------------------
 
 //TODO: Other types of output
@@ -109,14 +110,15 @@ if (files.length){
     for (i=0, len=files.length; i < len; i++){
 
         if (options.verbose){
-            stderr.write("Loading " + files[i] + "\n");
+            stderr.write("[INFO] Loading " + files[i] + "\n");
         }
         
         var output = fs.readFileSync(files[i]);
         vm.runInThisContext("(function(YUITest){\n" + output + "\n})", files[i])(YUITest);
     }
 } else {
-    process.stdout.write("No tests to run.\n");
+    stderr.write("[ERROR] No tests to run, exiting.\n");
+    process.exit(1);    
 }
 
 //-----------------------------------------------------------------------------

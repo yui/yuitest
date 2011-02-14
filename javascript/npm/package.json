@@ -17,9 +17,6 @@
     "bin": {
         "yuitest": "./cli.js" 
     },
-    /*"dependencies": {
-        "yui3-core": ">=3.3.0",
-    },*/
     "licenses":[
         {
             "type" : "BSD",

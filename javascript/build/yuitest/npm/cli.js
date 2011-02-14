@@ -51,6 +51,7 @@ function getFiles(dir){
     return files;
 }
 
+
 //-----------------------------------------------------------------------------
 // Process command line
 //-----------------------------------------------------------------------------
@@ -87,10 +88,22 @@ files = files.map(function(filename){
 YUITest.Node.CLI.XUnit();
 
 //-----------------------------------------------------------------------------
+// Set up TestRunner
+//-----------------------------------------------------------------------------
+
+TestRunner.subscribe("complete", function(event){
+
+    //if there are failed tests, exit with code 1
+    if (event.results.failed){
+        process.exit(1);
+    }
+});
+
+//-----------------------------------------------------------------------------
 // Include test files
 //-----------------------------------------------------------------------------
 
-var code = [], i, len;
+var i, len;
 
 if (files.length){
     for (i=0, len=files.length; i < len; i++){
@@ -101,11 +114,13 @@ if (files.length){
         
         var output = fs.readFileSync(files[i]);
         vm.runInThisContext("(function(YUITest){\n" + output + "\n})", files[i])(YUITest);
-        //code.push(output);
     }
 } else {
     process.stdout.write("No tests to run.\n");
 }
 
-//eval(code.join("\n\n"));
+//-----------------------------------------------------------------------------
+// Run it!
+//-----------------------------------------------------------------------------
+
 TestRunner.run();

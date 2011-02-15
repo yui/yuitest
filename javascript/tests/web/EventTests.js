@@ -1,6 +1,7 @@
 (function(){
 
-    var Assert          = YUITest.Assert,
+    var YUITest         = this.YUITest || require("yuitest").YUITest,
+        Assert          = YUITest.Assert,
         ObjectAssert    = YUITest.ObjectAssert;
         
     //-------------------------------------------------------------------------
@@ -565,4 +566,4 @@
     //add to the test runner
     YUITest.TestRunner.add(suite);
 
-})();
+})(this);

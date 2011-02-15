@@ -1,6 +1,7 @@
 (function(){
 
-    var Assert          = YUITest.Assert;
+    var YUITest         = this.YUITest || require("yuitest").YUITest,
+        Assert          = YUITest.Assert;
     
     //-------------------------------------------------------------------------
     // Base Test Suite

@@ -1,4 +1,9 @@
 (function(){
+
+    //probably running in Node.js
+    if (typeof YUITest == "undefined"){
+        YUITest = require("yuitest").YUITest;
+    }
     
     var Assert          = YUITest.Assert,
         ObjectAssert    = YUITest.ObjectAssert;

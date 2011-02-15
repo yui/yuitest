@@ -15,6 +15,10 @@
     </ol>
     <p>It's also usually a good idea to wrap the contents of this file in an instantly invoked function to prevent leaking into the global scope. Here's a good general format for a test file:</p>
     <pre><code>(function(){
+    
+    //define local version of YUITest based on what's available.
+    var YUITest         = this.YUITest || require("yuitest").YUITest;
+    
     var testCase = new YUITest.TestCase({
     
         //test case details
@@ -24,6 +28,6 @@
     YUITest.TestRunner.add(testCase);
 })();
 </code></pre>
-    
+    <p>The second line is used to allow your tests to be run either in a web browser or in Node.js.</p>
 </body>
 </html>

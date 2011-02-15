@@ -13,7 +13,9 @@ var fs      = require("fs"),
   
 //options collected from command line  
 var options = {
-    verbose: false
+    verbose: false,
+    webcompat: false,
+    help: false
 };
 
 //-----------------------------------------------------------------------------
@@ -51,6 +53,16 @@ function getFiles(dir){
     return files;
 }
 
+function outputHelp(){
+    stdout.write([
+        "\nUsage: yuitest [options] [file|dir]*",
+        " ",
+        "Global Options",
+        "  --help              Displays this information.",
+        "  --verbose           Display informational messages and warnings.",
+        "  --webcompat         Load tests designed for use in browsers."   
+    ].join("\n") + "\n\n");
+}
 
 //-----------------------------------------------------------------------------
 // Process command line
@@ -74,6 +86,11 @@ while(arg){
         }
     }
     arg = args.shift();
+}
+
+if (options.help){
+    outputHelp();
+    process.exit(0);
 }
 
 //get the full path names
@@ -104,7 +121,7 @@ TestRunner.subscribe("complete", function(event){
 // Include test files
 //-----------------------------------------------------------------------------
 
-var i, len;
+var i, len, output;
 
 if (files.length){
     for (i=0, len=files.length; i < len; i++){
@@ -113,8 +130,17 @@ if (files.length){
             stderr.write("[INFO] Loading " + files[i] + "\n");
         }
         
-        var output = fs.readFileSync(files[i]);
-        vm.runInThisContext("(function(YUITest){\n" + output + "\n})", files[i])(YUITest);
+        if (options.webcompat){
+            output = fs.readFileSync(files[i]);
+            vm.runInThisContext("(function(YUITest){\n" + output + "\n})", files[i])(YUITest);
+        } else {
+            try {
+                require(files[i]);
+            } catch (ex) {
+                stderr.write("[ERROR] No tests loaded from " + files[i] + ". If you're not using CommonJS module format, try running with --webcompat option.\n");
+                process.exit(1);
+            }            
+        }
     }
 } else {
     stderr.write("[ERROR] No tests to run, exiting.\n");

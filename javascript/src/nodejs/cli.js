@@ -4,12 +4,17 @@
  
 var fs      = require("fs"),
     path    = require("path"),
-    vm      = require("vm"),
+    vm      = null,
     YUITest = require("./lib/yuitest-node.js").YUITest,
     TestRunner = YUITest.TestRunner,
     stdout  = process.stdout,
     stderr  = process.stderr;
     
+  
+ if (process.binding("natives").vm){
+    vm = require("vm");
+ }
+ 
   
 //options collected from command line  
 var options = {
@@ -132,7 +137,11 @@ if (files.length){
         
         if (options.webcompat){
             output = fs.readFileSync(files[i]);
-            vm.runInThisContext("(function(YUITest){\n" + output + "\n})", files[i])(YUITest);
+            if (vm){
+                vm.runInThisContext("(function(YUITest){\n" + output + "\n})", files[i])(YUITest);
+            } else {
+                process.compile("(function(YUITest){\n" + output + "\n})", files[i])(YUITest);
+            }
         } else {
             try {
                 require(files[i]);

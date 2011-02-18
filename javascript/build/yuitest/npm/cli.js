@@ -8,7 +8,7 @@ var fs      = require("fs"),
     YUITest = require("./lib/yuitest-node.js").YUITest,
     TestRunner = YUITest.TestRunner,
     stdout  = process.stdout,
-    stderr  = process.stderr;
+    stderr  = process.stderr || stdout;   //stderr added in 0.3.8
     
   
  if (process.binding("natives").vm){

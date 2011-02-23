@@ -20,7 +20,8 @@ var fs      = require("fs"),
 var options = {
     verbose: false,
     webcompat: false,
-    help: false
+    help: false,
+    output: false
 };
 
 //-----------------------------------------------------------------------------
@@ -63,7 +64,9 @@ function outputHelp(){
         "\nUsage: yuitest [options] [file|dir]*",
         " ",
         "Global Options",
+        "  --groups groupname  Run only tests cases that are part of groupname.",
         "  --help              Displays this information.",
+        "  --output format     Specifies output format (junitxml, tap, xunit).",
         "  --verbose           Display informational messages and warnings.",
         "  --webcompat         Load tests designed for use in browsers."   
     ].join("\n") + "\n\n");
@@ -83,7 +86,7 @@ while(arg){
         options[arg.substring(2)] = true;
         
         //get the next argument
-        if (arg == "--groups"){
+        if (arg == "--groups" || arg == "--output"){
             options[arg.substring(2)] = args.shift();
         }
     } else {
@@ -112,8 +115,25 @@ files = files.map(function(filename){
 // Determine output format
 //-----------------------------------------------------------------------------
 
-//TODO: Other types of output
-YUITest.Node.CLI.XUnit();
+switch(options.output){
+    case "junitxml":
+        if (options.verbose){
+            stderr.write("[INFO] Using JUnitXML output format.\n");
+        }
+        YUITest.Node.CLI.Format(YUITest.TestFormat.JUnitXML);
+        break;
+    case "tap":
+        if (options.verbose){
+            stderr.write("[INFO] Using TAP output format.\n");
+        }
+        YUITest.Node.CLI.Format(YUITest.TestFormat.TAP);
+        break;
+    default:
+        if (options.verbose){
+            stderr.write("[INFO] Using XUnit output format.\n");
+        }
+        YUITest.Node.CLI.XUnit();            
+}
 
 //-----------------------------------------------------------------------------
 // Set up TestRunner

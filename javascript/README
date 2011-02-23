@@ -9,6 +9,7 @@ Documentation: http://developer.yahoo.com/yui/test/
    * Added init() and destroy() methods for TestCase objects.
    * Added groups on TestCase objects and groups filter on TestRunner.run().
    * Changed signature of TestRunner.run() to accept options object.
+   * Introduced error event for errors occuring in setUp/tearDown/init/destroy.
 
 1.0.0 Beta 1
 

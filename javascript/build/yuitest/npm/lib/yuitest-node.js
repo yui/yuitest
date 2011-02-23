@@ -9,9 +9,11 @@
  * @static
  */
 
-var YUITest = {
-    version: "@VERSION@"
-};
+var YUITest = exports;
+YUITest.version = "@VERSION@";
+
+//backwards compatibility
+exports.YUITest = YUITest;
 
 
 /**
@@ -3513,6 +3515,23 @@ YUITest.Node.CLI.XUnit = function(){
         errors      = [],
         failures    = [],
         stack       = [];
+        
+    function filterStackTrace(stackTrace){
+        var lines = stackTrace.split("\n"),
+            result = [],
+            i, len;
+            
+        //skip first line, it's the error
+        for (i=1, len=lines.length; i < len; i++){
+            if (lines[i].indexOf("yuitest-node") > -1){
+                break;
+            } else {
+                result.push(lines[i]);
+            }
+        }
+        
+        return result.join("\n");        
+    }
 
     //handles test runner events
     function handleEvent(event){
@@ -3541,7 +3560,7 @@ YUITest.Node.CLI.XUnit = function(){
                     
                     for (i=0,len=failures.length; i < len; i++){
                         message += "\n" + (i+1) + ") " + failures[i].name + " : " + failures[i].error.getMessage() + "\n";
-                        //message += "Stack trace:\n" + failures[i].error.stack + "\n";
+                        message += "Stack trace:\n" + filterStackTrace(failures[i].error.stack) + "\n";
                     }
                 
                     message += "\n";
@@ -3552,13 +3571,13 @@ YUITest.Node.CLI.XUnit = function(){
                     
                     for (i=0,len=errors.length; i < len; i++){
                         message += "\n" + (i+1) + ") " + errors[i].name + " : " + errors[i].error.message + "\n";
-                        //message += "Stack trace:\n" + failures[i].error.stack + "\n";
+                        message += "Stack trace:\n" + filterStackTrace(errors[i].error.stack) + "\n";
                     }
                 
                     message += "\n";
                 }
                 
-                message += "\n";
+                message += "\n\n";
                 break;
                 
             case testRunner.TEST_FAIL_EVENT:
@@ -3617,7 +3636,4 @@ YUITest.Node.CLI.XUnit = function(){
     testRunner.subscribe(testRunner.COMPLETE_EVENT, handleEvent); 
 
 };
-
-//export in CommonJS format
-exports.YUITest = YUITest;
 

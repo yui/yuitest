@@ -5,7 +5,7 @@
 var fs      = require("fs"),
     path    = require("path"),
     vm      = null,
-    YUITest = require("./lib/yuitest-node.js").YUITest,
+    YUITest = require("./lib/yuitest-node.js"),
     TestRunner = YUITest.TestRunner,
     stdout  = process.stdout,
     stderr  = process.stderr || stdout;   //stderr added in 0.3.8
@@ -151,7 +151,8 @@ if (files.length){
             try {
                 require(files[i]);
             } catch (ex) {
-                stderr.write("[ERROR] No tests loaded from " + files[i] + ". If you're not using CommonJS module format, try running with --webcompat option.\n");
+                stderr.write("[ERROR] " + ex.stack);
+                stderr.write("\n[ERROR] No tests loaded from " + files[i] + ". If you're not using CommonJS module format, try running with --webcompat option.\n");
                 process.exit(1);
             }            
         }

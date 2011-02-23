@@ -1,6 +1,6 @@
 (function(){
 
-    var YUITest         = this.YUITest || require("yuitest").YUITest,
+    var YUITest         = this.YUITest || require("yuitest"),
         Assert          = YUITest.Assert,
         ObjectAssert    = YUITest.ObjectAssert;
     
@@ -45,7 +45,6 @@
         init: function(){
             initValue++;
             throw new Error("foo");
-            
         },     
         
         "Verify that initValue is 1": function(){

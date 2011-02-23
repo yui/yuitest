@@ -1,6 +1,6 @@
 (function(){
 
-    var YUITest         = this.YUITest || require("yuitest").YUITest,
+    var YUITest         = this.YUITest || require("yuitest"),
         Assert          = YUITest.Assert,
 		DateAssert		= YUITest.DateAssert;
     

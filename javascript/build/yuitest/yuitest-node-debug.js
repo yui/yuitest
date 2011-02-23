@@ -3364,10 +3364,13 @@ YUITest.CoverageFormat = {
              * @static
              */
             run : function (options) {
+
+                options = options || {};
                 
                 //pointer to runner to avoid scope issues 
                 var runner  = YUITest.TestRunner,
                     oldMode = options.oldMode;
+                
                 
                 //if there's only one suite on the masterSuite, move it up
                 if (!oldMode && this.masterSuite.items.length == 1 && this.masterSuite.items[0] instanceof YUITest.TestSuite){
@@ -3433,6 +3436,11 @@ YUITest.Node.CLI.Logger = function(){
             case testRunner.TEST_FAIL_EVENT:
                 message = event.testName + ": failed.\n" + event.error.getMessage();
                 messageType = "fail";
+                break;
+                
+            case testRunner.ERROR_EVENT:
+                message = event.methodName + ": error.\n" + event.error.message;
+                messageType = "error";
                 break;
                 
             case testRunner.TEST_IGNORE_EVENT:
@@ -3502,6 +3510,7 @@ YUITest.Node.CLI.XUnit = function(){
 
     var testRunner  = YUITest.TestRunner,
         stdout      = process.stdout,
+        errors      = [],
         failures    = [],
         stack       = [];
 
@@ -3538,6 +3547,17 @@ YUITest.Node.CLI.XUnit = function(){
                     message += "\n";
                 }
                 
+                if (errors.length){
+                    message += "\nErrors:\n";
+                    
+                    for (i=0,len=errors.length; i < len; i++){
+                        message += "\n" + (i+1) + ") " + errors[i].name + " : " + errors[i].error.message + "\n";
+                        //message += "Stack trace:\n" + failures[i].error.stack + "\n";
+                    }
+                
+                    message += "\n";
+                }
+                
                 message += "\n";
                 break;
                 
@@ -3545,6 +3565,14 @@ YUITest.Node.CLI.XUnit = function(){
                 message = "F";
                 failures.push({
                     name: stack.concat([event.testName]).join(" > "),
+                    error: event.error
+                });
+
+                break;
+                
+            case testRunner.ERROR_EVENT:
+                errors.push({
+                    name: stack.concat([event.methodName]).join(" > "),
                     error: event.error
                 });
 
@@ -3580,6 +3608,7 @@ YUITest.Node.CLI.XUnit = function(){
     testRunner.subscribe(testRunner.BEGIN_EVENT, handleEvent)
     testRunner.subscribe(testRunner.TEST_FAIL_EVENT, handleEvent);
     testRunner.subscribe(testRunner.TEST_PASS_EVENT, handleEvent);
+    testRunner.subscribe(testRunner.ERROR_EVENT, handleEvent);
     testRunner.subscribe(testRunner.TEST_IGNORE_EVENT, handleEvent);
     testRunner.subscribe(testRunner.TEST_CASE_BEGIN_EVENT, handleEvent);
     testRunner.subscribe(testRunner.TEST_CASE_COMPLETE_EVENT, handleEvent);

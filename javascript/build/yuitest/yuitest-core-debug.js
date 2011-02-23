@@ -3364,10 +3364,13 @@ YUITest.CoverageFormat = {
              * @static
              */
             run : function (options) {
+
+                options = options || {};
                 
                 //pointer to runner to avoid scope issues 
                 var runner  = YUITest.TestRunner,
                     oldMode = options.oldMode;
+                
                 
                 //if there's only one suite on the masterSuite, move it up
                 if (!oldMode && this.masterSuite.items.length == 1 && this.masterSuite.items[0] instanceof YUITest.TestSuite){

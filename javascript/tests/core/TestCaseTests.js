@@ -44,6 +44,8 @@
         
         init: function(){
             initValue++;
+            throw new Error("foo");
+            
         },     
         
         "Verify that initValue is 1": function(){

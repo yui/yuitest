@@ -33,6 +33,11 @@ YUITest.Node.CLI.Logger = function(){
                 messageType = "fail";
                 break;
                 
+            case testRunner.ERROR_EVENT:
+                message = event.methodName + ": error.\n" + event.error.message;
+                messageType = "error";
+                break;
+                
             case testRunner.TEST_IGNORE_EVENT:
                 message = event.testName + ": ignored.";
                 messageType = "ignore";

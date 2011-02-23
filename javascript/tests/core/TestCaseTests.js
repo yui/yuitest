@@ -44,7 +44,6 @@
         
         init: function(){
             initValue++;
-            throw new Error("foo");
         },     
         
         "Verify that initValue is 1": function(){
@@ -221,7 +220,7 @@
                 that.resume(function(){
                     Assert.isTrue(true);  //FIXME
                 });
-            });
+            }, 0);
             
             this.wait(100);
         },

@@ -2,6 +2,7 @@ YUI Test Framework
 Documentation: http://developer.yahoo.com/yui/test/
 
 1.0.0 Beta 2
+
    * Introduced Node.js CLI
      - You can install via 'npm install yuitest'
    * Fixed bug in Selenium Driver that would cause error when using standalone JS library in pages.
@@ -9,8 +10,9 @@ Documentation: http://developer.yahoo.com/yui/test/
    * Added init() and destroy() methods for TestCase objects.
    * Added "async:init"() method on TestCase objects to do asynchronous initialization.
    * Added "ignore:" annotation for test methods (replaces _should.ignore).
-   * Added groups on TestCase objects and groups filter on TestRunner.run().
+   * Added "fail:" annotation for test methods (replaces _should.fail).
    * Changed signature of TestRunner.run() to accept options object.
+   * Added groups on TestCase objects and groups filter on TestRunner.run().
    * Introduced error event for errors occuring in setUp()/tearDown()/init()/destroy().
 
 1.0.0 Beta 1

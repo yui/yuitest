@@ -21,6 +21,20 @@
         name: "Assertion Tests",
         groups: ["core", "common"],
         
+        "fail:Test should fail when there are no asserts": function(){
+            //noop
+        }
+    }));        
+
+    //-------------------------------------------------------------------------
+    // Test Case for deprecated test failing annotation
+    //-------------------------------------------------------------------------
+    
+    suite.add(new YUITest.TestCase({
+    
+        name: "Deprecated Assertion Tests",
+        groups: ["core", "common"],
+        
         _should: {
             fail: {
                 "Test should fail when there are no asserts": true
@@ -221,13 +235,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "wait()/resume() Tests",
-        groups: ["core", "common"],
-        
-        _should: {
-            fail: {
-                "wait() without resume() should fail": true
-            }
-        },        
+        groups: ["core", "common"],     
         
         "wait() with a function to execute should work": function(){
             this.wait(function(){
@@ -246,7 +254,7 @@
             this.wait(100);
         },
         
-        "wait() without resume() should fail": function () {
+        "fail:wait() without resume() should fail": function () {
             Assert.isTrue(true);
             this.wait(100);
         },

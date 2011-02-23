@@ -4132,7 +4132,8 @@ YUITest.PageManager = YUITest.Util.mix(new YUITest.EventTarget(), {
                 }
 
                 //get the "should" test cases
-                var shouldFail = (testCase._should.fail || {})[testName];
+                var shouldFail = testName.indexOf("fail:") === 0 ||
+                                    (testCase._should.fail || {})[testName];
                 var shouldError = (testCase._should.error || {})[testName];
                 
                 //variable to hold whether or not the test failed

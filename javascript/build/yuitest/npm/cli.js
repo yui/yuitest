@@ -81,6 +81,11 @@ var args    = process.argv.slice(2),
 while(arg){
     if (arg.indexOf("--") == 0){
         options[arg.substring(2)] = true;
+        
+        //get the next argument
+        if (arg == "--groups"){
+            options[arg.substring(2)] = args.shift();
+        }
     } else {
         
         //see if it's a directory or a file
@@ -160,4 +165,6 @@ if (files.length){
 // Run it!
 //-----------------------------------------------------------------------------
 
-TestRunner.run();
+TestRunner.run({
+    groups: options.groups ? options.groups.split(",") : null
+});

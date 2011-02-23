@@ -2404,6 +2404,24 @@ YUITest.CoverageFormat = {
      * @static
      */
     YUITest.TestRunner = function(){
+
+        /*(intentionally not documented)
+         * Determines if any of the array of test groups appears
+         * in the given TestRunner filter.
+         * @param {Array} testGroups The array of test groups to
+         *      search for.
+         * @param {String} filter The TestRunner groups filter.
+         */
+        function inGroups(testGroups, filter){
+            if (filter.length && testGroups && testGroups.length){
+                for (var i=0, len=testGroups.length; i < len; i++){
+                    if (filter.indexOf("," + testGroups[i] + ",") > -1){
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
     
         /**
          * A node in the test tree structure. May represent a TestSuite, TestCase, or
@@ -2574,6 +2592,17 @@ YUITest.CoverageFormat = {
              * @static
              */
             this._context = null;
+            
+            /**
+             * The list of test groups to run. The list is represented
+             * by a comma delimited string with commas at the start and
+             * end.
+             * @type String
+             * @private
+             * @property _groups
+             * @static
+             */
+            this._groups = "";
         }
         
         TestRunner.prototype = YUITest.Util.mix(new YUITest.EventTarget(), {
@@ -3126,7 +3155,8 @@ YUITest.CoverageFormat = {
                 var test = testCase[testName];
                 
                 //get the "should" test cases
-                var shouldIgnore = (testCase._should.ignore || {})[testName];
+                var shouldIgnore = (testCase._should.ignore || {})[testName] ||
+                                    !inGroups(testCase.groups, this._groups);
                 
                 //figure out if the test should be ignored or not
                 if (shouldIgnore){
@@ -3321,29 +3351,31 @@ YUITest.CoverageFormat = {
         
             /**
              * Runs the test suite.
-             * @param {Boolean} oldMode (Optional) Specifies that the <= 2.8 way of
-             *      internally managing test suites should be used.             
+             * @param {Object|Boolean} options (Optional) Options for the runner:
+             *      <code>oldMode</code> indicates the TestRunner should work in the YUI <= 2.8 way
+             *      of internally managing test suites. <code>groups</code> is an array
+             *      of test groups indicating which tests to run.
              * @return {Void}
              * @method run
              * @static
              */
-            run : function (oldMode) {
+            run : function (options) {
                 
                 //pointer to runner to avoid scope issues 
-                var runner = YUITest.TestRunner;
+                var runner  = YUITest.TestRunner,
+                    oldMode = options.oldMode;
                 
                 //if there's only one suite on the masterSuite, move it up
                 if (!oldMode && this.masterSuite.items.length == 1 && this.masterSuite.items[0] instanceof YUITest.TestSuite){
                     this.masterSuite = this.masterSuite.items[0];
                 }                
-    
-                //build the test tree
-                runner._buildTestTree();
                 
-                //create data object
+                //determine if there are any groups to filter on
+                runner._groups = (options.groups instanceof Array) ? "," + options.groups.join(",") + "," : "";
+                
+                //initialize the runner
+                runner._buildTestTree();
                 runner._context = {};
-                            
-                //set when the test started
                 runner._root._start = new Date();
                 
                 //fire the begin event
@@ -3480,6 +3512,10 @@ YUITest.Node.CLI.XUnit = function(){
         switch(event.type){
             case testRunner.BEGIN_EVENT:
                 message = "YUITest for Node.js\n";
+                
+                if (testRunner._groups){
+                    message += "Filtering on groups '" + testRunner._groups.slice(1,-1) + "\n";
+                }
                 break;
                 
             case testRunner.COMPLETE_EVENT:

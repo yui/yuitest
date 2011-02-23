@@ -1,7 +1,16 @@
 YUI Test Framework
 Documentation: http://developer.yahoo.com/yui/test/
 
-1.0.0 pr1
+1.0.0 Beta 2
+   * Introduced Node.js CLI
+     - You can install via 'npm install yuitest'
+   * Fixed bug in Selenium Driver that would cause error when using standalone JS library in pages.
+   * Added context data object that is passed to all functions.
+   * Added init() and destroy() methods for TestCase objects.
+   * Added groups on TestCase objects and groups filter on TestRunner.run().
+   * Changed signature of TestRunner.run() to accept options object.
+
+1.0.0 Beta 1
 
   * Initial port from YUI 3 Test. Differences:
     - A test without at least one assertion is considered a failure.

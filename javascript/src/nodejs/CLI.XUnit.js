@@ -24,6 +24,10 @@ YUITest.Node.CLI.XUnit = function(){
         switch(event.type){
             case testRunner.BEGIN_EVENT:
                 message = "YUITest for Node.js\n";
+                
+                if (testRunner._groups){
+                    message += "Filtering on groups '" + testRunner._groups.slice(1,-1) + "'\n";
+                }
                 break;
                 
             case testRunner.COMPLETE_EVENT:

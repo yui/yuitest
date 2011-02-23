@@ -762,8 +762,9 @@
                     test = testCase[testName],
                 
                     //get the "should" test cases
-                    shouldIgnore = (testCase._should.ignore || {})[testName] ||
-                                    !inGroups(testCase.groups, this._groups);
+                    shouldIgnore = testName.indexOf("ignore:") === 0 ||
+                                    !inGroups(testCase.groups, this._groups) ||
+                                    (testCase._should.ignore || {})[testName];   //deprecated
                 
                 //figure out if the test should be ignored or not
                 if (shouldIgnore){
@@ -773,7 +774,7 @@
                         result: "ignore",
                         message: "Test ignored",
                         type: "test",
-                        name: testName
+                        name: testName.indexOf("ignore:") === 0 ? testName.substring(7) : testName
                     };
                     
                     node.parent.results.ignored++;

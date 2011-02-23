@@ -57,6 +57,27 @@
     }));        
 
     //-------------------------------------------------------------------------
+    // Test Case for ignore annotation
+    //-------------------------------------------------------------------------
+    
+    var ignoreValue = 0;
+    suite.add(new YUITest.TestCase({
+    
+        name: "Ignore Tests",
+        groups: ["core", "common"],
+        
+        "ignore:This test should be ignored": function(){
+            ignoreValue = 5;
+        },
+        
+        //fragile
+        "Verify that ignoreValue has not changed": function(){
+            Assert.areEqual(0, ignoreValue);
+        }        
+        
+    }));        
+
+    //-------------------------------------------------------------------------
     // Test Case for async:init()
     //-------------------------------------------------------------------------
     

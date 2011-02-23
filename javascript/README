@@ -8,6 +8,7 @@ Documentation: http://developer.yahoo.com/yui/test/
    * Added context data object that is passed to all functions.
    * Added init() and destroy() methods for TestCase objects.
    * Added "async:init"() method on TestCase objects to do asynchronous initialization.
+   * Added "ignore:" annotation for test methods (replaces _should.ignore).
    * Added groups on TestCase objects and groups filter on TestRunner.run().
    * Changed signature of TestRunner.run() to accept options object.
    * Introduced error event for errors occuring in setUp()/tearDown()/init()/destroy().

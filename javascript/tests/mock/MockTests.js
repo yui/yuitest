@@ -21,6 +21,7 @@
     suite.add(new YUITest.TestCase({
     
         name : "Call Count Tests",
+        groups: ["mock", "common"],
         
         _should: {
             fail: {
@@ -149,7 +150,8 @@
     suite.add(new YUITest.TestCase({
     
         name : "Arguments Tests",
-        
+        groups: ["mock", "common"],
+    
         _should: {
             fail: {
                 "Passing an incorrect number of arguments should make the test fail": 1,
@@ -846,6 +848,7 @@
     suite.add(new YUITest.TestCase({
     
         name : "Asynchronous Tests",
+        groups: ["mock", "common"],
         
         _should: {
         

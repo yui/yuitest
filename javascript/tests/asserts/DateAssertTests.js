@@ -17,6 +17,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "datesAreEqual() Assert Tests",
+        groups: ["asserts", "common"],
 
         "datesAreEqual() should pass when dates are identical": function(){
             DateAssert.datesAreEqual(new Date(0), new Date(0));        
@@ -61,6 +62,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "timesAreEqual() Assert Tests",
+        groups: ["asserts", "common"],
 
         "timesAreEqual() should pass when dates are identical": function(){
             DateAssert.timesAreEqual(new Date(0), new Date(0));        

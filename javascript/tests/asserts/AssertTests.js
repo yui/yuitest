@@ -16,6 +16,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "throwsError Assert Tests",
+        groups: ["asserts", "common"],
 
         "throwsError() should pass when an error with the given message is thrown": function(){
             Assert.throwsError("Something bad happened.", function(){
@@ -93,6 +94,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "fail Assert Tests",
+        groups: ["asserts", "common"],
 
         "fail() should throw an assertion error with the given message": function(){
             Assert.throwsError(new YUITest.AssertionError("Something bad happened."), function(){
@@ -108,6 +110,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "areEqual() Assert Tests",
+        groups: ["asserts", "common"],
 
         "areEqual() should pass when values are identical": function(){
             Assert.areEqual(5, 5);        
@@ -137,6 +140,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "areNotEqual() Assert Tests",
+        groups: ["asserts", "common"],
 
         "areNotEqual() should fail when values are identical": function(){
             Assert.throwsError(YUITest.UnexpectedValue, function(){
@@ -168,6 +172,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "areSame() Assert Tests",
+        groups: ["asserts", "common"],
 
         "areSame() should pass when values are identical": function(){
             Assert.areSame(5, 5);        
@@ -199,6 +204,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "areNotSame() Assert Tests",
+        groups: ["asserts", "common"],
 
         "areNotSame() should fail when values are identical": function(){
             Assert.throwsError(YUITest.UnexpectedValue, function(){
@@ -228,6 +234,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "isTrue() Assert Tests",
+        groups: ["asserts", "common"],
 
         "isTrue() should pass for true value": function(){
             Assert.isTrue(true);
@@ -277,6 +284,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "isFalse() Assert Tests",
+        groups: ["asserts", "common"],
 
         "isFalse() should pass for false value": function(){
             Assert.isFalse(false);
@@ -326,6 +334,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "isNaN() Assert Tests",
+        groups: ["asserts", "common"],
 
         "isNaN() should pass for NaN value": function(){
             Assert.isNaN(NaN);
@@ -389,6 +398,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "isNotNaN() Assert Tests",
+        groups: ["asserts", "common"],
         
         "isNotNaN() should pass for non-NaN numbers": function(){
             Assert.isNotNaN(0);
@@ -446,6 +456,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "isNull() Assert Tests",
+        groups: ["asserts", "common"],
 
         "isNull() should pass for null value": function(){
             Assert.isNull(null);
@@ -507,6 +518,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "isNotNull() Assert Tests",
+        groups: ["asserts", "common"],
 
         "isNotNull() should pass for zero numbers": function(){
             Assert.isNotNull(0);
@@ -556,6 +568,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "isUndefined() Assert Tests",
+        groups: ["asserts", "common"],
 
         "isUndefined() should pass for undefined value": function(){
             Assert.isUndefined(undefined);
@@ -617,6 +630,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "isNotUndefined() Assert Tests",
+        groups: ["asserts", "common"],
 
         "isNotUndefined() should pass for zero numbers": function(){
             Assert.isNotUndefined(0);
@@ -666,6 +680,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "isArray() Assert Tests",
+        groups: ["asserts", "common"],
 
         "isArray() should pass for array value": function(){
             Assert.isArray([]);
@@ -739,6 +754,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "isBoolean() Assert Tests",
+        groups: ["asserts", "common"],
 
         "isBoolean() should pass for true value": function(){
             Assert.isBoolean(true);
@@ -811,6 +827,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "isFunction() Assert Tests",
+        groups: ["asserts", "common"],
 
         "isFunction() should pass for function value": function(){
             Assert.isFunction(new Function());
@@ -885,6 +902,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "isNumber() Assert Tests",
+        groups: ["asserts", "common"],
 
         "isNumber() should pass for zero numbers": function(){
             Assert.isNumber(0);
@@ -956,6 +974,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "isString() Assert Tests",
+        groups: ["asserts", "common"],
 
         
         "isString() should pass for non-empty string value": function(){
@@ -1023,6 +1042,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "isObject() Assert Tests",
+        groups: ["asserts", "common"],
 
         "isObject() should pass for array value": function(){
             Assert.isObject([]);
@@ -1099,6 +1119,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "isTypeOf() Assert Tests",
+        groups: ["asserts", "common"],
 
         "isTypeOf() should pass for empty string value as string type": function(){
             Assert.isTypeOf("string", "");
@@ -1431,6 +1452,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "isInstanceOf() Assert Tests",
+        groups: ["asserts", "common"],
         
         "isInstanceOf() should pass for direct instance": function(){
             Assert.isInstanceOf(Object, {});

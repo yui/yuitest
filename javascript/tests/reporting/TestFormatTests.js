@@ -17,6 +17,7 @@
     suite.add(new YUITest.TestCase({
 
         name: "Test Results Formatting Tests",
+        groups: ["reporting", "common"],
         
         setUp : function(){
             this.simpleReport = {

@@ -15,6 +15,7 @@
         this.result = null;
         this.element = null;
         this.elementTagName = "div";
+        this.groups = ["web"];
     }
 
     GenericEventTestCase.prototype = YUITest.Util.mix(new YUITest.TestCase(), {

@@ -19,6 +19,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "Assertion Tests",
+        groups: ["core", "common"],
         
         _should: {
             fail: {
@@ -39,6 +40,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "Init Tests",
+        groups: ["core", "common"],
         
         init: function(){
             initValue++;
@@ -62,6 +64,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "Async Init Tests",
+        groups: ["core", "common"],
         
         "async:init": function(){
             var that = this;
@@ -95,6 +98,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "Destroy Tests",
+        groups: ["core", "common"],
         
         
         tearDown: function(){
@@ -119,6 +123,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "Destroy Verification Tests",
+        groups: ["core", "common"],
          
         "Verify that destroyValue is 1": function(){
             Assert.areEqual(1, destroyValue);
@@ -133,6 +138,7 @@
     
     var visitorSuite = new YUITest.TestSuite({
         name: "Visitor data tests",
+        groups: ["core", "common"],
         
         setUp: function(data){
             data.foo = "bar";
@@ -143,6 +149,7 @@
     visitorSuite.add(new YUITest.TestCase({
     
         name: "First Test Case",
+        groups: ["core", "common"],
         
         init: function(data){
             data.first = 1;
@@ -173,6 +180,7 @@
     visitorSuite.add(new YUITest.TestCase({
     
         name: "Second Test Case",
+        groups: ["core", "common"],
     
        "The property 'foo' should be passed from the suite and be 'bar'": function(data){
             Assert.areEqual("bar", data.foo);
@@ -192,6 +200,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "wait()/resume() Tests",
+        groups: ["core", "common"],
         
         _should: {
             fail: {

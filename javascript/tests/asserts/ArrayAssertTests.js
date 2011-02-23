@@ -17,7 +17,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "Contains Assert Tests",
-        groups: ["asserts"],
+        groups: ["asserts", "common"],
         
         _should: {
             fail: {
@@ -59,7 +59,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "ContainsItems Assert Tests",
-        groups: ["asserts"],
+        groups: ["asserts", "common"],
         
         _should: {
             fail: {
@@ -96,7 +96,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "ContainsMatch Assert Tests",
-        groups: ["asserts"],
+        groups: ["asserts", "common"],
         
         _should: {
             fail: {
@@ -132,7 +132,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "itemsAreSame Assert Tests",
-        groups: ["asserts"],
+        groups: ["asserts", "common"],
         
         _should: {
             fail: {
@@ -169,7 +169,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "itemsAreEqual Assert Tests",
-        groups: ["asserts"],
+        groups: ["asserts", "common"],
         
         _should: {
             fail: {
@@ -206,7 +206,7 @@
     suite.add(new YUITest.TestCase({
     
         name: "itemsAreEquivalent Assert Tests",
-        groups: ["asserts"],
+        groups: ["asserts", "common"],
         
         _should: {
             fail: {

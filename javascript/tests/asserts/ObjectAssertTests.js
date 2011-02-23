@@ -23,6 +23,7 @@
     suite.add(new YUITest.TestCase({
     
         name : "ownsOrInheritsKey() Tests",
+        groups: ["asserts", "common"],
         
         _should: {
             fail: {
@@ -67,6 +68,7 @@
     suite.add(new YUITest.TestCase({
     
         name : "ownsOrInheritsKeys() Tests",
+        groups: ["asserts", "common"],
         
         _should: {
             fail: {
@@ -123,6 +125,7 @@
     suite.add(new YUITest.TestCase({
     
         name : "ownsKey() Tests",
+        groups: ["asserts", "common"],
         
         _should: {
             fail: {
@@ -167,6 +170,7 @@
     suite.add(new YUITest.TestCase({
     
         name : "ownsKeys() Tests",
+        groups: ["asserts", "common"],
         
         _should: {
             fail: {
@@ -237,6 +241,7 @@
     suite.add(new YUITest.TestCase({
     
         name : "ownsNoKeys() Tests",
+        groups: ["asserts", "common"],
         
         _should: {
             fail: {

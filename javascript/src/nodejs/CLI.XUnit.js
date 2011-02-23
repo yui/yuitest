@@ -15,20 +15,24 @@ YUITest.Node.CLI.XUnit = function(){
         stack       = [];
         
     function filterStackTrace(stackTrace){
-        var lines = stackTrace.split("\n"),
-            result = [],
-            i, len;
-            
-        //skip first line, it's the error
-        for (i=1, len=lines.length; i < len; i++){
-            if (lines[i].indexOf("yuitest-node") > -1){
-                break;
-            } else {
-                result.push(lines[i]);
+        if (stackTrace){
+            var lines = stackTrace.split("\n"),
+                result = [],
+                i, len;
+                
+            //skip first line, it's the error
+            for (i=1, len=lines.length; i < len; i++){
+                if (lines[i].indexOf("yuitest-node") > -1){
+                    break;
+                } else {
+                    result.push(lines[i]);
+                }
             }
+            
+            return result.join("\n");    
+        } else {
+            return "Unavailable."
         }
-        
-        return result.join("\n");        
     }
 
     //handles test runner events

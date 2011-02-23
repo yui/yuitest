@@ -7,9 +7,10 @@ Documentation: http://developer.yahoo.com/yui/test/
    * Fixed bug in Selenium Driver that would cause error when using standalone JS library in pages.
    * Added context data object that is passed to all functions.
    * Added init() and destroy() methods for TestCase objects.
+   * Added "async:init"() method on TestCase objects to do asynchronous initialization.
    * Added groups on TestCase objects and groups filter on TestRunner.run().
    * Changed signature of TestRunner.run() to accept options object.
-   * Introduced error event for errors occuring in setUp/tearDown/init/destroy.
+   * Introduced error event for errors occuring in setUp()/tearDown()/init()/destroy().
 
 1.0.0 Beta 1
 

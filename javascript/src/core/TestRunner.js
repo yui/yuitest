@@ -16,14 +16,18 @@
          * @param {String} filter The TestRunner groups filter.
          */
         function inGroups(testGroups, filter){
-            if (filter.length && testGroups && testGroups.length){
-                for (var i=0, len=testGroups.length; i < len; i++){
-                    if (filter.indexOf("," + testGroups[i] + ",") > -1){
-                        return true;
+            if (!filter.length){
+                return true;
+            } else {                
+                if (testGroups){
+                    for (var i=0, len=testGroups.length; i < len; i++){
+                        if (filter.indexOf("," + testGroups[i] + ",") > -1){
+                            return true;
+                        }
                     }
                 }
+                return false;
             }
-            return false;
         }
     
         /**
@@ -753,12 +757,12 @@
             _runTest : function (node) {
             
                 //get relevant information
-                var testName = node.testObject;
-                var testCase = node.parent.testObject;
-                var test = testCase[testName];
+                var testName = node.testObject,
+                    testCase = node.parent.testObject,
+                    test = testCase[testName],
                 
-                //get the "should" test cases
-                var shouldIgnore = (testCase._should.ignore || {})[testName] ||
+                    //get the "should" test cases
+                    shouldIgnore = (testCase._should.ignore || {})[testName] ||
                                     !inGroups(testCase.groups, this._groups);
                 
                 //figure out if the test should be ignored or not

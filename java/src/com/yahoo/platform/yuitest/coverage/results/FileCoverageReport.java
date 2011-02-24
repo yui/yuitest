@@ -58,14 +58,21 @@ public class FileCoverageReport {
      */
     private void createFileFunctions() throws JSONException {
         JSONObject functionData = report1.getJSONObject("functions");
+
         String[] keys = JSONObject.getNames(functionData);
-        functions = new FileFunction[keys.length];
+        
+        //keys is null when there are no instrumented functions
+        if (keys != null){
+            functions = new FileFunction[keys.length];
 
-        for (int i=0; i < keys.length; i++){
-            functions[i] = new FileFunction(keys[i], functionData.optInt(keys[i], -1));
+            for (int i=0; i < keys.length; i++){
+                functions[i] = new FileFunction(keys[i], functionData.optInt(keys[i], -1));
+            }
+
+            Arrays.sort(functions, new FileFunctionComparator());
+        } else {
+            functions = new FileFunction[0];
         }
-
-        Arrays.sort(functions, new FileFunctionComparator());
     }
 
     /**

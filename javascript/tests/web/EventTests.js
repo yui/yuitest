@@ -1,6 +1,7 @@
 (function(){
 
-    var Assert          = YUITest.Assert,
+    var YUITest         = this.YUITest || require("yuitest"),
+        Assert          = YUITest.Assert,
         ObjectAssert    = YUITest.ObjectAssert;
         
     //-------------------------------------------------------------------------
@@ -14,6 +15,7 @@
         this.result = null;
         this.element = null;
         this.elementTagName = "div";
+        this.groups = ["web"];
     }
 
     GenericEventTestCase.prototype = YUITest.Util.mix(new YUITest.TestCase(), {
@@ -565,4 +567,4 @@
     //add to the test runner
     YUITest.TestRunner.add(suite);
 
-})();
+})(this);

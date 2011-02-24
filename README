@@ -1,1 +1,13 @@
-YUITest
+YUITest JavaScript Testing Library
+----------------------------------
+
+To build JavaScript files, run this in the javascript directory:
+
+    ant all
+    
+To build an npm package (output to javascript/build/yuitest/npm), run this in the javascript directory:
+
+    ant npmbuild
+    
+    
+

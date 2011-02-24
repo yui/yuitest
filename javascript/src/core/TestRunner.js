@@ -7,6 +7,28 @@
      * @static
      */
     YUITest.TestRunner = function(){
+
+        /*(intentionally not documented)
+         * Determines if any of the array of test groups appears
+         * in the given TestRunner filter.
+         * @param {Array} testGroups The array of test groups to
+         *      search for.
+         * @param {String} filter The TestRunner groups filter.
+         */
+        function inGroups(testGroups, filter){
+            if (!filter.length){
+                return true;
+            } else {                
+                if (testGroups){
+                    for (var i=0, len=testGroups.length; i < len; i++){
+                        if (filter.indexOf("," + testGroups[i] + ",") > -1){
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            }
+        }
     
         /**
          * A node in the test tree structure. May represent a TestSuite, TestCase, or
@@ -58,13 +80,7 @@
              * @type object
              * @property results
              */                
-            this.results = {
-                passed : 0,
-                failed : 0,
-                total : 0,
-                ignored : 0,
-                duration: 0
-            };
+            this.results = new YUITest.Results();
             
             //initialize results
             if (testObject instanceof YUITest.TestSuite){
@@ -174,6 +190,26 @@
              * @static
              */
             this._lastResults = null;       
+            
+            /**
+             * Data object that is passed around from method to method.
+             * @type Object
+             * @private
+             * @property _data
+             * @static
+             */
+            this._context = null;
+            
+            /**
+             * The list of test groups to run. The list is represented
+             * by a comma delimited string with commas at the start and
+             * end.
+             * @type String
+             * @private
+             * @property _groups
+             * @static
+             */
+            this._groups = "";
         }
         
         TestRunner.prototype = YUITest.Util.mix(new YUITest.EventTarget(), {
@@ -229,6 +265,13 @@
              * @static
              */        
             TEST_FAIL_EVENT : "fail",
+            
+            /**
+             * Fires when a non-test method has an error.
+             * @event error
+             * @static
+             */        
+            ERROR_EVENT : "error",
             
             /**
              * Fires when a test has been ignored.
@@ -342,21 +385,22 @@
              * @private
              */
             _handleTestObjectComplete : function (node) {
-                if (typeof node.testObject == "object" && node !== null){
+                var parentNode;
                 
-                    if (node.parent){
-                        node.parent.results.passed += node.results.passed;
-                        node.parent.results.failed += node.results.failed;
-                        node.parent.results.total += node.results.total;                
-                        node.parent.results.ignored += node.results.ignored;       
-                        node.parent.results[node.testObject.name] = node.results;
+                if (typeof node.testObject == "object" && node !== null){
+                    parentNode = node.parent;
+                
+                    if (parentNode){
+                        parentNode.results.include(node.results); 
+                        parentNode.results[node.testObject.name] = node.results;
                     }
                 
                     if (node.testObject instanceof YUITest.TestSuite){
-                        node.testObject.tearDown();
+                        this._execNonTestMethod(node, "tearDown", false);
                         node.results.duration = (new Date()) - node._start;
                         this.fire({ type: this.TEST_SUITE_COMPLETE_EVENT, testSuite: node.testObject, results: node.results});
                     } else if (node.testObject instanceof YUITest.TestCase){
+                        this._execNonTestMethod(node, "destroy", false);
                         node.results.duration = (new Date()) - node._start;
                         this.fire({ type: this.TEST_CASE_COMPLETE_EVENT, testCase: node.testObject, results: node.results});
                     }      
@@ -407,6 +451,43 @@
             },
             
             /**
+             * Executes a non-test method (init, setUp, tearDown, destroy)
+             * and traps an errors. If an error occurs, an error event is
+             * fired.
+             * @param {Object} node The test node in the testing tree.
+             * @param {String} methodName The name of the method to execute.
+             * @param {Boolean} allowAsync Determines if the method can be called asynchronously.
+             * @return {Boolean} True if an async method was called, false if not.
+             * @method _execNonTestMethod
+             * @private
+             */
+            _execNonTestMethod: function(node, methodName, allowAsync){
+                var testObject = node.testObject,
+                    event = { type: this.ERROR_EVENT };
+                try {
+                    if (allowAsync && testObject["async:" + methodName]){
+                        testObject["async:" + methodName](this._context);
+                        return true;
+                    } else {
+                        testObject[methodName](this._context);
+                    }
+                } catch (ex){
+                    node.results.errors++;
+                    event.error = ex;
+                    event.methodName = methodName;
+                    if (testObject instanceof YUITest.TestCase){
+                        event.testCase = testObject;
+                    } else {
+                        event.testSuite = testSuite;
+                    }
+                    
+                    this.fire(event);
+                }  
+
+                return false;
+            },
+            
+            /**
              * Runs a test case or test suite, returning the results.
              * @param {YUITest.TestCase|YUITest.TestSuite} testObject The test case or test suite to run.
              * @return {Object} Results of the execution with properties passed, failed, and total.
@@ -437,10 +518,26 @@
                         if (testObject instanceof YUITest.TestSuite){
                             this.fire({ type: this.TEST_SUITE_BEGIN_EVENT, testSuite: testObject });
                             node._start = new Date();
-                            testObject.setUp();
+                            this._execNonTestMethod(node, "setUp" ,false);
                         } else if (testObject instanceof YUITest.TestCase){
                             this.fire({ type: this.TEST_CASE_BEGIN_EVENT, testCase: testObject });
                             node._start = new Date();
+                            
+                            //regular or async init
+                            /*try {
+                                if (testObject["async:init"]){
+                                    testObject["async:init"](this._context);
+                                    return;
+                                } else {
+                                    testObject.init(this._context);
+                                }
+                            } catch (ex){
+                                node.results.errors++;
+                                this.fire({ type: this.ERROR_EVENT, error: ex, testCase: testObject, methodName: "init" });
+                            }*/
+                            if(this._execNonTestMethod(node, "init", true)){
+                                return;
+                            }
                         }
                         
                         //some environments don't support setTimeout
@@ -484,7 +581,8 @@
                 }
 
                 //get the "should" test cases
-                var shouldFail = (testCase._should.fail || {})[testName];
+                var shouldFail = testName.indexOf("fail:") === 0 ||
+                                    (testCase._should.fail || {})[testName];
                 var shouldError = (testCase._should.error || {})[testName];
                 
                 //variable to hold whether or not the test failed
@@ -495,7 +593,7 @@
                 try {
                 
                     //run the test
-                    segment.apply(testCase);                    
+                    segment.call(testCase, this._context);                    
                 
                     //if the test hasn't already failed and doesn't have any asserts...
                     if(YUITest.Assert._getCount() == 0){
@@ -589,7 +687,7 @@
                 }
                 
                 //run the tear down
-                testCase.tearDown();
+                this._execNonTestMethod(node.parent, "tearDown", false);
                 
                 //reset the assert count
                 YUITest.Assert._reset();
@@ -660,12 +758,14 @@
             _runTest : function (node) {
             
                 //get relevant information
-                var testName = node.testObject;
-                var testCase = node.parent.testObject;
-                var test = testCase[testName];
+                var testName = node.testObject,
+                    testCase = node.parent.testObject,
+                    test = testCase[testName],
                 
-                //get the "should" test cases
-                var shouldIgnore = (testCase._should.ignore || {})[testName];
+                    //get the "should" test cases
+                    shouldIgnore = testName.indexOf("ignore:") === 0 ||
+                                    !inGroups(testCase.groups, this._groups) ||
+                                    (testCase._should.ignore || {})[testName];   //deprecated
                 
                 //figure out if the test should be ignored or not
                 if (shouldIgnore){
@@ -675,7 +775,7 @@
                         result: "ignore",
                         message: "Test ignored",
                         type: "test",
-                        name: testName
+                        name: testName.indexOf("ignore:") === 0 ? testName.substring(7) : testName
                     };
                     
                     node.parent.results.ignored++;
@@ -698,7 +798,7 @@
                     node._start = new Date();
                 
                     //run the setup
-                    testCase.setUp();
+                    this._execNonTestMethod(node.parent, "setUp", false);
                     
                     //now call the body of the test
                     this._resumeTest(test);                
@@ -820,6 +920,29 @@
             },
             
             /**
+             * Used to continue processing when a method marked with
+             * "async:" is executed. This should not be used in test
+             * methods, only in init(). Each argument is a string, and
+             * when the returned function is executed, the arguments
+             * are assigned to the context data object using the string
+             * as the key name (value is the argument itself).
+             * @private
+             * @return {Function} A callback function.
+             */
+            callback: function(){
+                var names   = arguments,
+                    data    = this._context,
+                    that    = this;
+                    
+                return function(){
+                    for (var i=0; i < arguments.length; i++){
+                        data[names[i]] = arguments[i];
+                    }
+                    that._run();
+                };
+            },
+            
+            /**
              * Resumes the TestRunner after wait() was called.
              * @param {Function} segment The function to run as the rest
              *      of the haulted test.
@@ -837,26 +960,34 @@
         
             /**
              * Runs the test suite.
-             * @param {Boolean} oldMode (Optional) Specifies that the <= 2.8 way of
-             *      internally managing test suites should be used.             
+             * @param {Object|Boolean} options (Optional) Options for the runner:
+             *      <code>oldMode</code> indicates the TestRunner should work in the YUI <= 2.8 way
+             *      of internally managing test suites. <code>groups</code> is an array
+             *      of test groups indicating which tests to run.
              * @return {Void}
              * @method run
              * @static
              */
-            run : function (oldMode) {
+            run : function (options) {
+
+                options = options || {};
                 
                 //pointer to runner to avoid scope issues 
-                var runner = YUITest.TestRunner;
+                var runner  = YUITest.TestRunner,
+                    oldMode = options.oldMode;
+                
                 
                 //if there's only one suite on the masterSuite, move it up
                 if (!oldMode && this.masterSuite.items.length == 1 && this.masterSuite.items[0] instanceof YUITest.TestSuite){
                     this.masterSuite = this.masterSuite.items[0];
                 }                
-    
-                //build the test tree
+                
+                //determine if there are any groups to filter on
+                runner._groups = (options.groups instanceof Array) ? "," + options.groups.join(",") + "," : "";
+                
+                //initialize the runner
                 runner._buildTestTree();
-                            
-                //set when the test started
+                runner._context = {};
                 runner._root._start = new Date();
                 
                 //fire the begin event

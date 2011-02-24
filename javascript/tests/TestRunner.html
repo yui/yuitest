@@ -1,17 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
 <title>YUI Test</title>
 
 <!-- JS -->
-<script type="text/javascript" src="http://yui.yahooapis.com/combo?3.0.0/build/yui/yui-min.js"></script><script type="text/javascript" src="../build/yuitest/yuitest.js"></script>
+<script type="text/javascript" src="../../../yui3/build/yui/yui.js"></script>
+<script type="text/javascript" src="../build/yuitest/yuitest.js"></script>
 <style type="text/css">
 .passed {
     color: green;
 }
 
-.failed {
+.failed, .error {
     color: red;
+}
+
+.ignored {
+    color: silver;
 }
 </style>
 
@@ -72,7 +77,8 @@ YUI().use("json", function(Y){
                         YUITest.TestRunner.TEST_FAIL_EVENT,
                         YUITest.TestRunner.TEST_IGNORE_EVENT,
                         YUITest.TestRunner.COMPLETE_EVENT,
-                        YUITest.TestRunner.BEGIN_EVENT
+                        YUITest.TestRunner.BEGIN_EVENT,
+                        YUITest.TestRunner.ERROR_EVENT
                     ];					
                                         
     for (var i=0; i < events.length; i++){
@@ -95,14 +101,21 @@ YUI().use("json", function(Y){
                         node = document.createElement("li");
                         node.className = "failed";
                         node.innerHTML = event.testName + ": " + event.error.getMessage().replace(/\n/g, "<br>");                    
-                        //message = event.testName + ": failed.\n" + event.error.getMessage();
-                        //messageType = "fail";
+                        resultNode.appendChild(node);
+                        break;
+                        
+                    case this.ERROR_EVENT:
+                        node = document.createElement("li");
+                        node.className = "error";
+                        node.innerHTML = "ERROR: " + event.methodName + "() caused an error: " + event.error.message.replace(/\n/g, "<br>");                    
                         resultNode.appendChild(node);
                         break;
                         
                     case this.TEST_IGNORE_EVENT:
-                        message = event.testName + ": ignored.";
-                        messageType = "ignore";
+                        node = document.createElement("li");
+                        node.className = "ignored";
+                        node.innerHTML = event.testName;
+                        resultNode.appendChild(node);
                         break;
                         
                     case this.TEST_PASS_EVENT:
@@ -121,7 +134,7 @@ YUI().use("json", function(Y){
                        
                     case this.TEST_CASE_COMPLETE_EVENT:
                     case this.TEST_SUITE_COMPLETE_EVENT:
-                        resultNode.previousSibling.innerHTML += " (passed: " + event.results.passed + ", failed: " + event.results.failed + ", total: " + event.results.total + ")";
+                        resultNode.previousSibling.innerHTML += " (passed: " + event.results.passed + ", failed: " + event.results.failed + ", total: " + event.results.total + ", errors: " + event.results.errors +  ", ignored: " + event.results.ignored + ")";
                         resultNode = resultNode.parentNode;
                         break;
                         

@@ -1,6 +1,7 @@
 (function(){
-    
-    var Assert          = YUITest.Assert,
+
+    var YUITest         = this.YUITest || require("yuitest"),
+        Assert          = YUITest.Assert,
         ObjectAssert    = YUITest.ObjectAssert;
     
     //-------------------------------------------------------------------------
@@ -16,6 +17,7 @@
     suite.add(new YUITest.TestCase({
 
         name: "Test Results Formatting Tests",
+        groups: ["reporting", "common"],
         
         setUp : function(){
             this.simpleReport = {

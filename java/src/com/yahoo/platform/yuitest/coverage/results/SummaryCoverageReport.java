@@ -70,16 +70,28 @@ public class SummaryCoverageReport {
     public SummaryCoverageReport(Reader in) throws IOException, JSONException {
         StringBuilder builder = new StringBuilder();
         int c;
-        
+
         while((c = in.read()) != -1){
             builder.append((char)c);
         }
-        
+
         this.data = new JSONObject(builder.toString());
         this.directories = new HashMap<String,DirectoryCoverageReport>();
         generateFileReports();
     }
-    
+
+    /**
+     * Creates a new report object from a reader.
+     * @param in The reader containing JSON information.
+     * @throws java.io.IOException
+     * @throws org.json.JSONException
+     */
+    public SummaryCoverageReport(String input) throws IOException, JSONException {
+        this.data = new JSONObject(input);
+        this.directories = new HashMap<String,DirectoryCoverageReport>();
+        generateFileReports();
+    }
+
     /**
      * Creates a new report object from a JSON object.
      * @param data The JSON object containing coverage data.

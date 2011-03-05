@@ -387,7 +387,7 @@ public class SeleniumDriver {
 
             SummaryCoverageReport coverageReport = null;
             if (coverageResults != null){
-                coverageReport = new SummaryCoverageReport(new StringReader(coverageResults));
+                coverageReport = new SummaryCoverageReport(coverageResults);
                 result.setCoverageReport(coverageReport);
             }
 

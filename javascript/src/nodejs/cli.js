@@ -5,7 +5,7 @@
 var fs      = require("fs"),
     path    = require("path"),
     vm      = null,
-    YUITest = require("./lib/yuitest-node.js"),
+    YUITest = require("yuitest"),
     TestRunner = YUITest.TestRunner,
     stdout  = process.stdout,
     stderr  = process.stderr || stdout;   //stderr added in 0.3.8

@@ -46,6 +46,11 @@
                 <pathelement location="${lib.dir}/${selenium.jar}"/>
             </classpath>
         </javac>
+
+        <!-- copy over XML/JSON/JS files for testing-->
+        <copy todir="${tmp.dir}/classes/${codepath.root.dir}">
+            <fileset dir="${src.dir}/${codepath.root.dir}" includes="**/*.stg"/>
+        </copy>
         
     </target>
  
@@ -166,10 +171,11 @@
             </classpath>
         </javac>
         
-        <!-- copy over XML/JSON files for testing-->
+        <!-- copy over XML/JSON/JS files for testing-->
         <copy todir="${tmp.dir}/testclasses/${codepath.root.dir}">
             <fileset dir="${tests.dir}/${codepath.root.dir}" includes="**/*.xml"/>
             <fileset dir="${tests.dir}/${codepath.root.dir}" includes="**/*.json"/>
+            <fileset dir="${tests.dir}/${codepath.root.dir}" includes="**/*.js"/>
         </copy>
     </target>
 
@@ -183,6 +189,7 @@
                     <pathelement location="${tmp.dir}/classes"/>
                     <pathelement location="${tmp.dir}/testclasses"/>
                     <pathelement location="${lib.dir}/${jargs.jar}"/>
+                    <pathelement location="${lib.dir}/${antlr.jar}"/>
                     <pathelement location="${lib.dir}/${selenium.jar}"/>
                     <pathelement location="${lib.dir}/${junit.jar}"/>
                 </classpath>

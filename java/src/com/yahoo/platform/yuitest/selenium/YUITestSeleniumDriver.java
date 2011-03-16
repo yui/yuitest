@@ -202,6 +202,7 @@ public class YUITestSeleniumDriver {
             
         } catch (CmdLineParser.OptionException e) {
 
+            System.err.println("[ERROR] " + e.getMessage());
             usage();
             System.exit(1);
 

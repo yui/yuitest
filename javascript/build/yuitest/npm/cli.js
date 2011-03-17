@@ -66,7 +66,7 @@ function outputHelp(){
         "Global Options",
         "  --groups groupname  Run only tests cases that are part of groupname.",
         "  --help              Displays this information.",
-        "  --output format     Specifies output format (junitxml, tap, xunit).",
+        "  --format <format>   Specifies output format (junitxml, tap, xunit).",
         "  --verbose           Display informational messages and warnings.",
         "  --webcompat         Load tests designed for use in browsers."   
     ].join("\n") + "\n\n");

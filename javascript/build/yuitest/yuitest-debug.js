@@ -2772,6 +2772,10 @@ YUITest.Event = (function() {
         if (typeof button != "number"){
             button = 0; 
         }
+        
+        if (!relatedTarget){
+            relatedTarget = null;
+        }
 
         //try to create a mouse event
         var customEvent /*:MouseEvent*/ = null;

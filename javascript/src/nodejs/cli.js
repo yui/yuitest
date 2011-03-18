@@ -5,7 +5,7 @@
 var fs      = require("fs"),
     path    = require("path"),
     vm      = null,
-    YUITest = require("./lib/yuitest-node.js"),
+    YUITest = require("yuitest"),
     TestRunner = YUITest.TestRunner,
     stdout  = process.stdout,
     stderr  = process.stderr || stdout;   //stderr added in 0.3.8
@@ -21,7 +21,7 @@ var options = {
     verbose: false,
     webcompat: false,
     help: false,
-    output: false
+    format: "xunit"
 };
 
 //-----------------------------------------------------------------------------
@@ -86,7 +86,7 @@ while(arg){
         options[arg.substring(2)] = true;
         
         //get the next argument
-        if (arg == "--groups" || arg == "--output"){
+        if (arg == "--groups" || arg == "--format"){
             options[arg.substring(2)] = args.shift();
         }
     } else {
@@ -115,7 +115,7 @@ files = files.map(function(filename){
 // Determine output format
 //-----------------------------------------------------------------------------
 
-switch(options.output){
+switch(options.format){
     case "junitxml":
         if (options.verbose){
             stderr.write("[INFO] Using JUnitXML output format.\n");

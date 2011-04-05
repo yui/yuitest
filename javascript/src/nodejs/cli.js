@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /*
  * YUI Test Node.js Command Line Interface
  */
@@ -136,13 +138,11 @@ switch(options.format){
 }
 
 //-----------------------------------------------------------------------------
-// Set up TestRunner
+// Make sure exit code is 1 when there are failures
 //-----------------------------------------------------------------------------
 
-TestRunner.subscribe("complete", function(event){
-
-    //if there are failed tests, exit with code 1
-    if (event.results.failed){
+process.on("exit", function(){
+    if (TestRunner.getResults().failed){
         process.exit(1);
     }
 });

@@ -1,6 +1,6 @@
 {
     "name": "yuitest",
-    "version": "0.6.7",
+    "version": "0.6.8",
     "description": "YUI Test Library on NodeJS",
     "author": "Nicholas C. Zakas <nzakas@yahoo-inc.com>",
     "bugs": { "web" : "http://yuilibrary.com/projects/yuitest/issues" },

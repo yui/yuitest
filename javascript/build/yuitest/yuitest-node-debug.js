@@ -1948,13 +1948,16 @@ YUITest.TestCase.prototype = {
      * @method wait
      */
     wait : function (segment, delay){
-		delay = (typeof delay == "number" ? delay : 10000);
-        if (typeof segment == "function"){
-            throw new YUITest.Wait(segment, delay);
+        
+        var actualDelay = (typeof segment == "number" ? segment : delay);
+        actualDelay = (typeof actualDelay == "number" ? actualDelay : 10000);
+    
+		if (typeof segment == "function"){
+            throw new YUITest.Wait(segment, actualDelay);
         } else {
             throw new YUITest.Wait(function(){
                 YUITest.Assert.fail("Timeout: wait() called but resume() never called.");
-            }, delay);
+            }, actualDelay);
         }
     },
     

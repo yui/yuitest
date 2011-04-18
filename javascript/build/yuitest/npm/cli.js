@@ -142,7 +142,8 @@ switch(options.format){
 //-----------------------------------------------------------------------------
 
 process.on("exit", function(){
-    if (TestRunner.getResults().failed){
+    var results = TestRunner.getResults();
+    if (results && results.failed){
         process.exit(1);
     }
 });

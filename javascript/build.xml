@@ -17,7 +17,8 @@
         <mkdir dir="${global.build.npm}/lib"/>
         <copy file="${global.build.base}/yuitest/yuitest-node.js" tofile="${global.build.npm}/lib/yuitest-node.js"/>
         <copy file="${component.jsfiles.base}/nodejs/cli.js" tofile="${global.build.npm}/cli.js"/>
-        
+        <!-- Unix can't deal with errant \n characters, to double-check here -->
+        <fixcrlf srcdir="${global.build.npm}" includes="**/*.js" eol="lf"/>
     </target>
 	
 	<property file="build.properties" />	

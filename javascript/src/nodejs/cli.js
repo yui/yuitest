@@ -108,9 +108,9 @@ if (options.help){
     process.exit(0);
 }
 
-//get the full path names
+//Convert any relative paths to absolute paths
 files = files.map(function(filename){
-    return path.join(process.cwd(), filename);
+    return filename.charAt(0) === "/" ? filename : path.join(process.cwd(), filename);
 });
 
 //-----------------------------------------------------------------------------

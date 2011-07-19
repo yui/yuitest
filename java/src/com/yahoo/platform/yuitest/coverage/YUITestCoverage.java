@@ -10,6 +10,10 @@ package com.yahoo.platform.yuitest.coverage;
 import jargs.gnu.CmdLineParser;
 import java.io.*;
 import java.nio.charset.Charset;
+import java.util.Enumeration;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Vector;
 
 /**
  * Main YUI Test Coverage class.
@@ -28,6 +32,7 @@ public class YUITestCoverage {
         CmdLineParser.Option charsetOpt = parser.addStringOption("charset");
         CmdLineParser.Option outputLocationOpt = parser.addStringOption('o', "output");
         CmdLineParser.Option directoryOpt = parser.addBooleanOption('d', "dir");
+        CmdLineParser.Option excludeOpt = parser.addStringOption('x', "exclude");
 
         Reader in = null;
         Writer out = null;
@@ -85,10 +90,25 @@ public class YUITestCoverage {
             } else{
 
                 if (directories){
+                    //get exclude values such as filenames, directory names, or regex patterns
+                    Vector<String> excludeValues = (Vector<String>)(parser.getOptionValues(excludeOpt));
+                    Set<String> excludes = new HashSet<String>(); // use a hashset for better lookup performance
+
+                    //normalize fileArgs[0]
+                    String parentPath = (fileArgs[0].endsWith("/")) ? fileArgs[0] : fileArgs[0] + '/';
+                    String skip = "";
+                    for (Enumeration<String> elems = excludeValues.elements(); elems.hasMoreElements(); ) {
+                        skip = parentPath + elems.nextElement();
+                        if (verbose) {
+                            System.out.println("\n[INFO] Skipping instrumentation for " + skip);
+                        }
+                        excludes.add(skip);
+                    }
+
                     DirectoryInstrumenter.setVerbose(verbose);
 
                     //in this case fileArgs[0] and outputLocation are directories
-                    DirectoryInstrumenter.instrument(fileArgs[0], outputLocation);
+                    DirectoryInstrumenter.instrument(fileArgs[0], outputLocation, (HashSet<String>)excludes);
                 } else {
                     FileInstrumenter.setVerbose(verbose);
 

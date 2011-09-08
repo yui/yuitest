@@ -15,7 +15,10 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.BufferedWriter;
+import java.io.ByteArrayOutputStream;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
@@ -81,13 +84,15 @@ public class FileInstrumenter {
 
         Reader in = null;
         Writer out = null;
+        ByteArrayOutputStream bytes = null;
 
         try {
 
             File inputFile = new File(inputFilename);
             
+            bytes = new ByteArrayOutputStream();
             in = new InputStreamReader(new FileInputStream(inputFilename), charset);
-            out = new OutputStreamWriter(new FileOutputStream(outputFilename), charset);
+            out = new BufferedWriter(new OutputStreamWriter(bytes, charset));
 
             //if the file is empty, don't bother instrumenting
             //if (inputFile.length() > 0){
@@ -104,11 +109,23 @@ public class FileInstrumenter {
             }
             throw ex;
         }
-
+        
+        //write out the output file
+        try {
+            out.close(); out = null;
+            
+            if(bytes.size() > 0) {
+                bytes.writeTo(new FileOutputStream(outputFilename));
+            }
+        } catch (IOException e) {
+            System.err.println("[ERROR] " + e.getMessage());
+            if (verbose){
+                e.printStackTrace();
+            }
+        }
+        
         if (verbose) {
             System.err.println("\n[INFO] Created file " + outputFilename + ".");
         }
-
     }
-
 }

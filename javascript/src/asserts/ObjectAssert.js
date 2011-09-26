@@ -20,7 +20,16 @@ YUITest.ObjectAssert = {
      */
     areEqual: function(expected, actual, message) {
         YUITest.Assert._increment();         
-
+        
+        var expectedKeys = YUITest.Object.keys(expected),
+            actualKeys = YUITest.Object.keys(actual);
+        
+        //first check keys array length
+        if (expectedKeys.length != actualKeys.length){
+            YUITest.Assert.fail(YUITest.Assert._formatMessage(message, "Object should have " + expectedKeys.length + " keys but has " + actualKeys.length));
+        }
+        
+        //then check values
         for (var name in expected){
             if (expected.hasOwnProperty(name)){
                 if (expected[name] != actual[name]){
@@ -173,5 +182,5 @@ YUITest.ObjectAssert = {
                 YUITest.Assert.fail(YUITest.Assert._formatMessage(message, "Property '" + properties[i] + "' not found on object."));
             }      
         }
-    }     
+    }    
 };

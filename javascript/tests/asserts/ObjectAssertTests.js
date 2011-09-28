@@ -274,7 +274,80 @@
             ObjectAssert.ownsNoKeys(object);
         }
 
-    }));         
+    }));
+    
+    //-------------------------------------------------------------------------
+    // Test Case for areEqual()
+    //-------------------------------------------------------------------------
+
+    suite.add(new YUITest.TestCase({
+
+        name : "areEqual() Tests",
+
+        _should: {
+            fail: {
+                "areEqual() should fail for objects with differing keys" : 
+                    "Values at key msg are not equal.",
+                "areEqual() should fail for objects with differing values" : 
+                    "Values at key msg are not equal.",
+                "areEqual() should fail for objects with differing numbers of keys": 
+                    "Object should have 1 keys but has 2"
+            }
+        },
+
+        /*
+         * Tests that areEqual() passes when the objects own equivalent properties.
+         */
+        "areEqual() should pass for objects with equivalent properties": function(){
+            var a = { msg: "hi" },
+                b = { msg: "hi" };
+            
+            ObjectAssert.areEqual(a, b);
+        },
+        
+        /*
+         * Tests that areEqual() passes when the objects own no properties.
+         */
+        "areEqual() should pass for object with no keys": function(){
+            var a = {},
+                b = {};
+            
+            ObjectAssert.areEqual(a, b);
+        },
+        
+        /*
+         * Tests that areEqual() fails when the objects have different keys
+         */
+         
+        "areEqual() should fail for objects with differing keys": function(){
+            var a = { msg: "hi" },
+                b = { gsm: "bye"};
+                
+            ObjectAssert.areEqual(a, b);
+        },
+        
+        /*
+         * Tests that areEqual() fails when the objects have different values
+         */
+         
+        "areEqual() should fail for objects with differing values": function(){
+            var a = { msg: "hi" },
+                b = { msg: "bye"};
+                
+            ObjectAssert.areEqual(a, b);
+        },
+        
+        /*
+         * Tests that areEqual() fails when the objects have different numbers of keys.
+         */
+        "areEqual() should fail for objects with differing numbers of keys": function(){
+            var a = { msg: "hi", yui: true },
+                b = { msg: "hi" };
+                
+            ObjectAssert.areEqual(a, b);
+        },
+
+    }));
 
     YUITest.TestRunner.add(suite);
 

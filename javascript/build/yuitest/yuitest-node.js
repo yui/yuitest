@@ -206,7 +206,7 @@ YUITest.Object = {
         'toLocaleString',
         'valueOf'
     ],
-
+    
     /**
      * `true` if this browser has the JScript enumeration bug that prevents
      * enumeration of the properties named in the `_forceEnum` array, `false`
@@ -222,6 +222,21 @@ YUITest.Object = {
      * @static
      */
     _hasEnumBug : !{valueOf: 0}.propertyIsEnumerable('valueOf'),
+    
+    /**
+    * Determines whether or not the provided item is of type object
+    * or function. Note that arrays are also objects, so
+    * <code>YUITest.Object.isObject([]) === true</code>.
+    * @method isObject
+    * @static
+    * @param o The object to test.
+    * @param failfn {boolean} fail if the input is a function.
+    * @return {boolean} true if o is an object.
+    */
+    _isObject : function(o, failfn) {
+        var t = typeof o;
+        return (o && (t === 'object' || (!failfn && (t === 'function' || typeof t === 'function')))) || false;
+    },
     
     /**
      * Returns an array containing the object's enumerable keys. Does not include
@@ -244,8 +259,8 @@ YUITest.Object = {
      * @return {String[]} Array of keys.
      * @static
      */
-    keys : (!unsafeNatives && Object.keys) || function (obj) {
-        if (!Y.Lang.isObject(obj)) {
+    keys : Object.keys || function (obj) {
+        if (!YUITest.Object.isObject(obj)) {
             throw new TypeError('Object.keys called on a non-object');
         }
 

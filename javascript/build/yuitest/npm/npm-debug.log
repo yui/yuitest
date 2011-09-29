@@ -1,0 +1,395 @@
+info it worked if it ends with ok
+verbose cli [ 'node', '/usr/local/bin/npm', 'link', 'yuitest' ]
+info using npm@1.0.12
+info using node@v0.4.10
+verbose config file /home/nicholas/.npmrc
+verbose config file /usr/local/etc/npmrc
+verbose install(where, what) [ '/usr/local/lib', [ 'yuitest' ] ]
+silly testEngine { name: 'npm',
+silly testEngine   description: 'A package manager for node',
+silly testEngine   keywords: 
+silly testEngine    [ 'package manager',
+silly testEngine      'modules',
+silly testEngine      'install',
+silly testEngine      'package.json' ],
+silly testEngine   version: '1.0.12',
+silly testEngine   preferGlobal: true,
+silly testEngine   config: { publishtest: false },
+silly testEngine   homepage: 'http://npmjs.org/',
+silly testEngine   author: 
+silly testEngine    { name: 'Isaac Z. Schlueter',
+silly testEngine      email: 'i@izs.me',
+silly testEngine      url: 'http://blog.izs.me' },
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/isaacs/npm.git' },
+silly testEngine   bugs: 
+silly testEngine    { email: 'npm-@googlegroups.com',
+silly testEngine      url: 'http://github.com/isaacs/npm/issues' },
+silly testEngine   directories: 
+silly testEngine    { doc: './doc',
+silly testEngine      man: './man1',
+silly testEngine      lib: './lib',
+silly testEngine      bin: './bin' },
+silly testEngine   main: 'npm',
+silly testEngine   bin: 
+silly testEngine    { npm: './bin/npm.js',
+silly testEngine      npm_g: './bin/npm.js',
+silly testEngine      'npm-g': './bin/npm.js' },
+silly testEngine   dependencies: 
+silly testEngine    { semver: '1',
+silly testEngine      abbrev: '1',
+silly testEngine      nopt: '1',
+silly testEngine      'node-uuid': '1.2' },
+silly testEngine   bundleDependencies: [ 'semver', 'abbrev', 'nopt', 'node-uuid' ],
+silly testEngine   devDependencies: { ronn: '' },
+silly testEngine   engines: { node: '0.4 || 0.5', npm: '1' },
+silly testEngine   scripts: { test: './test/run.sh', prepublish: 'make doc' },
+silly testEngine   licenses: 
+silly testEngine    [ { type: 'MIT',
+silly testEngine        url: 'http://github.com/isaacs/npm/raw/master/LICENSE' } ],
+silly testEngine   _id: 'npm@1.0.12',
+silly testEngine   contributors: 
+silly testEngine    [ { name: 'Isaac Z. Schlueter',
+silly testEngine        email: 'i@izs.me',
+silly testEngine        url: 'http://blog.izs.me/' },
+silly testEngine      { name: 'Steve Steiner',
+silly testEngine        email: 'ssteinerX@gmail.com',
+silly testEngine        url: 'http://websaucesoftware.com/blog/' },
+silly testEngine      { name: 'Mikeal Rogers',
+silly testEngine        email: 'mikeal.rogers@gmail.com',
+silly testEngine        url: 'http://www.mikealrogers.com/' },
+silly testEngine      { name: 'Aaron Blohowiak',
+silly testEngine        email: 'aaron.blohowiak@gmail.com',
+silly testEngine        url: 'http://aaronblohowiak.com/' },
+silly testEngine      { name: 'Martyn Smith',
+silly testEngine        email: 'martyn@dollyfish.net.nz',
+silly testEngine        url: 'http://dollyfish.net.nz/' },
+silly testEngine      { name: 'Mathias Pettersson',
+silly testEngine        email: 'mape@mape.me',
+silly testEngine        url: 'http://mape.me/' },
+silly testEngine      { name: 'Brian Hammond',
+silly testEngine        email: 'brian@fictorial.com',
+silly testEngine        url: 'http://fictorial.com/' },
+silly testEngine      { name: 'Charlie Robbins',
+silly testEngine        email: 'charlie.robbins@gmail.com',
+silly testEngine        url: 'http://www.charlierobbins.com/' },
+silly testEngine      { name: 'Francisco Treacy',
+silly testEngine        email: 'francisco.treacy@gmail.com',
+silly testEngine        url: 'http://franciscotreacy.com/' },
+silly testEngine      { name: 'Cliffano Subagio',
+silly testEngine        email: 'cliffano@gmail.com',
+silly testEngine        url: 'http://blog.cliffano.com/' },
+silly testEngine      { name: 'Christian Eager',
+silly testEngine        email: 'christian.eager@nokia.com',
+silly testEngine        url: 'http://perpenduum.com' },
+silly testEngine      { name: 'Dav Glass',
+silly testEngine        email: 'davglass@gmail.com',
+silly testEngine        url: 'http://blog.davglass.com' },
+silly testEngine      { name: 'Alex K. Wolfe',
+silly testEngine        email: 'alexkwolfe@gmail.com' },
+silly testEngine      { name: 'James Sanders',
+silly testEngine        email: 'jimmyjazz14@gmail.com',
+silly testEngine        url: 'http://james-sanders.com/' },
+silly testEngine      { name: 'Reid Burke',
+silly testEngine        email: 'me@reidburke.com',
+silly testEngine        url: 'http://reidburke.com/' },
+silly testEngine      { name: 'Arlo Breault',
+silly testEngine        email: 'arlolra@gmail.com',
+silly testEngine        url: 'http://thoughtherder.com/' },
+silly testEngine      { name: 'Timo Derstappen',
+silly testEngine        email: 'teemow@gmail.com',
+silly testEngine        url: 'http://teemow.com' },
+silly testEngine      { name: 'Bradley Meck',
+silly testEngine        email: 'bradley.meck@gmail.com' },
+silly testEngine      { name: 'Bart Teeuwisse',
+silly testEngine        email: 'bart.teeuwisse@thecodemill.biz',
+silly testEngine        url: 'http://thecodemill.biz/' },
+silly testEngine      { name: 'Ben Noordhuis',
+silly testEngine        email: 'info@bnoordhuis.nl',
+silly testEngine        url: 'http://bnoordhuis.nl/' },
+silly testEngine      { name: 'Tor Valamo',
+silly testEngine        email: 'tor.valamo@gmail.com',
+silly testEngine        url: 'http://www.magnimedia.no/' },
+silly testEngine      { name: 'Whyme.Lyu',
+silly testEngine        email: '5longluna@gmail.com',
+silly testEngine        url: 'http://whyme.kuantu.com/' },
+silly testEngine      { name: 'Olivier Melcher',
+silly testEngine        email: 'olivier.melcher@gmail.com' },
+silly testEngine      { name: 'Tomaž Muraus',
+silly testEngine        email: 'kami@k5-storitve.net',
+silly testEngine        url: 'http://www.tomaz-muraus.info' },
+silly testEngine      { name: 'Evan Meagher',
+silly testEngine        email: 'evan.meagher@gmail.com',
+silly testEngine        url: 'http://evanmeagher.net/' },
+silly testEngine      { name: 'Orlando Vazquez',
+silly testEngine        email: 'ovazquez@gmail.com',
+silly testEngine        url: 'http://2wycked.net/' },
+silly testEngine      { name: 'George Miroshnykov',
+silly testEngine        email: 'gmiroshnykov@lohika.com' },
+silly testEngine      { name: 'Geoff Flarity',
+silly testEngine        url: 'http://ca.linkedin.com/pub/geoff-flarity/a/536/43a' },
+silly testEngine      { name: 'Pete Kruckenberg',
+silly testEngine        email: 'pete@kruckenberg.com' },
+silly testEngine      { name: 'Laurie Harper',
+silly testEngine        email: 'laurie@holoweb.net',
+silly testEngine        url: 'http://laurie.holoweb.net/' },
+silly testEngine      { name: 'Chris Wong',
+silly testEngine        email: 'chris@chriswongstudio.com' },
+silly testEngine      { name: 'Max Goodman',
+silly testEngine        email: 'c@chromacode.com',
+silly testEngine        url: 'http://chromacode.com/' },
+silly testEngine      { name: 'Scott Bronson',
+silly testEngine        email: 'brons_github@rinspin.com' },
+silly testEngine      { name: 'Federico Romero',
+silly testEngine        email: 'federomero@gmail.com' },
+silly testEngine      { name: 'Visnu Pitiyanuvath',
+silly testEngine        email: 'visnupx@gmail.com',
+silly testEngine        url: 'http://visnup.com' },
+silly testEngine      { name: 'Irakli Gozalishvili',
+silly testEngine        email: 'rfobic@gmail.com',
+silly testEngine        url: 'http://jeditoolkit.com/' },
+silly testEngine      { name: 'Mark Cahill',
+silly testEngine        email: 'mark@tiemonster.info',
+silly testEngine        url: 'http://www.tiemonster.info/' },
+silly testEngine      { name: 'Zearin', email: 'zearin@gonk.net' } ],
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.12',
+silly testEngine   _nodeVersion: 'v0.4.10',
+silly testEngine   _defaultsLoaded: true,
+silly testEngine   man: 
+silly testEngine    [ 'man1/test.1',
+silly testEngine      'man1/semver.1',
+silly testEngine      'man1/adduser.1',
+silly testEngine      'man1/list.1',
+silly testEngine      'man1/tag.1',
+silly testEngine      'man1/restart.1',
+silly testEngine      'man1/removing-npm.1',
+silly testEngine      'man1/config.1',
+silly testEngine      'man1/bundle.1',
+silly testEngine      'man1/search.1',
+silly testEngine      'man1/get.1',
+silly testEngine      'man1/find.1',
+silly testEngine      'man1/deprecate.1',
+silly testEngine      'man1/view.1',
+silly testEngine      'man1/outdated.1',
+silly testEngine      'man1/init.1',
+silly testEngine      'man1/explore.1',
+silly testEngine      'man1/help-search.1',
+silly testEngine      'man1/whoami.1',
+silly testEngine      'man1/set.1',
+silly testEngine      'man1/json.1',
+silly testEngine      'man1/build.1',
+silly testEngine      'man1/developers.1',
+silly testEngine      'man1/faq.1',
+silly testEngine      'man1/link.1',
+silly testEngine      'man1/prune.1',
+silly testEngine      'man1/ln.1',
+silly testEngine      'man1/update.1',
+silly testEngine      'man1/uninstall.1',
+silly testEngine      'man1/edit.1',
+silly testEngine      'man1/folders.1',
+silly testEngine      'man1/npm.1',
+silly testEngine      'man1/cache.1',
+silly testEngine      'man1/scripts.1',
+silly testEngine      'man1/ls.1',
+silly testEngine      'man1/changelog.1',
+silly testEngine      'man1/run-script.1',
+silly testEngine      'man1/owner.1',
+silly testEngine      'man1/completion.1',
+silly testEngine      'man1/coding-style.1',
+silly testEngine      'man1/stop.1',
+silly testEngine      'man1/bin.1',
+silly testEngine      'man1/prefix.1',
+silly testEngine      'man1/root.1',
+silly testEngine      'man1/version.1',
+silly testEngine      'man1/rm.1',
+silly testEngine      'man1/registry.1',
+silly testEngine      'man1/docs.1',
+silly testEngine      'man1/start.1',
+silly testEngine      'man1/publish.1',
+silly testEngine      'man1/global.1',
+silly testEngine      'man1/unpublish.1',
+silly testEngine      'man1/rebuild.1',
+silly testEngine      'man1/author.1',
+silly testEngine      'man1/install.1' ] }
+verbose caching /usr/local/lib/node_modules/npm/package.json
+verbose loadDefaults npm@1.0.12
+verbose into /usr/local/lib [ 'yuitest' ]
+verbose cache add [ 'yuitest', null ]
+info addNamed [ 'yuitest', '' ]
+verbose addNamed [ null, '' ]
+verbose GET yuitest
+verbose raw, before any munging yuitest
+verbose url resolving [ 'http://registry.npmjs.org/', './yuitest' ]
+verbose url resolved http://registry.npmjs.org/yuitest
+verbose url parsed { protocol: 'http:',
+verbose url parsed   slashes: true,
+verbose url parsed   host: 'registry.npmjs.org',
+verbose url parsed   hostname: 'registry.npmjs.org',
+verbose url parsed   href: 'http://registry.npmjs.org/yuitest',
+verbose url parsed   pathname: '/yuitest' }
+verbose etag "8Z5AK2GKWR4NC21WWCHP5HTRL"
+verbose response http://registry.npmjs.org/yuitest
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.1.0 (Erlang OTP/R14B03)',
+silly get cb     etag: '"8Z5AK2GKWR4NC21WWCHP5HTRL"',
+silly get cb     date: 'Thu, 29 Sep 2011 20:50:08 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag yuitest from cache
+verbose GET yuitest/0.6.9
+verbose raw, before any munging yuitest/0.6.9
+verbose url resolving [ 'http://registry.npmjs.org/', './yuitest/0.6.9' ]
+verbose url resolved http://registry.npmjs.org/yuitest/0.6.9
+verbose url parsed { protocol: 'http:',
+verbose url parsed   slashes: true,
+verbose url parsed   host: 'registry.npmjs.org',
+verbose url parsed   hostname: 'registry.npmjs.org',
+verbose url parsed   href: 'http://registry.npmjs.org/yuitest/0.6.9',
+verbose url parsed   pathname: '/yuitest/0.6.9' }
+verbose etag "8Z5AK2GKWR4NC21WWCHP5HTRL"
+verbose response http://registry.npmjs.org/yuitest/0.6.9
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.1.0 (Erlang OTP/R14B03)',
+silly get cb     etag: '"8Z5AK2GKWR4NC21WWCHP5HTRL"',
+silly get cb     date: 'Thu, 29 Sep 2011 20:50:08 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag yuitest/0.6.9 from cache
+verbose bin dist [ '0.4-ares1.7.4-ev4.4-openssl0.9.8o-v83.1.8.26-linux-2.6.35-22-generic',
+verbose bin dist   { shasum: 'c99ad2decb09e3bd1bb7c661803d63d5fde36ad0',
+verbose bin dist     tarball: 'http://registry.npmjs.org/yuitest/-/yuitest-0.6.9.tgz' } ]
+silly resolved [ { name: 'yuitest',
+silly resolved     version: '0.6.9',
+silly resolved     description: 'YUI Test Library on NodeJS',
+silly resolved     author: 
+silly resolved      { name: 'Nicholas C. Zakas',
+silly resolved        email: 'nzakas@yahoo-inc.com' },
+silly resolved     bugs: { url: 'http://yuilibrary.com/projects/yuitest/issues' },
+silly resolved     os: [ 'darwin', 'linux' ],
+silly resolved     contributors: [],
+silly resolved     engines: { node: '>=0.2.0' },
+silly resolved     directories: { lib: 'lib' },
+silly resolved     main: './lib/yuitest-node.js',
+silly resolved     bin: { yuitest: './cli.js' },
+silly resolved     licenses: 
+silly resolved      [ { type: 'BSD',
+silly resolved          url: 'http://developer.yahoo.com/yui/license.html' } ],
+silly resolved     repository: 
+silly resolved      { type: 'git',
+silly resolved        url: 'git://github.com/yui/yuitest.git' },
+silly resolved     _id: 'yuitest@0.6.9',
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '0.3.18',
+silly resolved     _nodeVersion: 'v0.4.0',
+silly resolved     files: [ '' ],
+silly resolved     _defaultsLoaded: true,
+silly resolved     dist: 
+silly resolved      { shasum: 'c99ad2decb09e3bd1bb7c661803d63d5fde36ad0',
+silly resolved        tarball: 'http://registry.npmjs.org/yuitest/-/yuitest-0.6.9.tgz' },
+silly resolved     scripts: {} } ]
+info into /usr/local/lib yuitest@0.6.9
+info installOne yuitest@0.6.9
+info unbuild /usr/local/lib/node_modules/yuitest
+silly testEngine { name: 'yuitest',
+silly testEngine   version: '0.6.9',
+silly testEngine   description: 'YUI Test Library on NodeJS',
+silly testEngine   author: 
+silly testEngine    { name: 'Nicholas C. Zakas',
+silly testEngine      email: 'nzakas@yahoo-inc.com' },
+silly testEngine   bugs: { url: 'http://yuilibrary.com/projects/yuitest/issues' },
+silly testEngine   os: [ 'darwin', 'linux' ],
+silly testEngine   contributors: [],
+silly testEngine   engines: { node: '>=0.2.0' },
+silly testEngine   directories: { lib: 'lib' },
+silly testEngine   main: './lib/yuitest-node.js',
+silly testEngine   bin: { yuitest: './cli.js' },
+silly testEngine   licenses: 
+silly testEngine    [ { type: 'BSD',
+silly testEngine        url: 'http://developer.yahoo.com/yui/license.html' } ],
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/yui/yuitest.git' },
+silly testEngine   _id: 'yuitest@0.6.9',
+silly testEngine   dependencies: {},
+silly testEngine   devDependencies: {},
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.12',
+silly testEngine   _nodeVersion: 'v0.4.10',
+silly testEngine   _defaultsLoaded: true,
+silly testEngine   dist: { shasum: 'e0e0f30f66f5879d581a8f6d8dd6d6ec0105b990' } }
+verbose caching /home/nicholas/.npm/yuitest/0.6.9/package.json
+verbose mkdir done: /usr/local/lib/node_modules/___yuitest.npm 755
+verbose unpack_ uid, gid [ 1000, 1000 ]
+verbose unpackTarget /usr/local/lib/node_modules/yuitest
+silly gunzTarPerm modes [ '755', '644' ]
+verbose success gzip "--decompress" "--stdout" "/home/nicholas/.npm/yuitest/0.6.9/package.tgz"
+verbose success tar "-mvxpf" "-" "--no-same-owner" "-C" "/usr/local/lib/node_modules/___yuitest.npm"
+silly asyncMap in gTP /usr/local/lib/node_modules/___yuitest.npm/package/
+silly asyncMap in gTP /usr/local/lib/node_modules/___yuitest.npm/package/package.json
+silly asyncMap in gTP /usr/local/lib/node_modules/___yuitest.npm/package/cli.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___yuitest.npm/package/lib/
+silly asyncMap in gTP /usr/local/lib/node_modules/___yuitest.npm/package/lib/yuitest-node.js
+verbose gunzed /usr/local/lib/node_modules/___yuitest.npm/package
+verbose rm'ed /usr/local/lib/node_modules/yuitest
+verbose renamed [ '/usr/local/lib/node_modules/___yuitest.npm/package',
+verbose renamed   '/usr/local/lib/node_modules/yuitest' ]
+silly testEngine { name: 'yuitest',
+silly testEngine   version: '0.6.9',
+silly testEngine   description: 'YUI Test Library on NodeJS',
+silly testEngine   author: 
+silly testEngine    { name: 'Nicholas C. Zakas',
+silly testEngine      email: 'nzakas@yahoo-inc.com' },
+silly testEngine   bugs: { url: 'http://yuilibrary.com/projects/yuitest/issues' },
+silly testEngine   os: [ 'darwin', 'linux' ],
+silly testEngine   contributors: [],
+silly testEngine   engines: { node: '>=0.2.0' },
+silly testEngine   directories: { lib: 'lib' },
+silly testEngine   main: './lib/yuitest-node.js',
+silly testEngine   bin: { yuitest: './cli.js' },
+silly testEngine   licenses: 
+silly testEngine    [ { type: 'BSD',
+silly testEngine        url: 'http://developer.yahoo.com/yui/license.html' } ],
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/yui/yuitest.git' },
+silly testEngine   _id: 'yuitest@0.6.9',
+silly testEngine   dependencies: {},
+silly testEngine   devDependencies: {},
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.12',
+silly testEngine   _nodeVersion: 'v0.4.10',
+silly testEngine   _defaultsLoaded: true,
+silly testEngine   scripts: {} }
+verbose caching /usr/local/lib/node_modules/yuitest/package.json
+verbose loadDefaults yuitest@0.6.9
+info preinstall yuitest@0.6.9
+verbose from cache /usr/local/lib/node_modules/yuitest/package.json
+verbose into /usr/local/lib/node_modules/yuitest []
+silly resolved []
+verbose about to build /usr/local/lib/node_modules/yuitest
+info build /usr/local/lib/node_modules/yuitest
+verbose from cache /usr/local/lib/node_modules/yuitest/package.json
+verbose linkStuff [ false, false, false, '/usr/local/lib/node_modules' ]
+info linkStuff yuitest@0.6.9
+verbose linkBins yuitest@0.6.9
+verbose bins linking [ { yuitest: './cli.js' },
+verbose bins linking   '/usr/local/lib/node_modules/.bin',
+verbose bins linking   false ]
+verbose linkMans yuitest@0.6.9
+verbose rebuildBundles yuitest@0.6.9
+info install yuitest@0.6.9
+info postinstall yuitest@0.6.9
+verbose installOne cb yuitest@0.6.9
+info unbuild /home/nicholas/share/yui/yuitest/javascript/build/yuitest/npm/node_modules/yuitest
+verbose link symlinking /usr/local/lib/node_modules/yuitest to /home/nicholas/share/yui/yuitest/javascript/build/yuitest/npm/node_modules/yuitest
+verbose mkdir done: /home/nicholas/share/yui/yuitest/javascript/build/yuitest/npm/node_modules 755
+ERR! Error: EPERM, Operation not permitted '/usr/local/lib/node_modules/yuitest'
+ERR! 
+ERR! Please use 'sudo' or log in as root to run this command.
+ERR!     sudo npm "link" "yuitest"
+ERR! or set the 'unsafe-perm' config var to true.
+ERR!     npm config set unsafe-perm true
+ERR! 
+ERR! System Linux 2.6.35-22-generic
+ERR! command "node" "/usr/local/bin/npm" "link" "yuitest"
+verbose exit [ 1, true ]

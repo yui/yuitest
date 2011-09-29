@@ -6,18 +6,17 @@
  * @class Format
  * @constructor
  */
-YUITest.Node.CLI.Format = function(format){
+YUITest.CLI.Format = function(format){
 
-    var testRunner  = YUITest.TestRunner;
-        
+    var testRunner  = YUITest.TestRunner,
+        cli         = YUITest.CLI;
 
     //handles test runner events
     function handleEvent(event){
     
-        var results = event.results,
-            sys     = require('sys');
+        var results = event.results;
 
-        sys.print(format(results));
+        cli.print(format(results));
     }
 
     testRunner.subscribe(testRunner.COMPLETE_EVENT, handleEvent); 

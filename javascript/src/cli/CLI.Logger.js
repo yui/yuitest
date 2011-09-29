@@ -6,9 +6,10 @@
  * @class Logger
  * @constructor
  */
-YUITest.Node.CLI.Logger = function(){
+YUITest.CLI.Logger = function(){
 
-    var testRunner = YUITest.TestRunner;
+    var testRunner  = YUITest.TestRunner,
+        cli         = YUITest.CLI;
 
     //handles test runner events
     function handleEvent(event){
@@ -78,7 +79,7 @@ YUITest.Node.CLI.Logger = function(){
                 messageType = "info";
         }    
         
-        process.stdout.write(message + "\n");
+        cli.print(message + "\n");
     }
 
     testRunner.subscribe(testRunner.BEGIN_EVENT, handleEvent)

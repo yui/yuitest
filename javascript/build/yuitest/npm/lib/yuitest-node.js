@@ -180,6 +180,113 @@ YUITest.Util = {
 };
     
 
+
+/**
+ * Object containing object helper methods.
+ * @namespace YUITest
+ * @class Object
+ * @static
+ */
+YUITest.Object = {
+    /**
+     * Property names that IE doesn't enumerate in for..in loops, even when they
+     * should be enumerable. When `_hasEnumBug` is `true`, it's necessary to
+     * manually enumerate these properties.
+     *
+     * @property _forceEnum
+     * @type String[]
+     * @protected
+     * @static
+     */
+    _forceEnum : [
+        'hasOwnProperty',
+        'isPrototypeOf',
+        'propertyIsEnumerable',
+        'toString',
+        'toLocaleString',
+        'valueOf'
+    ],
+    
+    /**
+     * `true` if this browser has the JScript enumeration bug that prevents
+     * enumeration of the properties named in the `_forceEnum` array, `false`
+     * otherwise.
+     *
+     * See:
+     *   - <https://developer.mozilla.org/en/ECMAScript_DontEnum_attribute#JScript_DontEnum_Bug>
+     *   - <http://whattheheadsaid.com/2010/10/a-safer-object-keys-compatibility-implementation>
+     *
+     * @property _hasEnumBug
+     * @type {Boolean}
+     * @protected
+     * @static
+     */
+    _hasEnumBug : !{valueOf: 0}.propertyIsEnumerable('valueOf'),
+    
+    /**
+    * Determines whether or not the provided item is of type object
+    * or function. Note that arrays are also objects, so
+    * <code>YUITest.Object.isObject([]) === true</code>.
+    * @method isObject
+    * @static
+    * @param o The object to test.
+    * @param failfn {boolean} fail if the input is a function.
+    * @return {boolean} true if o is an object.
+    */
+    _isObject : function(o, failfn) {
+        var t = typeof o;
+        return (o && (t === 'object' || (!failfn && (t === 'function' || typeof t === 'function')))) || false;
+    },
+    
+    /**
+     * Returns an array containing the object's enumerable keys. Does not include
+     * prototype keys or non-enumerable keys.
+     *
+     * Note that keys are returned in enumeration order (that is, in the same order
+     * that they would be enumerated by a `for-in` loop), which may not be the same
+     * as the order in which they were defined.
+     *
+     * This method is an alias for the native ES5 `Object.keys()` method if
+     * available.
+     *
+     * @example
+     *
+     *     Y.Object.keys({a: 'foo', b: 'bar', c: 'baz'});
+     *     // => ['a', 'b', 'c']
+     *
+     * @method keys
+     * @param {Object} obj An object.
+     * @return {String[]} Array of keys.
+     * @static
+     */
+    keys : Object.keys || function (obj) {
+        if (!YUITest.Object.isObject(obj)) {
+            throw new TypeError('Object.keys called on a non-object');
+        }
+
+        var keys = [],
+            i, key, len;
+
+        for (key in obj) {
+            if (owns(obj, key)) {
+                keys.push(key);
+            }
+        }
+
+        if (YUITest.Object._hasEnumBug) {
+            for (i = 0, len = YUITest.Object._forceEnum.length; i < len; ++i) {
+                key = YUITest.Object._forceEnum[i];
+
+                if (owns(obj, key)) {
+                    keys.push(key);
+                }
+            }
+        }
+
+        return keys;
+    }
+};
+
 /**
  * Error is thrown whenever an assertion fails. It provides methods
  * to more easily get at error information and also provides a base class
@@ -1341,7 +1448,16 @@ YUITest.ObjectAssert = {
      */
     areEqual: function(expected, actual, message) {
         YUITest.Assert._increment();         
-
+        
+        var expectedKeys = YUITest.Object.keys(expected),
+            actualKeys = YUITest.Object.keys(actual);
+        
+        //first check keys array length
+        if (expectedKeys.length != actualKeys.length){
+            YUITest.Assert.fail(YUITest.Assert._formatMessage(message, "Object should have " + expectedKeys.length + " keys but has " + actualKeys.length));
+        }
+        
+        //then check values
         for (var name in expected){
             if (expected.hasOwnProperty(name)){
                 if (expected[name] != actual[name]){
@@ -1494,7 +1610,7 @@ YUITest.ObjectAssert = {
                 YUITest.Assert.fail(YUITest.Assert._formatMessage(message, "Property '" + properties[i] + "' not found on object."));
             }      
         }
-    }     
+    }    
 };
 
 
@@ -3403,272 +3519,4 @@ YUITest.CoverageFormat = {
         return new TestRunner();
         
     }();
-
-//define namespace
-
-YUITest.Node = {
-    CLI:{}
-};
-
-
-
-/**
- * Console output that mimics logger output from YUI Test for YUI 2/3.
- * @namespace YUITest.Node.CLI
- * @class Logger
- * @constructor
- */
-YUITest.Node.CLI.Logger = function(){
-
-    var testRunner = YUITest.TestRunner;
-
-    //handles test runner events
-    function handleEvent(event){
-    
-        var message = "";
-        switch(event.type){
-            case testRunner.BEGIN_EVENT:
-                message = "Testing began at " + (new Date()).toString() + ".";
-                messageType = "info";
-                break;
-                
-            case testRunner.COMPLETE_EVENT:
-                message = "Testing completed at " +
-                    (new Date()).toString() + ".\n" +
-                    "Passed:" + event.results.passed + " Failed:" + event.results.failed +
-                    " Total:" + event.results.total + "(" + event.results.ignored + " ignored)"; 
-                messageType = "info";
-                break;
-                
-            case testRunner.TEST_FAIL_EVENT:
-                message = event.testName + ": failed.\n" + event.error.getMessage();
-                messageType = "fail";
-                break;
-                
-            case testRunner.ERROR_EVENT:
-                message = event.methodName + ": error.\n" + event.error.message;
-                messageType = "error";
-                break;
-                
-            case testRunner.TEST_IGNORE_EVENT:
-                message = event.testName + ": ignored.";
-                messageType = "ignore";
-                break;
-                
-            case testRunner.TEST_PASS_EVENT:
-                message = event.testName + ": passed.";
-                messageType = "pass";
-                break;
-                
-            case testRunner.TEST_SUITE_BEGIN_EVENT:
-                message = "Test suite \"" + event.testSuite.name + "\" started.";
-                messageType = "info";
-                break;
-                
-            case testRunner.TEST_SUITE_COMPLETE_EVENT:
-                message = "Testing completed at " +
-                    (new Date()).toString() + ".\n" +
-                    "Passed:" + event.results.passed + " Failed:" + event.results.failed +
-                    " Total:" + event.results.total + "(" + event.results.ignored + " ignored)";
-                messageType = "info";
-                break;
-                
-            case testRunner.TEST_CASE_BEGIN_EVENT:
-                message = "Test case \"" + event.testCase.name + "\" started.";
-                messageType = "info";
-                break;
-                
-            case testRunner.TEST_CASE_COMPLETE_EVENT:
-                message = "Testing completed at " +
-                    (new Date()).toString() + ".\n" +
-                    "Passed:" + event.results.passed + " Failed:" + event.results.failed +
-                    " Total:" + event.results.total + "(" + event.results.ignored + " ignored)";
-                messageType = "info";
-                break;
-            default:
-                message = "Unexpected event " + event.type;
-                messageType = "info";
-        }    
-        
-        process.stdout.write(message + "\n");
-    }
-
-    testRunner.subscribe(testRunner.BEGIN_EVENT, handleEvent)
-    testRunner.subscribe(testRunner.TEST_FAIL_EVENT, handleEvent);
-    testRunner.subscribe(testRunner.TEST_PASS_EVENT, handleEvent);
-    testRunner.subscribe(testRunner.TEST_IGNORE_EVENT, handleEvent);
-    testRunner.subscribe(testRunner.TEST_CASE_BEGIN_EVENT, handleEvent);
-    testRunner.subscribe(testRunner.TEST_CASE_COMPLETE_EVENT, handleEvent);
-    testRunner.subscribe(testRunner.TEST_SUITE_BEGIN_EVENT, handleEvent);
-    testRunner.subscribe(testRunner.TEST_SUITE_COMPLETE_EVENT, handleEvent);
-    testRunner.subscribe(testRunner.COMPLETE_EVENT, handleEvent); 
-
-};
-
-
-
-/**
- * Console output that mimics XUnit output.
- * @namespace YUITest.Node.CLI
- * @class XUnit
- * @constructor
- */
-YUITest.Node.CLI.XUnit = function(){
-
-    var testRunner  = YUITest.TestRunner,
-        stdout      = process.stdout,
-        errors      = [],
-        failures    = [],
-        stack       = [];
-        
-    function filterStackTrace(stackTrace){
-        if (stackTrace){
-            var lines = stackTrace.split("\n"),
-                result = [],
-                i, len;
-                
-            //skip first line, it's the error
-            for (i=1, len=lines.length; i < len; i++){
-                if (lines[i].indexOf("yuitest-node") > -1){
-                    break;
-                } else {
-                    result.push(lines[i]);
-                }
-            }
-            
-            return result.join("\n");    
-        } else {
-            return "Unavailable."
-        }
-    }
-
-    //handles test runner events
-    function handleEvent(event){
-    
-        var message = "",
-            results = event.results,
-            sys     = require('sys'),
-            i, len;
-            
-        switch(event.type){
-            case testRunner.BEGIN_EVENT:
-                message = "YUITest for Node.js\n";
-                
-                if (testRunner._groups){
-                    message += "Filtering on groups '" + testRunner._groups.slice(1,-1) + "'\n";
-                }
-                break;
-                
-            case testRunner.COMPLETE_EVENT:
-                message = "\nTotal tests: " + results.total + ", Failures: " + 
-                    results.failed + ", Skipped: " + results.ignored +
-                    ", Time: " + (results.duration/1000) + " seconds\n";
-                    
-                if (failures.length){
-                    message += "\nTests failed:\n";
-                    
-                    for (i=0,len=failures.length; i < len; i++){
-                        message += "\n" + (i+1) + ") " + failures[i].name + " : " + failures[i].error.getMessage() + "\n";
-                        message += "Stack trace:\n" + filterStackTrace(failures[i].error.stack) + "\n";
-                    }
-                
-                    message += "\n";
-                }
-                
-                if (errors.length){
-                    message += "\nErrors:\n";
-                    
-                    for (i=0,len=errors.length; i < len; i++){
-                        message += "\n" + (i+1) + ") " + errors[i].name + " : " + errors[i].error.message + "\n";
-                        message += "Stack trace:\n" + filterStackTrace(errors[i].error.stack) + "\n";
-                    }
-                
-                    message += "\n";
-                }
-                
-                message += "\n\n";
-                break;
-                
-            case testRunner.TEST_FAIL_EVENT:
-                message = "F";
-                failures.push({
-                    name: stack.concat([event.testName]).join(" > "),
-                    error: event.error
-                });
-
-                break;
-                
-            case testRunner.ERROR_EVENT:
-                errors.push({
-                    name: stack.concat([event.methodName]).join(" > "),
-                    error: event.error
-                });
-
-                break;
-                
-            case testRunner.TEST_IGNORE_EVENT:
-                message = "S";
-                break;
-                
-            case testRunner.TEST_PASS_EVENT:
-                message = ".";
-                break;
-                
-            case testRunner.TEST_SUITE_BEGIN_EVENT:
-                stack.push(event.testSuite.name);
-                break;
-                
-            case testRunner.TEST_CASE_COMPLETE_EVENT:
-            case testRunner.TEST_SUITE_COMPLETE_EVENT:
-                stack.pop();
-                break;
-                
-            case testRunner.TEST_CASE_BEGIN_EVENT:
-                stack.push(event.testCase.name);
-                break;
-                
-            //no default
-        }    
-        
-        sys.print(message);
-    }
-
-    testRunner.subscribe(testRunner.BEGIN_EVENT, handleEvent)
-    testRunner.subscribe(testRunner.TEST_FAIL_EVENT, handleEvent);
-    testRunner.subscribe(testRunner.TEST_PASS_EVENT, handleEvent);
-    testRunner.subscribe(testRunner.ERROR_EVENT, handleEvent);
-    testRunner.subscribe(testRunner.TEST_IGNORE_EVENT, handleEvent);
-    testRunner.subscribe(testRunner.TEST_CASE_BEGIN_EVENT, handleEvent);
-    testRunner.subscribe(testRunner.TEST_CASE_COMPLETE_EVENT, handleEvent);
-    testRunner.subscribe(testRunner.TEST_SUITE_BEGIN_EVENT, handleEvent);
-    testRunner.subscribe(testRunner.TEST_SUITE_COMPLETE_EVENT, handleEvent);
-    testRunner.subscribe(testRunner.COMPLETE_EVENT, handleEvent); 
-
-};
-
-
-
-/**
- * Console output that uses TestFormat formats.
- * @namespace YUITest.Node.CLI
- * @class Format
- * @constructor
- */
-YUITest.Node.CLI.Format = function(format){
-
-    var testRunner  = YUITest.TestRunner;
-        
-
-    //handles test runner events
-    function handleEvent(event){
-    
-        var results = event.results,
-            sys     = require('sys');
-
-        sys.print(format(results));
-    }
-
-    testRunner.subscribe(testRunner.COMPLETE_EVENT, handleEvent); 
-
-};
 

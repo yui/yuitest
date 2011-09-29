@@ -7,6 +7,8 @@
     <target name="build" depends="YuiModuleTargets.build">
        <ant antfile="${buildfile.dir}/build-core.xml" target="yuitest_build_subtask" inheritAll="false" />
        <ant antfile="${buildfile.dir}/build-node.xml" target="yuitest_build_subtask" inheritAll="false" />
+       <ant antfile="${buildfile.dir}/build-node-cli.xml" target="yuitest_build_subtask" inheritAll="false" />
+       <ant antfile="${buildfile.dir}/build-rhino.xml" target="yuitest_build_subtask" inheritAll="false" />
     </target>
     
     <!-- override to make npm package -->
@@ -15,8 +17,8 @@
         <mkdir dir="${global.build.npm}"/>
         <copy file="${component.npm.base}/package.json" tofile="${global.build.npm}/package.json"/>
         <mkdir dir="${global.build.npm}/lib"/>
-        <copy file="${global.build.base}/yuitest/yuitest-node.js" tofile="${global.build.npm}/lib/yuitest-node.js"/>
-        <copy file="${component.jsfiles.base}/nodejs/cli.js" tofile="${global.build.npm}/cli.js"/>
+        <copy file="${global.build.base}/yuitest/yuitest-node.js" tofile="${global.build.npm}/lib/yuitest.js"/>
+        <copy file="${global.build.base}/yuitest/yuitest-node-cli.js" tofile="${global.build.npm}/cli.js"/>
         <!-- Unix can't deal with errant \n characters, to double-check here -->
         <fixcrlf srcdir="${global.build.npm}" includes="**/*.js" eol="lf"/>
     </target>

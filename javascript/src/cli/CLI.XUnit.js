@@ -2,14 +2,14 @@
 
 /**
  * Console output that mimics XUnit output.
- * @namespace YUITest.Node.CLI
+ * @namespace YUITest.CLI
  * @class XUnit
  * @constructor
  */
-YUITest.Node.CLI.XUnit = function(){
+YUITest.CLI.XUnit = function(){
 
     var testRunner  = YUITest.TestRunner,
-        stdout      = process.stdout,
+        cli         = YUITest.CLI,
         errors      = [],
         failures    = [],
         stack       = [];
@@ -40,7 +40,6 @@ YUITest.Node.CLI.XUnit = function(){
     
         var message = "",
             results = event.results,
-            sys     = require('sys'),
             i, len;
             
         switch(event.type){
@@ -123,7 +122,7 @@ YUITest.Node.CLI.XUnit = function(){
             //no default
         }    
         
-        sys.print(message);
+        cli.print(message);
     }
 
     testRunner.subscribe(testRunner.BEGIN_EVENT, handleEvent)

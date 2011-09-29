@@ -9,11 +9,9 @@
  * @static
  */
 
-var YUITest = exports;
-YUITest.version = "@VERSION@";
-
-//backwards compatibility
-exports.YUITest = YUITest;
+var YUITest = {
+    version: "@VERSION@"
+};
 
 
 /**
@@ -3519,4 +3517,439 @@ YUITest.CoverageFormat = {
         return new TestRunner();
         
     }();
+
+/*!
+ * Portions of this code incorporated from CSS Lint:
+ * https://github.com/stubbornella/csslint
+ */
+ 
+importPackage(java.io);
+importPackage(java.lang);
+    
+YUITest.CLI = {
+    args: arguments,
+    
+    print: function(message){
+        System.out.print(message);
+    },
+    
+    println: print,
+    
+    warn: function(message){
+        System.err.print(message);
+    },
+    
+    quit: quit,
+    
+    isDirectory: function(name){
+        var dir = new File(name);
+        return dir.isDirectory();
+    },
+    
+    getFiles: function(dir){
+        var files = [];
+
+        function traverse(dir) {
+            var dirList = dir.listFiles();
+            dirList.forEach(function (file) {
+                if (/\.js$/.test(file)) {
+                    files.push(file.toString());
+                } else if (file.isDirectory()) {
+                    traverse(file);
+                }
+            });
+        }
+
+        traverse(new File(dir));
+
+        return files;    
+    },
+    
+    getFullPath: function(filename){
+        return (new File(filename)).getCanonicalPath();
+    },
+
+    readFile: readFile,
+    
+    processFiles: function(){
+        var files = this.files,
+            i, len, output;
+
+        if (files.length){
+            for (i=0, len=files.length; i < len; i++){
+
+                if (this.options.verbose){
+                    this.warn("[INFO] Loading " + files[i] + "\n");
+                }
+                
+                load(files[i]);
+
+            }
+        } else {
+            this.warn("[ERROR] No tests to run, exiting.\n");
+            this.quit(1);    
+        }    
+    }
+};
+
+
+
+
+
+/**
+ * Console output that mimics logger output from YUI Test for YUI 2/3.
+ * @namespace YUITest.Node.CLI
+ * @class Logger
+ * @constructor
+ */
+YUITest.CLI.Logger = function(){
+
+    var testRunner  = YUITest.TestRunner,
+        cli         = YUITest.CLI;
+
+    //handles test runner events
+    function handleEvent(event){
+    
+        var message = "";
+        switch(event.type){
+            case testRunner.BEGIN_EVENT:
+                message = "Testing began at " + (new Date()).toString() + ".";
+                messageType = "info";
+                break;
+                
+            case testRunner.COMPLETE_EVENT:
+                message = "Testing completed at " +
+                    (new Date()).toString() + ".\n" +
+                    "Passed:" + event.results.passed + " Failed:" + event.results.failed +
+                    " Total:" + event.results.total + "(" + event.results.ignored + " ignored)"; 
+                messageType = "info";
+                break;
+                
+            case testRunner.TEST_FAIL_EVENT:
+                message = event.testName + ": failed.\n" + event.error.getMessage();
+                messageType = "fail";
+                break;
+                
+            case testRunner.ERROR_EVENT:
+                message = event.methodName + ": error.\n" + event.error.message;
+                messageType = "error";
+                break;
+                
+            case testRunner.TEST_IGNORE_EVENT:
+                message = event.testName + ": ignored.";
+                messageType = "ignore";
+                break;
+                
+            case testRunner.TEST_PASS_EVENT:
+                message = event.testName + ": passed.";
+                messageType = "pass";
+                break;
+                
+            case testRunner.TEST_SUITE_BEGIN_EVENT:
+                message = "Test suite \"" + event.testSuite.name + "\" started.";
+                messageType = "info";
+                break;
+                
+            case testRunner.TEST_SUITE_COMPLETE_EVENT:
+                message = "Testing completed at " +
+                    (new Date()).toString() + ".\n" +
+                    "Passed:" + event.results.passed + " Failed:" + event.results.failed +
+                    " Total:" + event.results.total + "(" + event.results.ignored + " ignored)";
+                messageType = "info";
+                break;
+                
+            case testRunner.TEST_CASE_BEGIN_EVENT:
+                message = "Test case \"" + event.testCase.name + "\" started.";
+                messageType = "info";
+                break;
+                
+            case testRunner.TEST_CASE_COMPLETE_EVENT:
+                message = "Testing completed at " +
+                    (new Date()).toString() + ".\n" +
+                    "Passed:" + event.results.passed + " Failed:" + event.results.failed +
+                    " Total:" + event.results.total + "(" + event.results.ignored + " ignored)";
+                messageType = "info";
+                break;
+            default:
+                message = "Unexpected event " + event.type;
+                messageType = "info";
+        }    
+        
+        cli.print(message + "\n");
+    }
+
+    testRunner.subscribe(testRunner.BEGIN_EVENT, handleEvent)
+    testRunner.subscribe(testRunner.TEST_FAIL_EVENT, handleEvent);
+    testRunner.subscribe(testRunner.TEST_PASS_EVENT, handleEvent);
+    testRunner.subscribe(testRunner.TEST_IGNORE_EVENT, handleEvent);
+    testRunner.subscribe(testRunner.TEST_CASE_BEGIN_EVENT, handleEvent);
+    testRunner.subscribe(testRunner.TEST_CASE_COMPLETE_EVENT, handleEvent);
+    testRunner.subscribe(testRunner.TEST_SUITE_BEGIN_EVENT, handleEvent);
+    testRunner.subscribe(testRunner.TEST_SUITE_COMPLETE_EVENT, handleEvent);
+    testRunner.subscribe(testRunner.COMPLETE_EVENT, handleEvent); 
+
+};
+
+
+
+/**
+ * Console output that mimics XUnit output.
+ * @namespace YUITest.CLI
+ * @class XUnit
+ * @constructor
+ */
+YUITest.CLI.XUnit = function(){
+
+    var testRunner  = YUITest.TestRunner,
+        cli         = YUITest.CLI,
+        errors      = [],
+        failures    = [],
+        stack       = [];
+        
+    function filterStackTrace(stackTrace){
+        if (stackTrace){
+            var lines = stackTrace.split("\n"),
+                result = [],
+                i, len;
+                
+            //skip first line, it's the error
+            for (i=1, len=lines.length; i < len; i++){
+                if (lines[i].indexOf("yuitest-node") > -1){
+                    break;
+                } else {
+                    result.push(lines[i]);
+                }
+            }
+            
+            return result.join("\n");    
+        } else {
+            return "Unavailable."
+        }
+    }
+
+    //handles test runner events
+    function handleEvent(event){
+    
+        var message = "",
+            results = event.results,
+            i, len;
+            
+        switch(event.type){
+            case testRunner.BEGIN_EVENT:
+                message = "YUITest\n";
+                
+                if (testRunner._groups){
+                    message += "Filtering on groups '" + testRunner._groups.slice(1,-1) + "'\n";
+                }
+                break;
+                
+            case testRunner.COMPLETE_EVENT:
+                message = "\nTotal tests: " + results.total + ", Failures: " + 
+                    results.failed + ", Skipped: " + results.ignored +
+                    ", Time: " + (results.duration/1000) + " seconds\n";
+                    
+                if (failures.length){
+                    message += "\nTests failed:\n";
+                    
+                    for (i=0,len=failures.length; i < len; i++){
+                        message += "\n" + (i+1) + ") " + failures[i].name + " : " + failures[i].error.getMessage() + "\n";
+                        message += "Stack trace:\n" + filterStackTrace(failures[i].error.stack) + "\n";
+                    }
+                
+                    message += "\n";
+                }
+                
+                if (errors.length){
+                    message += "\nErrors:\n";
+                    
+                    for (i=0,len=errors.length; i < len; i++){
+                        message += "\n" + (i+1) + ") " + errors[i].name + " : " + errors[i].error.message + "\n";
+                        message += "Stack trace:\n" + filterStackTrace(errors[i].error.stack) + "\n";
+                    }
+                
+                    message += "\n";
+                }
+                
+                message += "\n\n";
+                break;
+                
+            case testRunner.TEST_FAIL_EVENT:
+                message = "F";
+                failures.push({
+                    name: stack.concat([event.testName]).join(" > "),
+                    error: event.error
+                });
+
+                break;
+                
+            case testRunner.ERROR_EVENT:
+                errors.push({
+                    name: stack.concat([event.methodName]).join(" > "),
+                    error: event.error
+                });
+
+                break;
+                
+            case testRunner.TEST_IGNORE_EVENT:
+                message = "S";
+                break;
+                
+            case testRunner.TEST_PASS_EVENT:
+                message = ".";
+                break;
+                
+            case testRunner.TEST_SUITE_BEGIN_EVENT:
+                stack.push(event.testSuite.name);
+                break;
+                
+            case testRunner.TEST_CASE_COMPLETE_EVENT:
+            case testRunner.TEST_SUITE_COMPLETE_EVENT:
+                stack.pop();
+                break;
+                
+            case testRunner.TEST_CASE_BEGIN_EVENT:
+                stack.push(event.testCase.name);
+                break;
+                
+            //no default
+        }    
+        
+        cli.print(message);
+    }
+
+    testRunner.subscribe(testRunner.BEGIN_EVENT, handleEvent)
+    testRunner.subscribe(testRunner.TEST_FAIL_EVENT, handleEvent);
+    testRunner.subscribe(testRunner.TEST_PASS_EVENT, handleEvent);
+    testRunner.subscribe(testRunner.ERROR_EVENT, handleEvent);
+    testRunner.subscribe(testRunner.TEST_IGNORE_EVENT, handleEvent);
+    testRunner.subscribe(testRunner.TEST_CASE_BEGIN_EVENT, handleEvent);
+    testRunner.subscribe(testRunner.TEST_CASE_COMPLETE_EVENT, handleEvent);
+    testRunner.subscribe(testRunner.TEST_SUITE_BEGIN_EVENT, handleEvent);
+    testRunner.subscribe(testRunner.TEST_SUITE_COMPLETE_EVENT, handleEvent);
+    testRunner.subscribe(testRunner.COMPLETE_EVENT, handleEvent); 
+
+};
+
+
+
+/**
+ * Console output that uses TestFormat formats.
+ * @namespace YUITest.Node.CLI
+ * @class Format
+ * @constructor
+ */
+YUITest.CLI.Format = function(format){
+
+    var testRunner  = YUITest.TestRunner,
+        cli         = YUITest.CLI;
+
+    //handles test runner events
+    function handleEvent(event){
+    
+        var results = event.results;
+
+        cli.print(format(results));
+    }
+
+    testRunner.subscribe(testRunner.COMPLETE_EVENT, handleEvent); 
+
+};
+
+/*
+ * Augments the environment-specific CLI API with common functionality.
+ */
+YUITest.Util.mix(YUITest.CLI, {
+
+    files: [],
+
+    options: {
+        verbose: false,
+        webcompat: false,
+        help: false,
+        format: "xunit"
+    },
+    
+    outputHelp: function(){
+        this.print([
+            "\nUsage: yuitest [options] [file|dir]*",
+            " ",
+            "Global Options",
+            "  --groups groupname  Run only tests cases that are part of groupname.",
+            "  --help              Displays this information.",
+            "  --format <format>   Specifies output format (junitxml, tap, xunit).",
+            "  --verbose           Display informational messages and warnings.",
+            "  --webcompat         Load tests designed for use in browsers."   
+        ].join("\n") + "\n\n");
+    },
+    
+    processArguments: function(){
+
+        var args    = this.args,  
+            arg     = args.shift(), 
+            files   = [];  
+            
+        while(arg){
+            if (arg.indexOf("--") == 0){
+                this.options[arg.substring(2)] = true;
+                
+                //get the next argument
+                if (arg == "--groups" || arg == "--format"){
+                    this.options[arg.substring(2)] = args.shift();
+                }
+            } else {
+                
+                //see if it's a directory or a file
+                if (this.isDirectory(arg)){
+                    files = files.concat(this.getFiles(arg));
+                } else {
+                    files.push(arg);
+                }
+            }
+            arg = args.shift();
+        }
+
+        if (this.options.help || files.length === 0){
+            this.outputHelp();
+            this.quit(0);
+        }
+
+        this.files = files;
+        
+        //-----------------------------------------------------------------------------
+        // Determine output format
+        //-----------------------------------------------------------------------------
+
+        switch(this.options.format){
+            case "junitxml":
+                if (this.options.verbose){
+                    this.warn("[INFO] Using JUnitXML output format.\n");
+                }
+                YUITest.CLI.Format(YUITest.TestFormat.JUnitXML);
+                break;
+            case "tap":
+                if (this.options.verbose){
+                    this.warn("[INFO] Using TAP output format.\n");
+                }
+                YUITest.CLI.Format(YUITest.TestFormat.TAP);
+                break;
+            default:
+                if (this.options.verbose){
+                    this.warn("[INFO] Using XUnit output format.\n");
+                }
+                YUITest.CLI.XUnit();
+        }    
+    },
+    
+    start: function(){
+    
+        this.processArguments();
+        this.processFiles();
+        
+        YUITest.TestRunner.run({
+            groups: this.options.groups ? this.options.groups.split(",") : null
+        });    
+    }        
+});
+
+YUITest.CLI.start();
 

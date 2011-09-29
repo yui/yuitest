@@ -8,7 +8,7 @@
        <ant antfile="${buildfile.dir}/build-core.xml" target="yuitest_build_subtask" inheritAll="false" />
        <ant antfile="${buildfile.dir}/build-node.xml" target="yuitest_build_subtask" inheritAll="false" />
        <ant antfile="${buildfile.dir}/build-node-cli.xml" target="yuitest_build_subtask" inheritAll="false" />
-       <ant antfile="${buildfile.dir}/build-rhino.xml" target="yuitest_build_subtask" inheritAll="false" />
+       <ant antfile="${buildfile.dir}/build-rhino-cli.xml" target="yuitest_build_subtask" inheritAll="false" />
     </target>
     
     <!-- override to make npm package -->

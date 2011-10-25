@@ -4076,7 +4076,7 @@ YUITest.PageManager = YUITest.Util.mix(new YUITest.EventTarget(), {
             _handleTestObjectComplete : function (node) {
                 var parentNode;
                 
-                if (typeof node.testObject == "object" && node !== null){
+                if (node && (typeof node.testObject == "object")) {
                     parentNode = node.parent;
                 
                     if (parentNode){
@@ -4131,7 +4131,7 @@ YUITest.PageManager = YUITest.Util.mix(new YUITest.EventTarget(), {
                         this._running = false;                         
                         this.fire({ type: this.COMPLETE_EVENT, results: this._lastResults});
                         this._cur = null;
-                    } else {
+                    } else if (this._cur) {
                         this._cur = this._cur.next;                
                     }
                 }

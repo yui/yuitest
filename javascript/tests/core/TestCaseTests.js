@@ -239,7 +239,7 @@
         
         "wait() with a function to execute should work": function(){
             this.wait(function(){
-                Assert.isTrue(true);  //FIXME
+                Assert.pass();
             }, 100);
         },
         
@@ -247,7 +247,7 @@
             var that = this;
             setTimeout(function(){
                 that.resume(function(){
-                    Assert.isTrue(true);  //FIXME
+                    Assert.pass();
                 });
             }, 0);
             
@@ -255,7 +255,7 @@
         },
         
         "fail:wait() without resume() should fail": function () {
-            Assert.isTrue(true);
+            Assert.pass();
             this.wait(100);
         },
         

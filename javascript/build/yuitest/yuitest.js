@@ -1296,7 +1296,7 @@ YUITest.ArrayAssert = {
         //begin checking values
         for (var i=0; i < expected.length; i++){
             if (expected[i] != actual[i]){
-                throw new YUITest.Assert.ComparisonFailure(YUITest.Assert._formatMessage(message, "Values in position " + i + " are not equal."), expected[i], actual[i]);
+                throw new YUITest.ComparisonFailure(YUITest.Assert._formatMessage(message, "Values in position " + i + " are not equal."), expected[i], actual[i]);
             }
         }
     },
@@ -1333,7 +1333,7 @@ YUITest.ArrayAssert = {
         //begin checking values
         for (var i=0; i < expected.length; i++){
             if (!comparator(expected[i], actual[i])){
-                throw new YUITest.Assert.ComparisonFailure(YUITest.Assert._formatMessage(message, "Values in position " + i + " are not equivalent."), expected[i], actual[i]);
+                throw new YUITest.ComparisonFailure(YUITest.Assert._formatMessage(message, "Values in position " + i + " are not equivalent."), expected[i], actual[i]);
             }
         }
     },
@@ -1390,7 +1390,7 @@ YUITest.ArrayAssert = {
         //begin checking values
         for (var i=0; i < expected.length; i++){
             if (expected[i] !== actual[i]){
-                throw new YUITest.Assert.ComparisonFailure(YUITest.Assert._formatMessage(message, "Values in position " + i + " are not the same."), expected[i], actual[i]);
+                throw new YUITest.ComparisonFailure(YUITest.Assert._formatMessage(message, "Values in position " + i + " are not the same."), expected[i], actual[i]);
             }
         }
     },
@@ -1488,7 +1488,7 @@ YUITest.ObjectAssert = {
      * @deprecated Use ownsOrInheritsKeys() instead
      */    
     hasKeys: function (properties, object, message) {
-        YUITest.ObjectAssert.ownsOrInheritsKeys(properties, objects, message);
+        YUITest.ObjectAssert.ownsOrInheritsKeys(properties, object, message);
     },
     
     /**

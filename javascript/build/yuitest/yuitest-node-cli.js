@@ -3,7 +3,7 @@
  * https://github.com/stubbornella/csslint
  */
 var fs      = require("fs"),
-    path    = require("path")
+    path    = require("path"),
     vm      = null,
     YUITest = require("./lib/yuitest"),
     stdout  = process.stdout,

@@ -104,6 +104,20 @@
     }));
      
     //-------------------------------------------------------------------------
+    // Test Case for pass()
+    //-------------------------------------------------------------------------
+    
+    suite.add(new YUITest.TestCase({
+    
+        name: "pass Assert Tests",
+        groups: ["asserts", "common"],
+
+        "pass() should cause a test to pass": function(){
+            Assert.pass();        
+        }
+    }));
+     
+    //-------------------------------------------------------------------------
     // Test Case for areEqual()
     //-------------------------------------------------------------------------
     
@@ -237,7 +251,7 @@
         groups: ["asserts", "common"],
 
         "isTrue() should pass for true value": function(){
-            Assert.isTrue(true);
+            Assert.pass();
         },
         
         "isTrue() should fail for truthy non-true values": function(){

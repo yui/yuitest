@@ -83,6 +83,15 @@ YUITest.Assert = {
         throw new YUITest.AssertionError(YUITest.Assert._formatMessage(message, "Test force-failed."));
     },       
     
+    /** 
+     * A marker that the test should pass.
+     * @method pass
+     * @static
+     */
+    pass : function (message) {
+        YUITest.Assert._increment();
+    },       
+    
     //-------------------------------------------------------------------------
     // Equality Assertion Methods
     //-------------------------------------------------------------------------    

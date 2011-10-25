@@ -171,13 +171,6 @@
         name: "itemsAreEqual Assert Tests",
         groups: ["asserts", "common"],
         
-        _should: {
-            fail: {
-                testMissingItem: new YUITest.AssertionError("Values in position 3 are not equal."),
-                testArrayAgainstObject: new YUITest.AssertionError("Values in position 0 are not equal.")
-            }
-        },
-        
         setUp: function(){
             this.testArray = ["1", 0, false, "text"];
         },
@@ -191,11 +184,23 @@
         },
         
         testMissingItem: function() {
-            ArrayAssert.itemsAreEqual(this.testArray, ["1", 0, false]);
+            var that = this;
+            Assert.throwsError(new YUITest.AssertionError("Array should have a length of 4 but has a length of 3."), function(){
+                ArrayAssert.itemsAreEqual(that.testArray, ["1", 0, false]);
+            });        
         },
         
         testArrayAgainstObject: function(){
-            ArrayAssert.itemsAreEqual(this.testArray, {});
+            var that = this;
+            Assert.throwsError(new YUITest.AssertionError("Array should have a length of 4 but has a length of undefined."), function(){
+                ArrayAssert.itemsAreEqual(that.testArray, {});
+            });
+        },
+        
+        testEmptyArrayAgainstEmptyString: function(){
+            Assert.throwsError(new YUITest.AssertionError("Value should be an array."), function(){        
+                ArrayAssert.itemsAreEqual([],"");
+            });
         }
     }));  
   

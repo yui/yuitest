@@ -667,6 +667,15 @@ YUITest.Assert = {
         throw new YUITest.AssertionError(YUITest.Assert._formatMessage(message, "Test force-failed."));
     },       
     
+    /** 
+     * A marker that the test should pass.
+     * @method pass
+     * @static
+     */
+    pass : function (message) {
+        YUITest.Assert._increment();
+    },       
+    
     //-------------------------------------------------------------------------
     // Equality Assertion Methods
     //-------------------------------------------------------------------------    
@@ -1290,15 +1299,20 @@ YUITest.ArrayAssert = {
         
         YUITest.Assert._increment();     
         
-        //first check array length
+        //first make sure they're array-like (this can probably be improved)
+        if (typeof expected != "object" || typeof actual != "object"){
+            YUITest.Assert.fail(YUITest.Assert._formatMessage(message, "Value should be an array."));
+        }
+        
+        //next check array length
         if (expected.length != actual.length){
-            YUITest.Assert.fail(YUITest.Assert._formatMessage(message, "Array should have a length of " + expected.length + " but has a length of " + actual.length));
+            YUITest.Assert.fail(YUITest.Assert._formatMessage(message, "Array should have a length of " + expected.length + " but has a length of " + actual.length + "."));
         }
        
         //begin checking values
         for (var i=0; i < expected.length; i++){
             if (expected[i] != actual[i]){
-                throw new YUITest.Assert.ComparisonFailure(YUITest.Assert._formatMessage(message, "Values in position " + i + " are not equal."), expected[i], actual[i]);
+                throw new YUITest.ComparisonFailure(YUITest.Assert._formatMessage(message, "Values in position " + i + " are not equal."), expected[i], actual[i]);
             }
         }
     },
@@ -1335,7 +1349,7 @@ YUITest.ArrayAssert = {
         //begin checking values
         for (var i=0; i < expected.length; i++){
             if (!comparator(expected[i], actual[i])){
-                throw new YUITest.Assert.ComparisonFailure(YUITest.Assert._formatMessage(message, "Values in position " + i + " are not equivalent."), expected[i], actual[i]);
+                throw new YUITest.ComparisonFailure(YUITest.Assert._formatMessage(message, "Values in position " + i + " are not equivalent."), expected[i], actual[i]);
             }
         }
     },
@@ -1392,7 +1406,7 @@ YUITest.ArrayAssert = {
         //begin checking values
         for (var i=0; i < expected.length; i++){
             if (expected[i] !== actual[i]){
-                throw new YUITest.Assert.ComparisonFailure(YUITest.Assert._formatMessage(message, "Values in position " + i + " are not the same."), expected[i], actual[i]);
+                throw new YUITest.ComparisonFailure(YUITest.Assert._formatMessage(message, "Values in position " + i + " are not the same."), expected[i], actual[i]);
             }
         }
     },
@@ -1490,7 +1504,7 @@ YUITest.ObjectAssert = {
      * @deprecated Use ownsOrInheritsKeys() instead
      */    
     hasKeys: function (properties, object, message) {
-        YUITest.ObjectAssert.ownsOrInheritsKeys(properties, objects, message);
+        YUITest.ObjectAssert.ownsOrInheritsKeys(properties, object, message);
     },
     
     /**
@@ -2905,7 +2919,7 @@ YUITest.CoverageFormat = {
             _handleTestObjectComplete : function (node) {
                 var parentNode;
                 
-                if (typeof node.testObject == "object" && node !== null){
+                if (node && (typeof node.testObject == "object")) {
                     parentNode = node.parent;
                 
                     if (parentNode){
@@ -2960,7 +2974,7 @@ YUITest.CoverageFormat = {
                         this._running = false;                         
                         this.fire({ type: this.COMPLETE_EVENT, results: this._lastResults});
                         this._cur = null;
-                    } else {
+                    } else if (this._cur) {
                         this._cur = this._cur.next;                
                     }
                 }

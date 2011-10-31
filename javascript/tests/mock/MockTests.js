@@ -876,7 +876,76 @@
         }
         
     }));
-     
+
+    //-------------------------------------------------------------------------
+    // Test Case for property expectations
+    //-------------------------------------------------------------------------
+    
+    suite.add(new YUITest.TestCase({
+    
+        name : "Property Tests",
+        groups: ["mock", "common"],
+        
+        /*
+         * Tests that when a property of a mock is set correctly, it does not
+         * cause an error.
+         */
+        "A mock property that is set appropriately should not cause an error": function(){
+
+            var mock = YUITest.Mock();
+            YUITest.Mock.expect(mock, {
+                property: "name1",
+                value: "foo"
+            });
+   
+            mock.name1 = "foo";
+            
+            YUITest.Mock.verify(mock);
+        },
+        
+        /*
+         * Tests that when a property of a mock is set incorrectly, it does
+         * cause an error.
+         */
+        "A mock property that is set inappropriately should cause an error": function(){
+
+            var mock = YUITest.Mock();
+            YUITest.Mock.expect(mock, {
+                property: "name1",
+                value: "foo"
+            });
+   
+            mock.name1 = "bar";
+            
+            YUITest.Assert.throwsError(new YUITest.AssertionError("Property name1 wasn't set to the correct value."), function(){
+                YUITest.Mock.verify(mock);
+            });
+        },
+        
+        /*
+         * Tests that when two mock properties are set, they both work.
+         */
+        "Two mock properties should work without error": function(){
+
+            var mock = YUITest.Mock();
+            YUITest.Mock.expect(mock, {
+                property: "name1",
+                value: "foo"
+            });
+   
+            YUITest.Mock.expect(mock, {
+                property: "name2",
+                value: "bar"
+            });
+   
+            //opposite order of their definition
+            mock.name2 = "bar";
+            mock.name1 = "foo";            
+            
+            YUITest.Mock.verify(mock);
+        }        
+        
+    }));
 
     YUITest.TestRunner.add(suite);
 

@@ -119,7 +119,7 @@ YUITest.Mock.expect = function(mock /*:Object*/, expectation /*:Object*/){
         }
     } else if (expectation.property){
         //save expectations
-        mock.__expectations[name] = expectation;
+        mock.__expectations[expectation.property] = expectation;
     }
 };
 

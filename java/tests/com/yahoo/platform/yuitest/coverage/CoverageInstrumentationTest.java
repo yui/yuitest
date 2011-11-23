@@ -109,4 +109,9 @@ public class CoverageInstrumentationTest {
         assertResultsMatch("nobraces.js", "nobraces-covered.js");
     }
 
+    @Test
+    public void testLabelledLoop() throws IOException {
+        assertResultsMatch("labelled-loop.js", "labelled-loop-covered.js");
+    }
+
 }

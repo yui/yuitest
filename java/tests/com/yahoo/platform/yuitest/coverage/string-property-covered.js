@@ -31,21 +31,25 @@ _yuitest_coverage["string-property.js"].lines = {"1":0,"4":0,"8":0,"12":0};
 _yuitest_coverage["string-property.js"].functions = {"\"test\":3":0,"foo:7":0,"\'bar\':11":0};
 _yuitest_coverage["string-property.js"].coveredLines = 4;
 _yuitest_coverage["string-property.js"].coveredFunctions = 3;
-_yuitest_coverline("string-property.js", 1); var foo = {
+_yuitest_coverline("string-property.js", 1);
+var foo = {
     
     "test": function(){
         _yuitest_coverfunc("string-property.js", "\"test\"", 3);
-_yuitest_coverline("string-property.js", 4); alert("hello");
+_yuitest_coverline("string-property.js", 4);
+alert("hello");
     },
     
     foo: function(){
         _yuitest_coverfunc("string-property.js", "foo", 7);
-_yuitest_coverline("string-property.js", 8); alert("goodbye");
+_yuitest_coverline("string-property.js", 8);
+alert("goodbye");
     },
     
     'bar': function(){
         _yuitest_coverfunc("string-property.js", "\'bar\'", 11);
-_yuitest_coverline("string-property.js", 12); alert("Woohoo");
+_yuitest_coverline("string-property.js", 12);
+alert("Woohoo");
     }
 
 };

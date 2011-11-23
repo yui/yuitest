@@ -1,7 +1,8 @@
 group ES3YUITestTemplates;
 
 cover_line(src,code,line) ::= <<
-_yuitest_coverline("<src>", <line>); <code>
+_yuitest_coverline("<src>", <line>);
+<code>
 >>
 
 cover_func(src,code,name,line) ::= <<

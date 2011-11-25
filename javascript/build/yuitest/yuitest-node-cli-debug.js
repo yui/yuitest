@@ -135,6 +135,7 @@ YUITest.CLI = {
 
 
 
+
 /**
  * Console output that mimics logger output from YUI Test for YUI 2/3.
  * @namespace YUITest.Node.CLI
@@ -228,6 +229,7 @@ YUITest.CLI.Logger = function(){
     testRunner.subscribe(testRunner.COMPLETE_EVENT, handleEvent); 
 
 };
+
 
 
 /**
@@ -369,6 +371,7 @@ YUITest.CLI.XUnit = function(){
 };
 
 
+
 /**
  * Console output that uses TestFormat formats.
  * @namespace YUITest.Node.CLI
@@ -391,6 +394,7 @@ YUITest.CLI.Format = function(format){
     testRunner.subscribe(testRunner.COMPLETE_EVENT, handleEvent); 
 
 };
+
 /*
  * Augments the environment-specific CLI API with common functionality.
  */
@@ -488,3 +492,4 @@ YUITest.Util.mix(YUITest.CLI, {
 });
 
 YUITest.CLI.start();
+

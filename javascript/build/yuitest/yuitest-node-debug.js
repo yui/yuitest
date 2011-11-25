@@ -15,6 +15,7 @@ YUITest.version = "@VERSION@";
 //backwards compatibility
 exports.YUITest = YUITest;
 
+
 /**
  * Simple custom event implementation.
  * @namespace YUITest
@@ -130,6 +131,7 @@ YUITest.EventTarget.prototype = {
 
 };
 
+
 /**
  * Object containing helper methods.
  * @namespace YUITest
@@ -177,6 +179,7 @@ YUITest.Util = {
 
 };
     
+
 
 /**
  * Object containing object helper methods.
@@ -283,6 +286,7 @@ YUITest.Object = {
         return keys;
     }
 };
+
 /**
  * Error is thrown whenever an assertion fails. It provides methods
  * to more easily get at error information and also provides a base class
@@ -335,6 +339,7 @@ YUITest.AssertionError.prototype = {
     }
 
 };
+
 /**
  * ComparisonFailure is subclass of Error that is thrown whenever
  * a comparison between two values fails. It provides mechanisms to retrieve
@@ -392,6 +397,7 @@ YUITest.ComparisonFailure.prototype.getMessage = function(){
     return this.message + "\nExpected: " + this.expected + " (" + (typeof this.expected) + ")"  +
             "\nActual: " + this.actual + " (" + (typeof this.actual) + ")";
 };
+
 /**
  * ShouldError is subclass of Error that is thrown whenever
  * a test is expected to throw an error but doesn't.
@@ -421,6 +427,7 @@ YUITest.ShouldError.prototype = new YUITest.AssertionError();
 
 //restore constructor
 YUITest.ShouldError.prototype.constructor = YUITest.ShouldError;
+
 /**
  * ShouldFail is subclass of AssertionError that is thrown whenever
  * a test was expected to fail but did not.
@@ -450,6 +457,7 @@ YUITest.ShouldFail.prototype = new YUITest.AssertionError();
 
 //restore constructor
 YUITest.ShouldFail.prototype.constructor = YUITest.ShouldFail;
+
 /**
  * UnexpectedError is subclass of AssertionError that is thrown whenever
  * an error occurs within the course of a test and the test was not expected
@@ -495,6 +503,7 @@ YUITest.UnexpectedError.prototype = new YUITest.AssertionError();
 
 //restore constructor
 YUITest.UnexpectedError.prototype.constructor = YUITest.UnexpectedError;
+
 /**
  * UnexpectedValue is subclass of Error that is thrown whenever
  * a value was unexpected in its scope. This typically means that a test
@@ -545,6 +554,7 @@ YUITest.UnexpectedValue.prototype.getMessage = function(){
     return this.message + "\nUnexpected: " + this.unexpected + " (" + (typeof this.unexpected) + ") ";
 };
 
+
 /**
  * Represents a stoppage in test execution to wait for an amount of time before
  * continuing.
@@ -571,6 +581,7 @@ YUITest.Wait = function (segment, delay) {
      */
     this.delay = (typeof delay == "number" ? delay : 0);        
 };
+
   
 /**
  * The Assert object provides functions to test JavaScript values against
@@ -1053,6 +1064,7 @@ YUITest.Assert = {
 
 };
 
+
 /**
  * The ArrayAssert object provides functions to test JavaScript array objects
  * for a variety of cases.
@@ -1428,6 +1440,7 @@ YUITest.ArrayAssert = {
     
 };
 
+
 /**
  * The ObjectAssert object provides functions to test JavaScript objects
  * for a variety of cases.
@@ -1615,6 +1628,7 @@ YUITest.ObjectAssert = {
 };
 
 
+
 /**
  * The DateAssert object provides functions to test JavaScript Date objects
  * for a variety of cases.
@@ -1698,6 +1712,7 @@ YUITest.DateAssert = {
     }
     
 };
+
 /**
  * Creates a new mock object.
  * @namespace YUITest
@@ -1920,6 +1935,7 @@ YUITest.Mock.Value.Object     = YUITest.Mock.Value(YUITest.Assert.isObject);
  * @type Function
  */
 YUITest.Mock.Value.Function   = YUITest.Mock.Value(YUITest.Assert.isFunction);
+
 /**
  * Convenience type for storing and aggregating
  * test result information.
@@ -1994,6 +2010,7 @@ YUITest.Results.prototype.include = function(results){
     this.total += results.total;
     this.errors += results.errors;
 };
+
 /**
  * Test case containing various tests to run.
  * @param template An object containing any number of test methods, other methods,
@@ -2140,6 +2157,7 @@ YUITest.TestCase.prototype = {
     }
 };
 
+
     
 /**
  * A test suite that can contain a collection of TestCase and TestSuite objects.
@@ -2223,6 +2241,7 @@ YUITest.TestSuite.prototype = {
     }
     
 };
+
 /**
  * An object object containing test result formatting methods.
  * @namespace YUITest
@@ -2466,6 +2485,7 @@ YUITest.TestFormat = function(){
     
     };
 }();
+
 /**
  * An object object containing coverage result formatting methods.
  * @namespace YUITest
@@ -2509,6 +2529,7 @@ YUITest.CoverageFormat = {
     }
 
 };
+
     
     /**
      * Runs test suites and test cases, providing events to allowing for the
@@ -3512,3 +3533,4 @@ YUITest.CoverageFormat = {
         return new TestRunner();
         
     }();
+

@@ -31,16 +31,22 @@ _yuitest_coverage["nobraces.js"].lines = {"1":0,"3":0,"4":0,"5":0,"8":0,"9":0};
 _yuitest_coverage["nobraces.js"].functions = {"test:1":0};
 _yuitest_coverage["nobraces.js"].coveredLines = 6;
 _yuitest_coverage["nobraces.js"].coveredFunctions = 1;
-_yuitest_coverline("nobraces.js", 1); function test(){
+_yuitest_coverline("nobraces.js", 1);
+function test(){
 
     _yuitest_coverfunc("nobraces.js", "test", 1);
-_yuitest_coverline("nobraces.js", 3); if(o)
-        {_yuitest_coverline("nobraces.js", 4); for(var prop in o)
-            {_yuitest_coverline("nobraces.js", 5); doSomething();}}
+_yuitest_coverline("nobraces.js", 3);
+if(o)
+        {_yuitest_coverline("nobraces.js", 4);
+for(var prop in o)
+            {_yuitest_coverline("nobraces.js", 5);
+doSomething();}}
 
 
-    _yuitest_coverline("nobraces.js", 8); for(var x=initX;x<str_arr.length;x++)
-         {_yuitest_coverline("nobraces.js", 9); str_arr[x]=str_arr[x].charAt(0).toUpperCase()+str_arr[x].substring(1);}
+    _yuitest_coverline("nobraces.js", 8);
+for(var x=initX;x<str_arr.length;x++)
+         {_yuitest_coverline("nobraces.js", 9);
+str_arr[x]=str_arr[x].charAt(0).toUpperCase()+str_arr[x].substring(1);}
 
 
 }

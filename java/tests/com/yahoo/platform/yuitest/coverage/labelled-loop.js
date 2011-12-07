@@ -1,0 +1,4 @@
+testloop:
+while (true){
+    doSomething();
+}

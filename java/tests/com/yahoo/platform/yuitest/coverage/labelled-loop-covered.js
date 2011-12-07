@@ -16,24 +16,25 @@ if (typeof _yuitest_coverage == "undefined"){
         coverage.functions[funcId]++;
     };
 }
-_yuitest_coverage["array-item.js"] = {
+_yuitest_coverage["labelled-loop.js"] = {
     lines: {},
     functions: {},
     coveredLines: 0,
     calledLines: 0,
     coveredFunctions: 0,
     calledFunctions: 0,
-    path: "array-item.js",
+    path: "labelled-loop.js",
     code: []
 };
-_yuitest_coverage["array-item.js"].code=["var foo = [","","    hello","","];"];
-_yuitest_coverage["array-item.js"].lines = {"1":0};
-_yuitest_coverage["array-item.js"].functions = {};
-_yuitest_coverage["array-item.js"].coveredLines = 1;
-_yuitest_coverage["array-item.js"].coveredFunctions = 0;
-_yuitest_coverline("array-item.js", 1);
-var foo = [
-
-    hello
-
-];
+_yuitest_coverage["labelled-loop.js"].code=["testloop:","while (true){","    doSomething();","}"];
+_yuitest_coverage["labelled-loop.js"].lines = {"1":0,"2":0,"3":0};
+_yuitest_coverage["labelled-loop.js"].functions = {};
+_yuitest_coverage["labelled-loop.js"].coveredLines = 3;
+_yuitest_coverage["labelled-loop.js"].coveredFunctions = 0;
+_yuitest_coverline("labelled-loop.js", 1);
+testloop:
+_yuitest_coverline("labelled-loop.js", 2);
+while (true){
+    _yuitest_coverline("labelled-loop.js", 3);
+doSomething();
+}

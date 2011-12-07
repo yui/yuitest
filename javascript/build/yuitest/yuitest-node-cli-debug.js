@@ -1,11 +1,11 @@
-/*!
+/*
  * Portions of this code incorporated from CSS Lint:
  * https://github.com/stubbornella/csslint
  */
 var fs      = require("fs"),
     path    = require("path"),
     vm      = null,
-    YUITest = require("./lib/yuitest"),
+    YUITest = require("yuitest"),
     stdout  = process.stdout,
     stderr  = process.stderr || stdout;   //stderr added in 0.3.8    
   
@@ -37,13 +37,13 @@ YUITest.CLI = {
     },
     
     warn: function(message){
-        this.warn(message);
+        console.warn(message);
     },
     
     quit: function(code){
     
         //Workaround for https://github.com/joyent/node/issues/1669
-        var flushed = process.stdout.flush();
+        var flushed = process.stdout.flush && process.stdout.flush();
         if (!flushed) {
             process.once("drain", function () {
                 process.exit(code || 0);
@@ -98,6 +98,7 @@ YUITest.CLI = {
     
     processFiles: function(){
         var files = this.files,
+            mod, prop,
             i, len, output;
 
         if (files.length){
@@ -131,6 +132,7 @@ YUITest.CLI = {
     
     }
 };
+
 
 
 
@@ -228,6 +230,7 @@ YUITest.CLI.Logger = function(){
     testRunner.subscribe(testRunner.COMPLETE_EVENT, handleEvent); 
 
 };
+
 
 
 /**
@@ -369,6 +372,7 @@ YUITest.CLI.XUnit = function(){
 };
 
 
+
 /**
  * Console output that uses TestFormat formats.
  * @namespace YUITest.Node.CLI
@@ -391,6 +395,7 @@ YUITest.CLI.Format = function(format){
     testRunner.subscribe(testRunner.COMPLETE_EVENT, handleEvent); 
 
 };
+
 /*
  * Augments the environment-specific CLI API with common functionality.
  */
@@ -488,3 +493,4 @@ YUITest.Util.mix(YUITest.CLI, {
 });
 
 YUITest.CLI.start();
+

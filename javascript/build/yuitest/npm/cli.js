@@ -1,11 +1,12 @@
-/*!
+#!/usr/bin/env node
+/*
  * Portions of this code incorporated from CSS Lint:
  * https://github.com/stubbornella/csslint
  */
 var fs      = require("fs"),
-    path    = require("path")
+    path    = require("path"),
     vm      = null,
-    YUITest = require("./lib/yuitest"),
+    YUITest = require("yuitest"),
     stdout  = process.stdout,
     stderr  = process.stderr || stdout;   //stderr added in 0.3.8    
   
@@ -37,13 +38,13 @@ YUITest.CLI = {
     },
     
     warn: function(message){
-        this.warn(message);
+        console.warn(message);
     },
     
     quit: function(code){
     
         //Workaround for https://github.com/joyent/node/issues/1669
-        var flushed = process.stdout.flush();
+        var flushed = process.stdout.flush && process.stdout.flush();
         if (!flushed) {
             process.once("drain", function () {
                 process.exit(code || 0);
@@ -98,6 +99,7 @@ YUITest.CLI = {
     
     processFiles: function(){
         var files = this.files,
+            mod, prop,
             i, len, output;
 
         if (files.length){
@@ -492,4 +494,6 @@ YUITest.Util.mix(YUITest.CLI, {
 });
 
 YUITest.CLI.start();
+
+
 

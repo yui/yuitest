@@ -1031,7 +1031,7 @@ YUITest.Assert = {
                 }
             
             } else if (typeof expectedError == "object" && expectedError !== null){
-            
+
                 //if it's an object, check the instance and message
                 if (!(thrown instanceof expectedError.constructor) || 
                         thrown.message != expectedError.message){

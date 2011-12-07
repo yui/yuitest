@@ -1,9 +1,9 @@
 {
     "name": "yuitest",
-    "version": "0.7.0",
+    "version": "0.7.1",
     "description": "YUI Test Library on NodeJS",
     "author": "Nicholas C. Zakas <nzakas@yahoo-inc.com>",
-    "bugs": { "web" : "http://yuilibrary.com/projects/yuitest/issues" },
+    "url": { "web" : "http://yuilibrary.com/projects/yuitest/issues" },
     "os": ["darwin", "linux"],
     "contributors": [
     ],

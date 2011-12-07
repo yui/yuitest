@@ -3532,7 +3532,7 @@ YUITest.CoverageFormat = {
         
     }();
 
-/*!
+/*
  * Portions of this code incorporated from CSS Lint:
  * https://github.com/stubbornella/csslint
  */

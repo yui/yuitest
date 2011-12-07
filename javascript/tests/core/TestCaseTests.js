@@ -1,7 +1,9 @@
 (function(){
 
-    var YUITest         = this.YUITest || require("yuitest"),
-        Assert          = YUITest.Assert,
+    //for compatibility with both web and Node.js
+    YUITest = (typeof require == "function") ? require("yuitest") : YUITest;
+
+    var Assert          = YUITest.Assert,
         ObjectAssert    = YUITest.ObjectAssert;
     
     //-------------------------------------------------------------------------

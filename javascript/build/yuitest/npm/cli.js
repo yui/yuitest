@@ -118,7 +118,7 @@ YUITest.CLI = {
                     }
                 } else {
                     try {
-                        require(files[i]);
+                        require(path.resolve(process.cwd(), files[i]));
                     } catch (ex) {
                         this.warn("[ERROR] " + ex.stack);
                         this.warn("\n[ERROR] No tests loaded from " + files[i] + ". If you're not using CommonJS module format, try running with --webcompat option.\n");
@@ -133,7 +133,6 @@ YUITest.CLI = {
     
     }
 };
-
 
 
 
@@ -231,7 +230,6 @@ YUITest.CLI.Logger = function(){
     testRunner.subscribe(testRunner.COMPLETE_EVENT, handleEvent); 
 
 };
-
 
 
 /**
@@ -373,7 +371,6 @@ YUITest.CLI.XUnit = function(){
 };
 
 
-
 /**
  * Console output that uses TestFormat formats.
  * @namespace YUITest.Node.CLI
@@ -396,7 +393,6 @@ YUITest.CLI.Format = function(format){
     testRunner.subscribe(testRunner.COMPLETE_EVENT, handleEvent); 
 
 };
-
 /*
  * Augments the environment-specific CLI API with common functionality.
  */
@@ -494,6 +490,3 @@ YUITest.Util.mix(YUITest.CLI, {
 });
 
 YUITest.CLI.start();
-
-
-

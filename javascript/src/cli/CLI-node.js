@@ -117,7 +117,7 @@ YUITest.CLI = {
                     }
                 } else {
                     try {
-                        require(files[i]);
+                        require(path.resolve(process.cwd(), files[i]));
                     } catch (ex) {
                         this.warn("[ERROR] " + ex.stack);
                         this.warn("\n[ERROR] No tests loaded from " + files[i] + ". If you're not using CommonJS module format, try running with --webcompat option.\n");

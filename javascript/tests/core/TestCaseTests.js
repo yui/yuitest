@@ -241,6 +241,7 @@
         
         "wait() with a function to execute should work": function(){
             this.wait(function(){
+            console.log(Assert.fail + " " + Assert.pass);
                 Assert.pass();
             }, 100);
         },

@@ -210,10 +210,20 @@
              * @static
              */
             this._groups = "";
+
         }
         
         TestRunner.prototype = YUITest.Util.mix(new YUITest.EventTarget(), {
-        
+            
+            /**
+            * If true, YUITest will not fire an error for tests with no Asserts.
+            * @prop _ignoreEmpty
+            * @private
+            * @type Boolean
+            * @static
+            */
+            _ignoreEmpty: false,
+
             //restore prototype
             constructor: YUITest.TestRunner,
         
@@ -596,7 +606,7 @@
                     segment.call(testCase, this._context);                    
                 
                     //if the test hasn't already failed and doesn't have any asserts...
-                    if(YUITest.Assert._getCount() == 0){
+                    if(YUITest.Assert._getCount() == 0 && !this._ignoreEmpty){
                         throw new YUITest.AssertionError("Test has no asserts.");
                     }                                                        
                     //if it should fail, and it got here, then it's a fail because it didn't

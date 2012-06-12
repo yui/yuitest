@@ -4,7 +4,6 @@
     "description": "YUI Test Library on NodeJS",
     "author": "Nicholas C. Zakas <nzakas@yahoo-inc.com>",
     "url": { "web" : "http://yuilibrary.com/projects/yuitest/issues" },
-    "os": ["darwin", "linux"],
     "contributors": [
     ],
     "engines": {

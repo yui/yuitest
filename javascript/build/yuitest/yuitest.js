@@ -680,7 +680,7 @@ YUITest.Assert = {
     
     /**
      * Asserts that a value is equal to another. This uses the double equals sign
-     * so type cohersion may occur.
+     * so type coercion may occur.
      * @param {Object} expected The expected value.
      * @param {Object} actual The actual value to test.
      * @param {String} message (Optional) The message to display if the assertion fails.
@@ -696,7 +696,7 @@ YUITest.Assert = {
     
     /**
      * Asserts that a value is not equal to another. This uses the double equals sign
-     * so type cohersion may occur.
+     * so type coercion may occur.
      * @param {Object} unexpected The unexpected value.
      * @param {Object} actual The actual value to test.
      * @param {String} message (Optional) The message to display if the assertion fails.
@@ -713,7 +713,7 @@ YUITest.Assert = {
     
     /**
      * Asserts that a value is not the same as another. This uses the triple equals sign
-     * so no type cohersion may occur.
+     * so no type coercion may occur.
      * @param {Object} unexpected The unexpected value.
      * @param {Object} actual The actual value to test.
      * @param {String} message (Optional) The message to display if the assertion fails.
@@ -729,7 +729,7 @@ YUITest.Assert = {
 
     /**
      * Asserts that a value is the same as another. This uses the triple equals sign
-     * so no type cohersion may occur.
+     * so no type coercion may occur.
      * @param {Object} expected The expected value.
      * @param {Object} actual The actual value to test.
      * @param {String} message (Optional) The message to display if the assertion fails.
@@ -749,7 +749,7 @@ YUITest.Assert = {
     
     /**
      * Asserts that a value is false. This uses the triple equals sign
-     * so no type cohersion may occur.
+     * so no type coercion may occur.
      * @param {Object} actual The actual value to test.
      * @param {String} message (Optional) The message to display if the assertion fails.
      * @method isFalse
@@ -764,7 +764,7 @@ YUITest.Assert = {
     
     /**
      * Asserts that a value is true. This uses the triple equals sign
-     * so no type cohersion may occur.
+     * so no type coercion may occur.
      * @param {Object} actual The actual value to test.
      * @param {String} message (Optional) The message to display if the assertion fails.
      * @method isTrue
@@ -812,7 +812,7 @@ YUITest.Assert = {
     
     /**
      * Asserts that a value is not null. This uses the triple equals sign
-     * so no type cohersion may occur.
+     * so no type coercion may occur.
      * @param {Object} actual The actual value to test.
      * @param {String} message (Optional) The message to display if the assertion fails.
      * @method isNotNull
@@ -827,7 +827,7 @@ YUITest.Assert = {
 
     /**
      * Asserts that a value is not undefined. This uses the triple equals sign
-     * so no type cohersion may occur.
+     * so no type coercion may occur.
      * @param {Object} actual The actual value to test.
      * @param {String} message (Optional) The message to display if the assertion fails.
      * @method isNotUndefined
@@ -842,7 +842,7 @@ YUITest.Assert = {
 
     /**
      * Asserts that a value is null. This uses the triple equals sign
-     * so no type cohersion may occur.
+     * so no type coercion may occur.
      * @param {Object} actual The actual value to test.
      * @param {String} message (Optional) The message to display if the assertion fails.
      * @method isNull
@@ -857,7 +857,7 @@ YUITest.Assert = {
         
     /**
      * Asserts that a value is undefined. This uses the triple equals sign
-     * so no type cohersion may occur.
+     * so no type coercion may occur.
      * @param {Object} actual The actual value to test.
      * @param {String} message (Optional) The message to display if the assertion fails.
      * @method isUndefined
@@ -1124,7 +1124,7 @@ YUITest.ArrayAssert = {
 
     /**
      * Asserts that a value is present in an array. This uses the triple equals 
-     * sign so no type cohersion may occur.
+     * sign so no type coercion may occur.
      * @param {Object} needle The value that is expected in the array.
      * @param {Array} haystack An array of values.
      * @param {String} message (Optional) The message to display if the assertion fails.
@@ -1143,7 +1143,7 @@ YUITest.ArrayAssert = {
 
     /**
      * Asserts that a set of values are present in an array. This uses the triple equals 
-     * sign so no type cohersion may occur. For this assertion to pass, all values must
+     * sign so no type coercion may occur. For this assertion to pass, all values must
      * be found.
      * @param {Object[]} needles An array of values that are expected in the array.
      * @param {Array} haystack An array of values to check.
@@ -1189,7 +1189,7 @@ YUITest.ArrayAssert = {
     /**
      * Asserts that a value is not present in an array. This uses the triple equals 
      * Asserts that a value is not present in an array. This uses the triple equals 
-     * sign so no type cohersion may occur.
+     * sign so no type coercion may occur.
      * @param {Object} needle The value that is expected in the array.
      * @param {Array} haystack An array of values.
      * @param {String} message (Optional) The message to display if the assertion fails.
@@ -1208,7 +1208,7 @@ YUITest.ArrayAssert = {
 
     /**
      * Asserts that a set of values are not present in an array. This uses the triple equals 
-     * sign so no type cohersion may occur. For this assertion to pass, all values must
+     * sign so no type coercion may occur. For this assertion to pass, all values must
      * not be found.
      * @param {Object[]} needles An array of values that are not expected in the array.
      * @param {Array} haystack An array of values to check.
@@ -1255,7 +1255,7 @@ YUITest.ArrayAssert = {
         
     /**
      * Asserts that the given value is contained in an array at the specified index.
-     * This uses the triple equals sign so no type cohersion will occur.
+     * This uses the triple equals sign so no type coercion will occur.
      * @param {Object} needle The value to look for.
      * @param {Array} haystack The array to search in.
      * @param {int} index The index at which the value should exist.
@@ -1284,7 +1284,7 @@ YUITest.ArrayAssert = {
     /**
      * Asserts that the values in an array are equal, and in the same position,
      * as values in another array. This uses the double equals sign
-     * so type cohersion may occur. Note that the array objects themselves
+     * so type coercion may occur. Note that the array objects themselves
      * need not be the same for this test to pass.
      * @param {Array} expected An array of the expected values.
      * @param {Array} actual Any array of the actual values.
@@ -1383,7 +1383,7 @@ YUITest.ArrayAssert = {
     /**
      * Asserts that the values in an array are the same, and in the same position,
      * as values in another array. This uses the triple equals sign
-     * so no type cohersion will occur. Note that the array objects themselves
+     * so no type coercion will occur. Note that the array objects themselves
      * need not be the same for this test to pass.
      * @param {Array} expected An array of the expected values.
      * @param {Array} actual Any array of the actual values.
@@ -1412,7 +1412,7 @@ YUITest.ArrayAssert = {
     /**
      * Asserts that the given value is contained in an array at the specified index,
      * starting from the back of the array.
-     * This uses the triple equals sign so no type cohersion will occur.
+     * This uses the triple equals sign so no type coercion will occur.
      * @param {Object} needle The value to look for.
      * @param {Array} haystack The array to search in.
      * @param {int} index The index at which the value should exist.
@@ -2019,7 +2019,7 @@ YUITest.Results.prototype.include = function(results){
  */
 YUITest.TestCase = function (template) {
     
-    /**
+    /*
      * Special rules for the test case. Possible subobjects
      * are fail, for tests that should fail, and error, for
      * tests that should throw an error.
@@ -2123,6 +2123,7 @@ YUITest.TestCase.prototype = {
     /**
      * Function to run once before tests start to run.
      * This executes before the first call to setUp().
+     * @method init
      */
     init: function(){
         //noop
@@ -2131,6 +2132,7 @@ YUITest.TestCase.prototype = {
     /**
      * Function to run once after tests finish running.
      * This executes after the last call to tearDown().
+     * @method destroy
      */
     destroy: function(){
         //noop
@@ -3268,7 +3270,7 @@ YUITest.Event = (function() {
         /**
          * Removes all previous defined fields.
          * @return {Void}
-         * @method addField
+         * @method clearFields
          */
         clearFields : function(){
             this._fields = new Object();
@@ -3788,6 +3790,7 @@ YUITest.PageManager = YUITest.Util.mix(new YUITest.EventTarget(), {
              * of this node.
              * @param {Variant} testObject A TestSuite, TestCase, or the name of a test function.
              * @return {Void}
+             * @method appendChild
              */
             appendChild : function (testObject){
                 var node = new TestNode(testObject);
@@ -3898,10 +3901,20 @@ YUITest.PageManager = YUITest.Util.mix(new YUITest.EventTarget(), {
              * @static
              */
             this._groups = "";
+
         }
         
         TestRunner.prototype = YUITest.Util.mix(new YUITest.EventTarget(), {
-        
+            
+            /**
+            * If true, YUITest will not fire an error for tests with no Asserts.
+            * @prop _ignoreEmpty
+            * @private
+            * @type Boolean
+            * @static
+            */
+            _ignoreEmpty: false,
+
             //restore prototype
             constructor: YUITest.TestRunner,
         
@@ -4284,7 +4297,7 @@ YUITest.PageManager = YUITest.Util.mix(new YUITest.EventTarget(), {
                     segment.call(testCase, this._context);                    
                 
                     //if the test hasn't already failed and doesn't have any asserts...
-                    if(YUITest.Assert._getCount() == 0){
+                    if(YUITest.Assert._getCount() == 0 && !this._ignoreEmpty){
                         throw new YUITest.AssertionError("Test has no asserts.");
                     }                                                        
                     //if it should fail, and it got here, then it's a fail because it didn't
@@ -4437,11 +4450,11 @@ YUITest.PageManager = YUITest.Util.mix(new YUITest.EventTarget(), {
                     
             /**
              * Runs a single test based on the data provided in the node.
+             * @method _runTest
              * @param {TestNode} node The TestNode representing the test to run.
              * @return {Void}
              * @static
              * @private
-             * @name _runTest
              */
             _runTest : function (node) {
             
@@ -4616,6 +4629,7 @@ YUITest.PageManager = YUITest.Util.mix(new YUITest.EventTarget(), {
              * as the key name (value is the argument itself).
              * @private
              * @return {Function} A callback function.
+             * @method callback
              */
             callback: function(){
                 var names   = arguments,

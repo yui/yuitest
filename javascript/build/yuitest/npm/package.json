@@ -1,10 +1,12 @@
 {
     "name": "yuitest",
-    "version": "0.7.4",
+    "version": "0.7.5",
     "description": "YUI Test Library on NodeJS",
     "author": "Nicholas C. Zakas <nzakas@yahoo-inc.com>",
     "url": { "web" : "http://yuilibrary.com/projects/yuitest/issues" },
     "contributors": [
+        { "name": "Dav Glass", "email": "davglass@gmail.com" },
+        { "name": "Scott Shattuck" }
     ],
     "engines": {
         "node" : ">=0.2.0"

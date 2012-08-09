@@ -8,19 +8,20 @@
 
 package com.yahoo.platform.yuitest.selenium;
 
-import com.yahoo.platform.yuitest.config.TestPageGroup;
-import com.yahoo.platform.yuitest.config.TestPage;
-import com.yahoo.platform.yuitest.config.TestConfig;
-import com.thoughtworks.selenium.DefaultSelenium;
-import com.thoughtworks.selenium.Selenium;
-import com.thoughtworks.selenium.SeleniumException;
-import com.yahoo.platform.yuitest.coverage.results.SummaryCoverageReport;
-import com.yahoo.platform.yuitest.results.TestReport;
 import java.io.StringReader;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
+
+import com.thoughtworks.selenium.DefaultSelenium;
+import com.thoughtworks.selenium.Selenium;
+import com.thoughtworks.selenium.SeleniumException;
+import com.yahoo.platform.yuitest.config.TestConfig;
+import com.yahoo.platform.yuitest.config.TestPage;
+import com.yahoo.platform.yuitest.config.TestPageGroup;
+import com.yahoo.platform.yuitest.coverage.results.SummaryCoverageReport;
+import com.yahoo.platform.yuitest.results.TestReport;
 
 /**
  * Controls Selenium to extract YUI Test information.
@@ -112,7 +113,7 @@ public class SeleniumDriver {
      * properties.
      * @param properties Properties defining how the driver should act.
      */
-    public SeleniumDriver(Properties properties) throws Exception {
+	public SeleniumDriver(Properties properties) throws Exception {
         this.properties = properties;
         getBrowserList();
     }
@@ -324,7 +325,7 @@ public class SeleniumDriver {
         String coverageFormat = jsWindow + "." + coverageFormats.get(yuitestVersion);
 
         //JS strings to use
-        String testRunnerIsNotRunning = "!" + testRunner + ".isRunning()";
+        String testRunnerHasResult = testRunner + ".getResults() !== null";
         String testRawResults = testRunner + ".getResults(" + testFormat + ".XML);";
         String testCoverage = testRunner + ".getCoverage(" + coverageFormat + ".JSON);";
         String testName = testRunner + ".getName();";
@@ -352,13 +353,7 @@ public class SeleniumDriver {
                 System.err.println("[INFO] Navigating to '" + url + "'");
             }
 
-            selenium.waitForPageToLoad(properties.getProperty(SELENIUM_WAIT_FOR_LOAD, "10000"));
-
-            if (verbose){
-                System.err.println("[INFO] Page is loaded.");
-            }
-
-            selenium.waitForCondition("(function(){ try { return " + testRunnerIsNotRunning + "}catch(ex){return false}})()", pageTimeout);
+            selenium.waitForCondition("(function(){ try { return " + testRunnerHasResult + "}catch(ex){return false}})()", pageTimeout);
 
             if (verbose){
                 System.err.println("[INFO] Test complete.");

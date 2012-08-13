@@ -124,7 +124,7 @@ public class SummaryCoverageReport {
      * @return The filenames tracked in the report.
      */
     public String[] getFilenames(){
-        String[] filenames = JSONObject.getNames(data);
+        String[] filenames = data.length() > 0 ? JSONObject.getNames(data) : new String[]{};
         Arrays.sort(filenames);
         return filenames;
     }

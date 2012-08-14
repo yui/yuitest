@@ -1,11 +1,12 @@
 {
     "name": "yuitest",
-    "version": "0.7.5",
+    "version": "0.7.6",
     "description": "YUI Test Library on NodeJS",
-    "author": "Nicholas C. Zakas <nzakas@yahoo-inc.com>",
+    "author": "Dav Glass <davglass@gmail.com>",
     "url": { "web" : "http://yuilibrary.com/projects/yuitest/issues" },
     "contributors": [
         { "name": "Dav Glass", "email": "davglass@gmail.com" },
+        { "name": "Nicholas C. Zakas", url: "http://www.nczonline.net/" },
         { "name": "Scott Shattuck" }
     ],
     "engines": {
@@ -21,11 +22,11 @@
     "licenses":[
         {
             "type" : "BSD",
-            "url" : "http://developer.yahoo.com/yui/license.html"
+            "url" : "http://yuilibrary.com/license/"
         }
     ],
     "repository": {
         "type":"git",
-        "url":"http://github.com/yui/yuitest.git"
+        "url":"https://github.com/yui/yuitest.git"
     }
 }

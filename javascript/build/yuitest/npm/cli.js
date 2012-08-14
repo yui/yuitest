@@ -413,17 +413,7 @@ YUITest.Util.mix(YUITest.CLI, {
     },
 
     outputVersion: function() {
-        var fs = require('fs'),
-            path = require('path'),
-            exists = fs.existsSync || path.existsSync,
-            pack = path.join(__dirname, 'package.json');
-
-        if (exists(pack)) {
-            var json = JSON.parse(fs.readFileSync(pack, 'utf8'));
-            this.print(json.version + '\n');
-        } else {
-            this.print('Can not locate package.json file.\n');
-        }
+        this.print(YUITest.version + '\n');
     },
     
     outputHelp: function(){

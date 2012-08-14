@@ -3,19 +3,31 @@
     <description>Component Build File</description>
 
     <property environment="env" />
+    <property file="version.properties" />
 	
     <target name="build" depends="YuiModuleTargets.build">
-       <ant antfile="${buildfile.dir}/build-core.xml" target="yuitest_build_subtask" inheritAll="false" />
-       <ant antfile="${buildfile.dir}/build-node.xml" target="yuitest_build_subtask" inheritAll="false" />
-       <ant antfile="${buildfile.dir}/build-node-cli.xml" target="yuitest_build_subtask" inheritAll="false" />
-       <ant antfile="${buildfile.dir}/build-rhino-cli.xml" target="yuitest_build_subtask" inheritAll="false" />
+        <ant antfile="${buildfile.dir}/build-core.xml" target="yuitest_build_subtask" inheritAll="false" />
+        <ant antfile="${buildfile.dir}/build-node.xml" target="yuitest_build_subtask" inheritAll="false" />
+        <ant antfile="${buildfile.dir}/build-node-cli.xml" target="yuitest_build_subtask" inheritAll="false" />
+        <ant antfile="${buildfile.dir}/build-rhino-cli.xml" target="yuitest_build_subtask" inheritAll="false" />
+        <echo>Setting Version</echo>
+        <replace dir="${global.build.base}/yuitest/">
+            <include name="**/*.js"/>
+            <replacefilter token="@VERSION@" value="${version.release}"/>
+        </replace>
     </target>
     
     <!-- override to make npm package -->
     <target name="npmbuild" depends="all">
         <echo>Creating NPM package directory</echo>
         <mkdir dir="${global.build.npm}"/>
-        <copy file="${component.npm.base}/package.json" tofile="${global.build.npm}/package.json"/>
+        <copy file="${component.npm.base}/package.json" tofile="${global.build.npm}/package.json">
+            <filterchain>
+                <replacetokens>
+                    <token key="VERSION" value="${version.release}" />
+                </replacetokens>
+            </filterchain>
+        </copy>
         <copy file="${buildfile.dir}/README.md" tofile="${global.build.npm}/README.md"/>
         <mkdir dir="${global.build.npm}/lib"/>
         <copy file="${global.build.base}/yuitest/yuitest-node.js" tofile="${global.build.npm}/lib/yuitest-node.js"/>
@@ -25,6 +37,11 @@
             <filelist dir="${global.build.base}/yuitest/" files="yuitest-node-cli.js" />
         </concat>        
 
+        <echo>Setting Version</echo>
+        <replace dir="${global.build.base}/yuitest/">
+            <include name="**/*.js"/>
+            <replacefilter token="@VERSION@" value="${version.release}"/>
+        </replace>
         
         <!-- Unix can't deal with errant \n characters, to double-check here -->
         <fixcrlf srcdir="${global.build.npm}" includes="**/*.js" eol="lf"/>

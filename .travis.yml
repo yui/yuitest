@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+    - 0.6
+    - 0.8
+before_install:
+    - ./travis/before.sh
+install:
+    - ./travis/install.sh
+script:
+    - ./travis/test.sh
+notifications:
+    email:
+        - davglass@gmail.com
+        - davglass@yahoo-inc.com

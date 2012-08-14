@@ -16,6 +16,7 @@
         <echo>Creating NPM package directory</echo>
         <mkdir dir="${global.build.npm}"/>
         <copy file="${component.npm.base}/package.json" tofile="${global.build.npm}/package.json"/>
+        <copy file="${buildfile.dir}/README.md" tofile="${global.build.npm}/README.md"/>
         <mkdir dir="${global.build.npm}/lib"/>
         <copy file="${global.build.base}/yuitest/yuitest-node.js" tofile="${global.build.npm}/lib/yuitest-node.js"/>
         

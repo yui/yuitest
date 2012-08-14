@@ -61,7 +61,9 @@ YUITest.CLI.XUnit = function(){
                     
                     for (i=0,len=failures.length; i < len; i++){
                         message += "\n" + (i+1) + ") " + failures[i].name + " : " + failures[i].error.getMessage() + "\n";
-                        message += "Stack trace:\n" + filterStackTrace(failures[i].error.stack) + "\n";
+                        if (failures[i].error.stack) {
+                            message += "Stack trace:\n" + filterStackTrace(failures[i].error.stack) + "\n";
+                        }
                     }
                 
                     message += "\n";
@@ -72,7 +74,9 @@ YUITest.CLI.XUnit = function(){
                     
                     for (i=0,len=errors.length; i < len; i++){
                         message += "\n" + (i+1) + ") " + errors[i].name + " : " + errors[i].error.message + "\n";
-                        message += "Stack trace:\n" + filterStackTrace(errors[i].error.stack) + "\n";
+                        if (errors[i].error.stack) {
+                            message += "Stack trace:\n" + filterStackTrace(errors[i].error.stack) + "\n";
+                        }
                     }
                 
                     message += "\n";

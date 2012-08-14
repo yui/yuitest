@@ -6,7 +6,7 @@
     "url": { "web" : "http://yuilibrary.com/projects/yuitest/issues" },
     "contributors": [
         { "name": "Dav Glass", "email": "davglass@gmail.com" },
-        { "name": "Nicholas C. Zakas", url: "http://www.nczonline.net/" },
+        { "name": "Nicholas C. Zakas", "url": "http://www.nczonline.net/" },
         { "name": "Scott Shattuck" }
     ],
     "engines": {

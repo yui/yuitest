@@ -407,7 +407,22 @@ YUITest.Util.mix(YUITest.CLI, {
         verbose: false,
         webcompat: false,
         help: false,
+        version: false,
         format: "xunit"
+    },
+
+    outputVersion: function() {
+        var fs = require('fs'),
+            path = require('path'),
+            exists = fs.existsSync || path.existsSync,
+            pack = path.join(__dirname, 'package.json');
+
+        if (exists(pack)) {
+            var json = JSON.parse(fs.readFileSync(pack, 'utf8'));
+            this.print(json.version + '\n');
+        } else {
+            this.print('Can not locate package.json file.\n');
+        }
     },
     
     outputHelp: function(){
@@ -416,7 +431,8 @@ YUITest.Util.mix(YUITest.CLI, {
             " ",
             "Global Options",
             "  --groups groupname  Run only tests cases that are part of groupname.",
-            "  --help              Displays this information.",
+            "  --help, -h          Displays this information.",
+            "  --version, -v       Displays the current version.",
             "  --format <format>   Specifies output format (junitxml, tap, xunit).",
             "  --verbose           Display informational messages and warnings.",
             "  --webcompat         Load tests designed for use in browsers."   
@@ -429,7 +445,7 @@ YUITest.Util.mix(YUITest.CLI, {
             arg     = args.shift(), 
             files   = [];  
             
-        while(arg){
+        while (arg) {
             if (arg.indexOf("--") == 0){
                 this.options[arg.substring(2)] = true;
                 
@@ -438,15 +454,29 @@ YUITest.Util.mix(YUITest.CLI, {
                     this.options[arg.substring(2)] = args.shift();
                 }
             } else {
-                
-                //see if it's a directory or a file
-                if (this.isDirectory(arg)){
-                    files = files.concat(this.getFiles(arg));
-                } else {
-                    files.push(arg);
+                switch (arg) {
+                    case '-h':
+                        this.options.help = true;
+                        break;
+                    case '-v':
+                        this.options.version = true;
+                        break;
+                    default:
+                        //see if it's a directory or a file
+                        if (this.isDirectory(arg)){
+                            files = files.concat(this.getFiles(arg));
+                        } else {
+                            files.push(arg);
+                        }
+
                 }
             }
             arg = args.shift();
+        }
+
+        if (this.options.version) {
+            this.outputVersion();
+            this.quit(0);
         }
 
         if (this.options.help || files.length === 0){

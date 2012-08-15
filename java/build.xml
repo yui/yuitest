@@ -179,8 +179,10 @@
         </copy>
     </target>
 
+    <target name="test" depends="test.classes"/>
+
     <target name="test.classes" depends="build.classes,build.tests">
-        <junit printsummary="yes" fork="yes"  errorproperty="junit.failure" failureproperty="junit.failure" showoutput="true">
+        <junit printsummary="yes" fork="yes"  errorproperty="junit.failure" failureproperty="junit.failure" showoutput="true" haltonfailure="true">
 
                 <jvmarg value="-Duser.dir=${res.dir}"/>
 

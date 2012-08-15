@@ -2,7 +2,16 @@
 
 cd "$(dirname "$0")"
 
-cd ../javascript
+cd ../
+yuitest=./node_modules/.bin/yuitest
+
+${yuitest} ./javascript/tests/{asserts,core,mock}/*.js
+wait
+
+RETVAL=$?
+[ $RETVAL -ne 0 ] && exit 1
+
+cd javascript
 grover=../node_modules/.bin/grover
 echo "Grover: ${grover}"
 

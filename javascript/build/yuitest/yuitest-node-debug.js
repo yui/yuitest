@@ -10,7 +10,7 @@
  */
 
 var YUITest = exports;
-YUITest.version = "0.7.6";
+YUITest.version = "@VERSION@";
 
 //backwards compatibility
 exports.YUITest = YUITest;
@@ -2012,6 +2012,9 @@ YUITest.Results.prototype.include = function(results){
  * @namespace YUITest
  * @constructor
  */
+
+
+
 YUITest.TestCase = function (template) {
     
     /*
@@ -2027,11 +2030,12 @@ YUITest.TestCase = function (template) {
     }    
     
     //check for a valid name
-    if (typeof this.name != "string"){
-        this.name = "testCase" + (+new Date());
+    if (typeof this.name != "string") {
+        this.name = YUITest.guid("testCase_");
     }
 
 };
+
         
 YUITest.TestCase.prototype = {  
 
@@ -2190,8 +2194,8 @@ YUITest.TestSuite = function (data) {
     }
 
     //double-check name
-    if (this.name === ""){
-        this.name = "testSuite" + (+new Date());
+    if (this.name === "" || !this.name) {
+        this.name = YUITest.guid("testSuite_");
     }
 
 };
@@ -2657,7 +2661,7 @@ YUITest.CoverageFormat = {
              * @static
              * @private
              */
-            this.masterSuite = new YUITest.TestSuite("yuitests" + (new Date()).getTime());        
+            this.masterSuite = new YUITest.TestSuite(YUITest.guid('testSuite_'));
     
             /**
              * Pointer to the current node in the test tree.
@@ -3387,7 +3391,7 @@ YUITest.CoverageFormat = {
              * @static
              */
             clear : function () {
-                this.masterSuite = new YUITest.TestSuite("yuitests" + (new Date()).getTime());
+                this.masterSuite = new YUITest.TestSuite(YUITest.guid('testSuite_'));
             },
             
             /**

@@ -10,7 +10,12 @@
  */
 
 var YUITest = {
-    version: "0.7.6"
+    version: "@VERSION@",
+    _idx: 0,
+    guid: function(pre) {
+        var id = (new Date()).getTime() + '_' + (++YUITest._idx);
+        return (pre) ? (pre + id) : id;
+    }
 };
 
 /**
@@ -2010,6 +2015,9 @@ YUITest.Results.prototype.include = function(results){
  * @namespace YUITest
  * @constructor
  */
+
+
+
 YUITest.TestCase = function (template) {
     
     /*
@@ -2025,11 +2033,12 @@ YUITest.TestCase = function (template) {
     }    
     
     //check for a valid name
-    if (typeof this.name != "string"){
-        this.name = "testCase" + (+new Date());
+    if (typeof this.name != "string") {
+        this.name = YUITest.guid("testCase_");
     }
 
 };
+
         
 YUITest.TestCase.prototype = {  
 
@@ -2188,8 +2197,8 @@ YUITest.TestSuite = function (data) {
     }
 
     //double-check name
-    if (this.name === ""){
-        this.name = "testSuite" + (+new Date());
+    if (this.name === "" || !this.name) {
+        this.name = YUITest.guid("testSuite_");
     }
 
 };
@@ -3810,7 +3819,7 @@ YUITest.PageManager = YUITest.Util.mix(new YUITest.EventTarget(), {
              * @static
              * @private
              */
-            this.masterSuite = new YUITest.TestSuite("yuitests" + (new Date()).getTime());        
+            this.masterSuite = new YUITest.TestSuite(YUITest.guid('testSuite_'));
     
             /**
              * Pointer to the current node in the test tree.
@@ -4540,7 +4549,7 @@ YUITest.PageManager = YUITest.Util.mix(new YUITest.EventTarget(), {
              * @static
              */
             clear : function () {
-                this.masterSuite = new YUITest.TestSuite("yuitests" + (new Date()).getTime());
+                this.masterSuite = new YUITest.TestSuite(YUITest.guid('testSuite_'));
             },
             
             /**

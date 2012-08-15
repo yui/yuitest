@@ -21,15 +21,15 @@ RETVAL=$?
 [ $RETVAL -ne 0 ] && exit 1
 
 if [ -n "$TRAVIS" ]; then
+    cd ../java
     echo "Setting up Java:"
     TRAVIS_JDK_VERSION=default
+    export CLASSPATH=`pwd`/lib
     echo "ClassPath: ${CLASSPATH}"
-    export CLASSPATH=./
     echo -n "Java: "
     java -version
     echo -n "Javac: "
     javac -version
     echo "Running Java Tests in Travis"
-    cd ../java
     ant test
 fi

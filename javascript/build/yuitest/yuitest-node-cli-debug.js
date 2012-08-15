@@ -275,7 +275,7 @@ YUITest.CLI.XUnit = function(){
             
         switch(event.type){
             case testRunner.BEGIN_EVENT:
-                message = "YUITest\n";
+                message = "YUITest@" + YUITest.version + "\n";
                 
                 if (testRunner._groups){
                     message += "Filtering on groups '" + testRunner._groups.slice(1,-1) + "'\n";

@@ -23,8 +23,8 @@ RETVAL=$?
 if [ -n "$TRAVIS" ]; then
     cd ../java
     echo "Setting up Java:"
-    ls /usr/lib/jvm/
-    export JAVA_HOME=/usr/lib/jvm/openjdk6
+    ls /usr/lib/jvm/java-1.6.0-openjdk
+    export JAVA_HOME=/usr/lib/jvm/java-1.6.0-openjdk
     echo "Java Home: ${JAVA_HOME}"
     echo "ClassPath: ${CLASSPATH}"
     echo -n "Java: "

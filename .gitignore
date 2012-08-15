@@ -2,3 +2,11 @@
 **/npm-debug.log
 javascript/build/yuitest/*-coverage.js
 node_modules/
+tmp/
+CVS/
+.DS_Store
+.*.swp
+.svn
+*~
+src/build.log
+.com.apple.timemachine.supported

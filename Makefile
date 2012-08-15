@@ -10,12 +10,15 @@ javascript:
 	@echo "Making Javascript"
 	cd javascript && ant -q -Dlint.skip=true -Dcoverage.skip=true
 
+javatest: testjava
+
 testjava:
 	@echo "Running Java JUnit tests"
 	cd java && ant test
 
 testjavascript: testjs
 
+jstest: testjs
 testjs:
 	@echo "Testing Javascript"
 	./travis/travis.sh

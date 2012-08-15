@@ -23,7 +23,8 @@ RETVAL=$?
 if [ -n "$TRAVIS" ]; then
     echo "Setting up Java:"
     TRAVIS_JDK_VERSION=default
-    jdk_switcher use default
+    echo "ClassPath: ${CLASSPATH}"
+    export CLASSPATH=./
     echo -n "Java: "
     java -version
     echo -n "Javac: "

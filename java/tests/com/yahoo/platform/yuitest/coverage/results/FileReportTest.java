@@ -230,7 +230,7 @@ public class FileReportTest {
 
         String[] result = report.getFunctionNames();
         assertEquals(14, result.length);
-        assertEquals("_parseCookieString:123", result[0]);
+        assertEquals("setSubs:457", result[0]);
     }
 
     /**

@@ -22,9 +22,15 @@ RETVAL=$?
 
 if [ -n "$TRAVIS" ]; then
     cd ../java
+    wget https://raw.github.com/michaelklishin/jdk_switcher/master/jdk_switcher.sh -O ./tmp/jdk_switcher.sh
+    wait
+    chmod a+x ./tmp/*.sh
+    wait 
+    source ./tmp/jdk_switcher.sh
+    wait
+    jdk_switcher use openjdk6
     echo "Setting up Java:"
-    TRAVIS_JDK_VERSION=default
-    export CLASSPATH=`pwd`/lib
+    echo "Java Home: ${JAVA_HOME}"
     echo "ClassPath: ${CLASSPATH}"
     echo -n "Java: "
     java -version

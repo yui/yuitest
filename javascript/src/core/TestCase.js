@@ -6,6 +6,9 @@
  * @namespace YUITest
  * @constructor
  */
+
+
+
 YUITest.TestCase = function (template) {
     
     /*
@@ -21,11 +24,12 @@ YUITest.TestCase = function (template) {
     }    
     
     //check for a valid name
-    if (typeof this.name != "string"){
-        this.name = "testCase" + (+new Date());
+    if (typeof this.name != "string") {
+        this.name = YUITest.guid("testCase_");
     }
 
 };
+
         
 YUITest.TestCase.prototype = {  
 

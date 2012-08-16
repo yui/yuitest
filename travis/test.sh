@@ -20,14 +20,14 @@ ${grover} --server ./tests/TestRunner.html -S "?autorun=true"
 RETVAL=$?
 [ $RETVAL -ne 0 ] && exit 1
 
-if [ -n "$TRAVIS" ]; then
-    cd ../java
-    echo "Java Home: ${JAVA_HOME}"
-    echo "ClassPath: ${CLASSPATH}"
-    echo -n "Java: "
-    java -version
-    echo -n "Javac: "
-    javac -version
-    echo "Running Java Tests in Travis"
-    ant test
-fi
+#if [ -n "$TRAVIS" ]; then
+#    cd ../java
+#    echo "Java Home: ${JAVA_HOME}"
+#    echo "ClassPath: ${CLASSPATH}"
+#    echo -n "Java: "
+#    java -version
+#    echo -n "Javac: "
+#    javac -version
+#    echo "Running Java Tests in Travis"
+#    ant test
+#fi

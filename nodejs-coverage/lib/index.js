@@ -16,24 +16,24 @@ lists.some(function(item) {
 exports.jar = jar;
 
 
-var cover = function(item, charset, callback) {
+var cover = function(item, options, callback) {
     if (typeof charset === 'function') {
-        callback = charset;
-        charset = 'utf8';
+        callback = options;
+        options = { charset: 'utf8' };
     }
 
-    getFile(item, function(err, file, rm) {
-        coverFile(file, charset, callback, rm);
+    getFile(item, options.name, function(err, file, rm) {
+        coverFile(file, options, callback, rm);
     });
 };
 
-var getFile = function(str, callback) {
+var getFile = function(str, name, callback) {
     exists(str, function(y) {
         if (y) {
             callback(null, str);
         } else {
             //Write Temp File..
-            var tmpFile = path.join(__dirname, 'tmp-' + (new Date()).getTime() + '.' + (++idx));
+            var tmpFile = name || path.join(__dirname, 'tmp-' + (new Date()).getTime() + '.' + (++idx));
             fs.writeFile(tmpFile, str, 'utf8', function(err) {
                 callback(null, tmpFile, true);
             });
@@ -42,13 +42,13 @@ var getFile = function(str, callback) {
 };
 
 
-var coverFile = function(file, charset, callback, rm) {
+var coverFile = function(file, options, callback, rm) {
 
     var args = [
         '-jar',
         jar,
         '--charset',
-        charset,
+        options.charset,
         file
     ], buffer = '', errBuffer = '', child;
 

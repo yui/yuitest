@@ -7,7 +7,7 @@
     "keywords": [
         "yui", "yuitest", "codecoverage", "coverage"
     ],
-    "main": "./lib/index.js"
+    "main": "./lib/index.js",
     "licenses":[
         {
             "type" : "BSD",

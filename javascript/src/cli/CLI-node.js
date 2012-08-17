@@ -4,6 +4,7 @@
  */
 var fs      = require("fs"),
     path    = require("path"),
+    exists  = fs.existsSync || path.existsSync,
     vm      = null,
     YUITest = require("yuitest"),
     stdout  = process.stdout,
@@ -53,8 +54,14 @@ YUITest.CLI = {
         }
     },
     
-    isDirectory: function(name){
-        return fs.statSync(name).isDirectory();
+    isDirectory: function(name) {
+        if (exists(name)) {
+            var stat = fs.statSync(name);
+            return stat.isDirectory();
+        } else {
+            this.warn('File Not Found: ' + name);
+            this.quit(1);
+        }
     },
 
     getFiles: function(dir){

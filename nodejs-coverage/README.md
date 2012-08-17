@@ -13,7 +13,11 @@ Example
 
 var coverage = require('yuitest-coverage');
 
-coverage.cover('/path/to/file', function(err, data) {
+coverage.cover('/path/to/file', {
+    charset: 'utf8',
+    name: 'A name for the file'
+},
+function(err, data) {
     //err will be populated with the stderr from the java process
     //data will be a string of the covered contents, you write the file out
 });

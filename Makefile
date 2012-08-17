@@ -25,7 +25,7 @@ testjs:
 
 npm:
 	@echo "Making NPM Package"
-	cd javascript && ant buildnpm
+	cd javascript && ant npmbuild
 
 test: testjava testjs
 

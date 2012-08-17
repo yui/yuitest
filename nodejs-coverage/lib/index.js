@@ -17,7 +17,7 @@ exports.jar = jar;
 
 
 var cover = function(item, options, callback) {
-    if (typeof charset === 'function') {
+    if (typeof options === 'function') {
         callback = options;
         options = { charset: 'utf8' };
     }

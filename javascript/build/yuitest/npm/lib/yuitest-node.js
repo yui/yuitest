@@ -10,7 +10,7 @@
  */
 
 var YUITest = exports;
-YUITest.version = "0.7.7";
+YUITest.version = "0.7.8";
 
 //backwards compatibility
 exports.YUITest = YUITest;

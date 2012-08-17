@@ -10,7 +10,7 @@
  */
 
 var YUITest = {
-    version: "0.7.7",
+    version: "0.7.8",
     _idx: 0,
     guid: function(pre) {
         var id = (new Date()).getTime() + '_' + (++YUITest._idx);

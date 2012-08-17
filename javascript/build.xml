@@ -19,8 +19,10 @@
     
     <!-- override to make npm package -->
     <target name="npmbuild" depends="all">
+        <delete dir="${global.build.npm}"/>
         <echo>Creating NPM package directory</echo>
         <mkdir dir="${global.build.npm}"/>
+        <echo>Copying package.json file over and setting version number</echo>
         <copy file="${component.npm.base}/package.json" tofile="${global.build.npm}/package.json">
             <filterchain>
                 <replacetokens>
@@ -40,6 +42,7 @@
         <echo>Setting Version</echo>
         <replace dir="${global.build.base}/yuitest/">
             <include name="**/*.js"/>
+            <include name="**/*.json"/>
             <replacefilter token="@VERSION@" value="${version.release}"/>
         </replace>
         

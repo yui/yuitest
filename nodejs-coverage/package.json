@@ -1,0 +1,6 @@
+{
+    "name": "yuitest-coverage",
+    "description": "Node.js wrapper for yuitest-coverage java package",
+    "version": "0.0.1",
+    "main": "./lib/index.js"
+}

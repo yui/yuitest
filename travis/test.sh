@@ -5,11 +5,27 @@ cd "$(dirname "$0")"
 cd ../
 yuitest=./node_modules/.bin/yuitest
 
+echo ""
+echo "Starting Tests against Node.js CLI"
+echo ""
+
 ${yuitest} ./javascript/tests/{asserts,core,mock}/*.js
-wait
 
 RETVAL=$?
 [ $RETVAL -ne 0 ] && exit 1
+
+echo ""
+echo "Starting Coverage JS Wrapper Tests"
+echo ""
+
+${yuitest} ./nodejs-coverage-tests/tests.js
+
+RETVAL=$?
+[ $RETVAL -ne 0 ] && exit 1
+
+echo ""
+echo "Starting Tests in a browser with Grover"
+echo ""
 
 cd javascript
 grover=../node_modules/.bin/grover

@@ -4,11 +4,12 @@ var spawn = require('child_process').spawn,
     path = require('path'),
     jar, idx = 0,
     exists = fs.exists || path.exists,
-    lists = fs.readdirSync(path.join(__dirname, '../build'));
+    base = path.join(__dirname, '../jar'),
+    lists = fs.readdirSync(base);
 
 lists.some(function(item) {
     if (path.extname(item) === '.jar') {
-        jar = path.join(__dirname, '../build/', item);
+        jar = path.join(base, item);
         return true;
     }
 });

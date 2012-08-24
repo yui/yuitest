@@ -98,7 +98,7 @@ public class YUITestCoverage {
                     in = new InputStreamReader(new FileInputStream(fileArgs[0]), charset);
                 }
                 String fileName = (coverFileName != null) ? coverFileName : ((fileArgs.length > 0) ? fileArgs[0] : "<stdin>");
-                JavaScriptInstrumenter instrumenter = new JavaScriptInstrumenter(in, fileName, charset);
+                JavaScriptInstrumenter instrumenter = new JavaScriptInstrumenter(in, fileName, fileName);
                 out = new OutputStreamWriter(System.out, charset);
                 instrumenter.instrument(out, verbose);
             } else{

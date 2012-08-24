@@ -1,7 +1,7 @@
 {
     "name": "yuitest-coverage",
     "description": "Node.js wrapper for yuitest-coverage java package",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "author": "Dav Glass <davglass@gmail.com>",
     "bugs": { "url" : "http://yuilibrary.com/projects/yuitest/newticket" },
     "keywords": [

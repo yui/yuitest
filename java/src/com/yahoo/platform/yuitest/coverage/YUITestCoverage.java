@@ -33,6 +33,8 @@ public class YUITestCoverage {
         CmdLineParser.Option outputLocationOpt = parser.addStringOption('o', "output");
         CmdLineParser.Option directoryOpt = parser.addBooleanOption('d', "dir");
         CmdLineParser.Option excludeOpt = parser.addStringOption('x', "exclude");
+        CmdLineParser.Option stdinOpt = parser.addBooleanOption("stdin");
+        CmdLineParser.Option coverFileNameOpt = parser.addStringOption("cover-name");
 
         Reader in = null;
         Writer out = null;
@@ -51,6 +53,11 @@ public class YUITestCoverage {
 
             //Verbose option
             boolean verbose = parser.getOptionValue(verboseOpt) != null;
+            
+            
+            //Use STDIN
+            boolean useStdin = parser.getOptionValue(stdinOpt) != null;
+            String coverFileName = (String) parser.getOptionValue(coverFileNameOpt);
 
             //Charset option
             String charset = (String) parser.getOptionValue(charsetOpt);
@@ -68,8 +75,10 @@ public class YUITestCoverage {
             String[] fileArgs = parser.getRemainingArgs();
 
             if (fileArgs.length == 0) {
-                usage();
-                System.exit(1);
+                if (!useStdin) {
+                    usage();
+                    System.exit(1);
+                }
             } 
 
             String outputLocation = (String) parser.getOptionValue(outputLocationOpt);
@@ -82,9 +91,14 @@ public class YUITestCoverage {
                 if (verbose) {
                     System.err.println("\n[INFO] Preparing to instrument JavaScript file " + fileArgs[0] + ".");
                 }
-
-                in = new InputStreamReader(new FileInputStream(fileArgs[0]), charset);
-                JavaScriptInstrumenter instrumenter = new JavaScriptInstrumenter(in, fileArgs[0]);
+                
+                if (useStdin) {
+                    in = new InputStreamReader(System.in, charset); 
+                } else {
+                    in = new InputStreamReader(new FileInputStream(fileArgs[0]), charset);
+                }
+                String fileName = (coverFileName != null) ? coverFileName : ((fileArgs.length > 0) ? fileArgs[0] : "<stdin>");
+                JavaScriptInstrumenter instrumenter = new JavaScriptInstrumenter(in, fileName, charset);
                 out = new OutputStreamWriter(System.out, charset);
                 instrumenter.instrument(out, verbose);
             } else{
@@ -163,6 +177,8 @@ public class YUITestCoverage {
                         + "Global Options\n"
                         + "  -h, --help              Displays this information.\n"
                         + "  --charset <charset>     Read the input file using <charset>.\n"
+                        + "  --stdin                 Read input from stdin"
+                        + "  --cover-name            When intrumenting, use this name instead of the filename (mainly for stdin)"
                         + "  -d, --dir               Input and output (-o) are both directories.\n"
                         + "  -v, --verbose           Display informational messages and warnings.\n"
                         + "  -o <file|dir>           Place the output into <file|dir>. Defaults to stdout.\n\n");

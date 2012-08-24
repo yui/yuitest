@@ -23,39 +23,47 @@ var cover = function(item, options, callback) {
         options = { charset: 'utf8' };
     }
 
-    getFile(item, options.name, function(err, file, rm) {
-        coverFile(file, options, callback, rm);
+    getString(item, function(err, file) {
+        coverString(file, options, callback);
     });
 };
 
-var getFile = function(str, name, callback) {
+var getString = function(str, callback) {
     exists(str, function(y) {
         if (y) {
-            callback(null, str);
-        } else {
-            //Write Temp File..
-            var tmpFile = name || path.join(__dirname, 'tmp-' + (new Date()).getTime() + '.' + (++idx));
-            fs.writeFile(tmpFile, str, 'utf8', function(err) {
-                callback(null, tmpFile, true);
+            fs.readFile(str, 'utf8', function(err, data) {
+                //Set the type from the file name
+                callback(err, data);
             });
+        } else {
+            callback(null, str);
         }
     });
 };
 
 
-var coverFile = function(file, options, callback, rm) {
+var coverString = function(str, options, callback) {
 
     var args = [
         '-jar',
         jar,
         '--charset',
         options.charset,
-        file
+        '--stdin'
     ], buffer = '', errBuffer = '', child;
+    
+
+    if (options.name) {
+        args.push('--cover-name');
+        args.push(options.name);
+    }
 
     child = spawn('java', args, {
         stdio: ['pipe', 'pipe', 'pipe']
     });
+
+    child.stdin.write(str);
+    child.stdin.end();
 
     child.stdout.on('data', function(chunk) {
         buffer += chunk;
@@ -68,9 +76,6 @@ var coverFile = function(file, options, callback, rm) {
         var err = null;
         if (errBuffer) {
             err = errBuffer;
-        }
-        if (rm) {
-            fs.unlink(file);
         }
         callback(err, buffer, errBuffer);
     });

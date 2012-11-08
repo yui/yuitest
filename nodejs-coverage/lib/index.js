@@ -8,7 +8,7 @@ var spawn = require('child_process').spawn,
     lists = fs.readdirSync(base);
 
 lists.some(function(item) {
-    if (path.extname(item) === '.jar') {
+    if (path.basename(item) === 'yuitest-coverage.jar') {
         jar = path.join(base, item);
         return true;
     }

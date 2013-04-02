@@ -43,16 +43,7 @@ YUITest.CLI = {
     },
     
     quit: function(code){
-    
-        //Workaround for https://github.com/joyent/node/issues/1669
-        var flushed = process.stdout.flush && process.stdout.flush();
-        if (!flushed && (parseFloat(process.versions.node) < 0.5)) {
-            process.once("drain", function () {
-                process.exit(code || 0);
-            });
-        } else {
-            process.exit(code || 0);
-        }
+        process.exit(code || 0);
     },
     
     isDirectory: function(name) {
@@ -513,6 +504,9 @@ YUITest.Util.mix(YUITest.CLI, {
     
         this.processArguments();
         this.processFiles();
+        YUITest.TestRunner.subscribe(YUITest.TestRunner.COMPLETE_EVENT, function(event) {
+            YUITest.CLI.quit(event.results.failed ? 1 : 0);
+        });
         
         YUITest.TestRunner.run({
             groups: this.options.groups ? this.options.groups.split(",") : null

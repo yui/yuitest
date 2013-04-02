@@ -1,6 +1,6 @@
 {
     "name": "yuitest",
-    "version": "0.7.8",
+    "version": "0.7.9",
     "description": "YUI Test Library on NodeJS",
     "author": "Dav Glass <davglass@gmail.com>",
     "url": { "web" : "http://yuilibrary.com/projects/yuitest/issues" },

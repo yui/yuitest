@@ -10,7 +10,7 @@
  */
 
 var YUITest = {
-    version: "0.7.8",
+    version: "0.7.9",
     _idx: 0,
     guid: function(pre) {
         var id = (new Date()).getTime() + '_' + (++YUITest._idx);
@@ -1992,7 +1992,7 @@ YUITest.Results = function(name){
      * @property duration
      */
     this.duration = 0;
-}
+};
 
 /**
  * Includes results from another results object into this one.
@@ -3448,12 +3448,19 @@ YUITest.CoverageFormat = {
              *      format is specified, a string representing the results in that format.
              * @method getCoverage
              */
-            getCoverage: function(format){
-                if (!this._running && typeof _yuitest_coverage == "object"){
-                    if (typeof format == "function"){
-                        return format(_yuitest_coverage);                    
+            getCoverage: function(format) {
+                var covObject = null;
+                if (typeof _yuitest_coverage === "object") {
+                    covObject = _yuitest_coverage;
+                }
+                if (typeof __coverage__ === "object") {
+                    covObject = __coverage__;
+                }
+                if (!this._running && typeof covObject == "object"){
+                    if (typeof format == "function") {
+                        return format(covObject);                    
                     } else {
-                        return _yuitest_coverage;
+                        return covObject;
                     }
                 } else {
                     return null;
@@ -3989,6 +3996,9 @@ YUITest.Util.mix(YUITest.CLI, {
     
         this.processArguments();
         this.processFiles();
+        YUITest.TestRunner.subscribe(YUITest.TestRunner.COMPLETE_EVENT, function(event) {
+            YUITest.CLI.quit(event.results.failed ? 1 : 0);
+        });
         
         YUITest.TestRunner.run({
             groups: this.options.groups ? this.options.groups.split(",") : null

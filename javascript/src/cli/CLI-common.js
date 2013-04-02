@@ -107,6 +107,9 @@ YUITest.Util.mix(YUITest.CLI, {
     
         this.processArguments();
         this.processFiles();
+        YUITest.TestRunner.subscribe(YUITest.TestRunner.COMPLETE_EVENT, function(event) {
+            YUITest.CLI.quit(event.results.failed ? 1 : 0);
+        });
         
         YUITest.TestRunner.run({
             groups: this.options.groups ? this.options.groups.split(",") : null

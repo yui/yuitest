@@ -22,6 +22,9 @@ import com.yahoo.platform.yuitest.config.TestPage;
 import com.yahoo.platform.yuitest.config.TestPageGroup;
 import com.yahoo.platform.yuitest.coverage.results.SummaryCoverageReport;
 import com.yahoo.platform.yuitest.results.TestReport;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Controls Selenium to extract YUI Test information.
@@ -428,12 +431,32 @@ public class SeleniumDriver {
     //--------------------------------------------------------------------------
 
     /**
-     * Splits the comma-delimited list of browsers into an array of strings.
+     * Attempts to parse the 'selenium.browsers' property as a JSON String.  If the property is not a JSON string,
+	 * splits the comma-delimited list of browsers into an array of strings.
      * @throws Exception If there are no browsers specified.
      */
     private void getBrowserList() throws Exception {
 
         browsers = (properties.getProperty("selenium.browsers", "")).split("\\,");
+		try {
+            //try parse as a JSON Array
+            JSONArray jsonArray = new JSONArray(browsersText);
+            browsers = new String[jsonArray.length()];
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                browsers[i] = jsonObject.toString();
+            }
+        } catch (JSONException e) {
+            try {
+                //try parse as a JSON Object
+                new JSONObject(browsersText);
+                browsers = new String[1];
+                browsers[0] = browsersText;
+            } catch (JSONException e1) {
+                //fall back to splitting input string on ,
+                browsers = browsersText.split("\\,");
+            }
+        }
         if(browsers.length == 0){
             throw new Exception("The configuration property 'selenium.browsers' is missing.");
         }

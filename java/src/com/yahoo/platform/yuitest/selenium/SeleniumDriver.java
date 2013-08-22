@@ -437,7 +437,7 @@ public class SeleniumDriver {
      */
     private void getBrowserList() throws Exception {
 
-        browsers = (properties.getProperty("selenium.browsers", "")).split("\\,");
+        String browsersText = properties.getProperty("selenium.browsers", "");
 		try {
             //try parse as a JSON Array
             JSONArray jsonArray = new JSONArray(browsersText);

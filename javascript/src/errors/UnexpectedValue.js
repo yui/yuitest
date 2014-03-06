@@ -6,30 +6,30 @@
  *
  * @param {String} message The message to display when the error occurs.
  * @param {Object} unexpected The unexpected value.
- * @namespace YUITest 
+ * @namespace YUITest
  * @extends AssertionError
  * @class UnexpectedValue
  * @constructor
- */ 
+ */
 YUITest.UnexpectedValue = function (message, unexpected){
 
     //call superclass
     YUITest.AssertionError.call(this, message);
-    
+
     /**
      * The unexpected value.
      * @type Object
      * @property unexpected
      */
     this.unexpected = unexpected;
-    
+
     /**
      * The name of the error that occurred.
      * @type String
      * @property name
      */
     this.name = "UnexpectedValue";
-    
+
 };
 
 //inherit from YUITest.AssertionError

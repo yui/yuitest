@@ -6,37 +6,37 @@
  * @param {String} message The message to display when the error occurs.
  * @param {Object} expected The expected value.
  * @param {Object} actual The actual value that caused the assertion to fail.
- * @namespace YUITest 
+ * @namespace YUITest
  * @extends AssertionError
  * @class ComparisonFailure
  * @constructor
- */ 
+ */
 YUITest.ComparisonFailure = function (message, expected, actual){
 
     //call superclass
     YUITest.AssertionError.call(this, message);
-    
+
     /**
      * The expected value.
      * @type Object
      * @property expected
      */
     this.expected = expected;
-    
+
     /**
      * The actual value.
      * @type Object
      * @property actual
      */
     this.actual = actual;
-    
+
     /**
      * The name of the error that occurred.
      * @type String
      * @property name
      */
     this.name = "ComparisonFailure";
-    
+
 };
 
 //inherit from YUITest.AssertionError

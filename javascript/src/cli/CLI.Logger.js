@@ -82,7 +82,7 @@ YUITest.CLI.Logger = function(){
         cli.print(message + "\n");
     }
 
-    testRunner.subscribe(testRunner.BEGIN_EVENT, handleEvent)
+    testRunner.subscribe(testRunner.BEGIN_EVENT, handleEvent);
     testRunner.subscribe(testRunner.TEST_FAIL_EVENT, handleEvent);
     testRunner.subscribe(testRunner.TEST_PASS_EVENT, handleEvent);
     testRunner.subscribe(testRunner.TEST_IGNORE_EVENT, handleEvent);

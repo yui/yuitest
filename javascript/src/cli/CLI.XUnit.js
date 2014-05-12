@@ -31,7 +31,7 @@ YUITest.CLI.XUnit = function(){
             
             return result.join("\n");    
         } else {
-            return "Unavailable."
+            return "Unavailable.";
         }
     }
 
@@ -129,7 +129,7 @@ YUITest.CLI.XUnit = function(){
         cli.print(message);
     }
 
-    testRunner.subscribe(testRunner.BEGIN_EVENT, handleEvent)
+    testRunner.subscribe(testRunner.BEGIN_EVENT, handleEvent);
     testRunner.subscribe(testRunner.TEST_FAIL_EVENT, handleEvent);
     testRunner.subscribe(testRunner.TEST_PASS_EVENT, handleEvent);
     testRunner.subscribe(testRunner.ERROR_EVENT, handleEvent);

@@ -369,8 +369,49 @@ YUITest.Assert = {
         if (typeof actual != "number"){
             throw new YUITest.UnexpectedValue(YUITest.Assert._formatMessage(message, "Value should be a number."), actual);
         }    
-    },    
-    
+    },
+
+    /**
+     * Asserts that a value is a finite number or a string representing a finite number.
+     *
+     * If you expect a number you should use `Assert.isNumber` instead. Please note that
+     * this function will reject "numbers" such as `NaN` and `Infinity`.
+     *
+     * @example
+     *     Assert.isNumeric(NaN);    // fail
+     *     Assert.isNumeric(10);     // pass
+     *     Assert.isNumeric('-10');  // pass
+     *     Assert.isNumeric('10.1'); // pass
+     *     Assert.isNumeric('10px'); // fail
+     *
+     * @method isNumeric
+     * @param {String|Number} actual The value to test.
+     * @param {String} [message] message The message to display if the assertion fails.
+     * @static
+     */
+    isNumeric: function (actual, message) {
+
+        YUITest.Assert._increment();
+
+        if (typeof actual === 'number' && isFinite(actual)){
+            return;
+        }
+
+        if (typeof actual !== 'string'){
+            message = YUITest.Assert._formatMessage(message, "Value isn't a string");
+            throw new YUITest.UnexpectedValue(message, actual);
+        }
+
+        // loose comparison required in order to avoid dodgy type casting:
+        // parseFloat('13px') ~> 13; we don't want that as '13px' == 13 wouldn't have been true.
+        /*jshint eqeqeq: false*/
+        if (actual != parseFloat(actual, 10)){
+            message = YUITest.Assert._formatMessage(message, "Value isn't numeric");
+            throw new YUITest.ComparisonFailure(message, actual);
+        }
+        /*jshint eqeqeq: true*/
+    },
+
     /**
      * Asserts that a value is an object.
      * @param {Object} actual The value to test.

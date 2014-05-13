@@ -979,12 +979,73 @@
             });
         }          
     }));        
-        
+
+    suite.add(new YUITest.TestCase({
+
+        name: "isNumeric() Assert Tests",
+        groups: ["asserts", "common"],
+
+        _should: {
+            fail: {
+                "isNumeric() should fail for NaN": true,
+                "isNumeric() should fail for Infinity": true,
+                "isNumeric() should fail for -Infinity": true,
+                "isNumeric() should fail for non numbers": true,
+                "isNumeric() should fail for dodgy number-ish: '13px'": true,
+                "isNumeric() should fail for dodgy number-ish: '10,10'": true,
+                "isNumeric() should fail for regular strings": true
+            }
+        },
+
+        "isNumeric() should pass for numbers": function () {
+            Assert.isNumeric(10     , "expected 10 to be numeric");
+            Assert.isNumeric(-10    , "expected -10 to be numeric");
+            Assert.isNumeric(10.123 , "expected 10.123 to be numeric");
+            Assert.isNumeric(0.123  , "expected 0.123 to be numeric");
+            Assert.isNumeric(-0.123 , "expected -0.123 to be numeric");
+        },
+
+        "isNumeric() should pass for strings representing numbers": function () {
+            Assert.isNumeric('10'    , "expected '10' to be numeric");
+            Assert.isNumeric('-10'   , "expected '-10' to be numeric");
+            Assert.isNumeric('10.123', "expected '10.123' to be numeric");
+            Assert.isNumeric('0.123' , "expected '0.123' to be numeric");
+            Assert.isNumeric('-0.123', "expected '-0.123' to be numeric");
+        },
+
+        "isNumeric() should fail for NaN": function () {
+            Assert.isNumeric(NaN);
+        },
+
+        "isNumeric() should fail for Infinity": function () {
+            Assert.isNumeric(Infinity);
+        },
+
+        "isNumeric() should fail for -Infinity": function () {
+            Assert.isNumeric(-Infinity);
+        },
+
+        "isNumeric() should fail for non numbers": function () {
+            Assert.isNumeric({});
+        },
+
+        "isNumeric() should fail for dodgy number-ish: '13px'": function () {
+            Assert.isNumeric('13px');
+        },
+
+        "isNumeric() should fail for dodgy number-ish: '10,10'": function () {
+            Assert.isNumeric('10,10');
+        },
+
+        "isNumeric() should fail for regular strings": function () {
+            Assert.isNumeric('hello');
+        }
+    }));
 
     //-------------------------------------------------------------------------
     // Test Case for isString() assertions
     //-------------------------------------------------------------------------
-    
+
     suite.add(new YUITest.TestCase({
     
         name: "isString() Assert Tests",

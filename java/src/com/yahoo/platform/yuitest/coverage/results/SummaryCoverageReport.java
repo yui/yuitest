@@ -204,8 +204,8 @@ public class SummaryCoverageReport {
      * @throws org.json.JSONException
      */
     public double getCalledLinePercentage() throws JSONException {
-        DecimalFormat twoDForm = new DecimalFormat("#.##");
-	return Double.valueOf(twoDForm.format(((double) getCalledLineCount() / (double) getCoveredLineCount()) * 100));
+        double d = ((double) getCalledLineCount() / (double) getCoveredLineCount()) * 10000;
+        return  Math.floor(d)/100.0;
     }
 
     /**
@@ -256,8 +256,8 @@ public class SummaryCoverageReport {
      * @throws org.json.JSONException
      */
     public double getCalledFunctionPercentage() throws JSONException {
-        DecimalFormat twoDForm = new DecimalFormat("#.##");
-	return Double.valueOf(twoDForm.format(((double) getCalledFunctionCount() / (double) getCoveredFunctionCount()) * 100));
+        double d = ((double) getCalledFunctionCount() / (double) getCoveredFunctionCount()) * 10000;
+        return  Math.floor(d)/100.0;
     }
 
     /**

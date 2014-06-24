@@ -7,22 +7,29 @@
  * @namespace YUITest
  * @class AssertionError
  * @constructor
- */ 
+ */
 YUITest.AssertionError = function (message){
-    
+
     /**
      * Error message. Must be duplicated to ensure browser receives it.
      * @type String
      * @property message
      */
     this.message = message;
-    
+
     /**
      * The name of the error that occurred.
      * @type String
      * @property name
      */
     this.name = "Assert Error";
+
+    /**
+     * Error object allows access to stack trace in the browser
+     * @type {Error}
+     * @property error
+     */
+    this.error = new Error(message);
 };
 
 YUITest.AssertionError.prototype = {
@@ -39,7 +46,7 @@ YUITest.AssertionError.prototype = {
     getMessage : function () {
         return this.message;
     },
-    
+
     /**
      * Returns a string representation of the error.
      * @method toString
@@ -47,6 +54,15 @@ YUITest.AssertionError.prototype = {
      */
     toString : function () {
         return this.name + ": " + this.getMessage();
+    },
+
+    /**
+     * Returns an error object
+     * @method getError
+     * @return {Error} An object allows access to stack trace
+     */
+    getError : function() {
+        return this.error;
     }
 
 };

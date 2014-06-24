@@ -13,7 +13,7 @@
 YUITest.UnexpectedError = function (cause){
 
     //call superclass
-    YUITest.AssertionError.call(this, "Unexpected error: " + cause.message);
+    YUITest.AssertionError.call(this, "Unexpected error: " + (cause.message || cause) );
     
     /**
      * The unexpected error that occurred.

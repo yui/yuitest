@@ -489,7 +489,7 @@
                     if (testObject instanceof YUITest.TestCase){
                         event.testCase = testObject;
                     } else {
-                        event.testSuite = testSuite;
+                        event.testSuite = testObject;
                     }
                     
                     this.fire(event);

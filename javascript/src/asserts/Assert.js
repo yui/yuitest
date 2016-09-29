@@ -413,11 +413,36 @@ YUITest.Assert = {
             throw new YUITest.ComparisonFailure(YUITest.Assert._formatMessage(message, "Value should be of type " + expectedType + "."), expectedType, typeof actualValue);
         }
     },
-    
+
+    /**
+     * Asserts that a value is not empty.
+     * @param {Object} actual The actual value to test.
+     * @param {String} message (Optional) The message to display if the assertion fails.
+     * @method isNotEmpty
+     * @static
+     */
+    isNotEmpty : function (actual, message){
+        var key;
+
+        YUITest.Assert._increment();
+
+        if (actual == null){
+            throw new YUITest.UnexpectedValue(YUITest.Assert._formatMessage(message, "Value should not be empty."), actual);
+        } else if ( (Array.isArray(actual) || typeof actual == "string") && actual.length === 0){
+            throw new YUITest.UnexpectedValue(YUITest.Assert._formatMessage(message, "Value should not be empty."), actual);
+        }
+        for(key in actual){
+            if(hasOwnProperty.call(actual, key)) {
+                return;
+            }
+        }
+        throw new YUITest.UnexpectedValue(YUITest.Assert._formatMessage(message, "Value should not be empty."), actual);
+    },
+
     //--------------------------------------------------------------------------
     // Error Detection Methods
-    //--------------------------------------------------------------------------    
-   
+    //--------------------------------------------------------------------------
+
     /**
      * Asserts that executing a particular method should throw an error of
      * a specific type. This is a replacement for _should.error.

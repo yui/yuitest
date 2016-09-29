@@ -1489,6 +1489,77 @@
         }  
         
     }));
+
+    //-------------------------------------------------------------------------
+    // Test Case for isNotEmpty() assertions
+    //-------------------------------------------------------------------------
+
+    suite.add(new YUITest.TestCase({
+
+        name: "isNotEmpty() Assert Tests",
+        groups: ["asserts", "common"],
+
+        "isNotEmpty() should pass for not Empty Array": function(){
+            Assert.isNotEmpty(["element"]);
+        },
+        
+        "isNotEmpty() should pass for not Empty Object": function(){
+            Assert.isNotEmpty({"element": "value"});
+        },
+        
+        "isNotEmpty() should pass for not Empty String": function(){
+            Assert.isNotEmpty("value");
+        },
+        
+        "isNotEmpty() should fail for null value": function(){
+            Assert.throwsError(new YUITest.UnexpectedValue("Something bad happened."), function(){
+                Assert.isNotEmpty(null, "Something bad happened.");
+            });
+        },
+        
+        "isNotEmpty() should fail for undefined value": function(){
+            Assert.throwsError(new YUITest.UnexpectedValue("Something bad happened."), function(){
+                Assert.isNotEmpty(undefined, "Something bad happened.");
+            });
+        },
+        
+        "isNotEmpty() should fail for zero numbers": function(){
+            Assert.throwsError(new YUITest.UnexpectedValue("Something bad happened."), function(){
+                Assert.isNotEmpty(0, "Something bad happened.");
+            });
+        },
+        
+        "isNotEmpty() should fail for non-zero numbers": function(){
+            Assert.throwsError(new YUITest.UnexpectedValue("Something bad happened."), function(){
+                Assert.isNotEmpty(1, "Something bad happened.");
+            });
+        },
+        
+        "isNotEmpty() should fail for true value": function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
+                Assert.isNotEmpty(true);
+            });
+        },
+
+        "isNotEmpty() should fail for false value": function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
+                Assert.isNotEmpty(false);
+            });
+        },
+
+        "isNotEmpty() should fail for empty string value": function(){
+            Assert.throwsError(YUITest.UnexpectedValue, function(){
+                Assert.isNotEmpty("");
+            });
+        },
+
+        "isNotEmpty() should throw a custom message when failing": function(){
+            Assert.throwsError(new YUITest.UnexpectedValue("Something bad happened."), function(){
+                Assert.isNotEmpty(0, "Something bad happened.");
+            });
+        }
+        
+    }));
                 
         
     //add it to be run
